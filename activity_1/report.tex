@@ -8,15 +8,59 @@
 \author{Lucas Guesser Targino da Silva}
 \date{\today}
 
+\newcommand{\Set}[1]{$\left\{#1\right\}$}
+\newcommand{\Sum}[1]{\displaystyle\sum\limits_{#1}}
+
 \begin{document}
 
 \maketitle
 
 \section{Modelo Matemático}
 
+\subsection{Variáveis de Decisão}
+
+\begin{itemize}
+	\item $x_{p,l,f}$: quantidade, em toneladas, do produto $p$ produzida na máquina $l$ da fábrica $f$.
+	\item $y_{p,f,j}$: quantidade, em toneladas, do produto $p$ transportada da fábrica $f$ para o cliente $j$.
+\end{itemize}
+
+
+\subsection{Objetivo}
+
+Minimizar:
 \begin{equation}
-  y = a x + b
+ 	\Sum{p}\Sum{l}\Sum{f} p_{p,l,f} \  x_{p,l,f}
+	+
+	\Sum{p}\Sum{f}\Sum{j} t_{p,l,f} \  y_{p,l,f}
 \end{equation}
+
+Sujeito a:
+\begin{equation}
+	\label{constraint:demand}
+	D_{j,p} \leq \Sum{f} y_{p,f,j}
+	\quad \forall p \ \forall j
+\end{equation}
+
+\begin{equation}
+	\label{constraint:resources}
+	R_{m,f} \geq \Sum{p} \Sum{l} r_{m,f,l} \ x_{p,l,f}
+	\quad \forall f \ \forall m
+\end{equation}
+
+\begin{equation}
+	\label{constraint:production-capacity}
+	C_{l,f} \geq \Sum{p} x_{p,l,f}
+	\quad \forall l \ \forall f
+\end{equation}
+
+\begin{equation}
+	\label{constraint:compatibility}
+	\Sum{l} x_{p,l,f} = \Sum{j} y_{p,l,f}
+	\quad \forall p \ \forall f
+\end{equation}
+
+A notação $\forall i$ acima (podendo $i$ ser $p, l, f, m, j$) significa que a restrição se aplica a todos os valores do domínio discreto de $i$. Por exemplo, se o domínio de $f$ for \Set{1, 2, 3}, então a condição se aplica para $f=1$, $f=2$ e $f=3$.
+
 
 Esse modelo ainda não usa \cite{bib:gurobi}
 
