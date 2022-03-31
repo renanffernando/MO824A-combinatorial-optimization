@@ -39,5 +39,9 @@ class CompanyProblemSolver:
         )
 
     def _addDemandConstraint(self):
-        self.model.addConstr
+        # D in Matrix(J, P)
+        # D.transpose in Matrix(P, J)
+        # y in Matrix(P, F, J)
+        # np.sum(self.y, axis=1) in Matrix(P, J)
+        self.model.addConstr(self.problem.D.transpose()== np.sum(self.y, axis=1))
 
