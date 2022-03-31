@@ -21,6 +21,7 @@ class CompanyProblemSolver:
         self._addResourcesConstraint()
         self._addGoal()
         self._count()
+        self._solve()
 
     def _initProblem(self, J):
         self.problem = CompanyProblem(J)
@@ -96,3 +97,8 @@ class CompanyProblemSolver:
             map(_numberOfElements, self.constraints),
             0
         )
+
+    def _solve(self):
+        self.model.optimize()
+        self.cost = self.model.ObjVal
+
