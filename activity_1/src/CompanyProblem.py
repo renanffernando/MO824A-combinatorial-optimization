@@ -37,5 +37,6 @@ class CompanyProblem:
         self.D = randArray(self.J, self.P,         low=Constants.D.low, high=Constants.D.high)
         self.r = randArray(self.M, self.P, self.L, low=Constants.r.low, high=Constants.r.high)
         self.R = randArray(self.M, self.F,         low=Constants.R.low, high=Constants.R.high)
+        self.C = randArray(self.L, self.F,         low=Constants.C.low, high=Constants.C.high)
         self.p = randArray(self.P, self.L, self.F, low=Constants.p.low, high=Constants.p.high)
         self.t = randArray(self.P, self.F, self.J, low=Constants.t.low, high=Constants.t.high)
