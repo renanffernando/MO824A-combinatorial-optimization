@@ -1,3 +1,7 @@
+# python
+__pycache__/
+
+
 # latex
 # thanks to everyone who wrote:
 # https://github.com/github/gitignore/blob/main/TeX.gitignore
