@@ -1,8 +1,12 @@
-import itertools
+import functools
+import operator
 import numpy as np
 import gurobipy as gp
 from gurobipy import GRB
 from CompanyProblem import CompanyProblem
+
+def _numberOfElements(array):
+    return functools.reduce(operator.mul, array.shape, 1)
 
 class CompanyProblemSolver:
 
@@ -15,12 +19,14 @@ class CompanyProblemSolver:
         self._addMachineCapacityConstraint()
         self._addVariablesCompatibilityConstraint()
         self._addResourcesConstraint()
+        self._count()
 
     def _initProblem(self, J):
         self.problem = CompanyProblem(J)
 
     def _initModel(self):
         self.model = gp.Model("Lhamas Lamejantes Lunares")
+        self.constraints = []
 
     def _initXVariables(self):
         self.x = self.model.addMVar(
@@ -47,20 +53,23 @@ class CompanyProblemSolver:
         # D.transpose in Matrix(P, J)
         # y in Matrix(P, F, J)
         # np.sum(self.y, axis=1) in Matrix(P, J)
-        self.model.addConstr(self.problem.D.transpose()== np.sum(self.y, axis=1))
+        self.demandConstraint = self.model.addConstr(self.problem.D.transpose()== np.sum(self.y, axis=1))
+        self.constraints.append(self.demandConstraint)
 
     def _addMachineCapacityConstraint(self):
         # C in Matrix(L, F)
         # x in Matrix(P, L, F)
         # sum(x, axis=0) in Matrix(L, F)
-        self.model.addConstr(self.problem.C >= np.sum(self.x, axis=0))
+        self.machineCapacityConstraint = self.model.addConstr(self.problem.C >= np.sum(self.x, axis=0))
+        self.constraints.append(self.machineCapacityConstraint)
 
     def _addVariablesCompatibilityConstraint(self):
         # x in Matrix(P, L, F)
         # sum(x, axis=1) in Matrix(P, F)
         # y in Matrix(P, F, J)
         # sum(y, axis=2) in Matrix(P, F)
-        self.model.addConstr(np.sum(self.x, axis=1) == np.sum(self.y, axis=2))
+        self.variablesCompatibilityConstraint = self.model.addConstr(np.sum(self.x, axis=1) == np.sum(self.y, axis=2))
+        self.constraints.append(self.variablesCompatibilityConstraint)
 
     def _addResourcesConstraint(self):
         # r in Matrix(M, P, L)
@@ -70,4 +79,13 @@ class CompanyProblemSolver:
         for f in range(len(self.problem.F)):
             for m in range(len(self.problem.M)):
                 R[m, f] = np.sum(self.problem.r[m,:,:] * self.x[:,:,f])
-        self.model.addConstr(self.problem.R >= R)
+        self.resourcesConstraint = self.model.addConstr(self.problem.R >= R)
+        self.constraints.append(self.resourcesConstraint)
+
+    def _count(self):
+        self.numberOfVariables = _numberOfElements(self.x) + _numberOfElements(self.y)
+        self.numberOfConstraints = functools.reduce(
+            operator.add,
+            map(_numberOfElements, self.constraints),
+            0
+        )
