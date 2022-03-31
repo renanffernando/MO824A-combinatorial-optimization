@@ -131,3 +131,17 @@ class CompanyProblemSolver:
         self.model.optimize()
         self.cost = self.model.ObjVal
 
+    def __str__(self):
+        return f"""
+CompanyProblemSolver[
+    J = {self.problem.J}
+    F = {self.problem.F}
+    L = {self.problem.L}
+    M = {self.problem.M}
+    P = {self.problem.P}
+    numberOfVariables = {self.numberOfVariables}
+    numberOfConstraints = {self.numberOfConstraints}
+    cost = {self.cost}
+]
+"""
+
