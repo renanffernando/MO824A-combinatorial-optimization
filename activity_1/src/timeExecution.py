@@ -4,6 +4,7 @@ from CompanyProblemSolver import CompanyProblemSolver
 class TimedSolution:
     def __init__(self, J):
         problem = CompanyProblemSolver(J)
+        self.J = J
         self.numberOfVariables = problem.numberOfVariables
         self.numberOfConstraints = problem.numberOfConstraints
         self.cost = problem.cost
@@ -11,7 +12,7 @@ class TimedSolution:
 
     @staticmethod
     def getExecutionTime(J):
-        repetitions = 3
+        repetitions = 1
         totalExecutionTime = timeit.timeit(
             stmt = f"CompanyProblemSolver({J})",
             setup = "from CompanyProblemSolver import CompanyProblemSolver",
@@ -19,26 +20,39 @@ class TimedSolution:
         )
         return totalExecutionTime / repetitions
 
+    def __str__(self):
+        asDict = {
+            "problem size (J)": self.J,
+            "number of variables": self.numberOfVariables,
+            "number of constraints": self.numberOfConstraints,
+            "cost": self.cost,
+            "execution time [s]": self.executionTime
+        }
+        return asDict.__repr__()
+
+
 if __name__ == "__main__":
-    problemSizes = range(1, 1000+1, 100)
+    problemSizes = range(100, 400+1, 100)
 
     solutionOutput = []
     for J in problemSizes:
+        print("\n\n")
+        print("==========================================================")
+        print(f"========================== J = {J} =======================")
+        print("==========================================================")
+
         solution = TimedSolution(J)
-        solutionOutput.append({
-            "problem size (J)": J,
-            "number of variables": solution.numberOfVariables,
-            "number of constraints": solution.numberOfConstraints,
-            "cost": solution.cost,
-            "execution time [s]": solution.executionTime
-        })
+
+        print("\n\n")
+        print("Execution Times - partial result")
+        print(solution)
+        print("\n\n")
+
+    print("==========================================================")
+    print(f"========================== Output =======================")
+    print("==========================================================")
 
     print("\n\n")
-    print("Execution Times (J x time [s])")
-    print(solutionOutput)
-    print("\n\n")
-
-    print("\n\n")
-    print("Execution times as a reproducible dict")
-    print(solutionOutput.__repr__())
+    print("Execution Times")
+    print(solution)
     print("\n\n")
