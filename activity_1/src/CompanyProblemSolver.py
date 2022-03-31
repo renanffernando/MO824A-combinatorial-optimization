@@ -13,6 +13,7 @@ class CompanyProblemSolver:
         self._initYVariables()
         self._addDemandConstraint()
         self._addMachineCapacityConstraint()
+        self._addVariablesCompatibilityConstraint()
 
     def _initProblem(self, J):
         self.problem = CompanyProblem(J)
@@ -52,4 +53,11 @@ class CompanyProblemSolver:
         # x in Matrix(P, L, F)
         # sum(x, axis=0) in Matrix(L, F)
         self.model.addConstr(self.problem.C >= np.sum(self.x, axis=0))
+
+    def _addVariablesCompatibilityConstraint(self):
+        # x in Matrix(P, L, F)
+        # sum(x, axis=1) in Matrix(P, F)
+        # y in Matrix(P, F, J)
+        # sum(y, axis=2) in Matrix(P, F)
+        self.model.addConstr(np.sum(self.x, axis=1) == np.sum(self.y, axis=2))
 
