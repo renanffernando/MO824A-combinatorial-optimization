@@ -2,7 +2,7 @@ import numpy as np
 
 class Random:
 
-    randomSeed = 0.2315553585
+    randomSeed = 17558175
     randomGenerator = np.random.RandomState(randomSeed)
 
     @staticmethod
