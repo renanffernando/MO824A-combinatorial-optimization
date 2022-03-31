@@ -20,13 +20,13 @@ class TimedSolution:
         return totalExecutionTime / repetitions
 
 if __name__ == "__main__":
-    problemSizes = range(100, 1000+1, 100)
+    problemSizes = range(1, 1000+1, 100)
 
     solutionOutput = []
     for J in problemSizes:
         solution = TimedSolution(J)
         solutionOutput.append({
-            "problem size (J)"
+            "problem size (J)": J,
             "number of variables": solution.numberOfVariables,
             "number of constraints": solution.numberOfConstraints,
             "cost": solution.cost,
