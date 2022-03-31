@@ -19,50 +19,25 @@ class CompanyProblemSolver:
         self.model = gp.Model("Lhamas Lamejantes Lunares")
 
     def _initXVariables(self):
-        allVariablesIndices = itertools.product(
-            range(self.problem.P),
-            range(self.problem.L),
-            range(self.problem.F)
-        )
-        indicesNames = ["p", "l", "f"]
-        allVariables = map(
-            lambda variableIndices: self._makeVariable("x", indicesNames, variableIndices),
-            allVariablesIndices
-        )
-        self.x = np.array(allVariables).reshape(
-            self.problem.P,
-            self.problem.L,
-            self.problem.F
-        )
-
-    def _initYVariables(self):
-        allVariablesIndices = itertools.product(
-            range(self.problem.P),
-            range(self.problem.F),
-            range(self.problem.J)
-        )
-        indicesNames = ["p", "f", "j"]
-        allVariables = map(
-            lambda variableIndices: self._makeVariable("y", indicesNames, variableIndices),
-            allVariablesIndices
-        )
-        self.x = np.array(allVariables).reshape(
-            self.problem.P,
-            self.problem.F,
-            self.problem.J
-        )
-
-    def _makeVariable(self, variableBaseName, indicesNames, indices):
-        assert len(indicesNames) == len(indices)
-        indicesIdentifier = "_".join(
-            f"{iName}{i}" for (iName, i) in zip(indicesNames, indices)
-        )
-        variableName = f"{variableBaseName}_{indicesIdentifier}"
-        return self.model.addVar(
-            lb = 0.0,
+        self.x = self.model.addMVar(
+            shape = (self.problem.P, self.problem.L, self.problem.F),
+            lb = 0,
             ub = float('inf'),
             vtype = GRB.CONTINUOUS,
             obj = 0.0,
-            name = variableName
+            name = "x"
         )
+
+    def _initYVariables(self):
+        self.y = self.model.addMVar(
+            shape = (self.problem.P, self.problem.F, self.problem.J),
+            lb = 0,
+            ub = float('inf'),
+            vtype = GRB.CONTINUOUS,
+            obj = 0.0,
+            name = "y"
+        )
+
+    def _addDemandConstraint(self):
+        self.model.addConstr
 
