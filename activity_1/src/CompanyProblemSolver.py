@@ -19,6 +19,7 @@ class CompanyProblemSolver:
         self._addMachineCapacityConstraint()
         self._addVariablesCompatibilityConstraint()
         self._addResourcesConstraint()
+        self._addGoal()
         self._count()
 
     def _initProblem(self, J):
@@ -81,6 +82,12 @@ class CompanyProblemSolver:
                 R[m, f] = np.sum(self.problem.r[m,:,:] * self.x[:,:,f])
         self.resourcesConstraint = self.model.addConstr(self.problem.R >= R)
         self.constraints.append(self.resourcesConstraint)
+
+    def _addGoal(self):
+        self.model.setObjective(
+            np.sum(self.problem.p * self.x) + np.sum(self.problem.t * self.y),
+            GRB.MINIMIZE
+        )
 
     def _count(self):
         self.numberOfVariables = _numberOfElements(self.x) + _numberOfElements(self.y)
