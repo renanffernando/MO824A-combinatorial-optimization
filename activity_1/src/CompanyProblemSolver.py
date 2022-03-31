@@ -11,9 +11,9 @@ def _numberOfElements(array):
 
 class CompanyProblemSolver:
 
-    def __init__ (self, J):
+    def __init__ (self, J, displayProgress=False):
         self._initProblem(J)
-        self._initModel()
+        self._initModel(displayProgress)
         self._initXVariables()
         self._initYVariables()
         self._addDemandConstraint()
@@ -27,8 +27,11 @@ class CompanyProblemSolver:
     def _initProblem(self, J):
         self.problem = CompanyProblem(J)
 
-    def _initModel(self):
-        self.model = gp.Model("Lhamas Lamejantes Lunares")
+    def _initModel(self, displayProgress):
+        env = gp.Env(empty=True)
+        env.setParam('OutputFlag', int(displayProgress))
+        env.start()
+        self.model = gp.Model("Lhamas Lamejantes Lunares", env=env)
         self.constraints = []
 
     def _initXVariables(self):
