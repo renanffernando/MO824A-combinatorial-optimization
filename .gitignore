@@ -1,6 +1,9 @@
 # python
 __pycache__/
 
+# vscode
+.vscode/
+
 
 # latex
 # thanks to everyone who wrote:
