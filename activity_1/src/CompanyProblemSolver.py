@@ -11,6 +11,8 @@ class CompanyProblemSolver:
         self._initModel()
         self._initXVariables()
         self._initYVariables()
+        self._addDemandConstraint()
+        self._addMachineCapacityConstraint()
 
     def _initProblem(self, J):
         self.problem = CompanyProblem(J)
@@ -44,4 +46,10 @@ class CompanyProblemSolver:
         # y in Matrix(P, F, J)
         # np.sum(self.y, axis=1) in Matrix(P, J)
         self.model.addConstr(self.problem.D.transpose()== np.sum(self.y, axis=1))
+
+    def _addMachineCapacityConstraint(self):
+        # C in Matrix(L, F)
+        # x in Matrix(P, L, F)
+        # sum(x, axis=0) in Matrix(L, F)
+        self.model.addConstr(self.problem.C >= np.sum(self.x, axis=0))
 
