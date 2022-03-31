@@ -14,6 +14,7 @@ class CompanyProblemSolver:
         self._addDemandConstraint()
         self._addMachineCapacityConstraint()
         self._addVariablesCompatibilityConstraint()
+        self._addResourcesConstraint()
 
     def _initProblem(self, J):
         self.problem = CompanyProblem(J)
@@ -61,3 +62,12 @@ class CompanyProblemSolver:
         # sum(y, axis=2) in Matrix(P, F)
         self.model.addConstr(np.sum(self.x, axis=1) == np.sum(self.y, axis=2))
 
+    def _addResourcesConstraint(self):
+        # r in Matrix(M, P, L)
+        # x in Matrix(P, L, F)
+        # R in Matrix(M, F)
+        R = np.zeros(self.problem.M, self.problem.F)
+        for f in range(len(self.problem.F)):
+            for m in range(len(self.problem.M)):
+                R[m, f] = np.sum(self.problem.r[m,:,:] * self.x[:,:,f])
+        self.model.addConstr(self.problem.R >= R)
