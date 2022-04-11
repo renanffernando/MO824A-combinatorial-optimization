@@ -1,0 +1,74 @@
+Set parameter Username
+Set parameter TimeLimit to value 1800
+Set parameter Method to value 1
+Set parameter Cuts to value 3
+Set parameter NumericFocus to value 1
+Set parameter Presolve to value 0
+Academic license - for non-commercial use only - expires 2022-06-02
+Set parameter LazyConstraints to value 1
+Gurobi Optimizer version 9.5.1 build v9.5.1rc2 (linux64)
+Thread count: 4 physical cores, 8 logical processors, using up to 8 threads
+Optimize a model with 10301 rows, 15150 columns and 45150 nonzeros
+Model fingerprint: 0x20c1dc3f
+Variable types: 0 continuous, 15150 integer (15150 binary)
+Coefficient statistics:
+  Matrix range     [1e+00, 1e+00]
+  Objective range  [1e+00, 1e+02]
+  Bounds range     [1e+00, 1e+00]
+  RHS range        [2e+00, 2e+00]
+
+Loaded user MIP start with objective 3976
+
+Variable types: 0 continuous, 15150 integer (15150 binary)
+
+Root relaxation: objective 1.529000e+03, 319 iterations, 0.01 seconds (0.01 work units)
+
+    Nodes    |    Current Node    |     Objective Bounds      |     Work
+ Expl Unexpl |  Obj  Depth IntInf | Incumbent    BestBd   Gap | It/Node Time
+
+     0     0 1529.00000    0   24 3976.00000 1529.00000  61.5%     -    0s
+H    0     0                    3626.0000000 1529.00000  57.8%     -    0s
+     0     0 1542.50000    0   22 3626.00000 1542.50000  57.5%     -    0s
+     0     0 1574.00000    0   18 3626.00000 1574.00000  56.6%     -    0s
+     0     0 1579.50000    0   24 3626.00000 1579.50000  56.4%     -    0s
+H    0     0                    3393.0000000 1579.50000  53.4%     -    0s
+     0     0 1594.15000    0   46 3393.00000 1594.15000  53.0%     -    1s
+     0     0 1594.37500    0   46 3393.00000 1594.37500  53.0%     -    1s
+     0     0 1598.16667    0   46 3393.00000 1598.16667  52.9%     -    1s
+     0     0 1604.50000    0   10 3393.00000 1604.50000  52.7%     -    2s
+     0     0 1606.16667    0   42 3393.00000 1606.16667  52.7%     -    2s
+     0     0 1614.00000    0   22 3393.00000 1614.00000  52.4%     -    2s
+     0     0 1617.00000    0   10 3393.00000 1617.00000  52.3%     -    3s
+     0     0 1617.50000    0    8 3393.00000 1617.50000  52.3%     -    3s
+     0     0 1626.20000    0   69 3393.00000 1626.20000  52.1%     -    3s
+     0     0 1626.20000    0   75 3393.00000 1626.20000  52.1%     -    3s
+     0     0 1628.12500    0   55 3393.00000 1628.12500  52.0%     -    4s
+     0     0 1628.25000    0   69 3393.00000 1628.25000  52.0%     -    4s
+     0     0 1629.16667    0   57 3393.00000 1629.16667  52.0%     -    4s
+     0     0 1629.21429    0   67 3393.00000 1629.21429  52.0%     -    5s
+     0     0 1629.30000    0   74 3393.00000 1629.30000  52.0%     -    5s
+     0     0 1629.81818    0   48 3393.00000 1629.81818  52.0%     -    5s
+H    0     0                    1663.0000000 1629.81818  2.00%     -    5s
+     0     0 1629.83333    0   43 1663.00000 1629.83333  1.99%     -    5s
+     0     0 1629.88889    0   57 1663.00000 1629.88889  1.99%     -    6s
+H    0     0                    1633.0000000 1629.88889  0.19%     -    6s
+H    0     0                    1630.0000000 1629.88889  0.01%     -    6s
+     0     0 1629.88889    0   57 1630.00000 1629.88889  0.01%     -    6s
+
+Cutting planes:
+  Gomory: 39
+  Lift-and-project: 14
+  Zero half: 54
+  Lazy constraints: 55
+
+Explored 1 nodes (1260 simplex iterations) in 6.64 seconds (3.19 work units)
+Thread count was 8 (of 8 available processors)
+
+Solution count 6: 1630 1633 1663 ... 3976
+
+Optimal solution found (tolerance 1.00e-04)
+Best objective 1.630000000000e+03, best bound 1.630000000000e+03, gap 0.0000%
+
+User-callback calls 3040, time in user-callback 0.03 sec
+Tour1: 0 9 92 32 43 73 22 68 72 55 5 12 26 4 82 58 21 19 10 50 88 34 7 28 47 25 56 86 96 90 27 49 80 81 17 78 57 59 65 37 23 76 63 62 11 94 39 29 77 99 71 6 20 36 79 15 24 30 54 53 97 69 45 33 16 48 60 93 64 3 91 14 41 1 66 2 44 35 46 98 85 89 18 52 70 38 84 75 83 13 67 95 74 8 40 42 87 51 61 31 
+Tour2: 0 40 76 42 74 94 75 77 43 35 63 51 58 34 50 82 53 6 36 62 86 28 22 71 79 46 37 13 9 54 7 21 47 65 44 99 91 26 8 64 88 85 60 24 84 11 98 49 41 33 73 18 97 81 95 3 29 59 57 4 27 78 14 23 19 5 31 55 10 30 68 20 89 15 39 70 48 45 92 1 87 93 90 56 25 69 66 32 61 96 38 67 72 2 17 52 12 80 16 83 
