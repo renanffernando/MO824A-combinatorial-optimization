@@ -1,0 +1,62 @@
+Set parameter Username
+Set parameter TimeLimit to value 1800
+Set parameter Method to value 0
+Set parameter Heuristics to value 0.5
+Set parameter NodeMethod to value 0
+Set parameter Cuts to value 3
+Set parameter Presolve to value 0
+Academic license - for non-commercial use only - expires 2022-06-02
+Set parameter LazyConstraints to value 1
+Gurobi Optimizer version 9.5.1 build v9.5.1rc2 (linux64)
+Thread count: 4 physical cores, 8 logical processors, using up to 8 threads
+Optimize a model with 10301 rows, 15150 columns and 45150 nonzeros
+Model fingerprint: 0x1bcf9654
+Variable types: 0 continuous, 15150 integer (15150 binary)
+Coefficient statistics:
+  Matrix range     [1e+00, 1e+00]
+  Objective range  [1e+00, 1e+02]
+  Bounds range     [1e+00, 1e+00]
+  RHS range        [2e+00, 1e+02]
+
+Loaded user MIP start with objective 3976
+
+Variable types: 0 continuous, 15150 integer (15150 binary)
+
+Root relaxation: objective 3.428000e+03, 22075 iterations, 1.23 seconds (2.19 work units)
+
+    Nodes    |    Current Node    |     Objective Bounds      |     Work
+ Expl Unexpl |  Obj  Depth IntInf | Incumbent    BestBd   Gap | It/Node Time
+
+     0     0 3428.00000    0   18 3976.00000 3428.00000  13.8%     -    1s
+     0     0 3429.00000    0   18 3976.00000 3429.00000  13.8%     -    2s
+H    0     0                    3542.0000000 3429.00000  3.19%     -    2s
+     0     0 3446.00000    0   18 3542.00000 3446.00000  2.71%     -    3s
+     0     0 3448.00000    0   84 3542.00000 3448.00000  2.65%     -    5s
+     0     0 3449.66667    0   66 3542.00000 3449.66667  2.61%     -    7s
+     0     0 3450.75000    0   87 3542.00000 3450.75000  2.58%     -    9s
+     0     0 3452.00000    0   24 3542.00000 3452.00000  2.54%     -   12s
+     0     0 3452.50000    0   54 3542.00000 3452.50000  2.53%     -   14s
+     0     0 3456.00000    0   36 3542.00000 3456.00000  2.43%     -   16s
+     0     0 3456.50000    0   75 3542.00000 3456.50000  2.41%     -   17s
+     0     0 3462.00000    0   54 3542.00000 3462.00000  2.26%     -   20s
+*    0     0               0    3463.0000000 3463.00000  0.00%     -   22s
+
+Cutting planes:
+  Gomory: 3
+  Lift-and-project: 3
+  Cover: 1
+  Flow cover: 4
+  Zero half: 39
+  Lazy constraints: 24
+
+Explored 1 nodes (143210 simplex iterations) in 22.80 seconds (35.16 work units)
+Thread count was 8 (of 8 available processors)
+
+Solution count 3: 3463 3542 3976 
+
+Optimal solution found (tolerance 1.00e-04)
+Best objective 3.463000000000e+03, best bound 3.463000000000e+03, gap 0.0000%
+
+User-callback calls 3101, time in user-callback 0.01 sec
+Tour1: 0 32 61 67 95 31 5 55 68 73 43 22 9 92 87 13 8 26 88 64 60 48 45 93 91 44 1 47 7 21 82 58 50 34 35 66 2 16 69 96 25 56 90 49 11 39 29 23 59 81 4 57 78 27 14 3 41 33 97 30 20 15 24 99 71 79 65 37 62 63 76 94 77 54 53 6 36 86 28 46 85 98 84 70 89 18 10 19 38 52 75 83 40 74 51 42 12 17 80 72 
+Tour2: 0 32 61 67 95 31 5 55 68 73 43 22 9 92 87 13 8 26 88 64 60 48 45 93 91 44 1 47 7 21 82 58 50 34 35 66 2 16 69 96 25 56 90 49 11 39 29 23 59 81 4 57 78 27 14 3 41 33 97 30 20 15 24 99 71 79 65 37 62 63 76 94 77 54 53 6 36 86 28 46 85 98 84 70 89 18 10 19 38 52 75 83 40 74 51 42 12 17 80 72 

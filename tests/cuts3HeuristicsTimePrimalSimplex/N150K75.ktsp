@@ -1,0 +1,79 @@
+Set parameter Username
+Set parameter TimeLimit to value 1800
+Set parameter Method to value 0
+Set parameter Heuristics to value 0.5
+Set parameter NodeMethod to value 0
+Set parameter Cuts to value 3
+Set parameter Presolve to value 0
+Academic license - for non-commercial use only - expires 2022-06-02
+Set parameter LazyConstraints to value 1
+Gurobi Optimizer version 9.5.1 build v9.5.1rc2 (linux64)
+Thread count: 4 physical cores, 8 logical processors, using up to 8 threads
+Optimize a model with 22951 rows, 33975 columns and 101475 nonzeros
+Model fingerprint: 0x1add6e5f
+Variable types: 0 continuous, 33975 integer (33975 binary)
+Coefficient statistics:
+  Matrix range     [1e+00, 1e+00]
+  Objective range  [1e+00, 1e+02]
+  Bounds range     [1e+00, 1e+00]
+  RHS range        [2e+00, 8e+01]
+
+Loaded user MIP start with objective 5580
+
+Variable types: 0 continuous, 33975 integer (33975 binary)
+
+Root relaxation: objective 2.702071e+03, 31059 iterations, 0.92 seconds (1.32 work units)
+
+    Nodes    |    Current Node    |     Objective Bounds      |     Work
+ Expl Unexpl |  Obj  Depth IntInf | Incumbent    BestBd   Gap | It/Node Time
+
+     0     0 2702.07143    0  188 5580.00000 2702.07143  51.6%     -    2s
+H    0     0                    4864.0000000 2702.07143  44.4%     -    4s
+     0     0 2711.90132    0  224 4864.00000 2711.90132  44.2%     -    8s
+     0     0 2711.90132    0  224 4864.00000 2711.90132  44.2%     -   10s
+     0     0 2711.90132    0  224 4864.00000 2711.90132  44.2%     -   16s
+     0     0 2711.90132    0  224 4864.00000 2711.90132  44.2%     -   22s
+     0     0 2711.90132    0  224 4864.00000 2711.90132  44.2%     -   25s
+     0     0 2711.90132    0  224 4864.00000 2711.90132  44.2%     -   33s
+     0     0 2711.90132    0  224 4864.00000 2711.90132  44.2%     -   36s
+     0     0 2711.90132    0  224 4864.00000 2711.90132  44.2%     -   41s
+     0     0 2711.90132    0  224 4864.00000 2711.90132  44.2%     -   47s
+H    0     0                    2748.0000000 2711.90132  1.31%     -   50s
+     0     0 2734.99357    0  303 2748.00000 2734.99357  0.47%     -   55s
+     0     0 2738.66379    0  205 2748.00000 2738.66379  0.34%     -   61s
+     0     0 2738.95825    0  235 2748.00000 2738.95825  0.33%     -   61s
+     0     0 2740.21419    0  364 2748.00000 2740.21419  0.28%     -   67s
+     0     0 2740.21767    0  367 2748.00000 2740.21767  0.28%     -   70s
+     0     0 2741.04933    0  329 2748.00000 2741.04933  0.25%     -   76s
+     0     0 2741.43191    0  357 2748.00000 2741.43191  0.24%     -   83s
+     0     0 2741.44871    0  367 2748.00000 2741.44871  0.24%     -   84s
+     0     0 2741.44888    0  368 2748.00000 2741.44888  0.24%     -   84s
+     0     0 2741.60078    0  409 2748.00000 2741.60078  0.23%     -   89s
+     0     0 2741.62167    0  411 2748.00000 2741.62167  0.23%     -   95s
+     0     0 2741.62167    0  411 2748.00000 2741.62167  0.23%     -  107s
+     0     2 2742.09197    0  411 2748.00000 2742.09197  0.21%     -  109s
+     1     4 2742.44592    1  274 2748.00000 2742.09197  0.21%   930  111s
+    19    15 2744.72222    5  241 2748.00000 2742.10053  0.21%   664  115s
+    75    31 2746.09581   17  187 2748.00000 2742.10053  0.21%   385  120s
+   126    38     cutoff   10      2748.00000 2743.13032  0.18%   339  125s
+   201    49 infeasible   17      2748.00000 2743.25440  0.17%   323  130s
+   296    31     cutoff    6      2748.00000 2744.62500  0.12%   352  135s
+
+Cutting planes:
+  Gomory: 27
+  Lift-and-project: 45
+  Flow cover: 3
+  Zero half: 356
+  Lazy constraints: 60
+
+Explored 368 nodes (193804 simplex iterations) in 138.03 seconds (132.63 work units)
+Thread count was 8 (of 8 available processors)
+
+Solution count 3: 2748 4864 5580 
+
+Optimal solution found (tolerance 1.00e-04)
+Best objective 2.748000000000e+03, best bound 2.748000000000e+03, gap 0.0000%
+
+User-callback calls 48464, time in user-callback 0.20 sec
+Tour1: 0 105 9 92 87 51 42 74 8 95 67 13 122 75 83 40 108 82 21 19 10 50 34 58 124 4 101 81 130 88 141 46 139 38 52 18 133 100 89 129 70 84 143 98 85 109 128 2 66 118 41 125 14 3 91 145 44 1 93 45 69 104 136 30 24 15 140 79 71 99 102 77 29 23 62 11 39 94 126 63 76 119 37 65 106 147 114 20 36 6 53 54 135 97 33 16 48 60 142 138 103 64 137 35 132 117 116 47 7 146 28 86 96 25 56 90 120 27 49 144 112 80 17 12 26 121 111 5 131 115 57 123 78 59 113 127 110 72 107 22 43 73 148 68 149 55 31 61 32 134 
+Tour2: 0 105 16 83 40 110 72 135 2 66 118 74 42 51 138 103 58 34 50 102 77 43 132 35 108 82 21 47 7 146 28 86 141 62 113 36 6 53 54 109 117 116 9 13 107 22 119 37 65 106 87 92 45 93 1 44 145 91 99 71 79 46 139 8 144 104 130 88 64 137 121 26 127 48 60 85 24 15 39 11 49 98 143 84 70 129 89 20 114 10 30 136 31 55 149 68 148 73 41 33 97 18 133 81 101 4 115 57 122 142 147 120 27 78 59 95 3 29 23 128 140 14 125 19 5 131 67 38 52 12 17 80 112 32 61 124 96 25 56 90 100 111 69 75 94 126 63 76 123 134 

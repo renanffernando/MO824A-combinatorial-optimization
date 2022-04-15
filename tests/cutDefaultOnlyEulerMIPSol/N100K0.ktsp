@@ -1,0 +1,79 @@
+Set parameter Username
+Set parameter TimeLimit to value 1800
+Set parameter Method to value 1
+Set parameter Presolve to value 0
+Academic license - for non-commercial use only - expires 2022-06-02
+Set parameter LazyConstraints to value 1
+Gurobi Optimizer version 9.5.1 build v9.5.1rc2 (linux64)
+Thread count: 4 physical cores, 8 logical processors, using up to 8 threads
+Optimize a model with 10301 rows, 15150 columns and 45150 nonzeros
+Model fingerprint: 0x20c1dc3f
+Variable types: 0 continuous, 15150 integer (15150 binary)
+Coefficient statistics:
+  Matrix range     [1e+00, 1e+00]
+  Objective range  [1e+00, 1e+02]
+  Bounds range     [1e+00, 1e+00]
+  RHS range        [2e+00, 2e+00]
+
+Loaded user MIP start with objective 3976
+
+Variable types: 0 continuous, 15150 integer (15150 binary)
+
+Root relaxation: objective 1.529000e+03, 331 iterations, 0.01 seconds (0.01 work units)
+
+    Nodes    |    Current Node    |     Objective Bounds      |     Work
+ Expl Unexpl |  Obj  Depth IntInf | Incumbent    BestBd   Gap | It/Node Time
+
+     0     0 1529.00000    0   24 3976.00000 1529.00000  61.5%     -    0s
+H    0     0                    3575.0000000 1529.00000  57.2%     -    0s
+     0     0 1539.50000    0   18 3575.00000 1539.50000  56.9%     -    0s
+     0     0 1567.00000    0   18 3575.00000 1567.00000  56.2%     -    0s
+     0     0 1570.50000    0   19 3575.00000 1570.50000  56.1%     -    0s
+     0     0 1571.00000    0   16 3575.00000 1571.00000  56.1%     -    0s
+     0     0 1584.50000    0   34 3575.00000 1584.50000  55.7%     -    0s
+     0     0 1584.66667    0   52 3575.00000 1584.66667  55.7%     -    0s
+     0     0 1585.38889    0   62 3575.00000 1585.38889  55.7%     -    0s
+H    0     0                    3281.0000000 1585.38889  51.7%     -    0s
+     0     0 1586.88889    0   56 3281.00000 1586.88889  51.6%     -    0s
+     0     0 1587.44444    0   55 3281.00000 1587.44444  51.6%     -    0s
+     0     0 1587.77778    0   74 3281.00000 1587.77778  51.6%     -    0s
+     0     0 1588.07576    0   72 3281.00000 1588.07576  51.6%     -    0s
+     0     0 1588.24242    0   92 3281.00000 1588.24242  51.6%     -    0s
+     0     0 1588.66667    0   89 3281.00000 1588.66667  51.6%     -    0s
+     0     0 1588.68333    0   98 3281.00000 1588.68333  51.6%     -    0s
+     0     0 1588.75000    0   28 3281.00000 1588.75000  51.6%     -    0s
+     0     0 1592.66667    0   42 3281.00000 1592.66667  51.5%     -    0s
+     0     0 1596.00000    0   46 3281.00000 1596.00000  51.4%     -    0s
+     0     0 1596.50000    0   22 3281.00000 1596.50000  51.3%     -    0s
+     0     0 1597.00000    0   36 3281.00000 1597.00000  51.3%     -    0s
+     0     0 1597.00000    0   34 3281.00000 1597.00000  51.3%     -    0s
+     0     0 1597.00000    0   35 3281.00000 1597.00000  51.3%     -    0s
+     0     0 1597.00000    0   26 3281.00000 1597.00000  51.3%     -    0s
+     0     0 1597.50000    0   26 3281.00000 1597.50000  51.3%     -    0s
+     0     0 1598.00000    0   30 3281.00000 1598.00000  51.3%     -    0s
+     0     0 1598.00000    0   30 3281.00000 1598.00000  51.3%     -    1s
+     0     0 1598.00000    0   36 3281.00000 1598.00000  51.3%     -    1s
+     0     0 1598.00000    0   14 3281.00000 1598.00000  51.3%     -    1s
+     0     2 1620.00000    0   36 3281.00000 1620.00000  50.6%     -    1s
+*  104    99              19    1634.0000000 1622.00000  0.73%   6.0    2s
+*  139   120              19    1631.0000000 1622.00000  0.55%   6.3    2s
+*  275   143              13    1630.0000000 1623.50000  0.40%   6.5    2s
+
+Cutting planes:
+  Gomory: 9
+  Cover: 1
+  Inf proof: 13
+  Zero half: 37
+  Lazy constraints: 56
+
+Explored 596 nodes (4901 simplex iterations) in 3.45 seconds (2.31 work units)
+Thread count was 8 (of 8 available processors)
+
+Solution count 6: 1630 1631 1634 ... 3976
+
+Optimal solution found (tolerance 1.00e-04)
+Best objective 1.630000000000e+03, best bound 1.630000000000e+03, gap 0.0000%
+
+User-callback calls 2158, time in user-callback 0.02 sec
+Tour1: 0 9 92 32 43 73 22 68 72 55 5 12 26 4 82 58 21 19 10 50 88 34 7 28 47 25 56 86 96 90 27 49 80 81 17 78 57 59 65 37 23 76 63 62 11 94 39 29 77 99 71 6 20 36 79 15 24 30 54 53 97 69 45 33 16 48 60 93 64 3 91 14 41 1 66 2 44 35 46 98 85 89 18 52 70 38 84 75 83 13 67 95 74 8 40 42 87 51 61 31 
+Tour2: 0 40 76 42 74 94 75 77 43 35 63 51 58 34 50 82 53 6 36 62 86 28 22 71 79 46 37 13 9 54 7 21 47 65 44 99 91 26 8 64 88 60 85 24 84 11 98 49 41 33 73 18 97 81 95 3 29 59 57 4 27 78 14 23 19 5 31 55 10 30 68 20 89 15 39 70 48 45 92 1 87 93 90 56 25 69 66 32 61 96 38 67 72 2 17 52 12 80 16 83 
