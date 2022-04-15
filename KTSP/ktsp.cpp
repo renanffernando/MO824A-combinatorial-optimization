@@ -23,7 +23,7 @@ class subtourelim: public GRBCallback{
   protected:
     void callback() {
       try {
-        if (where == GRB_CB_MIPSOL) {
+        if (where == GRB_CB_MIPSOL || (where == GRB_CB_MIPNODE && getIntInfo(GRB_CB_MIPNODE_STATUS) == GRB_OPTIMAL)) {
           // Found an integer feasible solution - does it visit every node?
           cnt++;
           double **x1 = new double*[n], **x2 = new double*[n];
@@ -163,9 +163,10 @@ int main(){
     //env.set(GRB_IntParam_Threads, 1);
     env.set(GRB_DoubleParam_TimeLimit, 1800);
     env.set(GRB_IntParam_Presolve, 0);
-    env.set(GRB_IntParam_Method, 1); // testar outros
-    //env.set(GRB_IntParam_Cuts, 3); // testar com ou sem
-    //env.set(GRB_DoubleParam_Heuristics, 0.5);
+    env.set(GRB_IntParam_Method, 0);
+    env.set(GRB_IntParam_NodeMethod, 0);
+    env.set(GRB_IntParam_Cuts, 3);
+    env.set(GRB_DoubleParam_Heuristics, 0.5);
     env.start();
 
     GRBModel model(env);
