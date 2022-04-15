@@ -17,9 +17,9 @@ void findsubtour(int n, double** sol, int& tourlenP, vi& tour);
 // if the tour doesn't visit every node.
 class subtourelim: public GRBCallback{
   public:
-    vector<vector<GRBVar>>& vars1, vars2;
+    vector<vector<GRBVar>>& xe1, xe2;
     int n, cnt = 0;
-    subtourelim(vector<vector<GRBVar>>& vars1, vector<vector<GRBVar>>& vars2, int n): vars1(vars1), vars2(vars2), n(n) {}
+    subtourelim(vector<vector<GRBVar>>& xe1, vector<vector<GRBVar>>& xe2, int n): xe1(xe1), xe2(xe2), n(n) {}
   protected:
     void callback() {
       try {
@@ -31,13 +31,13 @@ class subtourelim: public GRBCallback{
           int len1, len2;
           if(where == GRB_CB_MIPSOL){
             FOR(i, n){
-              x1[i] = getSolution(vars1[i].data(), n);
-              x2[i] = getSolution(vars2[i].data(), n);
+              x1[i] = getSolution(xe1[i].data(), n);
+              x2[i] = getSolution(xe2[i].data(), n);
             }
           }else{
             FOR(i, n){
-              x1[i] = getNodeRel(vars1[i].data(), n);
-              x2[i] = getNodeRel(vars2[i].data(), n);
+              x1[i] = getNodeRel(xe1[i].data(), n);
+              x2[i] = getNodeRel(xe2[i].data(), n);
             }
           }
 
@@ -55,7 +55,7 @@ class subtourelim: public GRBCallback{
             GRBLinExpr expr = 0;
             FOR(i, len1)
               FOR(j, i)
-                expr += vars1[tour1[i]][tour1[j]];
+                expr += xe1[tour1[i]][tour1[j]];
             addLazy(expr, GRB_LESS_EQUAL, len1 - 1);
           }
 
@@ -64,7 +64,7 @@ class subtourelim: public GRBCallback{
             GRBLinExpr expr = 0;
             FOR(i, len2)
               FOR(j, i)
-                expr += vars2[tour2[i]][tour2[j]];
+                expr += xe2[tour2[i]][tour2[j]];
             addLazy(expr, GRB_LESS_EQUAL, len2 - 1);
           }
 
@@ -143,7 +143,7 @@ int main(){
   cin >> n >> m >> k;
 
   vvd d1(n, vd(n, DBL_MAX)), d2(n, vd(n, DBL_MAX));
-
+  
   FOR(i, m){
     int u, v;
     double dist1, dist2;
@@ -163,29 +163,29 @@ int main(){
     //env.set(GRB_IntParam_Threads, 1);
     env.set(GRB_DoubleParam_TimeLimit, 1800);
     env.set(GRB_IntParam_Presolve, 0);
-    env.set(GRB_IntParam_Method, 1);
+    env.set(GRB_IntParam_Method, 1); // testar outros
     env.set(GRB_IntParam_NumericFocus, 1);
-    env.set(GRB_IntParam_Cuts, 3);
+    env.set(GRB_IntParam_Cuts, 3); // testar com ou sem
     env.start();
 
     GRBModel model(env);
     model.set(GRB_IntParam_LazyConstraints, 1);
 
-    vector<vector<GRBVar>> vars1(n, vector<GRBVar>(n)), vars2(n, vector<GRBVar>(n)), same(n, vector<GRBVar>(n));
+    vector<vector<GRBVar>> xe1(n, vector<GRBVar>(n)), xe2(n, vector<GRBVar>(n)), de(n, vector<GRBVar>(n));
 
     FOR(i, n)
       FOR(j, i + 1){
-        vars1[i][j] = vars1[j][i] = model.addVar(0.0, 1.0, d1[i][j], GRB_BINARY, "x1_" + to_string(i) + "_" + to_string(j));
-        vars2[i][j] = vars2[j][i] = model.addVar(0.0, 1.0, d2[i][j], GRB_BINARY, "x2_" + to_string(i) + "_" + to_string(j));
-        same[i][j] = same[j][i] = model.addVar(0.0, 1.0, 0.0, GRB_BINARY, "same_" + to_string(i) + "_" + to_string(j));
+        xe1[i][j] = xe1[j][i] = model.addVar(0.0, 1.0, d1[i][j], GRB_BINARY, "x1_" + to_string(i) + "_" + to_string(j));
+        xe2[i][j] = xe2[j][i] = model.addVar(0.0, 1.0, d2[i][j], GRB_BINARY, "x2_" + to_string(i) + "_" + to_string(j));
+        de[i][j] = de[j][i] = model.addVar(0.0, 1.0, 0.0, GRB_BINARY, "de_" + to_string(i) + "_" + to_string(j));
       }
 
     // Degree-2 constraints
     FOR(i, n){
       GRBLinExpr expr1 = 0, expr2 = 0;
       FOR(j, n){
-        expr1 += vars1[i][j];
-        expr2 += vars2[i][j];
+        expr1 += xe1[i][j];
+        expr2 += xe2[i][j];
       }
       model.addConstr(expr1, GRB_EQUAL, 2, "deg1_" + to_string(i));
       model.addConstr(expr2, GRB_EQUAL, 2, "deg2_" + to_string(i));
@@ -193,15 +193,15 @@ int main(){
 
     // Forbid edge from node back to itself
     FOR(i, n){
-      vars1[i][i].set(GRB_DoubleAttr_UB, 0);
-      vars2[i][i].set(GRB_DoubleAttr_UB, 0);
-      same[i][i].set(GRB_DoubleAttr_UB, 0);
+      xe1[i][i].set(GRB_DoubleAttr_UB, 0);
+      xe2[i][i].set(GRB_DoubleAttr_UB, 0);
+      de[i][i].set(GRB_DoubleAttr_UB, 0);
     }
 
     FOR(i, n)
       FOR(j, i + 1){
-        model.addConstr(same[i][j] <= vars1[i][j], "s1_" + to_string(i) + "_" + to_string(j));
-        model.addConstr(same[i][j] <= vars2[i][j], "s2_" + to_string(i) + "_" + to_string(j));
+        model.addConstr(de[i][j] <= xe1[i][j], "s1_" + to_string(i) + "_" + to_string(j));
+        model.addConstr(de[i][j] <= xe2[i][j], "s2_" + to_string(i) + "_" + to_string(j));
       }
 
     {
@@ -209,20 +209,17 @@ int main(){
       GRBLinExpr expr = 0.0;
       FOR(i, n)
         FOR(j, i)
-          expr += same[i][j];
-      model.addConstr(expr, GRB_GREATER_EQUAL, k, "k-same");
+          expr += de[i][j];
+      model.addConstr(expr, GRB_GREATER_EQUAL, k, "k-de");
     }
 
-    // Set callback function
-    subtourelim cb(vars1, vars2, n);
-    model.setCallback(&cb);
     {
       // initial solution
       FOR(i, n)
         FOR(j, i + 1){
-          vars1[i][j].set(GRB_DoubleAttr_Start, 0.0);
-          vars2[i][j].set(GRB_DoubleAttr_Start, 0.0);
-          same[i][j].set(GRB_DoubleAttr_Start, 0.0);
+          xe1[i][j].set(GRB_DoubleAttr_Start, 0.0);
+          xe2[i][j].set(GRB_DoubleAttr_Start, 0.0);
+          de[i][j].set(GRB_DoubleAttr_Start, 0.0);
         }
       int cur = 0, len = 0;
       vi seen(n, false);
@@ -234,14 +231,18 @@ int main(){
           if(!seen[nxt])
             nearest[max(d1[cur][nxt], d2[cur][nxt])] = nxt;
         int nxt = nearest.empty() ? 0 : nearest.begin()->second;
-        vars1[cur][nxt].set(GRB_DoubleAttr_Start, 1.0);
-        vars2[cur][nxt].set(GRB_DoubleAttr_Start, 1.0);
-        same[cur][nxt].set(GRB_DoubleAttr_Start, 1.0);
+        xe1[cur][nxt].set(GRB_DoubleAttr_Start, 1.0);
+        xe2[cur][nxt].set(GRB_DoubleAttr_Start, 1.0);
+        de[cur][nxt].set(GRB_DoubleAttr_Start, 1.0);
         cur = nxt;
         seen[cur] = true;
         len++;
       }
     }
+
+    // Set callback function
+    subtourelim cb(xe1, xe2, n);
+    model.setCallback(&cb);
 
     // Optimize model
     model.optimize();
@@ -250,10 +251,10 @@ int main(){
     if (model.get(GRB_IntAttr_SolCount) > 0) {
       double **sol1 = new double*[n], **sol2 = new double*[n];
       FOR(i, n){
-        sol1[i] = model.get(GRB_DoubleAttr_X, vars1[i].data(), n);
-        sol2[i] = model.get(GRB_DoubleAttr_X, vars2[i].data(), n);
+        sol1[i] = model.get(GRB_DoubleAttr_X, xe1[i].data(), n);
+        sol2[i] = model.get(GRB_DoubleAttr_X, xe2[i].data(), n);
       }
-      vector<int> tour1(n), tour2(n);
+      vi tour1(n), tour2(n);
       int len1, len2;
       findsubtour(n, sol1, len1, tour1);
       findsubtour(n, sol2, len2, tour2);
