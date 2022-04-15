@@ -54,10 +54,10 @@ def subtour(vals):
 
 # Parse argument
 
-if len(sys.argv) < 2:
-    print('Usage: tsp.py npoints')
-    sys.exit(1)
-n = int(sys.argv[1])
+# if len(sys.argv) < 2:
+#     print('Usage: tsp.py npoints')
+#     sys.exit(1)
+n = int(10)
 
 # Create n random points
 
@@ -66,7 +66,7 @@ points = [(random.randint(0, 100), random.randint(0, 100)) for i in range(n)]
 
 # Dictionary of Euclidean distance between each pair of points
 
-dist = {(i, j):
+edges_cost = {(i, j):
         math.sqrt(sum((points[i][k]-points[j][k])**2 for k in range(2)))
         for i in range(n) for j in range(i)}
 
@@ -74,7 +74,8 @@ m = gp.Model()
 
 # Create variables
 
-vars = m.addVars(dist.keys(), obj=dist, vtype=GRB.BINARY, name='e')
+edges = edges_cost.keys()
+vars = m.addVars(edges, obj=edges_cost, vtype=GRB.BINARY, name='e')
 for i, j in vars.keys():
     vars[j, i] = vars[i, j]  # edge in opposite direction
 
@@ -90,7 +91,9 @@ for i, j in vars.keys():
 
 # Add degree-2 constraint
 
-m.addConstrs(vars.sum(i, '*') == 2 for i in range(n))
+for point in range(n):
+    edges_into_point = [(point, other) for other in range(n) if other != point]
+    m.addConstr(gp.quicksum([vars[edge] for edge in edges_into_point]) == 2)
 
 # Using Python looping constructs, the preceding would be...
 #
