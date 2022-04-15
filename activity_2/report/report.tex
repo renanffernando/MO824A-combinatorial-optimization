@@ -1,0 +1,185 @@
+\documentclass{article}
+\usepackage[a4paper]{geometry}
+\usepackage[brazil]{babel}
+\usepackage[utf8]{inputenc}
+\usepackage{url}
+\usepackage{hyperref}
+\usepackage{graphicx}
+\usepackage{amsmath}
+\usepackage{amsfonts}
+
+\title{Atividade 2}
+\author{
+	Felipe Pereira - RA: 263808 \\
+	José Antonio Mauad Leis - RA: 219061 \\
+	Lucas Guesser Targino da Silva - RA: 203534
+}
+
+\newcommand{\Set}[1]{\ensuremath{\left\{#1\right\}}}
+\newcommand{\partsof}[1]{\ensuremath{\mathcal{P}\left(#1\right)}}
+\newcommand{\Sum}[1]{\ensuremath{\displaystyle\sum\limits_{#1}}}
+\newcommand{\abs}[1]{\ensuremath{\left| #1 \right|}}
+\newcommand{\binary}{\ensuremath{\Set{0, 1}}}
+
+\newcommand{\edge}{\ensuremath{e}}
+\newcommand{\edges}{\ensuremath{E}}
+\newcommand{\vertex}{\ensuremath{v}}
+\newcommand{\vertices}{\ensuremath{V}}
+\newcommand{\nvertices}{\ensuremath{\abs{\vertices}}}
+\newcommand{\subvertices}{\ensuremath{S}}
+\newcommand{\graph}{\ensuremath{G}}
+\newcommand{\co}[1]{\ensuremath{c^{1}}}
+\newcommand{\ct}{\ensuremath{c^{2}}}
+\newcommand{\coe}{\ensuremath{c^{1}_{\edge}}}
+\newcommand{\cte}{\ensuremath{c^{2}_{\edge}}}
+\newcommand{\positiveReal}{\ensuremath{\mathbb{R}_+}}
+\newcommand{\xoe}{\ensuremath{X^{1}_{\edge}}}
+\newcommand{\xte}{\ensuremath{X^{2}_{\edge}}}
+\newcommand{\de}{\ensuremath{D_{\edge}}}
+\newcommand{\similarity}{\ensuremath{k}}
+\newcommand{\totalconstraints}{\ensuremath{T_r}}
+\newcommand{\bigo}[1]{\ensuremath{\mathcal{O}\left( #1 \right)}}
+
+\begin{document}
+
+\maketitle
+
+\section{Enunciado do Problema}
+
+Sejam:
+
+\begin{enumerate}
+    \item $\graph = \langle \vertices,\edges \rangle$: um grafo não-orientado completo:
+    \begin{enumerate}
+        \item $\vertices$: conjunto de vértices;
+        \item $\edges$: conjunto das arestas;
+    \end{enumerate}
+    \item $\co, \ct: \edges \rightarrow \positiveReal$ funções custo nos vértices;
+    \item $\similarity$: parâmetro de similaridade de ciclos;
+\end{enumerate}
+
+Objetivo: encontrar dois ciclos Hamiltonianos com custo total mínimo, tal que pelo menos $\similarity$ arestas do grafo sejam visitadas por ambos os ciclos.
+
+\section{Modelo Matemático}
+
+\subsection{Variáveis de Decisão}
+\label{constraint:variables}
+
+\begin{itemize}
+	\item $\xoe$: presença da aresta $\edge$ no primeiro ciclo;
+	\item $\xte$: presença da aresta $\edge$ no segundo ciclo;
+	\item $\de$: presença de duplicação da aresta $\edge$;
+\end{itemize}
+
+Todas as variáveis de "presença" são decisões binárias com a seguinte interpretação de valores:
+
+\begin{itemize}
+	\item[0]: ausente
+	\item[1]: presente
+\end{itemize}
+
+\subsection{Problema de Otimização}
+
+Minimizar:
+\begin{equation}
+    \label{eq:goal}
+ 	\Sum{\edge \in \edges} \coe \ \xoe
+ 	+
+ 	\Sum{\edge \in \edges} \cte \ \xte
+\end{equation}
+
+Sujeito a:
+\begin{equation}
+	\label{constraint:vertex presence in 1}
+	\Sum{\edge \in \delta(\vertex)} \xoe = 2
+	\qquad
+	\forall \vertex \in \vertices
+\end{equation}
+
+\begin{equation}
+	\label{constraint:vertex presence in 2}
+	\Sum{\edge \in \delta(\vertex)} \xoe = 2
+	\qquad
+	\forall \vertex \in \vertices
+\end{equation}
+
+\begin{equation}
+	\label{constraint:no subcycle 1}
+	\Sum{\edge \in \edges(\subvertices)} \xoe \leq \abs{\subvertices} - 1
+	\qquad
+	\forall
+		\subvertices \subseteq \vertices,
+		\subvertices \neq \vertices,
+		\subvertices \neq \emptyset
+\end{equation}
+
+\begin{equation}
+	\label{constraint:no subcycle 2}
+	\Sum{\edge \in \edges(\subvertices)} \xte \leq \abs{\subvertices} - 1
+	\qquad
+	\forall
+		\subvertices \subseteq \vertices,
+		\subvertices \neq \vertices,
+		\subvertices \neq \emptyset
+\end{equation}
+
+\begin{equation}
+	\label{constraint:similarity compatibility}
+	\xoe + \xte \leq 2 \ \de
+	\qquad
+	\forall \edge \in \edges
+\end{equation}
+
+\begin{equation}
+	\label{constraint:similarity}
+	\Sum{\edge \in \edges} \de \geq \similarity
+\end{equation}
+
+\begin{equation}
+	\label{constraint:binary variables}
+	\xoe, \xte, \de \in \binary
+	\qquad
+	\forall \edge \in \edges
+\end{equation}
+
+\subsection{Explicação das Restrições}
+
+\begin{itemize}
+    \item A função objetivo \eqref{eq:goal} é soma do custo de todas as arestas selecionadas.
+    \item As restrições \eqref{constraint:vertex presence in 1} e \eqref{constraint:vertex presence in 2} garantem que a quantidade de arestas incidentes em todos os vértices seja 2, nos ciclos 1 e 2 respectivamente. Essa condição faz com que todos os vértices tenham que ser visitados (duas arestas pois uma é a de ``entrada'' e a outra a de ``saída''). 
+    \item As restrições \eqref{constraint:no subcycle 1} e \eqref{constraint:no subcycle 2} garantem que não existam subciclos nos ciclos. Nessas restrições, $\subvertices$ é um subconjunto próprio e não-vazio dos vértices do problema. A expressão $\edges(\subvertices)$ é o conjunto das arestas cujos vértices (ambos) estão em $\subvertices$.
+    \item A restrição \eqref{constraint:similarity compatibility} garante que, se uma aresta foi escolhida para ser duplicada, então essa aresta aparecerá nos dois ciclos.
+    \item A restrição \eqref{constraint:binary variables} garante que todas as variáveis são decisões binárias, ou seja, assumem apenas um de dois possíveis valores: 0 e 1.
+\end{itemize}
+
+\subsection{Tamanho das Restrições}
+
+\begin{itemize}
+	\item Restrições \eqref{constraint:vertex presence in 1} e \eqref{constraint:vertex presence in 2}: uma para cada vértice. Total: $2 \cdot \abs{\vertices}$;
+	\item Restrições \eqref{constraint:no subcycle 1} e \eqref{constraint:no subcycle 2}: uma para $\subvertices \in \partsof{\vertices}, \subvertices \neq \vertices, \subvertices \neq \emptyset$. Total: $2 \cdot \left( 2^{\abs{\vertices}} - 2\right)$;
+	\item Restrições \eqref{constraint:similarity compatibility}: uma para cada aresta. Total: $\abs{\edges} = \dfrac{\abs{\vertices}^2 - \abs{\vertices}}{2}$ (já que o grafo é completo);
+	\item Restrições \ref{constraint:similarity}: apenas uma. Total: 1;
+\end{itemize}
+
+Assim, o número total de restrições é:
+
+\begin{equation}
+	\totalconstraints =
+		  2 \cdot \abs{\vertices}
+		+ 2 \cdot \left( 2^{\abs{\vertices}} - 2\right)
+		+ \dfrac{\abs{\vertices}^2 - \abs{\vertices}}{2}
+		+ 1
+\end{equation}
+
+Note que $\totalconstraints \in \bigo{2^{\nvertices}}$, isto é, há um número exponencial de restrições.
+
+Na implementação computacional do problema, não é possível adicionar tantas restrições por falta de recursos computacionais (memória e processamento). Há entretanto uma forma de contornar o problema atŕavés do que se chama de \textit{lazy evaluation}. A ideia é não adicionar tais restrições no início. Conforme soluções factíveis são encontradas, verifica-se se há subciclos nelas e, caso sim, adiciona-se apenas as restrições necessárias para eliminar tais subciclos.
+
+Dependendo do caso em mãos, essa abordagem pode reduzir drasticamente o número de restrições e consequentemente acelerar a busca.
+
+\section{Referências}
+
+\bibliographystyle{unsrt}
+\bibliography{bibliography}
+
+\end{document}
