@@ -164,7 +164,8 @@ int main(){
     env.set(GRB_DoubleParam_TimeLimit, 1800);
     env.set(GRB_IntParam_Presolve, 0);
     env.set(GRB_IntParam_Method, 1); // testar outros
-    //env.set(GRB_IntParam_Cuts, 3); // testar com ou sem
+    env.set(GRB_IntParam_Cuts, 3); // testar com ou sem
+    env.set(GRB_DoubleParam_Heuristics, 0.5);
     env.start();
 
     GRBModel model(env);
