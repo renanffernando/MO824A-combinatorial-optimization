@@ -164,7 +164,7 @@ int main(){
     env.set(GRB_DoubleParam_TimeLimit, 1800);
     env.set(GRB_IntParam_Presolve, 0);
     env.set(GRB_IntParam_Method, 1);
-    env.set(GRB_IntParam_Cuts, 3);
+    env.set(GRB_IntParam_Cuts, 0);
     env.start();
 
     GRBModel model(env);
