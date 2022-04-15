@@ -174,19 +174,23 @@ def kstsp(number_of_points, number_of_similar_edges, number_of_cycles, points_by
         'number_of_points': number_of_points,
         'number_of_similar_edges': number_of_similar_edges,
         'optimal_value': model.ObjVal,
-        'optimal_tours': tours
+        'optimal_tours': tours,
+        'optimality_gap': model.MIPGap,
+        'runtime': model.Runtime,
     }
 
 def display_solution(solution):
     print('# Setup:')
     print(f"\tnumber of points/vertices: {solution['number_of_points']}")
     print(f"\tnumber of similar edges: {solution['number_of_similar_edges']}")
-    print('\n# Solution')
+    print('\n# Optimal Solution')
     for i in range(number_of_cycles):
         this_tour = solution['optimal_tours'][i]
         print(f'\tSalesman {i} optimal tour: {str(this_tour)}')
-    print('\n# Cost')
-    print(f"\tOptimal cost: {solution['optimal_value']}")
+    print('\n# Optimal Value')
+    print(f"\tOptimal value: {solution['optimal_value']}")
+    print(f"\tOptimality gap: {solution['optimality_gap']}")
+    print(f"\tRuntime (execution time in seconds): {solution['runtime']}")
 
 if __name__ == '__main__':
     from problem_data import number_of_cycles, points_by_cycle
