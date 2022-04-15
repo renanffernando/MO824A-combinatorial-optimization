@@ -172,9 +172,10 @@ tour = [
     for i in range(number_of_cycles)
 ]
 for i in range(number_of_cycles):
-    assert len(tour[i]) == number_of_points
+    this_tour = tour[i]
+    assert len(this_tour) == number_of_points
     print('')
     print(f'Salesman: {i}')
-    print('Optimal tour: %s' % str(tour))
-    print('Optimal cost: %g' % model.ObjVal)
-    print('')
+    print('Optimal tour: %s' % str(this_tour))
+print('Optimal cost: %g' % model.ObjVal)
+print('')
