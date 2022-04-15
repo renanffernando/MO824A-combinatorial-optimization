@@ -193,15 +193,19 @@ def display_solution(solution):
     print(f"\tRuntime (execution time in seconds): {solution['runtime']}")
 
 if __name__ == '__main__':
-    for number_of_points in [100, 150, 200, 250]:
-        for number_of_similar_edges in [0, number_of_points/2, number_of_points]:
-            from problem_data import number_of_cycles, points_by_cycle
-            print('\n\n========================= kSTSP =========================\n\n')
-            solution = kstsp(
-                number_of_points = number_of_points,
-                number_of_similar_edges = number_of_similar_edges,
-                number_of_cycles = number_of_cycles,
-                points_by_cycle = points_by_cycle,
-            )
-            display_solution(solution)
-            print('\n\n========================= end =========================\n\n')
+    for number_of_points in [100]:
+        for number_of_similar_edges in [0]:
+            try:
+                from problem_data import number_of_cycles, points_by_cycle
+                print('\n\n========================= kSTSP =========================\n\n')
+                solution = kstsp(
+                    number_of_points = number_of_points,
+                    number_of_similar_edges = number_of_similar_edges,
+                    number_of_cycles = number_of_cycles,
+                    points_by_cycle = points_by_cycle,
+                )
+                display_solution(solution)
+                print('\n\n========================= end =========================\n\n')
+            except Exception as e:
+                print('unable to solve this problem')
+                print(e)
