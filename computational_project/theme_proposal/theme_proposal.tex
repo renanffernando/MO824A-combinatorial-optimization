@@ -1,0 +1,191 @@
+\documentclass{article}
+\usepackage[a4paper]{geometry}
+\usepackage[brazil]{babel}
+\usepackage[utf8]{inputenc}
+\usepackage{url}
+\usepackage{hyperref}
+\usepackage{graphicx}
+\usepackage{amssymb}
+\usepackage{amsmath}
+\usepackage{amsfonts}
+\usepackage{xspace}
+\usepackage{yfonts}
+\usepackage{mathrsfs}
+
+\title{Computational Project - Theme Proposal}
+\author{
+	Luiz Fernando Bueno Rosa - RA: 221197 \\
+	Lucas Guesser Targino da Silva - RA: 203534
+}
+
+\newcommand{\real}{\ensuremath{\mathbb{R}}\xspace}
+\newcommand{\realnonnegative}{\ensuremath{\mathbb{R}_{+}}\xspace}
+\newcommand{\realpositive}{\ensuremath{\mathbb{R}_{+}^{*}}\xspace}
+\newcommand{\nrealnonnegative}[1]{\ensuremath{\mathbb{R}_{+}^{#1}}\xspace}
+\newcommand{\nrealpositive}[1]{\ensuremath{\mathbb{R}_{+}^{*#1}}\xspace}
+
+\newcommand{\true}{\ensuremath{true}\xspace}
+\newcommand{\false}{\ensuremath{false}\xspace}
+
+\newcommand{\abs}[1]{\ensuremath{\left| #1 \right|}\xspace}
+\newcommand{\tuple}[1]{#1-tuple\xspace}
+\newcommand{\Set}[1]{\ensuremath{\left\{#1\right\}}}
+\newcommand{\SetOf}[2]{\ensuremath{\left\{ #1 : #2 \right\}}\xspace}
+\newcommand{\OrderedSet}[1]{\ensuremath{\langle#1\rangle}\xspace}
+\newcommand{\function}[3]{\ensuremath{#1: #2 \rightarrow #3}\xspace}
+
+\newcommand{\bigo}[1]{\ensuremath{\mathcal{O}\left( #1 \right)}}
+
+\newcommand{\vehicleO}{\ensuremath{\upsilon}\xspace}
+\newcommand{\vehicleSet}{\mathcal{V}\xspace}
+\newcommand{\loadingFunction}{\ensuremath{\eta}\xspace}
+\newcommand{\loadingFunctionApply}[1]{\loadingFunction \left( #1 \right)\xspace}
+\newcommand{\loadingLimit}{\ensuremath{L}\xspace}
+\newcommand{\nAxles}{\ensuremath{\alpha}\xspace}
+\newcommand{\loadingCodomain}{\nrealnonnegative{\nAxles}}
+
+\newcommand{\itemO}{\ensuremath{\iota}\xspace}
+\newcommand{\itemSet}{\ensuremath{\mathcal{I}}\xspace}
+\newcommand{\itemDomain}{\ensuremath{\nrealpositive{3} \times \nrealnonnegative{3}}\xspace}
+
+\newcommand{\containero}{\ensuremath{c}\xspace}
+\newcommand{\containerSet}{\ensuremath{\mathcal{C}}\xspace}
+
+\newcommand{\lx}{\ensuremath{\chi}\xspace}
+\newcommand{\ly}{\ensuremath{\psi}\xspace}
+\newcommand{\lz}{\ensuremath{\omega}\xspace}
+\newcommand{\px}{\ensuremath{x}\xspace}
+\newcommand{\py}{\ensuremath{y}\xspace}
+\newcommand{\pz}{\ensuremath{z}\xspace}
+
+\newcommand{\itemInput}{\ensuremath{\mathit{I}_{o}}\xspace}
+\newcommand{\itemOutput}{\ensuremath{\mathit{I}_{f}}\xspace}
+\newcommand{\vehicleInput}{\vehicleO}
+\newcommand{\constraintsPredicateSymbol}{\ensuremath{\mathscr{C}}\xspace}
+\newcommand{\constraintsPredicate}[1]{\ensuremath{\constraintsPredicateSymbol \left( #1 \right)}\xspace}
+
+\begin{document}
+
+\maketitle
+
+\section{Definitions}
+
+\subsection{Item}
+
+An \textbf{Item} \itemO is a \tuple{6}:
+
+\begin{equation}
+	\label{def:item}
+	\itemO = \OrderedSet{
+		\lx,
+		\ly,
+		\lz,
+		\px,
+		\py,
+		\pz
+	}
+\end{equation}
+
+in which the components represent the item's\footnote{See a definition for ``dimension'' in \cite{bib:dict-dimension}}:
+
+\begin{enumerate}
+	\item $\lx \in \realpositive$: dimension in the \px direction;
+	\item $\ly \in \realpositive$: dimension in the \py direction;
+	\item $\lz\in \realpositive$: dimension in the \pz direction;
+	\item $\px \in \realnonnegative$: x position;
+	\item $\py \in \realnonnegative$: y position;
+	\item $\pz \in \realnonnegative$: z position;
+\end{enumerate}
+
+We represent by $\itemSet = \itemDomain$ the set of all items.
+
+%\subsection{Container}
+%
+%A \textbf{Container} \containero is a \tuple{3}:
+%
+%\begin{equation}
+%	\label{def:container}
+%	\containero = \OrderedSet{
+%		\lx,
+%		\ly,
+%		\lz
+%	}
+%\end{equation}
+%
+%in which the components represent the container's:
+%
+%\begin{enumerate}
+%	\item $\lx \in \realpositive$: dimension in the \px direction (the length);
+%	\item $\ly \in \realpositive$: dimension in the \py direction (the width);
+%	\item $\lz \in \realpositive$: dimension in the \pz direction (the height);
+%\end{enumerate}
+
+\subsection{Vehicle}
+
+A Vehicle \vehicleO is a \tuple{3}:
+
+\begin{equation}
+	\label{def:vehicle}
+	\vehicleO = \OrderedSet{
+		\nAxles,
+		\loadingFunction,
+		\loadingLimit
+	}
+\end{equation}
+
+in which:
+
+\begin{enumerate}
+	\item $\nAxles$ is the number of components of the vehicle's loadings;
+	\item $\function{\loadingFunction}{\itemSet}{\loadingCodomain}$: a function that associates every item to a vehicle's loading;
+	\item $\loadingLimit \in \loadingCodomain$: represents the vehicle's loading limit;
+\end{enumerate}
+
+We represent by $\vehicleSet$ the set of all vehicles.
+
+\section{Problem Statement}
+
+\subsection{Input}
+
+\begin{enumerate}
+	\item $\itemInput \subseteq \itemSet$: the set of items
+	\item $\vehicleInput \in \vehicleSet$: the vehicle
+\end{enumerate}
+
+\subsection{Constraints}
+
+\subsubsection*{Loading Limit Constraint}
+	\label{constraint:loading-limit}
+\begin{equation}
+	\displaystyle\sum\limits_{\itemO \in \itemInput}
+		\loadingFunctionApply{\itemO}
+		\leq \loadingLimit
+\end{equation}
+
+\subsubsection*{Stacking Constraint}
+	\label{constraint:stacking}
+\begin{equation}
+	\mbox{An item can only be removed if all items above it have already been removed}
+\end{equation}
+
+\subsubsection*{Constraints Predicate}
+
+Given an $\itemOutput \subseteq \itemInput$, we represent by $\constraintsPredicate{\itemOutput} \in \Set{\true, \false}$ whether \itemOutput satisfy all the above constraints or not.
+
+\subsection{Output}
+
+A subset $\itemOutput \subseteq \itemInput$ of the input items.
+
+\subsection{Objective}
+
+\begin{equation}
+	min\SetOf{\abs{\itemInput} - \abs{\itemOutput}}{\itemOutput \subseteq \itemInput \ \land \ \constraintsPredicate{\itemOutput}}
+\end{equation}
+
+Minimize the number of items removed so that all constraints are satisfied.
+
+% ----------- REFERENCES -----------
+\bibliographystyle{unsrt}
+\bibliography{bibliography}
+
+\end{document}
