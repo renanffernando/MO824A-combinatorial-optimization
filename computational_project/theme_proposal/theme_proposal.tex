@@ -102,7 +102,7 @@ In the next sections, we provide a detailed formulation of such problem.
 An \textbf{Item} \itemO is a \tuple{6}:
 
 \begin{equation}
-	\label{def:item}
+	\label{definition:item}
 	\itemO = \OrderedSet{
 		\lx,
 		\ly,
@@ -131,7 +131,7 @@ We represent by $\itemSet = \itemDomain$ the set of all items.
 %A \textbf{Container} \containero is a \tuple{3}:
 %
 %\begin{equation}
-%	\label{def:container}
+%	\label{definition:container}
 %	\containero = \OrderedSet{
 %		\lx,
 %		\ly,
@@ -152,7 +152,7 @@ We represent by $\itemSet = \itemDomain$ the set of all items.
 A Vehicle \vehicleO is a \tuple{3}:
 
 \begin{equation}
-	\label{def:vehicle}
+	\label{definition:vehicle}
 	\vehicleO = \OrderedSet{
 		\nAxles,
 		\loadingFunction,
@@ -182,16 +182,16 @@ We represent by $\vehicleSet$ the set of all vehicles.
 \subsection{Constraints}
 
 \subsubsection*{Loading Limit Constraint}
-	\label{constraint:loading-limit}
 \begin{equation}
+	\label{constraint:loading-limit}
 	\displaystyle\sum\limits_{\itemO \in \itemInput}
 		\loadingFunctionApply{\itemO}
 		\leq \loadingLimit
 \end{equation}
 
 \subsubsection*{Stacking Constraint}
-	\label{constraint:stacking}
 \begin{equation}
+	\label{constraint:stacking}
 	\mbox{An item can only be removed if all items above it have already been removed}
 \end{equation}
 
