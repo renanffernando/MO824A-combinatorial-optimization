@@ -18,6 +18,8 @@
 	Lucas Guesser Targino da Silva - RA: 203534
 }
 
+\newcommand{\nphard}{NP-hard\xspace}
+
 \newcommand{\real}{\ensuremath{\mathbb{R}}\xspace}
 \newcommand{\realnonnegative}{\ensuremath{\mathbb{R}_{+}}\xspace}
 \newcommand{\realpositive}{\ensuremath{\mathbb{R}_{+}^{*}}\xspace}
@@ -67,6 +69,31 @@
 \begin{document}
 
 \maketitle
+
+\section{Motivation}
+
+Consider the problem of allocating items into the containers of a vehicle. In most practical cases, in order for those allocations to be of any practical use, they must take into account the loading on the axle of the vehicle. That is important for several reasons:
+
+\begin{enumerate}
+	\item countries have regulations on how much weight each type of axle can have \cite{bib:law-loading-on-axles};
+	\item excess of loading on the axles of a vehicle can decrease its lifespan or cause a direct damage to the vehicle;
+	\item heavy unbalanced cargos unstabilize the vehicle that carries it, increasing the risk of accidents;
+\end{enumerate} 
+
+Those problems in the packing family are know to be \nphard \cite{bib:knapsack-problems}. For such reason, in practice, one is usually more interested in finding an acceptable solution in a reasonable amount of time rather than the optimal one. In such situations, heuristics become a required technique.
+
+When designing heuristics, it is usually difficult to optimize for several objectives at the same time, usually because they conflict with each other. One possible approach for such problems is to design a heuristics for one of them and make a post-processing on the found solution in order to find a compromise between the others. Such approach is very attractive in practice because it allows one to both reuse and extend solutions for similar problems, cutting development and testing costs.
+
+The problem we propose here is a post-processing algorithm used in the context above: one has a solution for the knapsack problem but it must be adapted to satisfy an extra constraint. In the case we propose here, it is given to us an allocation of items in a vehicle and we must remove the items so to satisfy limits of loading on the axles minimizing the number of items to be removed.
+
+In the next sections, we provide a detailed formulation of such problem.
+
+\begin{figure}
+	\centering
+	\includegraphics[width=\textwidth]{images/example_remove_items_from_vehicle.png}
+	\caption{Above an item with a cargo which exceeds the loading on its axles. Below, when the yellow items are removed, the loading on the axles constraint is satisfied.}
+	\label{fig:example remove items}
+\end{figure}
 
 \section{Definitions}
 
