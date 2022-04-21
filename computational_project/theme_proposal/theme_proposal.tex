@@ -62,7 +62,11 @@
 
 \newcommand{\itemInput}{\ensuremath{\mathit{I}_{o}}\xspace}
 \newcommand{\itemOutput}{\ensuremath{\mathit{I}_{f}}\xspace}
+\newcommand{\stackingPredicateSymbol}{\ensuremath{\mathcal{SC}}\xspace}
+\newcommand{\stackingPredicate}[1]{\ensuremath{\stackingPredicateSymbol \left( #1 \right)}\xspace}
+
 \newcommand{\vehicleInput}{\vehicleO}
+
 \newcommand{\constraintsPredicateSymbol}{\ensuremath{\mathscr{C}}\xspace}
 \newcommand{\constraintsPredicate}[1]{\ensuremath{\constraintsPredicateSymbol \left( #1 \right)}\xspace}
 
@@ -125,6 +129,8 @@ in which the components represent the item's\footnote{See a definition for ``dim
 \end{enumerate}
 
 We represent by $\itemSet = \itemDomain$ the set of all items.
+
+The reason an items is seen in that way is because of the stacking
 
 %\subsection{Container}
 %
@@ -195,9 +201,7 @@ We represent by $\vehicleSet$ the set of all vehicles.
 	\mbox{An item can only be removed if all items above it have already been removed}
 \end{equation}
 
-\subsubsection*{Constraints Predicate}
-
-Given an $\itemOutput \subseteq \itemInput$, we represent by $\constraintsPredicate{\itemOutput} \in \Set{\true, \false}$ whether \itemOutput satisfy all the above constraints or not.
+We represent whether such constraint is satisfied or not by $\stackingPredicate{\itemOutput} \in \Set{\true, \false}$
 
 \subsection{Output}
 
