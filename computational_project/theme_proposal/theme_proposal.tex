@@ -29,6 +29,7 @@
 \newcommand{\true}{\ensuremath{true}\xspace}
 \newcommand{\false}{\ensuremath{false}\xspace}
 
+\newcommand{\subjectedTo}{\ensuremath{\mbox{subjected to}}\xspace}
 \newcommand{\abs}[1]{\ensuremath{\left| #1 \right|}\xspace}
 \newcommand{\tuple}[1]{#1-tuple\xspace}
 \newcommand{\Set}[1]{\ensuremath{\left\{#1\right\}}}
@@ -209,9 +210,15 @@ A subset $\itemOutput \subseteq \itemInput$ of the input items.
 
 \subsection{Objective}
 
-\begin{equation}
-	min\SetOf{\abs{\itemInput} - \abs{\itemOutput}}{\itemOutput \subseteq \itemInput \ \land \ \constraintsPredicate{\itemOutput}}
-\end{equation}
+\begin{eqnarray}
+	\label{problem:items-removal}
+	\min & \abs{\itemInput} - \abs{\itemOutput} \\
+	\subjectedTo
+		& \displaystyle\sum\limits_{\itemO \in \itemInput}
+			\loadingFunctionApply{\itemO}
+			\leq \loadingLimit \nonumber\\
+		& \stackingPredicate{\itemOutput} \nonumber
+\end{eqnarray}
 
 Minimize the number of items removed so that all constraints are satisfied.
 
