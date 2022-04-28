@@ -7,7 +7,7 @@
    tours that don't visit every node.  The lazy constraint callback
    adds new constraints to cut them off. */
 
-#include "/opt/gurobi951/linux64/include/gurobi_c++.h"
+#include "gurobi_c++.h"
 #include "subTourElim.hpp"
 
 void findsubtour(int n, double** sol, int& tourlenP, vi& tour);
@@ -143,7 +143,7 @@ int main(){
   cin >> n >> m >> k;
 
   vvd d1(n, vd(n, DBL_MAX)), d2(n, vd(n, DBL_MAX));
-  
+
   FOR(i, m){
     int u, v;
     double dist1, dist2;
@@ -157,7 +157,7 @@ int main(){
   FOR(i, n)
     FOR(j, n)
       assert(d1[i][j] < DBL_MAX && d2[i][j] < DBL_MAX);
-  
+
   try{
     GRBEnv env(true);
     //env.set(GRB_IntParam_Threads, 1);
@@ -223,7 +223,7 @@ int main(){
       int cur = 0, len = 0;
       vi seen(n, false);
       seen[cur] = true;
-        
+
       while(len != n){
         map<double, int> nearest;
         FOR(nxt, n)
@@ -264,7 +264,7 @@ int main(){
         edges1.insert(minmax(tour1[i], tour1[(i + 1) % n]));
         edges2.insert(minmax(tour2[i], tour2[(i + 1) % n]));
       }
-      
+
       vector<pair<int, int>> equals;
       set_intersection(all(edges1), all(edges2), back_inserter(equals));
       assert(SZ(equals) >= k);
