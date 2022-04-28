@@ -1,15 +1,4 @@
-#include <bits/stdc++.h>
+#include "util.hpp"
 
-using namespace std;
-using vi = vector<int>;
-using vvi = vector<vi>;
-using ld = double;
-using vd = vector<ld>;
-using vvd = vector<vd>;
-using ii = pair<int, int>;
-using vii = vector<ii>;
-
-#define all(a) a.begin(), a.end()
-#define EPS 1e-4
-#define FOR(i, b) for(int i = 0; i < (b); i++)
-#define SZ(a) ((int) a.size())
+vvd applyLambdaToCost(const vd& lambda, const vvd& cost);
+void updateLambda(const vvd& x1, const vvd& x2, const vvd& z, vd& lambda1, vd& lambda2, ld lb, ld ub);

@@ -1,13 +1,13 @@
 #include "lagrangian.hpp"
 
-vvd apllyLambdaToCost(const vd& lambda, const vvd& cost) {
+vvd applyLambdaToCost(const vd& lambda, const vvd& cost) {
   int n = SZ(cost);
   assert(SZ(lambda) == n * n);
   vvd ret = cost;
   FOR(i, n)
     FOR(j, n)
       ret[i][j] = cost[i][j] - lambda[i * n + j];
-  return cost;
+  return ret;
 }
 
 void updateLambda(const vvd& x1, const vvd& x2, const vvd& z, vd& lambda1, vd& lambda2, ld lb, ld ub){
@@ -18,7 +18,7 @@ void updateLambda(const vvd& x1, const vvd& x2, const vvd& z, vd& lambda1, vd& l
       grad1[i][j] = z[i][j] - x1[i][j];
       grad2[i][j] = z[i][j] - x2[i][j];
     }
-  
+
   ld norm = 0;
   FOR(i, n)
     FOR(j, n)
