@@ -55,6 +55,7 @@ add_executable(
     ktsp
     ${CMAKE_CURRENT_SOURCE_DIR}/src/ktsp.cpp
     ${CMAKE_CURRENT_SOURCE_DIR}/src/subTourElim.cpp
+    ${CMAKE_CURRENT_SOURCE_DIR}/src/heuristic.cpp
 )
 
 target_link_libraries(

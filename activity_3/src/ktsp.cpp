@@ -9,6 +9,7 @@
 
 #include "gurobi_c++.h"
 #include "subTourElim.hpp"
+#include "heuristic.hpp"
 
 void findsubtour(int n, double** sol, int& tourlenP, vi& tour);
 
@@ -259,15 +260,21 @@ int main(){
       findsubtour(n, sol2, len2, tour2);
       assert(len1 == n && len2 == n);
 
-      set<pair<int, int>> edges1, edges2;
-      FOR(i, n){
-        edges1.insert(minmax(tour1[i], tour1[(i + 1) % n]));
-        edges2.insert(minmax(tour2[i], tour2[(i + 1) % n]));
-      }
+      while(true){
+        set<pair<int, int>> edges1, edges2;
+        FOR(i, n){
+          edges1.insert(minmax(tour1[i], tour1[(i + 1) % n]));
+          edges2.insert(minmax(tour2[i], tour2[(i + 1) % n]));
+        }
 
-      vector<pair<int, int>> equals;
-      set_intersection(all(edges1), all(edges2), back_inserter(equals));
-      assert(SZ(equals) >= k);
+        vector<pair<int, int>> equals;
+        set_intersection(all(edges1), all(edges2), back_inserter(equals));
+        assert(SZ(equals) >= k);
+
+        if(SZ(equals) == n)
+          break;
+        Heuristic::IncreaseIntersection(tour1, tour2, d1, d2);
+      }
 
       cout << "Tour1: ";
       FOR(i, len1)
