@@ -22,14 +22,10 @@ def calCost(xa, ya, xb, yb):
   return int(ceil(((xa - xb)**2 + (ya - yb) ** 2) **(0.5)))
 
 
-outdir = "TSP-K"
-if(not os.path.exists(outdir)):
-  os.mkdir(outdir)
-else:
-  os.system("rm " + outdir + "/*")
-    
+outdir = "."
+
 for n in ns:
-  m = n * (n + 1) // 2
+  m = n * (n - 1) // 2
 
   for kM in kMult:
     k = int(kM * n)
@@ -39,4 +35,3 @@ for n in ns:
       for i in range(n):
         for j in range(i + 1, n):
           instFile.write("%d %d %d %d\n" % (i, j, calCost(x1[i], y1[i], x1[j], y1[j]), calCost(x2[i], y2[i], x2[j], y2[j])))
-  
