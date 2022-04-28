@@ -6,7 +6,7 @@ vvd apllyLambdaToCost(const vd& lambda, const vvd& cost) {
   vvd ret = cost;
   FOR(i, n)
     FOR(j, n)
-      ret[i][j] = cost[i][j] - lambda[i * n + j * n];
+      ret[i][j] = cost[i][j] - lambda[i * n + j];
   return cost;
 }
 
