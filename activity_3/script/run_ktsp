@@ -1,0 +1,9 @@
+#!/bin/sh
+
+if [[ $# -ne 1 ]]
+then
+    echo "Usage: ./script/run_ktsp CASE_FILE"
+    return
+fi
+
+./build/ktsp < $1
