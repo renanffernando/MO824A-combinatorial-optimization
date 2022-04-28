@@ -7,43 +7,62 @@ extern "C" {
 #include <iostream>
 #include <vector>
 #include <numeric>
+#include <tuple>
+#include <stdexcept>
 
-int solve_tsp_concorde (const std::vector<std::vector<int>>& distance, std::vector<int>& tour)
+std::tuple<int, std::vector<int>> solve_tsp (const std::vector<std::vector<int>>& distance)
 {
-  int rval = 0;
-  const int ncount = distance.size();
-  if (static_cast<int>(tour.size()) != ncount) {
-    tour.resize(ncount);
-  }
-  if (ncount < 5) {
-    std::cerr << "Less than 5 nodes.";
-    return 1;
-  }
-
-  int seed = rand();
-  CCrandstate rstate;
-  CCutil_sprand(seed, &rstate);
-  const int ecount = (ncount * (ncount - 1)) / 2;
-  std::vector<int> elist(ecount * 2);
-  std::vector<int> elen(ecount);
-  int edge = 0;
-  int edgeWeight = 0;
-  for (int i = 0; i < ncount; i++) {
-    for (int j = i + 1; j < ncount; j++) {
-      elist[edge++] = i;
-      elist[edge++] = j;
-      elen[edgeWeight++] = distance[i][j];
+    const int ncount = distance.size();
+    if (ncount < 5) {
+        throw std::runtime_error("Less than 5 nodes.");
     }
-  }
-  char *name = CCtsp_problabel(" ");
-  CCdatagroup dat;
-  CCutil_init_datagroup (&dat);
-  rval = CCutil_graph2dat_matrix (ncount, ecount, elist.data(), elen.data(), 1, &dat);
+    std::vector<int> tour(distance.size());
+    int rval = 0;
 
-  double  optval, *timebound = nullptr;
-  int success, foundtour, hit_timebound = 0;
-  rval = CCtsp_solve_dat (ncount, &dat, nullptr, tour.data(), NULL, &optval, &success,
-    &foundtour, name, timebound, &hit_timebound, 1, &rstate);
+    int seed = rand();
+    CCrandstate rstate;
+    CCutil_sprand(seed, &rstate);
+    const int ecount = (ncount * (ncount - 1)) / 2;
+    std::vector<int> elist(ecount * 2);
+    std::vector<int> elen(ecount);
+    int edge = 0;
+    int edgeWeight = 0;
+    for (int i = 0; i < ncount; i++) {
+        for (int j = i + 1; j < ncount; j++) {
+            elist[edge++] = i;
+            elist[edge++] = j;
+            elen[edgeWeight++] = distance[i][j];
+        }
+    }
+    char *name = CCtsp_problabel(" ");
+    CCdatagroup dat;
+    CCutil_init_datagroup (&dat);
+    rval = CCutil_graph2dat_matrix(
+        ncount,
+        ecount,
+        elist.data(),
+        elen.data(),
+        1,
+        &dat
+    );
 
-  return rval;
+    double  optval, *timebound = nullptr;
+    int success, foundtour, hit_timebound = 0;
+    rval = CCtsp_solve_dat (
+        ncount,
+        &dat,
+        nullptr,
+        tour.data(),
+        nullptr,
+        &optval,
+        &success,
+        &foundtour,
+        name,
+        timebound,
+        &hit_timebound,
+        1,
+        &rstate
+    );
+
+    return std::make_tuple(rval, tour);
 }
