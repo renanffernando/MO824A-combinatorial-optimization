@@ -9,6 +9,7 @@ __pycache__/
 *.o
 activity_3/KTSP/KTSP
 activity_3/tests
+activity_3/build
 
 
 # latex

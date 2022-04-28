@@ -10,7 +10,7 @@ int solve_tsp_concorde (const std::vector<std::vector<int>>& distance, std::vect
 {
   int rval = 0;
   const int ncount = distance.size();
-  if (tour.size() != ncount) {
+  if (static_cast<int>(tour.size()) != ncount) {
     tour.resize(ncount);
   }
   if (ncount < 5) {
@@ -40,13 +40,13 @@ int solve_tsp_concorde (const std::vector<std::vector<int>>& distance, std::vect
 
   double  optval, *timebound = nullptr;
   int success, foundtour, hit_timebound = 0;
-  rval = CCtsp_solve_dat (ncount, &dat, nullptr, tour.data(), NULL, &optval, &success, 
+  rval = CCtsp_solve_dat (ncount, &dat, nullptr, tour.data(), NULL, &optval, &success,
     &foundtour, name, timebound, &hit_timebound, 1, &rstate);
 
   return rval;
 }
 
-int main(int argc, char** argv)
+int main()
 {
 
   auto print_solution = [](const std::vector<int>& tour, int rval) {
@@ -55,7 +55,7 @@ int main(int argc, char** argv)
       std::cerr << "Error occurred.\n" << std::endl;
     }
     else {
-      for (int i = 0; i <= tour.size(); ++i) {
+      for (int i = 0; i <= static_cast<int>(tour.size()); ++i) {
         std::cout << " " << tour[i % tour.size()];
       }
       std::cout << "\n\n" << std::endl;
