@@ -26,6 +26,11 @@ target_link_libraries(
     ${CMAKE_CURRENT_SOURCE_DIR}/lib/qsopt.a
 )
 
+add_library(
+    solve_z
+    ${CMAKE_CURRENT_SOURCE_DIR}/src/solve_z.cpp
+)
+
 add_executable(
     concorde_solve_instance
     ${CMAKE_CURRENT_SOURCE_DIR}/src/concorde_solve_instance.cpp
@@ -57,4 +62,14 @@ target_link_libraries(
     m
     gurobi_c++
     gurobi95
+)
+
+add_executable(
+    z_solver_test
+    ${CMAKE_CURRENT_SOURCE_DIR}/src/z_solver_test.cpp
+)
+
+target_link_libraries(
+    z_solver_test
+    solve_z
 )
