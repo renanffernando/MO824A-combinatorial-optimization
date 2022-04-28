@@ -15,16 +15,35 @@ link_directories(
     /opt/gurobi951/linux64/lib
 )
 
-add_executable(
-    concorde_example
-    ${CMAKE_CURRENT_SOURCE_DIR}/src/concorde_example.cpp
+add_library(
+    concorde_solver
     ${CMAKE_CURRENT_SOURCE_DIR}/src/concordeSolver.cpp
 )
 
 target_link_libraries(
-  concorde_example
-  ${CMAKE_CURRENT_SOURCE_DIR}/lib/concorde.a
-  ${CMAKE_CURRENT_SOURCE_DIR}/lib/qsopt.a
+    concorde_solver
+    ${CMAKE_CURRENT_SOURCE_DIR}/lib/concorde.a
+    ${CMAKE_CURRENT_SOURCE_DIR}/lib/qsopt.a
+)
+
+add_executable(
+    concorde_solve_instance
+    ${CMAKE_CURRENT_SOURCE_DIR}/src/concorde_solve_instance.cpp
+)
+
+target_link_libraries(
+    concorde_solve_instance
+    concorde_solver
+)
+
+add_executable(
+    concorde_example
+    ${CMAKE_CURRENT_SOURCE_DIR}/src/concorde_example.cpp
+)
+
+target_link_libraries(
+    concorde_example
+    concorde_solver
 )
 
 add_executable(

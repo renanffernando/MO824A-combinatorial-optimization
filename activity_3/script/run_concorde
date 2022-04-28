@@ -1,0 +1,9 @@
+#!/bin/sh
+
+if [[ $# -ne 1 ]]
+then
+    echo "Usage: ./script/concorde_solve_instance CASE_FILE"
+    return
+fi
+
+./build/concorde_solve_instance < $1
