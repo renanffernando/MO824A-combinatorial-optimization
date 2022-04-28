@@ -8,11 +8,6 @@ set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -O3 -Wall -Werror -Wextra -Wpedantic -pe
 
 include_directories(
     ${CMAKE_CURRENT_SOURCE_DIR}/include
-    /opt/gurobi951/linux64/include
-)
-
-link_directories(
-    /opt/gurobi951/linux64/lib
 )
 
 add_library(
@@ -49,20 +44,6 @@ add_executable(
 target_link_libraries(
     concorde_example
     concorde_solver
-)
-
-add_executable(
-    ktsp
-    ${CMAKE_CURRENT_SOURCE_DIR}/src/ktsp.cpp
-    ${CMAKE_CURRENT_SOURCE_DIR}/src/subTourElim.cpp
-    ${CMAKE_CURRENT_SOURCE_DIR}/src/heuristic.cpp
-)
-
-target_link_libraries(
-    ktsp
-    m
-    gurobi_c++
-    gurobi95
 )
 
 add_executable(
