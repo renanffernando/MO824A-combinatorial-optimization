@@ -18,6 +18,7 @@ link_directories(
 add_executable(
     concorde_example
     ${CMAKE_CURRENT_SOURCE_DIR}/src/concorde_example.cpp
+    ${CMAKE_CURRENT_SOURCE_DIR}/src/concordeSolver.cpp
 )
 
 target_link_libraries(
