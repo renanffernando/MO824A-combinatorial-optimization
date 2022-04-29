@@ -6,4 +6,4 @@ then
     exit
 fi
 
-./build/main < $1
+./build/main < $1 | tee main.log

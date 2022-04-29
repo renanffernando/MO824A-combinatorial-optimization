@@ -5,7 +5,7 @@
 #include <vector>
 #include "util.hpp"
 
-std::tuple<int, std::vector<int>> solve_tsp (const std::vector<std::vector<int>>& distance);
+std::vector<int> solve_tsp (const std::vector<std::vector<int>>& distance);
 std::tuple<double, std::vector<int>> solve_tsp (const std::vector<std::vector<double>>& distance);
 
 #endif

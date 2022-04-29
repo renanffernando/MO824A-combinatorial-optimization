@@ -10,14 +10,14 @@ extern "C" {
 #include <tuple>
 #include <stdexcept>
 
-std::tuple<int, std::vector<int>> solve_tsp (const std::vector<std::vector<int>>& distance)
+std::vector<int> solve_tsp (const std::vector<std::vector<int>>& distance)
 {
     const int ncount = distance.size();
     if (ncount < 5) {
         throw std::runtime_error("Less than 5 nodes.");
     }
     std::vector<int> tour(distance.size());
-    int rval = 0;
+    int rval;
 
     int seed = rand();
     CCrandstate rstate;
@@ -64,7 +64,12 @@ std::tuple<int, std::vector<int>> solve_tsp (const std::vector<std::vector<int>>
         &rstate
     );
 
-    return std::make_tuple(rval, tour);
+    if (rval != 0)
+    {
+        throw std::runtime_error("error solving TSP with concorde");
+    }
+
+    return tour;
 }
 
 std::tuple<double, std::vector<int>> solve_tsp (const std::vector<std::vector<double>>& distance)
@@ -81,8 +86,7 @@ std::tuple<double, std::vector<int>> solve_tsp (const std::vector<std::vector<do
             integerDistances[i][j] = multiplier * distance[i][j];
         }
     }
-    std::tuple<double, std::vector<int>> solution = solve_tsp(integerDistances);
-    vi tour = get<vi>(solution);
+    std::vector<int> tour = solve_tsp(integerDistances);
     ld cost = 0;
     FOR(i, SZ(tour))
         cost += distance[tour[i]][tour[(i + 1) % SZ(tour)]];
