@@ -1,0 +1,9 @@
+#!/bin/sh
+
+if [[ $# -ne 1 ]]
+then
+    echo "Usage: ./script/main CASE_FILE"
+    exit
+fi
+
+./build/main < $1
