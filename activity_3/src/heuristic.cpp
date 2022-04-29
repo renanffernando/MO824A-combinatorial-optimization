@@ -145,11 +145,11 @@ void Heuristic::IncreaseIntersection(vi& tour1, vi& tour2, vvd& d1, vvd& d2){
   for(auto e : edges1)
     if(!binary_search(all(inters), e))
       mp.insert({d1[e.first][e.second], e.first, e.second, 1});
-  
+
   for(auto e : edges2)
     if(!binary_search(all(inters), e))
       mp.insert({d2[e.first][e.second], e.first, e.second, 2});
-  
+
   struct PairEdges{
     int nl, nr;
     double cost;
@@ -157,7 +157,7 @@ void Heuristic::IncreaseIntersection(vi& tour1, vi& tour2, vvd& d1, vvd& d2){
   PairEdges best = {-1, -1, INT_MAX};
   int vl, vr;
   bool swapped = false;
-  
+
   for(Edge chosen : mp){
     swapped = false;
     if(chosen.id == 2){
@@ -173,7 +173,7 @@ void Heuristic::IncreaseIntersection(vi& tour1, vi& tour2, vvd& d1, vvd& d2){
     ii edgeLR = minmax(vl, vr);
     assert(!count(all(inters), edgeLR));
     inters.insert(lower_bound(all(inters), edgeLR), edgeLR);
-    
+
     vi neighborL, neighborR;
     for(int v : G2.adj[vl]){
       ii edgeVL = minmax(v, vl);
@@ -186,7 +186,7 @@ void Heuristic::IncreaseIntersection(vi& tour1, vi& tour2, vvd& d1, vvd& d2){
       if(!count(all(inters), edgeVR))
         neighborR.push_back(v);
     }
-    
+
     assert(SZ(neighborL) <= 2 && SZ(neighborR) <= 2);
 
     best = {-1, -1, INT_MAX};
@@ -240,4 +240,36 @@ void Heuristic::IncreaseIntersection(vi& tour1, vi& tour2, vvd& d1, vvd& d2){
 
   inters = intersectSet(edges1, edges2);
   assert(SZ(inters) > oldSizeInters);
+}
+
+int numberOfSimilarEdges(
+    const vi & tour0,
+    const vi & tour1
+) {
+    assert(SZ(tour0) == SZ(tour1));
+    int n = SZ(tour0);
+    set<ii> edges0, edges1;
+
+	FOR(i, n){
+		edges0.insert(minmax(tour0[i], tour0[(i + 1) % n]));
+		edges1.insert(minmax(tour1[i], tour1[(i + 1) % n]));
+	}
+
+    auto inters = intersectSet(edges0, edges1);
+    int szK = SZ(inters);
+    return szK;
+}
+
+void Heuristic::makeFeasibleSolution (
+    vi & tour0,
+    vi & tour1,
+    vvd & cost0,
+    vvd & cost1,
+    const int similarityParameter
+) {
+    int currentNumberOfSimilarEdges = numberOfSimilarEdges(tour0, tour1);
+    while (currentNumberOfSimilarEdges < similarityParameter)
+    {
+        IncreaseIntersection(tour0, tour1, cost0, cost1);
+    }
 }
