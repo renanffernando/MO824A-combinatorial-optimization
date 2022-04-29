@@ -39,15 +39,11 @@
 \newcommand{\cost}[1]{\ensuremath{c^{#1}}}
 \newcommand{\costk}{\ensuremath{\cost{\cycle}}}
 \newcommand{\costke}{\ensuremath{\cost{\cycle}_{\edge}}}
-\newcommand{\co}[1]{\ensuremath{c^{1}}}
-\newcommand{\ct}{\ensuremath{c^{2}}}
-\newcommand{\coe}{\ensuremath{c^{1}_{\edge}}}
-\newcommand{\cte}{\ensuremath{c^{2}_{\edge}}}
+\newcommand{\Cost}{\ensuremath{\mathcal{C}}}
+\newcommand{\Costke}{\ensuremath{\Cost^{\cycle}_{\edge}}}
 \newcommand{\positiveReal}{\ensuremath{\mathbb{R}_+}}
 \newcommand{\X}[2]{\ensuremath{x^{#1}_{#2}}}
 \newcommand{\xke}{\ensuremath{\X{\cycle}{\edge}}}
-\newcommand{\xoe}{\ensuremath{x^{1}_{\edge}}}
-\newcommand{\xte}{\ensuremath{x^{2}_{\edge}}}
 \newcommand{\ze}{\ensuremath{z_{\edge}}}
 \newcommand{\similarity}{\ensuremath{\sigma}}
 \newcommand{\totalconstraints}{\ensuremath{T_r}}
@@ -79,6 +75,8 @@ Sejam:
 
 Objetivo: encontrar dois ciclos Hamiltonianos com custo total mínimo, tal que pelo menos $\similarity$ arestas do grafo sejam visitadas por ambos os ciclos.
 
+O nome kSTPS significa \textit{k-similar Travelling Salesman Problem}. O \textit{k} é o parâmetro de similaridade $\similarity$ acima, inconvenientemente renomeado para que não houvesse confução com o $\cycle$ utilizado para indexar cada um dos ciclos (mais sobre isso na Seção \ref{sec:mathematical model}).
+
 \section{Modelo Matemático}
 \label{sec:mathematical model}
 
@@ -106,8 +104,8 @@ Minimizar:
 \begin{equation}
     \label{eq:goal}
  	\Sum{\cycle \in \allCycles}
- 	\Sum{\edge \in \edges} 	
- 	\costke \ \xke 	
+ 	\Sum{\edge \in \edges}
+ 	\costke \ \xke
 \end{equation}
 
 Sujeito a:
@@ -229,9 +227,15 @@ Minimizar:
 \begin{equation}
     \label{eq:goal lagrangian}
  	\Sum{\cycle \in \allCycles}
- 	\Sum{\edge \in \edges} 	
- 	\costke \ \xke
- 	+ \lagrangeke \left( \ze - \xke \right)
+ 	\Sum{\edge \in \edges}
+ 	\Costke \ \xke
+ 	+ \lagrangeke \ze
+\end{equation}
+
+Em que:
+
+\begin{equation}
+	\Costke = \costke - \lagrangeke
 \end{equation}
 
 Sujeito às restrições \ref{constraint:vertex presence}, \ref{constraint:no subcycle}, e \ref{constraint:similarity} do problema original \subsecref{subsec:problem}, e a restrições de domínio:
@@ -251,6 +255,43 @@ Sujeito às restrições \ref{constraint:vertex presence}, \ref{constraint:no su
 	\forall \edge \in \edges,
 	\forall \cycle \in \allCycles
 \end{equation}
+
+Note que esse problema pode ser resolvido quebrando-o em $\ncycles$ TSP e um problema para resolver as arestas a serem duplicadas $\ze$. Tais detalhes são melhor descritos nas próximas subsubseções.
+
+\subsubsection{Problema da escolha de ciclos derivado da Relaxação Lagrangiana}
+
+Dado $\Cost$, minimizar:
+\begin{equation}
+ 	\Sum{\cycle \in \allCycles}
+ 	\Sum{\edge \in \edges}
+ 	\Costke \ \xke
+\end{equation}
+
+Sujeito às restrições \ref{constraint:vertex presence}, \ref{constraint:no subcycle}. Note que esse problema é o TSP.
+
+\subsubsection{Problema da escolha das arestas similares derivado da Relaxação Lagrangiana}
+
+Minimizar:
+\begin{equation}
+ 	\Sum{\cycle \in \allCycles}
+ 	\Sum{\edge \in \edges}
+	\lagrangeke \ze
+\end{equation}
+
+Sujeito a:
+
+\begin{equation}
+	\Sum{\edge \in \edges} \ze \geqslant \similarity
+\end{equation}
+
+\begin{equation}
+	\label{constraint:value of ze}
+	0 \leqslant \ze \leqslant 1
+	\qquad
+	\forall \edge \in \edges
+\end{equation}
+
+Esse problema é facilmente resolvido escolhendo-se entre as arestas $\edge \in \edges$, as $\similarity$ com menor peso $\Sum{\cycle \in \allCycles} \lagrangeke$. Para essas arestas, é dado o valor $1$ e para as outras é dado o valor $0$.
 
 \subsection{Método do Subgradiente}
 
