@@ -37,7 +37,7 @@ void updateLambda(const vi& tour0, const vi& tour1, const vi& z, vd& lambda1, vd
 
     FOR(i, n)
         FOR(j, n){
-            assert(abs(lambda1[i * n + j] - lambda1[j + n + i]) < 1e-6);
-            assert(abs(lambda2[i * n + j] - lambda2[j + n + i]) < 1e-6);
+            assert(abs(lambda1[i * n + j] - lambda1[j * n + i]) < 1e-6);
+            assert(abs(lambda2[i * n + j] - lambda2[j * n + i]) < 1e-6);
         }
 }
