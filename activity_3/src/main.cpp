@@ -29,13 +29,15 @@ struct ProblemData {
     double upperBound;
     double previousLowerBound;
     double previousUpperBound;
+    vi bestTour0;
+    vi bestTour1;
 };
 
 InputData readInputData();
 void initializeProblemData (const InputData & input, ProblemData & problem);
 bool criteria (const ProblemData problem);
-double computeLowerBound (const ProblemData & problem);
-double computeUpperBound (const InputData & input, const ProblemData & problem);
+void computeLowerBound (ProblemData & problem);
+void computeUpperBound (const InputData & input, ProblemData & problem);
 bool should_I_continue (const ProblemData problem);
 void displayResult (const ProblemData & problem);
 
@@ -66,8 +68,8 @@ int main ()
         problem.z = solve_z(problem.lambda0, problem.lambda1, input.similarityParameter);
         problem.zCost = computeCost(problem.lambda0, problem.lambda1, problem.z);
 
-        problem.lowerBound = computeLowerBound(problem);
-        problem.upperBound = computeUpperBound(input, problem);
+        computeLowerBound(problem);
+        computeUpperBound(input, problem);
 
         updateLambda(problem.tour0, problem.tour1, problem.z, problem.lambda0, problem.lambda1, problem.lowerBound, problem.upperBound);
         displayResult(problem);
@@ -124,16 +126,16 @@ bool should_I_continue (const ProblemData problem)
     return false;
 }
 
-double computeLowerBound (const ProblemData & problem)
+void computeLowerBound (ProblemData & problem)
 {
     double acc = 0;
     acc += problem.lb0;
     acc += problem.lb1;
     acc += problem.zCost;
-    return acc;
+    problem.lowerBound = acc;
 }
 
-double computeUpperBound (const InputData & input, const ProblemData & problem)
+void computeUpperBound (const InputData & input, ProblemData & problem)
 {
     double acc = 0;
     const auto & d0 = input.distance0;
@@ -146,7 +148,11 @@ double computeUpperBound (const InputData & input, const ProblemData & problem)
       acc += d0[tour0[i]][tour0[(i + 1) % n]];
       acc += d1[tour1[i]][tour1[(i + 1) % n]];
     }
-    return acc;
+    if(acc <= problem.upperBound){
+        problem.upperBound = acc;
+        problem.bestTour0 = problem.feasibleTour0;
+        problem.bestTour1 = problem.feasibleTour1;
+    }
 }
 
 void displayResult (const ProblemData & problem)
