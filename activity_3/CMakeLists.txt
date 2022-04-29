@@ -27,26 +27,6 @@ add_library(
 )
 
 add_executable(
-    concorde_solve_instance
-    ${CMAKE_CURRENT_SOURCE_DIR}/src/concorde_solve_instance.cpp
-)
-
-target_link_libraries(
-    concorde_solve_instance
-    concorde_solver
-)
-
-add_executable(
-    concorde_example
-    ${CMAKE_CURRENT_SOURCE_DIR}/src/concorde_example.cpp
-)
-
-target_link_libraries(
-    concorde_example
-    concorde_solver
-)
-
-add_executable(
     main
     ${CMAKE_CURRENT_SOURCE_DIR}/src/main.cpp
     ${CMAKE_CURRENT_SOURCE_DIR}/src/lagrangian.cpp
