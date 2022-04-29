@@ -1,0 +1,7 @@
+#!/bin/sh
+
+for FILE in `ls instancesKTSP/*.ktsp`
+do
+    echo -e "\nRunning $FILE\n"
+    ./script/run_main $FILE
+done
