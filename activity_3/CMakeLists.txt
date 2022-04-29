@@ -47,11 +47,14 @@ target_link_libraries(
 )
 
 add_executable(
-    z_solver_test
-    ${CMAKE_CURRENT_SOURCE_DIR}/src/z_solver_test.cpp
+    main
+    ${CMAKE_CURRENT_SOURCE_DIR}/src/main.cpp
+    ${CMAKE_CURRENT_SOURCE_DIR}/src/lagrangian.cpp
+    ${CMAKE_CURRENT_SOURCE_DIR}/src/heuristic.cpp
 )
 
 target_link_libraries(
-    z_solver_test
+    main
     solve_z
+    concorde_solver
 )
