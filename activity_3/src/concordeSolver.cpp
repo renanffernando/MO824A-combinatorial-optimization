@@ -66,3 +66,22 @@ std::tuple<int, std::vector<int>> solve_tsp (const std::vector<std::vector<int>>
 
     return std::make_tuple(rval, tour);
 }
+
+std::tuple<double, std::vector<int>> solve_tsp (const std::vector<std::vector<double>>& distance)
+{
+    constexpr int multiplier = 1e+4;
+    std::vector<std::vector<int>> integerDistances(
+        distance.size(),
+        std::vector<int>(distance[0].size(), 0)
+    );
+    for (std::size_t i = 0; i < distance.size(); ++i)
+    {
+        for (std::size_t j = 0; j < distance.size(); ++j)
+        {
+            integerDistances[i][j] = multiplier * distance[i][j];
+        }
+    }
+    std::tuple<double, std::vector<int>> solution = solve_tsp(integerDistances);
+    std::get<double>(solution) = std::get<double>(solution) / multiplier;
+    return solution;
+}
