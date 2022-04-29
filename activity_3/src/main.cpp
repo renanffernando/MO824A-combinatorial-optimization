@@ -58,7 +58,7 @@ int main ()
         problem.tour0 = get<vi>(solution_tsp_0);
 
         problem.cost1 = applyLambdaToCost(problem.lambda1, input.distance1);
-        const auto solution_tsp_1 = solve_tsp(problem.cost0);
+        const auto solution_tsp_1 = solve_tsp(problem.cost1);
         problem.lb1 = get<double>(solution_tsp_1);
         problem.tour1 = get<vi>(solution_tsp_1);
 
@@ -121,7 +121,8 @@ void initializeProblemData (const InputData & input, ProblemData & problem)
 }
 
 bool should_I_continue (const ProblemData problem)
-{
+{   
+    if(problem.learnRate < 1e-4) return false;
     constexpr double tolerance = 1e-2;
     double upperBoundDifference = abs(problem.upperBound - problem.previousUpperBound);
     double lowerBoundDifference = abs(problem.lowerBound - problem.previousLowerBound);
