@@ -5,6 +5,7 @@
 #include <algorithm>
 #include <iostream>
 #include <cassert>
+#include <cmath>
 
 std::vector<int> sumCosts(
     const std::vector<double> & cost0,
@@ -31,7 +32,7 @@ double computeCost (
     {
         acc += (cost0[i] + cost1[i]) * z[i];
     }
-    return acc;
+    return acc / 2;
 }
 
 std::vector<int> solve_z(
@@ -48,10 +49,12 @@ std::vector<int> solve_z(
     }
     std::sort(value_index_vector.begin(), value_index_vector.end());
     std::vector<int> z(cost.size(), 0);
+    int numberVertices = sqrt(cost.size());
     for (std::size_t i = 0; i < static_cast<std::size_t>(sigma) ; ++i)
     {
         const std::size_t z_to_set = std::get<1>(value_index_vector[i]);
-        z[z_to_set] = 1;
+        int u = z_to_set % numberVertices, v = z_to_set / numberVertices;
+        z[v * numberVertices + u] = z[u * numberVertices + v] = 1;
     }
     return z;
 }
