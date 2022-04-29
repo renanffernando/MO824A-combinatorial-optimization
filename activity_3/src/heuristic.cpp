@@ -101,24 +101,31 @@ void Heuristic::makeFeasibleSolution (
   struct Edge{
     int u, v;
     ld cost;
+    int type;
     bool operator < (const Edge& e) const{
-      return (cost != e.cost ? cost < e.cost : make_pair(u, v) < make_pair(e.u, e.v));
+      return type != e.type ? type < e.type:
+        (cost != e.cost ? cost < e.cost : make_pair(u, v) < make_pair(e.u, e.v));
     }
   };
   
   int n = SZ(tour0);
-  auto diff = differentEdges(tour0, tour1);
   auto equals = similarEdges(tour0, tour1);
+  auto diff = differentEdges(tour0, tour1);
   
-  vector<Edge> edgesEquals, edgesDiff;
+  vvi type(n, vi(n, 2));
+
   for(auto e : equals)
-    edgesEquals.push_back({e.first, e.second, cost0[e.first][e.second] + cost1[e.first][e.second]});
+    type[e.first][e.second] = 0;
 
   for(auto e : diff)
-    edgesDiff.push_back({e.first, e.second, cost0[e.first][e.second] + cost1[e.first][e.second]});
-  
-  sort(all(edgesEquals));
-  sort(all(edgesDiff));
+    type[e.first][e.second] = 1;
+
+  vector<Edge> edges;
+  FOR(i, n)
+    for(int j = i + 1; j < n; j++)
+      edges.push_back({i, j, cost0[i][j] + cost1[i][j], type[i][j]});
+
+  sort(all(edges));
 
   vi isEnd(n, 1);
   vvi tours(n);
@@ -126,32 +133,9 @@ void Heuristic::makeFeasibleSolution (
   FOR(i, n)
     tours[i] = {i};
 
-  for(auto e : edgesEquals){
-    if(!isEnd[e.u] || !isEnd[e.v] || tours[e.u] == tours[e.v])
-      continue;
-    int sz0 = SZ(tours[e.u]), sz1 = SZ(tours[e.v]);
-    if(tours[e.u][0] == e.u)
-      reverse(all(tours[e.u]));
-    if(tours[e.v].back() == e.v)
-      reverse(all(tours[e.v]));
-    
-    int bg = tours[e.u][0], end = tours[e.v].back();
-    tours[bg]  = tours[e.u];
-    tours[end]  = tours[e.v];
-    isEnd[e.u] = isEnd[e.v] = false;
-
-    tours[bg].insert(tours[bg].end(), all(tours[end]));
-    tours[end] = tours[bg];
-    assert(SZ(tours[end]) == sz0 + sz1);
-    isEnd[bg] = isEnd[end] = true;
-
-    similar++;
-  }
-
-  for(auto e : edgesDiff){
+  for(auto e : edges){
     if(similar == similarityParameter)
       break;
-
     if(!isEnd[e.u] || !isEnd[e.v] || tours[e.u] == tours[e.v])
       continue;
     int sz0 = SZ(tours[e.u]), sz1 = SZ(tours[e.v]);
@@ -169,7 +153,6 @@ void Heuristic::makeFeasibleSolution (
     tours[end] = tours[bg];
     assert(SZ(tours[end]) == sz0 + sz1);
     isEnd[bg] = isEnd[end] = true;
-
     similar++;
   }
 
