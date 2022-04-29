@@ -10,25 +10,34 @@ vvd applyLambdaToCost(const vd& lambda, const vvd& cost) {
   return ret;
 }
 
-void updateLambda(const vvd& x1, const vvd& x2, const vvd& z, vd& lambda1, vd& lambda2, ld lb, ld ub){
-  int n = SZ(x1);
-  vvd grad1(n, vd(n)), grad2(n, vd(n));
-  FOR(i, n)
-    FOR(j, n){
-      grad1[i][j] = z[i][j] - x1[i][j];
-      grad2[i][j] = z[i][j] - x2[i][j];
+
+void updateLambda(const vi& tour0, const vi& tour1, const vi& z, vd& lambda1, vd& lambda2, ld lb, ld ub){
+    int n = SZ(tour1);
+    vd grad1(z.cbegin(), z.cend()), grad2(z.cbegin(), z.cend());
+
+    FOR(i, n){
+        int u0 = tour0[i], v0 = tour0[(i + 1) % n];
+        int u1 = tour1[i], v1 = tour1[(i + 1) % n];
+        grad1[u0 * n + v0] -= 1;
+        grad2[u1 * n + v1] -= 1;
+        grad1[v0 * n + u0] -= 1;
+        grad2[v1 * n + u1] -= 1;
     }
 
-  ld norm = 0;
-  FOR(i, n)
-    FOR(j, n)
-      norm += grad1[i][j] * grad1[i][j] + grad2[i][j] * grad2[i][j];
+    ld norm = 0;
+    FOR(i, SZ(grad1))
+        norm += grad1[i]* grad1[i] + grad2[i] * grad2[i];
 
-  ld alpha = (sqrt(5) - 1) / 2 * (ub - lb) / norm;
+    ld alpha = (sqrt(5) - 1) / 2 * (ub - lb) / norm;
 
-  FOR(i, n)
-    FOR(j, n){
-      lambda1[i * n + j] = max(0.0, lambda1[i * n + j] + alpha * grad1[i][j]);
-      lambda2[i * n + j] = max(0.0, lambda2[i * n + j] + alpha * grad2[i][j]);
+    FOR(i, SZ(lambda1)){
+        lambda1[i] = max(0.0, lambda1[i] + alpha * grad1[i]);
+        lambda2[i] = max(0.0, lambda2[i] + alpha * grad2[i]);
     }
+
+    FOR(i, n)
+        FOR(j, n){
+            assert(abs(lambda1[i * n + j] - lambda1[j + n + i]) < 1e-6);
+            assert(abs(lambda2[i * n + j] - lambda2[j + n + i]) < 1e-6);
+        }
 }
