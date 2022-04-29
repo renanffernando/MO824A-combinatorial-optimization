@@ -121,7 +121,7 @@ void initializeProblemData (const InputData & input, ProblemData & problem)
 }
 
 bool should_I_continue (const ProblemData problem)
-{   
+{
     if(problem.learnRate < 1e-4) return false;
     constexpr double tolerance = 1e-2;
     double upperBoundDifference = abs(problem.upperBound - problem.previousUpperBound);
@@ -133,30 +133,32 @@ bool should_I_continue (const ProblemData problem)
 
 void computeLowerBound (ProblemData & problem)
 {
-    double acc = 0;
-    acc += problem.lb0;
-    acc += problem.lb1;
-    acc += problem.zCost;
-    if(problem.lowerBound > acc)
+    double lowerBoundFound = 0;
+    lowerBoundFound += problem.lb0;
+    lowerBoundFound += problem.lb1;
+    lowerBoundFound += problem.zCost;
+    if(problem.lowerBound < lowerBoundFound)
+    {
         problem.learnRate /= 2;
-    problem.lowerBound = acc;
+        problem.lowerBound = lowerBoundFound;
+    }
 }
 
 void computeUpperBound (const InputData & input, ProblemData & problem)
 {
-    double acc = 0;
     const auto & d0 = input.distance0;
     const auto & d1 = input.distance1;
     const auto & tour0 = problem.feasibleTour0;
     const auto & tour1 = problem.feasibleTour1;
     const auto & n = input.numberOfVertices;
+    double upperBoundFound = 0;
     FOR(i, n)
     {
-      acc += d0[tour0[i]][tour0[(i + 1) % n]];
-      acc += d1[tour1[i]][tour1[(i + 1) % n]];
+      upperBoundFound += d0[tour0[i]][tour0[(i + 1) % n]];
+      upperBoundFound += d1[tour1[i]][tour1[(i + 1) % n]];
     }
-    if(acc <= problem.upperBound){
-        problem.upperBound = acc;
+    if(upperBoundFound < problem.upperBound){
+        problem.upperBound = upperBoundFound;
         problem.bestTour0 = problem.feasibleTour0;
         problem.bestTour1 = problem.feasibleTour1;
     }
