@@ -85,11 +85,11 @@ InputData readInputData ()
 
     data.distance0 = vvd(
         data.numberOfVertices,
-        vd(data.numberOfVertices - 1, 0)
+        vd(data.numberOfVertices, 0)
     );
     data.distance1 = vvd(
         data.numberOfVertices,
-        vd(data.numberOfVertices - 1, 0)
+        vd(data.numberOfVertices, 0)
     );
 
     int lhsVertex, rhsVertex, distance0, distance1;
@@ -99,6 +99,8 @@ InputData readInputData ()
         assert(lhsVertex < rhsVertex);
         data.distance0[lhsVertex][rhsVertex] = distance0;
         data.distance1[lhsVertex][rhsVertex] = distance1;
+        data.distance0[rhsVertex][lhsVertex] = distance0;
+        data.distance1[rhsVertex][lhsVertex] = distance1;
     }
 
     return data;
