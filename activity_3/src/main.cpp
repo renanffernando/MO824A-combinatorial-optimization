@@ -6,6 +6,10 @@
 
 using namespace std;
 
+constexpr int maximumRunninTimeSeconds = 2*60;
+constexpr double minimumLearningRate = 1e-4;
+constexpr double minimumBoundsDifferenceTolerance = 1e-2;
+
 struct InputData {
     int numberOfVertices, numberOfEdges, similarityParameter;
     vvd distance0;
@@ -32,6 +36,7 @@ struct ProblemData {
     vi bestTour0;
     vi bestTour1;
     ld learnRate;
+    chrono::_V2::system_clock::time_point startTime;
 };
 
 InputData readInputData();
@@ -118,17 +123,41 @@ void initializeProblemData (const InputData & input, ProblemData & problem)
     problem.previousLowerBound = 0;
     problem.previousUpperBound = DBL_MAX;
     problem.learnRate = (sqrt(5) - 1) / 2;
+    problem.startTime = chrono::high_resolution_clock::now();
 }
 
 bool should_I_continue (const ProblemData problem)
 {
-    if(problem.learnRate < 1e-4) return false;
+    // time
+    const auto elapsedTime = chrono::duration_cast<chrono::seconds>(
+        chrono::high_resolution_clock::now() - problem.startTime
+    ).count();
+    if (elapsedTime > maximumRunninTimeSeconds)
+    {
+        cout << endl << endl << ">>>>> " << "maximum running time" << " criteria met: " << maximumRunninTimeSeconds << " [s]" << " <<<<<" << endl;
+        return false;
+    }
+    // learn rate
+    if(problem.learnRate < minimumLearningRate)
+    {
+        cout << endl << endl << ">>>>> " << "minimum learning rate" << " criteria met: " << minimumLearningRate << " <<<<<" << endl;
+        return false;
+    }
+    // solution precision
     constexpr double tolerance = 1e-2;
     double upperBoundDifference = abs(problem.upperBound - problem.previousUpperBound);
     double lowerBoundDifference = abs(problem.lowerBound - problem.previousLowerBound);
-    if (upperBoundDifference > tolerance) return true;
-    if (lowerBoundDifference > tolerance) return true;
-    return false;
+    if (upperBoundDifference < minimumBoundsDifferenceTolerance)
+    {
+        cout << endl << endl << ">>>>> " << "minimum upper bound difference" << " criteria met: " << minimumBoundsDifferenceTolerance << " <<<<<" << endl;
+        return false;
+    }
+    if (lowerBoundDifference < tolerance)
+    {
+        cout << endl << endl << ">>>>> " << "minimum loser bound difference" << " criteria met: " << minimumBoundsDifferenceTolerance << " s" << " <<<<<" << endl;
+        return false;
+    }
+    return true;
 }
 
 void computeLowerBound (ProblemData & problem)
