@@ -1,276 +1,179 @@
 #include "heuristic.hpp"
 
-vii intersectSet(set<ii>& edges1, set<ii>& edges2){
-  vii equals;
-  set_intersection(all(edges1), all(edges2), back_inserter(equals));
-  return equals;
-}
-
-struct Graph{
-  int n;
-  vvi adj, comps;
-  vector<char> seen;
-  vector<int> ans;
-  vi level;
-
-  Graph(int n): n(n), adj(n), seen(n), level(n){}
-
-  void AddEdge(int u, int v){
-    adj[u].push_back(v);
-    adj[v].push_back(u);
-  }
-
-  bool dfs(int v, int p){
-    seen[v] = true;
-    for(int u : adj[v]){
-      if(!seen[u]){
-        if(dfs(u, v)){
-          ans.push_back(u);
-          return true;
-        }
-      }else if(u != p){
-        ans.push_back(u);
-        return true;
-      }
-    }
-    return false;
-  }
-
-  vi FindCycle(){
-    ans.clear();
-    fill(all(seen), false);
-    FOR(u, n)
-      if(!seen[u] && dfs(u, -1)){
-        // the cycle begin in u
-        if(count(all(ans), u) == 1)
-          ans.push_back(u);
-        // the cycle does not begin in u
-        while(ans.back() != ans[0])
-          ans.pop_back();
-        return ans;
-      }
-    return ans;
-  }
-
-  bool hasCycle(){
-    FindCycle();
-    return !ans.empty();
-  }
-
-  void RemoveEdge(int u, int v){
-    assert(u != v);
-    FOR(i, 2){
-      auto iter1 = find(all(adj[v]), u);
-      assert(iter1 != adj[v].end());
-      adj[v].erase(iter1);
-      swap(u, v);
-    }
-  }
-
-  void dfsComp(int v){
-    for(int u : adj[v]){
-      if(level[u] == -1){
-        level[u] = 1;
-        comps.back().push_back(u);
-        dfsComp(u);
-      }
-    }
-  }
-
-  void FindComps(){
-    fill(all(level), -1);
-    FOR(v, n){
-      if(level[v] == -1){
-        level[v] = 1;
-        comps.push_back({v});
-        dfsComp(v);
-      }
-    }
-  }
-
-  void FindExtremes(int& u, int& v){
-    FindComps();
-    vi ret;
-
-    assert(SZ(comps) == 1);
-    for(int v : comps[0]){
-      assert(SZ(adj[v]) >= 1 && SZ(adj[v]) <= 2);
-      if(SZ(adj[v]) == 1)
-        ret.push_back(v);
-    }
-    u = ret[0], v = ret[1];
-  }
-};
-
-void Heuristic::IncreaseIntersection(vi& tour1, vi& tour2, vvd& d1, vvd& d2){
-	assert(SZ(tour1) == SZ(tour2));
-  set<ii> edges1, edges2;
-	int n = SZ(tour1);
-
-  Graph G1(n), G2(n);
-  FOR(i, n){
-    G1.AddEdge(tour1[i], tour1[(i + 1) % n]);
-    G2.AddEdge(tour2[i], tour2[(i + 1) % n]);
-  }
-
-	FOR(i, n){
-		edges1.insert(minmax(tour1[i], tour1[(i + 1) % n]));
-		edges2.insert(minmax(tour2[i], tour2[(i + 1) % n]));
-	}
-
+vi completeTour(vvd& cost, vi isEnd, vvi tours, vi oldTour){
   struct Edge{
-    double cost;
-    int u, v, id;
-    bool operator < (const Edge& e2) const{
-      return cost < e2.cost;
+    int u, v;
+    ld cost;
+    bool type;
+    bool operator < (const Edge& e) const{
+      return type != e.type? type < e.type:
+      (cost != e.cost ? cost < e.cost : make_pair(u, v) < make_pair(e.u, e.v));
     }
   };
-
-  auto inters = intersectSet(edges1, edges2);
-
-  int oldSizeInters = SZ(inters);
-  multiset<Edge> mp;
-  for(auto e : edges1)
-    if(!binary_search(all(inters), e))
-      mp.insert({d1[e.first][e.second], e.first, e.second, 1});
-
-  for(auto e : edges2)
-    if(!binary_search(all(inters), e))
-      mp.insert({d2[e.first][e.second], e.first, e.second, 2});
-
-  struct PairEdges{
-    int nl, nr;
-    double cost;
-  };
-  PairEdges best = {-1, -1, INT_MAX};
-  int vl, vr;
-  bool swapped = false;
-
-  for(Edge chosen : mp){
-    swapped = false;
-    if(chosen.id == 2){
-      swapped = true;
-      swap(tour1, tour2);
-      swap(edges1, edges2);
-      swap(d1, d2);
-      swap(G1, G2);
-    }
-    vl = chosen.u;
-    vr = chosen.v;
-    G2.AddEdge(vl, vr);
-    ii edgeLR = minmax(vl, vr);
-    assert(!count(all(inters), edgeLR));
-    inters.insert(lower_bound(all(inters), edgeLR), edgeLR);
-
-    vi neighborL, neighborR;
-    for(int v : G2.adj[vl]){
-      ii edgeVL = minmax(v, vl);
-      if(!count(all(inters), edgeVL))
-        neighborL.push_back(v);
-    }
-
-    for(int v : G2.adj[vr]){
-      ii edgeVR = minmax(v, vr);
-      if(!count(all(inters), edgeVR))
-        neighborR.push_back(v);
-    }
-
-    assert(SZ(neighborL) <= 2 && SZ(neighborR) <= 2);
-
-    best = {-1, -1, INT_MAX};
-    for(int nl : neighborL)
-      for(int nr : neighborR){
-        double cost = d2[nl][vl] + d2[nr][vr];
-        if(best.cost > cost){
-          G2.RemoveEdge(nl, vl);
-          G2.RemoveEdge(nr, vr);
-          if(!G2.hasCycle())
-            best = {nl, nr, cost};
-          G2.AddEdge(nl, vl);
-          G2.AddEdge(nr, vr);
-        }
-      }
-
-    if(best.nl != -1)
-      break;
-    G2.RemoveEdge(vl, vr);
-    inters.erase(lower_bound(all(inters), edgeLR));
-    if(swapped){
-      swap(tour1, tour2);
-      swap(edges1, edges2);
-      swap(d1, d2);
-      swap(G1, G2);
-    }
+  
+  int n = SZ(oldTour);
+  vvi type(n, vi(n, 1));
+  FOR(i, n){
+    int u = oldTour[i], v = oldTour[(i + 1) % n];
+    if(u > v) swap(u, v);
+    type[u][v] = 0;
   }
-  if(best.nl == -1 && SZ(inters) + 5 >= n){
-    ld cost1 = 0, cost2 = 0;
-    FOR(i, n){
-      cost1 += d1[tour1[i]][tour1[(i + 1) % n]] + d2[tour1[i]][tour1[(i + 1) % n]];
-      cost2 += d1[tour2[i]][tour2[(i + 1) % n]] + d2[tour2[i]][tour2[(i + 1) % n]];
-    }
-    if(cost1 < cost2)
-      tour2 = tour1;
-    else
-      tour1 = tour2;
-    return;
-  }
-  assert(best.nl != -1);
 
-  G2.RemoveEdge(best.nl, vl);
-  G2.RemoveEdge(best.nr, vr);
-  assert(!G2.hasCycle());
-
-  int U, V;
-  G2.FindExtremes(U, V);
-  G2.AddEdge(U, V);
-
-  tour2 = G2.FindCycle();
-  assert(SZ(tour2) == n + 1);
-  tour2.pop_back();
-  edges2.clear();
+  vector<Edge> edges;
   FOR(i, n)
-		edges2.insert(minmax(tour2[i], tour2[(i + 1) % n]));
+    for(int j = i + 1; j < n; j++)
+      edges.push_back({i, j, cost[i][j], (bool)type[i][j]});
 
-  if(swapped){
-    swap(tour1, tour2);
-    swap(edges1, edges2);
-    swap(d1, d2);
-    swap(G1, G2);
+  sort(all(edges));
+  
+  for(auto e : edges){
+    if(!isEnd[e.u] || !isEnd[e.v] || tours[e.u] == tours[e.v])
+      continue;
+    int sz0 = SZ(tours[e.u]), sz1 = SZ(tours[e.v]);
+    if(tours[e.u][0] == e.u)
+      reverse(all(tours[e.u]));
+    if(tours[e.v].back() == e.v)
+      reverse(all(tours[e.v]));
+    
+    int bg = tours[e.u][0], end = tours[e.v].back();
+    tours[bg]  = tours[e.u];
+    tours[end]  = tours[e.v];
+    isEnd[e.u] = isEnd[e.v] = false;
+
+    tours[bg].insert(tours[bg].end(), all(tours[end]));
+    tours[end] = tours[bg];
+    assert(SZ(tours[end]) == sz0 + sz1);
+    isEnd[bg] = isEnd[end] = true;
   }
-
-  inters = intersectSet(edges1, edges2);
-  assert(SZ(inters) > oldSizeInters);
+  vi temp;
+  FOR(i, n)
+    if(isEnd[i])
+      temp.push_back(i);
+  assert(SZ(temp) == 2 && tours[temp[0]] == tours[temp[1]]);
+  assert(SZ(oldTour) == SZ(tours[temp[0]]));
+  return tours[temp[0]];
 }
 
-int numberOfSimilarEdges(
-    const vi & tour0,
-    const vi & tour1
+vii similarEdges(
+  const vi & tour0,
+  const vi & tour1
 ) {
-    assert(SZ(tour0) == SZ(tour1));
-    int n = SZ(tour0);
-    set<ii> edges0, edges1;
+  assert(SZ(tour0) == SZ(tour1));
+  int n = SZ(tour0);
+  set<ii> edges0, edges1;
 
 	FOR(i, n){
 		edges0.insert(minmax(tour0[i], tour0[(i + 1) % n]));
 		edges1.insert(minmax(tour1[i], tour1[(i + 1) % n]));
 	}
 
-    auto inters = intersectSet(edges0, edges1);
-    int szK = SZ(inters);
-    return szK;
+  vii equals;
+  set_intersection(all(edges0), all(edges1), back_inserter(equals));
+  return equals;
+}
+
+vii differentEdges(
+  const vi & tour0,
+  const vi & tour1
+) {
+  assert(SZ(tour0) == SZ(tour1));
+  int n = SZ(tour0);
+  set<ii> edges0, edges1;
+
+	FOR(i, n){
+		edges0.insert(minmax(tour0[i], tour0[(i + 1) % n]));
+		edges1.insert(minmax(tour1[i], tour1[(i + 1) % n]));
+	}
+
+  vii diff;
+  set_symmetric_difference(all(edges0), all(edges1), back_inserter(diff));
+  return diff;
 }
 
 void Heuristic::makeFeasibleSolution (
-    vi & tour0,
-    vi & tour1,
-    vvd & cost0,
-    vvd & cost1,
-    const int similarityParameter
+  vi & tour0,
+  vi & tour1,
+  vvd & cost0,
+  vvd & cost1,
+  const int similarityParameter
 ) {
-    int currentNumberOfSimilarEdges = numberOfSimilarEdges(tour0, tour1);
-    while (currentNumberOfSimilarEdges < similarityParameter)
-    {
-        IncreaseIntersection(tour0, tour1, cost0, cost1);
-        currentNumberOfSimilarEdges = numberOfSimilarEdges(tour0, tour1);
+
+  struct Edge{
+    int u, v;
+    ld cost;
+    bool operator < (const Edge& e) const{
+      return (cost != e.cost ? cost < e.cost : make_pair(u, v) < make_pair(e.u, e.v));
     }
+  };
+  
+  int n = SZ(tour0);
+  auto diff = differentEdges(tour0, tour1);
+  auto equals = similarEdges(tour0, tour1);
+  
+  vector<Edge> edgesEquals, edgesDiff;
+  for(auto e : equals)
+    edgesEquals.push_back({e.first, e.second, cost0[e.first][e.second] + cost1[e.first][e.second]});
+
+  for(auto e : diff)
+    edgesDiff.push_back({e.first, e.second, cost0[e.first][e.second] + cost1[e.first][e.second]});
+  
+  sort(all(edgesEquals));
+  sort(all(edgesDiff));
+
+  vi isEnd(n, 1);
+  vvi tours(n);
+  int similar = 0;
+  FOR(i, n)
+    tours[i] = {i};
+
+  for(auto e : edgesEquals){
+    if(!isEnd[e.u] || !isEnd[e.v] || tours[e.u] == tours[e.v])
+      continue;
+    int sz0 = SZ(tours[e.u]), sz1 = SZ(tours[e.v]);
+    if(tours[e.u][0] == e.u)
+      reverse(all(tours[e.u]));
+    if(tours[e.v].back() == e.v)
+      reverse(all(tours[e.v]));
+    
+    int bg = tours[e.u][0], end = tours[e.v].back();
+    tours[bg]  = tours[e.u];
+    tours[end]  = tours[e.v];
+    isEnd[e.u] = isEnd[e.v] = false;
+
+    tours[bg].insert(tours[bg].end(), all(tours[end]));
+    tours[end] = tours[bg];
+    assert(SZ(tours[end]) == sz0 + sz1);
+    isEnd[bg] = isEnd[end] = true;
+
+    similar++;
+  }
+
+  for(auto e : edgesDiff){
+    if(similar == similarityParameter)
+      break;
+
+    if(!isEnd[e.u] || !isEnd[e.v] || tours[e.u] == tours[e.v])
+      continue;
+    int sz0 = SZ(tours[e.u]), sz1 = SZ(tours[e.v]);
+    if(tours[e.u][0] == e.u)
+      reverse(all(tours[e.u]));
+    if(tours[e.v].back() == e.v)
+      reverse(all(tours[e.v]));
+    
+    int bg = tours[e.u][0], end = tours[e.v].back();
+    tours[bg]  = tours[e.u];
+    tours[end]  = tours[e.v];
+    isEnd[e.u] = isEnd[e.v] = false;
+
+    tours[bg].insert(tours[bg].end(), all(tours[end]));
+    tours[end] = tours[bg];
+    assert(SZ(tours[end]) == sz0 + sz1);
+    isEnd[bg] = isEnd[end] = true;
+
+    similar++;
+  }
+
+  tour0 = completeTour(cost0, isEnd, tours, tour0);
+  tour1 = completeTour(cost1, isEnd, tours, tour1);
+  assert(SZ(similarEdges(tour0, tour1)) >= similarityParameter);
 }
