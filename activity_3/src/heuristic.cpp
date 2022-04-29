@@ -127,18 +127,6 @@ void Heuristic::IncreaseIntersection(vi& tour1, vi& tour2, vvd& d1, vvd& d2){
   };
 
   auto inters = intersectSet(edges1, edges2);
-  if(SZ(inters) + 3 >= n){
-    ld cost1 = 0, cost2 = 0;
-    FOR(i, n){
-      cost1 += d1[tour1[i]][tour1[(i + 1) % n]] + d2[tour1[i]][tour1[(i + 1) % n]];
-      cost2 += d1[tour2[i]][tour2[(i + 1) % n]] + d2[tour2[i]][tour2[(i + 1) % n]];
-    }
-    if(cost1 < cost2)
-      tour2 = tour1;
-    else
-      tour1 = tour2;
-    return;
-  }
 
   int oldSizeInters = SZ(inters);
   multiset<Edge> mp;
@@ -214,6 +202,18 @@ void Heuristic::IncreaseIntersection(vi& tour1, vi& tour2, vvd& d1, vvd& d2){
       swap(G1, G2);
     }
   }
+  if(best.nl == -1 && SZ(inters) + 5 >= n){
+    ld cost1 = 0, cost2 = 0;
+    FOR(i, n){
+      cost1 += d1[tour1[i]][tour1[(i + 1) % n]] + d2[tour1[i]][tour1[(i + 1) % n]];
+      cost2 += d1[tour2[i]][tour2[(i + 1) % n]] + d2[tour2[i]][tour2[(i + 1) % n]];
+    }
+    if(cost1 < cost2)
+      tour2 = tour1;
+    else
+      tour1 = tour2;
+    return;
+  }
   assert(best.nl != -1);
 
   G2.RemoveEdge(best.nl, vl);
@@ -271,5 +271,6 @@ void Heuristic::makeFeasibleSolution (
     while (currentNumberOfSimilarEdges < similarityParameter)
     {
         IncreaseIntersection(tour0, tour1, cost0, cost1);
+        currentNumberOfSimilarEdges = numberOfSimilarEdges(tour0, tour1);
     }
 }
