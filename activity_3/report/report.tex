@@ -8,6 +8,8 @@
 \usepackage{amsmath}
 \usepackage{amsfonts}
 \usepackage{amssymb}
+\usepackage{algorithm}
+\usepackage{algorithmic}
 
 \title{Atividade 3 - Técnica de Relaxação Lagrangiana para o kSTSP}
 \author{
@@ -307,9 +309,24 @@ Descrever como transformamos uma solução infactível numa solução factível.
 
 \section{Algoritmo de Solução do Problema}
 
-{\huge TO DO}
+% how to write pseudocode in latex:
+%   https://math-linux.com/latex-26/faq/latex-faq/article/how-to-write-algorithm-and-pseudocode-in-latex-usepackage-algorithm-usepackage-algorithmic
+%  https://tex.stackexchange.com/questions/163768/write-pseudo-code-in-latex
 
-Descrever o algoritmo completo, em pseudocódigo.
+\begin{algorithm}
+\caption{kSTSP}
+\begin{algorithmic}
+    \STATE inicializa problema
+    \WHILE{critério de convergência não é satisfeito}
+    \STATE Resolve TSP para cada um dos ciclos
+    \STATE Resolve problema Z
+    \STATE encontra solução viável usando Heurística Lagrangiana
+    \STATE calcula nova Lower Bound
+    \STATE calcula nova Upper Bound
+    \STATE atualiza $\lagrange$
+    \ENDWHILE
+\end{algorithmic}
+\end{algorithm}
 
 \section{Experimento Computacional}
 
