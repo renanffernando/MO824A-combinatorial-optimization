@@ -82,6 +82,9 @@ std::tuple<double, std::vector<int>> solve_tsp (const std::vector<std::vector<do
         }
     }
     std::tuple<double, std::vector<int>> solution = solve_tsp(integerDistances);
-    std::get<double>(solution) = std::get<double>(solution) / multiplier;
-    return solution;
+    vi tour = get<vi>(solution);
+    ld cost = 0;
+    FOR(i, SZ(tour))
+        cost += distance[tour[i]][tour[(i + 1) % SZ(tour)]];
+    return tuple<double, vi>(cost, tour);
 }
