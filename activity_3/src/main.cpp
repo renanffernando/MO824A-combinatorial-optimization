@@ -37,6 +37,7 @@ bool criteria (const ProblemData problem);
 double computeLowerBound (const ProblemData & problem);
 double computeUpperBound (const InputData & input, const ProblemData & problem);
 bool should_I_continue (const ProblemData problem);
+void displayResult (const ProblemData & problem);
 
 int main ()
 {
@@ -69,6 +70,7 @@ int main ()
         problem.upperBound = computeUpperBound(input, problem);
 
         updateLambda(problem.tour0, problem.tour1, problem.z, problem.lambda0, problem.lambda1, problem.lowerBound, problem.upperBound);
+        displayResult(problem);
     } while (should_I_continue(problem));
     return 0;
 }
@@ -145,4 +147,26 @@ double computeUpperBound (const InputData & input, const ProblemData & problem)
       acc += d1[tour1[i]][tour1[(i + 1) % n]];
     }
     return acc;
+}
+
+void displayResult (const ProblemData & problem)
+{
+    cout << endl << endl;
+    cout << "=================================" << endl;
+    cout << "upper bound: " << problem.upperBound << endl;
+    cout << "lower bound: " << problem.lowerBound << endl;
+    cout << "tour 0: ";
+    for(const auto & vertex: problem.feasibleTour0)
+    {
+        cout << vertex << " ";
+    }
+    cout << endl;
+    cout << "tour 1: ";
+    for(const auto & vertex: problem.feasibleTour1)
+    {
+        cout << vertex << " ";
+    }
+    cout << endl;
+    cout << "=================================" << endl;
+    cout << endl;
 }
