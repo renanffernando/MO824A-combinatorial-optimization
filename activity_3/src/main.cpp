@@ -80,6 +80,10 @@ int main ()
         updateLambda(problem.tour0, problem.tour1, problem.z, problem.lambda0, problem.lambda1, problem.lowerBound, problem.upperBound, problem.learnRate);
         displayResult(problem);
     } while (should_I_continue(problem));
+    const auto elapsedTimeSeconds = chrono::duration_cast<chrono::seconds>(
+        chrono::high_resolution_clock::now() - problem.startTime
+    ).count();
+    cout << endl << endl << "Processing time: " << elapsedTimeSeconds << " [s]" << endl << endl;
     return 0;
 }
 
