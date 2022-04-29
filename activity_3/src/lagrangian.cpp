@@ -11,7 +11,7 @@ vvd applyLambdaToCost(const vd& lambda, const vvd& cost) {
 }
 
 
-void updateLambda(const vi& tour0, const vi& tour1, const vi& z, vd& lambda1, vd& lambda2, ld lb, ld ub){
+void updateLambda(const vi& tour0, const vi& tour1, const vi& z, vd& lambda1, vd& lambda2, ld lb, ld ub, ld learnRate){
     int n = SZ(tour1);
     vd grad1(z.cbegin(), z.cend()), grad2(z.cbegin(), z.cend());
 
@@ -28,7 +28,7 @@ void updateLambda(const vi& tour0, const vi& tour1, const vi& z, vd& lambda1, vd
     FOR(i, SZ(grad1))
         norm += grad1[i]* grad1[i] + grad2[i] * grad2[i];
 
-    ld alpha = (sqrt(5) - 1) / 2 * (ub - lb) / norm;
+    ld alpha = learnRate * (ub - lb) / norm;
 
     FOR(i, SZ(lambda1)){
         lambda1[i] = max(0.0, lambda1[i] + alpha * grad1[i]);

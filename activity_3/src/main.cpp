@@ -31,6 +31,7 @@ struct ProblemData {
     double previousUpperBound;
     vi bestTour0;
     vi bestTour1;
+    ld learnRate;
 };
 
 InputData readInputData();
@@ -71,7 +72,7 @@ int main ()
         computeLowerBound(problem);
         computeUpperBound(input, problem);
 
-        updateLambda(problem.tour0, problem.tour1, problem.z, problem.lambda0, problem.lambda1, problem.lowerBound, problem.upperBound);
+        updateLambda(problem.tour0, problem.tour1, problem.z, problem.lambda0, problem.lambda1, problem.lowerBound, problem.upperBound, problem.learnRate);
         displayResult(problem);
     } while (should_I_continue(problem));
     return 0;
@@ -116,6 +117,7 @@ void initializeProblemData (const InputData & input, ProblemData & problem)
     problem.upperBound = DBL_MAX;
     problem.previousLowerBound = 0;
     problem.previousUpperBound = DBL_MAX;
+    problem.learnRate = (sqrt(5) - 1) / 2;
 }
 
 bool should_I_continue (const ProblemData problem)
@@ -134,6 +136,8 @@ void computeLowerBound (ProblemData & problem)
     acc += problem.lb0;
     acc += problem.lb1;
     acc += problem.zCost;
+    if(problem.lowerBound > acc)
+        problem.learnRate /= 2;
     problem.lowerBound = acc;
 }
 
