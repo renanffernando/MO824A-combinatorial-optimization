@@ -8,8 +8,11 @@
 \usepackage{amsmath}
 \usepackage{amsfonts}
 \usepackage{amssymb}
+
 \usepackage{algorithm}
-\usepackage{algorithmic}
+\usepackage[noend]{algpseudocode}
+\algnewcommand\algorithmicforeach{\textbf{for each}}
+\algdef{S}[FOR]{ForEach}[1]{\algorithmicforeach\ #1\ \algorithmicdo}
 
 \title{Atividade 3 - Técnica de Relaxação Lagrangiana para o kSTSP}
 \author{
@@ -302,10 +305,52 @@ Esse problema é facilmente resolvido escolhendo-se entre as arestas $\edge \in 
 Descrever como fazemos para atualizar $\lagrangeke$.
 
 \subsection{Heurística Lagrangiana}
+Na Heurística Lagrangiana recebemos dois ciclos hamiltonianos $tour1$ e $tour2$, além de uma constante $\sigma$, então devemos retornar dois ciclos hamiltonianos $newTour1$ e $newTour2$ tais que os mesmos compartilham no mínimo $sigma$ arestas. Nosso algoritmo está a seguir:
 
-{\huge TO DO}
-
-Descrever como transformamos uma solução infactível numa solução factível.
+\begin{algorithm}
+\begin{algorithmic}[1]
+\Function{Heuristic}{$tour1, tour2, \sigma$}
+    \State{$equalEdges \gets$ arestas em comum entre $tour1$ e $tour2$}
+    \State{$remainingEdges \gets$ arestas que não estão ao menos em um dos tours}
+    \State{Ordene as arestas dos conjuntos $equalsEdges$ e $remainingEdges$ por seus custos, onde o custo de uma aresta é a soma dos valores do seu custo em cada tour}
+    \State{$edges \gets$ concatenação de $equalsEdges$ e $remainingEdges$, nesta ordem}
+    \State{$newTour1 \gets \emptyset$}
+    \State{$newTour2 \gets \emptyset$}
+    \State{$numSimilar \gets 0$}
+    \For{cada aresta $e$ em $edges$}
+        \If{$numSimilar \geq \sigma$}
+            \State{\textbf{break}}
+        \EndIf
+        \If{$e$ não forma um subtour em $newTour1$ e $newTour2$}
+            \State{$newTour1 \gets newTour1 \cup \{e\}$}
+            \State{$newTour2 \gets newTour2 \cup \{e\}$}
+            \State{$numSimilar \gets numSimilar + 1$}
+            
+        \EndIf
+    \EndFor
+    \State{$edgesTour1 \gets$ arestas $tour1$ ordenadas por seu custo no $tour1$}
+    \For{cada aresta $e$ em $edgesTour1$}
+        \State{se $e$ não formar subtour em $newTour1$, adicione $e$ no mesmo}
+    \EndFor
+    
+    \State{$edges1 \gets$ todas as arestas ordenadas por seu custo no $tour1$}
+    \For{cada aresta $e$ em $edges1$}
+        \State{se $e$ não formar subtour em $newTour1$, adicione $e$ no mesmo}
+    \EndFor
+    \\
+    \State{$edgesTour2 \gets$ arestas $tour2$ ordenadas por seu custo $tour2$}
+    \For{cada aresta $e$ em $edgesTour2$}
+        \State{se $e$ não formar subtour em $newTour2$, adicione $e$ no mesmo}
+    \EndFor
+    
+    \State{$edges2 \gets$ todas as arestas ordenadas por seu custo no $tour2$}
+    \For{cada aresta $e$ em $edges2$}
+        \State{se $e$ não formar subtour em $newTour2$, adicione $e$ no mesmo}
+    \EndFor
+    \State{\textbf{return} $newTour1$ e $newTour2$}
+\EndFunction
+\end{algorithmic}
+\end{algorithm}
 
 \section{Algoritmo de Solução do Problema}
 
