@@ -47,9 +47,10 @@
 \newcommand{\Cost}{\ensuremath{\mathcal{C}}}
 \newcommand{\Costke}{\ensuremath{\Cost^{\cycle}_{\edge}}}
 \newcommand{\positiveReal}{\ensuremath{\mathbb{R}_+}}
-\newcommand{\X}[2]{\ensuremath{x^{#1}_{#2}}}
-\newcommand{\xke}{\ensuremath{\X{\cycle}{\edge}}}
-\newcommand{\ze}{\ensuremath{z_{\edge}}}
+\newcommand{\X}{\ensuremath{x}}
+\newcommand{\xke}{\ensuremath{\X^{\cycle}_{\edge}}}
+\newcommand{\Z}{\ensuremath{z}}
+\newcommand{\ze}{\ensuremath{\Z_{\edge}}}
 \newcommand{\similarity}{\ensuremath{\sigma}}
 \newcommand{\totalconstraints}{\ensuremath{T_r}}
 \newcommand{\bigo}[1]{\ensuremath{\mathcal{O}\left( #1 \right)}}
@@ -231,10 +232,14 @@ Portanto, a restrição escolhida para ser relaxada é a \constraintRef{constrai
 Minimizar:
 \begin{equation}
     \label{eq:goal lagrangian}
- 	\Sum{\cycle \in \allCycles}
- 	\Sum{\edge \in \edges}
- 	\Costke \ \xke
- 	+ \lagrangeke \ze
+	\max_{\lagrange}
+	\left\{
+		\min_{\X, \Z}
+ 		\Sum{\cycle \in \allCycles}
+ 		\Sum{\edge \in \edges}
+ 		\Costke \ \xke
+ 		+ \lagrangeke \ze
+ 	\right\}
 \end{equation}
 
 Em que:
@@ -325,14 +330,14 @@ Na Heurística Lagrangiana recebemos dois ciclos hamiltonianos $tour1$ e $tour2$
             \State{$newTour1 \gets newTour1 \cup \{e\}$}
             \State{$newTour2 \gets newTour2 \cup \{e\}$}
             \State{$numSimilar \gets numSimilar + 1$}
-            
+
         \EndIf
     \EndFor
     \State{$edgesTour1 \gets$ arestas $tour1$ ordenadas por seu custo no $tour1$}
     \For{cada aresta $e$ em $edgesTour1$}
         \State{se $e$ não formar subtour em $newTour1$, adicione $e$ no mesmo}
     \EndFor
-    
+
     \State{$edges1 \gets$ todas as arestas ordenadas por seu custo no $tour1$}
     \For{cada aresta $e$ em $edges1$}
         \State{se $e$ não formar subtour em $newTour1$, adicione $e$ no mesmo}
@@ -342,7 +347,7 @@ Na Heurística Lagrangiana recebemos dois ciclos hamiltonianos $tour1$ e $tour2$
     \For{cada aresta $e$ em $edgesTour2$}
         \State{se $e$ não formar subtour em $newTour2$, adicione $e$ no mesmo}
     \EndFor
-    
+
     \State{$edges2 \gets$ todas as arestas ordenadas por seu custo no $tour2$}
     \For{cada aresta $e$ em $edges2$}
         \State{se $e$ não formar subtour em $newTour2$, adicione $e$ no mesmo}
