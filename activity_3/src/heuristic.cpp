@@ -42,7 +42,8 @@ vi completeTour(vvd& cost, vi isEnd, vvi tours, vi oldTour){
 
     tours[bg].insert(tours[bg].end(), all(tours[end]));
     tours[end] = tours[bg];
-    assert(SZ(tours[end]) == sz0 + sz1);
+    if(SZ(tours[end]) != sz0 + sz1)
+      throw exception();
     isEnd[bg] = isEnd[end] = true;
   }
   vi temp;
@@ -129,7 +130,8 @@ void Heuristic::makeFeasibleSolution (
 
     tours[bg].insert(tours[bg].end(), all(tours[end]));
     tours[end] = tours[bg];
-    assert(SZ(tours[end]) == sz0 + sz1);
+    if(SZ(tours[end]) != sz0 + sz1)
+      throw exception();
     isEnd[bg] = isEnd[end] = true;
     similar++;
   }

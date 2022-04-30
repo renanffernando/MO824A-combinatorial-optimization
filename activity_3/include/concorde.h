@@ -170,7 +170,7 @@
 #ifndef __MACHDEFS_H
 #define __MACHDEFS_H
 
-#define NDEBUG
+//#define NDEBUG
 
 
 #ifdef CC_POSIXTHREADS
