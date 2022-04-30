@@ -31,6 +31,7 @@ struct ProblemData {
     double zCost;
     double lowerBound;
     double upperBound;
+    double bestLowerBound;
     double previousLowerBound;
     double previousUpperBound;
     vi bestTour0;
@@ -124,9 +125,10 @@ void initializeProblemData (const InputData & input, ProblemData & problem)
     problem.cost1 = input.distance1;
     problem.lowerBound = 0;
     problem.upperBound = DBL_MAX;
+    problem.bestLowerBound = 0;
     problem.previousLowerBound = 0;
     problem.previousUpperBound = DBL_MAX;
-    problem.learnRate = (sqrt(5) - 1) / 2;
+    problem.learnRate = 2;
     problem.startTime = chrono::high_resolution_clock::now();
 }
 
@@ -148,17 +150,13 @@ bool should_I_continue (const ProblemData problem)
         return false;
     }
     // solution precision
-    constexpr double tolerance = 1e-2;
     double upperBoundDifference = abs(problem.upperBound - problem.previousUpperBound);
     double lowerBoundDifference = abs(problem.lowerBound - problem.previousLowerBound);
-    if (upperBoundDifference < minimumBoundsDifferenceTolerance)
-    {
-        cout << endl << endl << ">>>>> " << "minimum upper bound difference" << " criteria met: " << minimumBoundsDifferenceTolerance << " <<<<<" << endl;
-        return false;
-    }
-    if (lowerBoundDifference < tolerance)
-    {
-        cout << endl << endl << ">>>>> " << "minimum loser bound difference" << " criteria met: " << minimumBoundsDifferenceTolerance << " s" << " <<<<<" << endl;
+    if ((upperBoundDifference < minimumBoundsDifferenceTolerance) && 
+        (lowerBoundDifference < minimumBoundsDifferenceTolerance))
+    {   
+
+        cout << endl << endl << ">>>>> " << "minimum upper bound and lower bound difference" << " criteria met: " << minimumBoundsDifferenceTolerance << " <<<<<" << endl;
         return false;
     }
     return true;
@@ -170,11 +168,13 @@ void computeLowerBound (ProblemData & problem)
     lowerBoundFound += problem.lb0;
     lowerBoundFound += problem.lb1;
     lowerBoundFound += problem.zCost;
-    if(problem.lowerBound < lowerBoundFound)
+    if(problem.bestLowerBound < lowerBoundFound)
     {
-        problem.learnRate /= 2;
-        problem.lowerBound = lowerBoundFound;
+        problem.bestLowerBound = lowerBoundFound;
     }
+    if(problem.lowerBound > lowerBoundFound)
+        problem.learnRate *= (sqrt(5) - 1) / 2;
+    problem.lowerBound = lowerBoundFound;
 }
 
 void computeUpperBound (const InputData & input, ProblemData & problem)
@@ -203,6 +203,7 @@ void displayResult (const ProblemData & problem)
     cout << "=================================" << endl;
     cout << "upper bound: " << problem.upperBound << endl;
     cout << "lower bound: " << problem.lowerBound << endl;
+    cout << "learning rate: " << problem.learnRate << endl;
     cout << "tour 0: ";
     for(const auto & vertex: problem.feasibleTour0)
     {
