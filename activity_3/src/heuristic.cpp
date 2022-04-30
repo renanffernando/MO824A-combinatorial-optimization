@@ -72,24 +72,6 @@ vii similarEdges(
   return equals;
 }
 
-vii differentEdges(
-  const vi & tour0,
-  const vi & tour1
-) {
-  assert(SZ(tour0) == SZ(tour1));
-  int n = SZ(tour0);
-  set<ii> edges0, edges1;
-
-	FOR(i, n){
-		edges0.insert(minmax(tour0[i], tour0[(i + 1) % n]));
-		edges1.insert(minmax(tour1[i], tour1[(i + 1) % n]));
-	}
-
-  vii diff;
-  set_symmetric_difference(all(edges0), all(edges1), back_inserter(diff));
-  return diff;
-}
-
 void Heuristic::makeFeasibleSolution (
   vi & tour0,
   vi & tour1,
@@ -101,7 +83,7 @@ void Heuristic::makeFeasibleSolution (
   struct Edge{
     int u, v;
     ld cost;
-    int type;
+    bool type;
     bool operator < (const Edge& e) const{
       return type != e.type ? type < e.type:
         (cost != e.cost ? cost < e.cost : make_pair(u, v) < make_pair(e.u, e.v));
@@ -110,20 +92,16 @@ void Heuristic::makeFeasibleSolution (
   
   int n = SZ(tour0);
   auto equals = similarEdges(tour0, tour1);
-  auto diff = differentEdges(tour0, tour1);
   
-  vvi type(n, vi(n, 2));
+  vvi type(n, vi(n, 1));
 
   for(auto e : equals)
     type[e.first][e.second] = 0;
 
-  for(auto e : diff)
-    type[e.first][e.second] = 1;
-
   vector<Edge> edges;
   FOR(i, n)
     for(int j = i + 1; j < n; j++)
-      edges.push_back({i, j, cost0[i][j] + cost1[i][j], type[i][j]});
+      edges.push_back({i, j, cost0[i][j] + cost1[i][j], (bool) type[i][j]});
 
   sort(all(edges));
 
