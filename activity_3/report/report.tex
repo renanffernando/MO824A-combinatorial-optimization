@@ -361,15 +361,15 @@ Na Heurística Lagrangiana recebemos dois ciclos hamiltonianos $tour1$ e $tour2$
 \begin{algorithm}
 \caption{kSTSP}
 \begin{algorithmic}
-    \STATE inicializa problema
-    \WHILE{critério de convergência não é satisfeito}
-    \STATE Resolve TSP para cada um dos ciclos
-    \STATE Resolve problema Z
-    \STATE encontra solução viável usando Heurística Lagrangiana
-    \STATE calcula nova Lower Bound
-    \STATE calcula nova Upper Bound
-    \STATE atualiza $\lagrange$
-    \ENDWHILE
+    \State inicializa problema
+    \While{critério de convergência não é satisfeito}
+    \State Resolve TSP para cada um dos ciclos
+    \State Resolve problema Z
+    \State encontra solução viável usando Heurística Lagrangiana
+    \State calcula nova Lower Bound
+    \State calcula nova Upper Bound
+    \State atualiza $\lagrange$
+    \EndWhile
 \end{algorithmic}
 \end{algorithm}
 
