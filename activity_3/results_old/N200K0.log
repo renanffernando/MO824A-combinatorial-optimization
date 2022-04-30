@@ -1,0 +1,3293 @@
+CCtsp_solve_dat ...
+Finding a good tour for compression ...
+linkern ...
+Setting kick type to close
+Starting Cycle: 11920000
+   0 Steps   Best: 10070000   0.00 seconds
+   1 Steps   Best: 10060000   0.00 seconds
+   8 Steps   Best: 9700000   0.00 seconds
+  10 Steps   Best: 9680000   0.00 seconds
+  12 Steps   Best: 9660000   0.00 seconds
+  19 Steps   Best: 9650000   0.01 seconds
+  20 Steps   Best: 9630000   0.01 seconds
+  35 Steps   Best: 9620000   0.01 seconds
+  37 Steps   Best: 9590000   0.01 seconds
+ 100 Total Steps.
+Best cycle length: 9590000
+Lin-Kernighan Running Time: 0.03
+LK Initial Run: 9590000.0
+LK Run 0: 9510000.0
+LK Run from best tour: 9510000.0
+Time to find compression tour: 0.10 (seconds)
+Set initial upperbound to 9510000 (from tour)
+  LP Value  1: 9075000.000000  (0.01 seconds)
+  LP Value  2: 9353888.888889  (0.05 seconds)
+  LP Value  3: 9484945.054945  (0.12 seconds)
+  LP Value  4: 9500000.000000  (0.22 seconds)
+  LP Value  5: 9508333.333333  (0.35 seconds)
+  LP Value  6: 9510000.000000  (0.37 seconds)
+recomputing rownorms ...
+  LP Value  7: 9510000.000000  (0.37 seconds)
+New lower bound: 9510000.000000
+Exact lower bound: 9510000.000000
+DIFF: 0.000000
+Established Bound: 9510000
+Optimal tour: 9510000
+Total Time to solve TSP: 0.51
+CCtsp_solve_dat ...
+Finding a good tour for compression ...
+linkern ...
+Setting kick type to close
+Starting Cycle: 12890000
+   0 Steps   Best: 9690000   0.00 seconds
+   8 Steps   Best: 9680000   0.00 seconds
+  32 Steps   Best: 9660000   0.01 seconds
+ 100 Total Steps.
+Best cycle length: 9660000
+Lin-Kernighan Running Time: 0.02
+LK Initial Run: 9660000.0
+LK Run 0: 9610000.0
+LK Run from best tour: 9600000.0
+Time to find compression tour: 0.08 (seconds)
+Set initial upperbound to 9600000 (from tour)
+  LP Value  1: 9170000.000000  (0.02 seconds)
+  LP Value  2: 9528450.000000  (0.06 seconds)
+  LP Value  3: 9560000.000000  (0.12 seconds)
+  LP Value  4: 9563220.338983  (0.16 seconds)
+  LP Value  5: 9570000.000000  (0.20 seconds)
+recomputing rownorms ...
+  LP Value  6: 9570000.000000  (0.20 seconds)
+New lower bound: 9570000.000000
+Upperbound from x-heuristic: 9570000.00
+Exact lower bound: 9570000.000000
+DIFF: 0.000000
+Established Bound: 9570000
+Optimal tour: 9570000
+Total Time to solve TSP: 0.32
+
+
+=================================
+upper bound: 2308
+lower bound: 1908
+learning rate: 2
+tour 0: 159 93 196 3 91 14 118 41 145 125 103 64 156 96 86 120 90 27 49 144 112 80 81 164 168 17 174 123 78 57 193 59 113 186 182 149 55 115 180 176 131 111 5 197 121 42 108 12 26 4 124 58 21 19 10 50 88 183 146 34 130 7 28 25 56 194 47 199 116 117 154 195 1 132 137 66 2 128 162 185 109 192 85 152 157 44 181 35 166 141 46 98 173 150 89 151 100 133 18 52 155 129 161 38 139 70 143 84 101 82 83 75 122 13 67 95 40 8 74 87 51 61 189 31 0 105 9 92 32 177 134 43 73 22 148 163 68 72 107 178 191 110 127 106 147 187 114 65 153 160 119 37 23 169 76 171 63 62 11 126 94 39 167 198 179 29 170 77 184 175 102 158 99 71 6 20 36 190 136 104 172 140 15 79 24 30 54 135 53 69 45 188 97 165 33 16 48 138 60 142 
+tour 1: 0 83 16 185 105 2 135 72 17 80 12 52 179 32 112 66 69 198 162 25 158 181 111 173 56 150 90 191 55 136 171 149 10 114 30 199 31 100 160 177 124 96 61 67 131 38 193 159 5 170 19 176 125 23 128 140 14 78 27 157 120 147 57 122 142 4 115 174 197 59 29 3 95 154 97 81 101 195 183 133 18 148 68 33 73 41 153 49 98 143 11 129 39 15 20 89 151 48 45 187 92 1 106 87 93 167 190 164 47 21 169 54 116 9 7 184 146 13 37 46 79 107 65 44 189 145 99 91 139 26 168 60 85 127 70 24 84 121 155 161 137 88 64 175 152 104 130 144 8 166 180 22 71 119 28 86 141 62 178 113 36 196 6 53 194 117 109 82 108 182 35 132 43 77 75 94 126 63 172 156 103 50 165 102 34 58 138 163 51 74 118 42 76 134 186 123 188 40 110 192 
+=================================
+
+CCtsp_solve_dat ...
+Finding a good tour for compression ...
+linkern ...
+Setting kick type to close
+Starting Cycle: 13580000
+   0 Steps   Best: 11180000   0.00 seconds
+   4 Steps   Best: 11170000   0.00 seconds
+   5 Steps   Best: 11160000   0.00 seconds
+   6 Steps   Best: 11040000   0.00 seconds
+  10 Steps   Best: 11000000   0.00 seconds
+  11 Steps   Best: 10960000   0.00 seconds
+  32 Steps   Best: 10950000   0.01 seconds
+ 100 Total Steps.
+Best cycle length: 10950000
+Lin-Kernighan Running Time: 0.03
+LK Initial Run: 10950000.0
+LK Run 0: 10950000.0
+LK Run from best tour: 10940000.0
+Time to find compression tour: 0.12 (seconds)
+Set initial upperbound to 10940000 (from tour)
+  LP Value  1: 10459000.000000  (0.03 seconds)
+  LP Value  2: 10809806.763285  (0.08 seconds)
+  LP Value  3: 10896628.927911  (0.15 seconds)
+  LP Value  4: 10905083.333333  (0.22 seconds)
+  LP Value  5: 10914797.726513  (0.34 seconds)
+  LP Value  6: 10922927.114061  (0.44 seconds)
+  LP Value  7: 10928555.219365  (0.57 seconds)
+  LP Value  8: 10934745.906800  (0.65 seconds)
+  LP Value  9: 10937727.272727  (0.77 seconds)
+  LP Value 10: 10938485.977217  (1.02 seconds)
+  LP Value 11: 10939090.909091  (1.35 seconds)
+  LP Value 12: 10940000.000000  (1.56 seconds)
+  LP Value 13: 10940000.000000  (1.73 seconds)
+New lower bound: 10940000.000000
+Exact lower bound: 10940000.000000
+DIFF: 0.000000
+Established Bound: 10940000
+Optimal tour: 10940000
+Total Time to solve TSP: 1.89
+CCtsp_solve_dat ...
+Finding a good tour for compression ...
+linkern ...
+Setting kick type to close
+Starting Cycle: 13130000
+   0 Steps   Best: 11300000   0.00 seconds
+   1 Steps   Best: 11130000   0.00 seconds
+   8 Steps   Best: 11120000   0.00 seconds
+  11 Steps   Best: 11110000   0.01 seconds
+  12 Steps   Best: 11100000   0.01 seconds
+  20 Steps   Best: 11090000   0.01 seconds
+  40 Steps   Best: 11080000   0.01 seconds
+  67 Steps   Best: 11070000   0.02 seconds
+  82 Steps   Best: 11020000   0.03 seconds
+ 100 Total Steps.
+Best cycle length: 11020000
+Lin-Kernighan Running Time: 0.03
+LK Initial Run: 11020000.0
+LK Run 0: 11010000.0
+LK Run from best tour: 11010000.0
+Time to find compression tour: 0.12 (seconds)
+Set initial upperbound to 11010000 (from tour)
+  LP Value  1: 10460000.000000  (0.02 seconds)
+  LP Value  2: 10948333.333333  (0.05 seconds)
+  LP Value  3: 11005000.000000  (0.11 seconds)
+  LP Value  4: 11010000.000000  (0.15 seconds)
+New lower bound: 11010000.000000
+Exact lower bound: 11010000.000000
+DIFF: 0.000000
+Established Bound: 11010000
+Optimal tour: 11010000
+Total Time to solve TSP: 0.31
+
+
+=================================
+upper bound: 2308
+lower bound: 2195
+learning rate: 2
+tour 0: 60 142 138 48 16 33 165 97 135 53 172 54 30 24 15 140 79 71 99 158 184 175 102 77 170 29 179 167 198 39 94 11 126 62 63 76 171 169 23 119 37 160 153 6 20 36 190 136 104 69 188 45 156 96 86 90 120 27 49 112 144 114 65 187 147 106 127 110 191 178 72 68 107 163 148 22 43 73 134 177 32 105 9 92 0 31 189 61 51 87 42 121 197 111 5 180 176 131 115 55 182 149 186 113 193 59 57 78 123 80 81 164 168 17 174 12 26 108 40 74 8 95 67 13 122 75 83 82 4 124 58 21 10 50 19 101 84 143 70 38 139 161 129 52 155 133 89 100 151 150 18 173 98 85 192 109 185 152 157 162 128 2 66 137 181 44 35 166 141 183 46 88 34 146 130 7 28 25 56 194 47 199 116 117 132 195 1 154 125 118 145 41 14 3 91 196 64 103 93 159 
+tour 1: 185 105 16 80 17 2 72 135 179 52 12 42 118 74 94 75 66 112 32 158 25 69 198 162 111 181 173 56 150 90 100 160 177 31 55 191 136 171 10 149 114 30 199 95 3 29 59 197 128 23 19 170 5 159 193 96 124 61 38 67 131 176 125 27 78 140 14 157 120 147 142 122 57 4 115 174 101 195 81 154 97 133 183 18 148 68 41 33 73 153 49 143 98 11 129 39 15 89 20 151 48 70 127 60 85 24 84 121 155 161 137 88 64 175 152 104 166 180 8 144 130 168 26 139 91 145 99 189 44 65 107 37 79 46 71 22 119 28 86 62 141 178 113 36 196 6 53 194 117 109 82 169 54 116 9 146 13 184 7 21 47 164 87 106 1 92 45 187 93 167 190 132 77 43 108 35 182 63 126 172 156 103 165 102 50 34 58 138 51 163 76 134 186 123 188 40 110 0 83 192 
+=================================
+
+CCtsp_solve_dat ...
+Finding a good tour for compression ...
+linkern ...
+Setting kick type to close
+Starting Cycle: 12811919
+   0 Steps   Best: 11185596   0.00 seconds
+   2 Steps   Best: 11178421   0.00 seconds
+   3 Steps   Best: 11155596   0.00 seconds
+   4 Steps   Best: 11128421   0.00 seconds
+   8 Steps   Best: 11124070   0.00 seconds
+  11 Steps   Best: 11119720   0.01 seconds
+  13 Steps   Best: 11118420   0.01 seconds
+  43 Steps   Best: 11114070   0.02 seconds
+ 100 Total Steps.
+Best cycle length: 11114070
+Lin-Kernighan Running Time: 0.03
+LK Initial Run: 11114070.0
+LK Run 0: 11109720.0
+LK Run from best tour: 11109720.0
+Time to find compression tour: 0.12 (seconds)
+Set initial upperbound to 11109720 (from tour)
+  LP Value  1: 10607994.500000  (0.01 seconds)
+  LP Value  2: 10980945.545455  (0.03 seconds)
+  LP Value  3: 11045157.500000  (0.08 seconds)
+  LP Value  4: 11065640.252874  (0.14 seconds)
+  LP Value  5: 11073472.227053  (0.18 seconds)
+  LP Value  6: 11079088.225362  (0.23 seconds)
+  LP Value  7: 11087665.639488  (0.28 seconds)
+  LP Value  8: 11091566.152941  (0.36 seconds)
+  LP Value  9: 11094812.553928  (0.65 seconds)
+  LP Value 10: 11097166.081935  (1.00 seconds)
+  LP Value 11: 11097821.591592  (1.14 seconds)
+  LP Value 12: 11098028.250000  (1.29 seconds)
+New lower bound: 11098028.250000
+Exact lower bound: 11098028.250000
+DIFF: 0.000000
+LOWER BOUND: 11098028.250000   ACTIVE NODES: 1
+
+Task 0: Branching on node 0
+CClp_getweight ...
+need to link an lp solver to use this function
+CClp_getweight failed
+find_candidate_cliques failed
+BBnode 0 split into 1 (11100682.14) 2 (11099670.27) (0.04 seconds)
+LOWER BOUND: 11099670.275000   ACTIVE NODES: 2
+
+Task 1: Cutting on node 2
+New upperbound from x-heuristic: 11105596.00
+TOUR FOUND - upperbound is 11105596.00
+Writing Pool: 433 cuts
+BBnode 2 (now 3) done cutting: lowerbound 11104550.29 (1.06 seconds)
+LOWER BOUND: 11100682.142574   ACTIVE NODES: 2
+
+Task 2: Cutting on node 1
+Writing Pool: 510 cuts
+BBnode 1 (now 4) can be pruned: upperbound 11105596.00 (0.81 seconds)
+LOWER BOUND: 11104550.293035   ACTIVE NODES: 1
+
+Task 3: Branching on node 3
+CClp_getweight ...
+need to link an lp solver to use this function
+CClp_getweight failed
+find_candidate_cliques failed
+BBnode 3 split into 5 (11105821.00X) 6 (11105322.64) (0.03 seconds)
+Child 0 is pruned
+LOWER BOUND: 11105322.643657   ACTIVE NODES: 1
+
+Task 4: Cutting on node 6
+Writing Pool: 510 cuts
+BBnode 6 (now 7) can be pruned: upperbound 11105596.00 (0.01 seconds)
+
+Task 5: Exit
+Total number of nodes in search tree: 5
+Optimal tour: 11105596
+Total Time to solve TSP: 3.40
+CCtsp_solve_dat ...
+Finding a good tour for compression ...
+linkern ...
+Setting kick type to close
+Starting Cycle: 13162149
+   0 Steps   Best: 11817349   0.00 seconds
+   2 Steps   Best: 11770174   0.00 seconds
+   4 Steps   Best: 11238874   0.00 seconds
+   6 Steps   Best: 11228874   0.00 seconds
+   7 Steps   Best: 11217574   0.00 seconds
+   9 Steps   Best: 11200399   0.01 seconds
+  11 Steps   Best: 11197574   0.01 seconds
+  13 Steps   Best: 11193224   0.01 seconds
+  19 Steps   Best: 11186049   0.01 seconds
+  26 Steps   Best: 11158874   0.01 seconds
+ 100 Total Steps.
+Best cycle length: 11158874
+Lin-Kernighan Running Time: 0.04
+LK Initial Run: 11158874.0
+LK Run 0: 11158874.0
+LK Run from best tour: 11158874.0
+Time to find compression tour: 0.16 (seconds)
+Set initial upperbound to 11158874 (from tour)
+  LP Value  1: 10743874.000000  (0.02 seconds)
+  LP Value  2: 11119736.500000  (0.04 seconds)
+  LP Value  3: 11136238.697802  (0.07 seconds)
+  LP Value  4: 11144355.250000  (0.10 seconds)
+  LP Value  5: 11149995.614583  (0.15 seconds)
+  LP Value  6: 11154472.571429  (0.28 seconds)
+  LP Value  7: 11155756.191781  (0.45 seconds)
+  LP Value  8: 11156366.934783  (0.59 seconds)
+  LP Value  9: 11156675.785714  (0.78 seconds)
+  LP Value 10: 11156961.500000  (0.87 seconds)
+New lower bound: 11156961.500000
+Upperbound from x-heuristic: 11158424.00
+Exact lower bound: 11156961.500000
+DIFF: 0.000000
+LOWER BOUND: 11156961.500000   ACTIVE NODES: 1
+
+Task 0: Branching on node 0
+CClp_getweight ...
+need to link an lp solver to use this function
+CClp_getweight failed
+find_candidate_cliques failed
+BBnode 0 split into 1 (11159949.00X) 2 (11157707.33) (0.05 seconds)
+Child 0 is pruned
+LOWER BOUND: 11157707.333333   ACTIVE NODES: 1
+
+Task 1: Cutting on node 2
+Writing Pool: 191 cuts
+BBnode 2 (now 3) done cutting: lowerbound 11157707.33 (0.08 seconds)
+LOWER BOUND: 11157707.333333   ACTIVE NODES: 1
+
+Task 2: Branching on node 3
+CClp_getweight ...
+need to link an lp solver to use this function
+CClp_getweight failed
+find_candidate_cliques failed
+BBnode 3 split into 4 (11158822.34X) 5 (11158424.00X) (0.03 seconds)
+Child 0 is pruned
+Child 1 is pruned
+
+Task 3: Exit
+Total number of nodes in search tree: 5
+Optimal tour: 11158424
+Total Time to solve TSP: 1.23
+
+
+=================================
+upper bound: 2308
+lower bound: 2226.4
+learning rate: 2
+tour 0: 151 89 100 150 133 155 52 129 161 139 38 70 143 18 173 98 46 88 50 10 19 21 101 84 75 122 13 67 83 82 4 58 124 26 12 174 176 131 180 55 182 149 115 5 111 197 121 42 108 40 95 74 8 87 51 61 189 31 0 105 9 92 32 177 134 73 43 22 148 163 107 68 72 178 191 110 127 113 186 193 59 57 78 123 17 168 164 81 80 112 144 49 27 90 120 86 96 156 45 188 69 104 136 190 36 20 6 153 65 187 114 147 106 119 37 23 169 171 76 63 62 126 11 94 39 167 198 29 179 160 170 77 184 102 175 158 99 71 79 140 15 24 30 54 172 53 135 97 165 33 16 48 138 142 60 159 93 103 64 125 118 91 196 3 14 145 41 154 1 195 132 117 116 199 47 194 56 25 28 7 130 146 34 183 141 166 35 44 181 137 66 2 128 162 157 152 185 109 85 192 
+tour 1: 161 137 155 121 84 24 85 60 127 70 48 151 20 89 15 39 129 11 98 143 49 153 41 33 73 68 148 18 183 133 97 154 81 101 195 4 57 122 142 147 120 115 174 157 140 14 78 27 125 176 131 67 38 61 124 96 193 159 5 170 19 23 128 197 59 29 3 95 199 30 114 10 149 171 136 191 55 31 177 160 100 173 56 150 90 167 190 93 45 187 92 1 106 87 164 47 21 7 184 13 146 9 116 54 169 109 117 82 108 43 132 77 182 35 172 63 126 94 75 198 69 162 111 181 25 158 32 112 66 74 118 42 12 52 179 72 135 2 17 80 16 105 185 192 83 0 110 40 188 186 123 134 76 163 51 156 103 138 58 34 50 102 165 53 194 6 196 36 113 178 141 62 86 28 119 22 71 79 46 37 107 65 44 189 145 99 91 139 168 26 130 144 8 180 166 104 152 175 64 88 
+=================================
+
+CCtsp_solve_dat ...
+Finding a good tour for compression ...
+linkern ...
+Setting kick type to close
+Starting Cycle: 13828743
+   0 Steps   Best: 11443260   0.00 seconds
+   1 Steps   Best: 11273774   0.00 seconds
+   3 Steps   Best: 11266599   0.00 seconds
+   5 Steps   Best: 11264802   0.00 seconds
+  14 Steps   Best: 11245588   0.01 seconds
+  15 Steps   Best: 11240724   0.01 seconds
+  23 Steps   Best: 11204062   0.01 seconds
+  31 Steps   Best: 11202023   0.01 seconds
+ 100 Total Steps.
+Best cycle length: 11202023
+Lin-Kernighan Running Time: 0.03
+LK Initial Run: 11202023.0
+LK Run 0: 11234647.0
+LK Run from best tour: 11202023.0
+Time to find compression tour: 0.15 (seconds)
+Set initial upperbound to 11202023 (from tour)
+  LP Value  1: 10636694.500000  (0.02 seconds)
+  LP Value  2: 11093722.583333  (0.05 seconds)
+  LP Value  3: 11147789.433333  (0.10 seconds)
+  LP Value  4: 11172380.496935  (0.17 seconds)
+  LP Value  5: 11179199.620968  (0.22 seconds)
+  LP Value  6: 11182807.625000  (0.28 seconds)
+  LP Value  7: 11186733.125000  (0.33 seconds)
+  LP Value  8: 11188935.105824  (0.63 seconds)
+  LP Value  9: 11190576.765152  (0.83 seconds)
+  LP Value 10: 11191420.253528  (0.99 seconds)
+  LP Value 11: 11192084.644310  (1.18 seconds)
+  LP Value 12: 11192605.979940  (1.36 seconds)
+  LP Value 13: 11192661.472973  (1.51 seconds)
+New lower bound: 11192661.472973
+Exact lower bound: 11192661.472973
+DIFF: 0.000000
+LOWER BOUND: 11192661.472973   ACTIVE NODES: 1
+
+Task 0: Branching on node 0
+CClp_getweight ...
+need to link an lp solver to use this function
+CClp_getweight failed
+find_candidate_cliques failed
+BBnode 0 split into 1 (11194603.98) 2 (11200612.33) (0.04 seconds)
+LOWER BOUND: 11194603.984076   ACTIVE NODES: 2
+
+Task 1: Cutting on node 1
+Writing Pool: 569 cuts
+BBnode 1 (now 3) done cutting: lowerbound 11201038.43 (1.76 seconds)
+LOWER BOUND: 11200612.333333   ACTIVE NODES: 2
+
+Task 2: Cutting on node 2
+Writing Pool: 573 cuts
+BBnode 2 (now 4) can be pruned: upperbound 11202023.00 (0.06 seconds)
+LOWER BOUND: 11201038.431193   ACTIVE NODES: 1
+
+Task 3: Branching on node 3
+CClp_getweight ...
+need to link an lp solver to use this function
+CClp_getweight failed
+find_candidate_cliques failed
+BBnode 3 split into 5 (11202023.00X) 6 (11202162.68X) (0.04 seconds)
+Child 0 is pruned
+Child 1 is pruned
+
+Task 4: Exit
+Total number of nodes in search tree: 5
+Optimal tour: 11202023
+Total Time to solve TSP: 3.61
+CCtsp_solve_dat ...
+Finding a good tour for compression ...
+linkern ...
+Setting kick type to close
+Starting Cycle: 13580028
+   0 Steps   Best: 11573035   0.00 seconds
+   1 Steps   Best: 11563230   0.00 seconds
+   2 Steps   Best: 11553230   0.00 seconds
+   3 Steps   Best: 11539347   0.00 seconds
+   8 Steps   Best: 11535464   0.00 seconds
+   9 Steps   Best: 11514483   0.00 seconds
+  15 Steps   Best: 11339542   0.01 seconds
+  17 Steps   Best: 11336989   0.01 seconds
+  21 Steps   Best: 11307083   0.01 seconds
+  33 Steps   Best: 11279364   0.01 seconds
+  45 Steps   Best: 11275286   0.01 seconds
+ 100 Total Steps.
+Best cycle length: 11275286
+Lin-Kernighan Running Time: 0.03
+LK Initial Run: 11275286.0
+LK Run 0: 11275134.0
+LK Run from best tour: 11243260.0
+Time to find compression tour: 0.11 (seconds)
+Set initial upperbound to 11243260 (from tour)
+  LP Value  1: 10889749.500000  (0.01 seconds)
+  LP Value  2: 11218228.625000  (0.02 seconds)
+  LP Value  3: 11228884.333333  (0.05 seconds)
+  LP Value  4: 11235018.226190  (0.08 seconds)
+  LP Value  5: 11240641.475000  (0.13 seconds)
+  LP Value  6: 11242093.583333  (0.23 seconds)
+  LP Value  7: 11243260.000000  (0.24 seconds)
+New lower bound: 11243260.000000
+Exact lower bound: 11243260.000000
+DIFF: 0.000000
+Established Bound: 11243260
+Optimal tour: 11243260
+Total Time to solve TSP: 0.39
+
+
+=================================
+upper bound: 2308
+lower bound: 2244.54
+learning rate: 2
+tour 0: 60 142 138 48 16 33 45 188 165 97 69 53 135 54 30 24 79 15 140 172 104 136 190 6 20 36 71 99 158 175 102 184 77 170 29 179 167 198 94 39 126 11 62 63 76 171 169 23 119 37 160 153 65 187 114 147 106 127 110 191 178 72 68 107 163 148 22 43 73 134 177 32 92 9 105 0 31 189 61 51 87 42 108 40 74 8 95 67 13 122 75 83 82 4 58 124 26 12 174 121 197 111 5 131 176 180 115 55 182 149 186 113 193 59 57 78 123 17 168 164 81 80 112 144 49 27 156 96 120 90 86 194 56 25 7 130 88 50 10 19 21 101 84 143 70 38 139 161 129 52 155 133 89 151 100 150 18 173 98 85 192 109 185 152 157 162 128 2 66 137 181 44 35 166 141 46 183 34 146 28 47 199 116 117 132 195 1 154 125 118 145 41 14 3 91 196 64 103 93 159 
+tour 1: 185 105 16 80 17 2 135 72 179 52 12 42 118 74 66 112 32 67 131 38 61 124 96 193 159 5 170 19 23 128 125 176 27 120 147 142 122 57 4 115 174 157 78 14 140 197 59 29 3 95 199 30 114 10 149 171 136 55 31 191 90 150 56 173 100 177 160 181 162 111 25 158 69 198 75 94 126 63 172 182 35 108 43 77 132 190 167 93 92 187 45 48 151 89 20 68 148 154 97 81 101 195 183 133 18 73 41 33 153 49 143 98 11 129 15 39 70 127 60 85 24 84 121 155 161 137 88 64 175 152 104 166 180 8 144 130 168 26 139 91 99 145 44 189 1 106 87 164 47 21 169 82 109 117 54 7 116 9 184 146 13 107 65 37 79 46 119 71 22 28 86 62 141 178 113 36 196 6 194 53 165 102 50 34 58 138 103 156 51 163 76 134 186 123 188 40 110 0 83 192 
+=================================
+
+CCtsp_solve_dat ...
+Finding a good tour for compression ...
+linkern ...
+Setting kick type to close
+Starting Cycle: 14025136
+   0 Steps   Best: 11545304   0.00 seconds
+   2 Steps   Best: 11412402   0.00 seconds
+   4 Steps   Best: 11371013   0.00 seconds
+   5 Steps   Best: 11360015   0.00 seconds
+   6 Steps   Best: 11346603   0.00 seconds
+  11 Steps   Best: 11345093   0.01 seconds
+  16 Steps   Best: 11337465   0.01 seconds
+  19 Steps   Best: 11336091   0.01 seconds
+  22 Steps   Best: 11330955   0.01 seconds
+  38 Steps   Best: 11324113   0.01 seconds
+  42 Steps   Best: 11316442   0.01 seconds
+  46 Steps   Best: 11299249   0.02 seconds
+  72 Steps   Best: 11298463   0.02 seconds
+ 100 Total Steps.
+Best cycle length: 11298463
+Lin-Kernighan Running Time: 0.03
+LK Initial Run: 11298463.0
+LK Run 0: 11295398.0
+LK Run from best tour: 11293975.0
+Time to find compression tour: 0.12 (seconds)
+Set initial upperbound to 11293975 (from tour)
+  LP Value  1: 10850358.750000  (0.01 seconds)
+  LP Value  2: 11138557.428571  (0.02 seconds)
+  LP Value  3: 11209781.815789  (0.07 seconds)
+  LP Value  4: 11232120.208333  (0.11 seconds)
+  LP Value  5: 11241833.683333  (0.15 seconds)
+  LP Value  6: 11248429.639737  (0.19 seconds)
+  LP Value  7: 11254084.141026  (0.23 seconds)
+  LP Value  8: 11255753.333333  (0.30 seconds)
+  LP Value  9: 11259091.817535  (0.82 seconds)
+  LP Value 10: 11260746.000000  (0.86 seconds)
+  LP Value 11: 11262956.833333  (1.09 seconds)
+  LP Value 12: 11263670.008493  (1.32 seconds)
+  LP Value 13: 11264408.675700  (1.51 seconds)
+  LP Value 14: 11264779.578431  (1.69 seconds)
+New lower bound: 11264779.578431
+Exact lower bound: 11264779.578431
+DIFF: 0.000000
+LOWER BOUND: 11264779.578431   ACTIVE NODES: 1
+
+Task 0: Branching on node 0
+CClp_getweight ...
+need to link an lp solver to use this function
+CClp_getweight failed
+find_candidate_cliques failed
+BBnode 0 split into 1 (11267944.57) 2 (11268565.01) (0.05 seconds)
+LOWER BOUND: 11267944.570838   ACTIVE NODES: 2
+
+Task 1: Cutting on node 1
+recomputing rownorms ...
+Writing Pool: 480 cuts
+BBnode 1 (now 3) done cutting: lowerbound 11271857.29 (0.53 seconds)
+LOWER BOUND: 11268565.007162   ACTIVE NODES: 2
+
+Task 2: Cutting on node 2
+Writing Pool: 564 cuts
+BBnode 2 (now 4) done cutting: lowerbound 11274694.80 (1.16 seconds)
+LOWER BOUND: 11271857.293082   ACTIVE NODES: 2
+
+Task 3: Branching on node 3
+CClp_getweight ...
+need to link an lp solver to use this function
+CClp_getweight failed
+find_candidate_cliques failed
+BBnode 3 split into 5 (11273209.02) 6 (11273744.23) (0.05 seconds)
+LOWER BOUND: 11273209.018740   ACTIVE NODES: 3
+
+Task 4: Cutting on node 5
+Writing Pool: 648 cuts
+BBnode 5 (now 7) done cutting: lowerbound 11280318.20 (1.11 seconds)
+LOWER BOUND: 11273744.229702   ACTIVE NODES: 3
+
+Task 5: Cutting on node 6
+Writing Pool: 724 cuts
+BBnode 6 (now 8) done cutting: lowerbound 11280909.48 (1.08 seconds)
+LOWER BOUND: 11274694.796396   ACTIVE NODES: 3
+
+Task 6: Branching on node 4
+CClp_getweight ...
+need to link an lp solver to use this function
+CClp_getweight failed
+find_candidate_cliques failed
+BBnode 4 split into 9 (11275927.83) 10 (11275390.48) (0.06 seconds)
+LOWER BOUND: 11275390.484482   ACTIVE NODES: 4
+
+Task 7: Cutting on node 10
+Writing Pool: 759 cuts
+BBnode 10 (now 11) done cutting: lowerbound 11278003.07 (0.34 seconds)
+LOWER BOUND: 11275927.834533   ACTIVE NODES: 4
+
+Task 8: Cutting on node 9
+Writing Pool: 803 cuts
+BBnode 9 (now 12) done cutting: lowerbound 11281727.34 (0.78 seconds)
+LOWER BOUND: 11278003.070488   ACTIVE NODES: 4
+
+Task 9: Branching on node 11
+CClp_getweight ...
+need to link an lp solver to use this function
+CClp_getweight failed
+find_candidate_cliques failed
+BBnode 11 split into 13 (11279934.31) 14 (11280890.48) (0.06 seconds)
+LOWER BOUND: 11279934.313253   ACTIVE NODES: 5
+
+Task 10: Cutting on node 13
+New upperbound from x-heuristic: 11288368.00
+TOUR FOUND - upperbound is 11288368.00
+Writing Pool: 820 cuts
+BBnode 13 (now 15) done cutting: lowerbound 11281179.88 (0.29 seconds)
+LOWER BOUND: 11280318.202020   ACTIVE NODES: 5
+
+Task 11: Branching on node 7
+CClp_getweight ...
+need to link an lp solver to use this function
+CClp_getweight failed
+find_candidate_cliques failed
+BBnode 7 split into 16 (11284546.38) 17 (11282530.45) (0.05 seconds)
+LOWER BOUND: 11280890.482492   ACTIVE NODES: 6
+
+Task 12: Cutting on node 14
+Writing Pool: 851 cuts
+BBnode 14 (now 18) done cutting: lowerbound 11284589.49 (0.46 seconds)
+LOWER BOUND: 11280909.480361   ACTIVE NODES: 6
+
+Task 13: Branching on node 8
+CClp_getweight ...
+need to link an lp solver to use this function
+CClp_getweight failed
+find_candidate_cliques failed
+BBnode 8 split into 19 (11284232.49) 20 (11286019.56) (0.04 seconds)
+LOWER BOUND: 11281179.879941   ACTIVE NODES: 7
+
+Task 14: Branching on node 15
+CClp_getweight ...
+need to link an lp solver to use this function
+CClp_getweight failed
+find_candidate_cliques failed
+BBnode 15 split into 21 (11282674.62) 22 (11283242.41) (0.05 seconds)
+LOWER BOUND: 11281727.342995   ACTIVE NODES: 8
+
+Task 15: Branching on node 12
+CClp_getweight ...
+need to link an lp solver to use this function
+CClp_getweight failed
+find_candidate_cliques failed
+BBnode 12 split into 23 (11284757.43) 24 (11288613.58X) (0.05 seconds)
+Child 1 is pruned
+LOWER BOUND: 11282530.450920   ACTIVE NODES: 8
+
+Task 16: Cutting on node 17
+Writing Pool: 893 cuts
+BBnode 17 (now 25) can be pruned: upperbound 11288368.00 (0.75 seconds)
+LOWER BOUND: 11282674.621039   ACTIVE NODES: 7
+
+Task 17: Cutting on node 21
+recomputing rownorms ...
+Writing Pool: 921 cuts
+BBnode 21 (now 26) done cutting: lowerbound 11285618.40 (0.48 seconds)
+LOWER BOUND: 11283242.414634   ACTIVE NODES: 7
+
+Task 18: Cutting on node 22
+Writing Pool: 938 cuts
+BBnode 22 (now 27) can be pruned: upperbound 11288368.00 (0.05 seconds)
+LOWER BOUND: 11284232.486207   ACTIVE NODES: 6
+
+Task 19: Cutting on node 19
+Writing Pool: 1002 cuts
+BBnode 19 (now 28) can be pruned: upperbound 11288368.00 (0.35 seconds)
+LOWER BOUND: 11284546.379167   ACTIVE NODES: 5
+
+Task 20: Cutting on node 16
+Writing Pool: 1077 cuts
+BBnode 16 (now 29) done cutting: lowerbound 11287376.90 (1.20 seconds)
+LOWER BOUND: 11284589.490811   ACTIVE NODES: 5
+
+Task 21: Branching on node 18
+CClp_getweight ...
+need to link an lp solver to use this function
+CClp_getweight failed
+find_candidate_cliques failed
+BBnode 18 split into 30 (11285387.65) 31 (11285961.97) (0.05 seconds)
+LOWER BOUND: 11284757.433333   ACTIVE NODES: 6
+
+Task 22: Cutting on node 23
+Writing Pool: 1087 cuts
+BBnode 23 (now 32) can be pruned: upperbound 11288368.00 (0.05 seconds)
+LOWER BOUND: 11285387.648544   ACTIVE NODES: 5
+
+Task 23: Cutting on node 30
+recomputing rownorms ...
+Writing Pool: 1099 cuts
+BBnode 30 (now 33) done cutting: lowerbound 11287168.96 (0.78 seconds)
+LOWER BOUND: 11285618.398860   ACTIVE NODES: 5
+
+Task 24: Branching on node 26
+CClp_getweight ...
+need to link an lp solver to use this function
+CClp_getweight failed
+find_candidate_cliques failed
+BBnode 26 split into 34 (11289507.00X) 35 (11289423.72X) (0.04 seconds)
+Child 0 is pruned
+Child 1 is pruned
+LOWER BOUND: 11285961.970032   ACTIVE NODES: 4
+
+Task 25: Cutting on node 31
+Writing Pool: 1106 cuts
+BBnode 31 (now 36) can be pruned: upperbound 11288368.00 (0.05 seconds)
+LOWER BOUND: 11286019.555371   ACTIVE NODES: 3
+
+Task 26: Cutting on node 20
+Writing Pool: 1106 cuts
+BBnode 20 (now 37) can be pruned: upperbound 11288368.00 (0.01 seconds)
+LOWER BOUND: 11287168.960298   ACTIVE NODES: 2
+
+Task 27: Branching on node 33
+CClp_getweight ...
+need to link an lp solver to use this function
+CClp_getweight failed
+find_candidate_cliques failed
+BBnode 33 split into 38 (11291287.16X) 39 (11294515.71X) (0.05 seconds)
+Child 0 is pruned
+Child 1 is pruned
+LOWER BOUND: 11287376.901099   ACTIVE NODES: 1
+
+Task 28: Branching on node 29
+CClp_getweight ...
+need to link an lp solver to use this function
+CClp_getweight failed
+find_candidate_cliques failed
+BBnode 29 split into 40 (11288220.09) 41 (11288496.87X) (0.05 seconds)
+Child 1 is pruned
+LOWER BOUND: 11288220.093929   ACTIVE NODES: 1
+
+Task 29: Cutting on node 40
+Writing Pool: 1111 cuts
+BBnode 40 (now 42) can be pruned: upperbound 11288368.00 (0.03 seconds)
+
+Task 30: Exit
+Total number of nodes in search tree: 25
+Optimal tour: 11288368
+Total Time to solve TSP: 11.95
+CCtsp_solve_dat ...
+Finding a good tour for compression ...
+linkern ...
+Setting kick type to close
+Starting Cycle: 14363409
+   0 Steps   Best: 11385884   0.00 seconds
+   5 Steps   Best: 11383059   0.00 seconds
+   6 Steps   Best: 11375493   0.00 seconds
+  12 Steps   Best: 11373820   0.01 seconds
+  21 Steps   Best: 11348943   0.01 seconds
+  23 Steps   Best: 11345665   0.01 seconds
+  24 Steps   Best: 11330424   0.01 seconds
+  34 Steps   Best: 11319895   0.01 seconds
+ 100 Total Steps.
+Best cycle length: 11319895
+Lin-Kernighan Running Time: 0.03
+LK Initial Run: 11319895.0
+LK Run 0: 11319895.0
+LK Run from best tour: 11319895.0
+Time to find compression tour: 0.11 (seconds)
+Set initial upperbound to 11319895 (from tour)
+  LP Value  1: 10738132.500000  (0.01 seconds)
+  LP Value  2: 11233772.250000  (0.04 seconds)
+  LP Value  3: 11278228.500000  (0.07 seconds)
+  LP Value  4: 11286826.166667  (0.09 seconds)
+  LP Value  5: 11292848.125000  (0.11 seconds)
+  LP Value  6: 11297106.250000  (0.15 seconds)
+  LP Value  7: 11301786.648936  (0.38 seconds)
+  LP Value  8: 11304387.970040  (0.61 seconds)
+  LP Value  9: 11305552.270841  (0.88 seconds)
+  LP Value 10: 11306133.340164  (1.01 seconds)
+  LP Value 11: 11306184.696820  (1.13 seconds)
+New lower bound: 11306184.696820
+Upperbound from x-heuristic: 11317852.00
+Exact lower bound: 11306184.696820
+DIFF: 0.000000
+LOWER BOUND: 11306184.696820   ACTIVE NODES: 1
+
+Task 0: Branching on node 0
+CClp_getweight ...
+need to link an lp solver to use this function
+CClp_getweight failed
+find_candidate_cliques failed
+BBnode 0 split into 1 (11306750.29) 2 (11307196.78) (0.03 seconds)
+LOWER BOUND: 11306750.286072   ACTIVE NODES: 2
+
+Task 1: Cutting on node 1
+recomputing rownorms ...
+Writing Pool: 271 cuts
+BBnode 1 (now 3) done cutting: lowerbound 11307712.38 (0.46 seconds)
+LOWER BOUND: 11307196.780263   ACTIVE NODES: 2
+
+Task 2: Cutting on node 2
+recomputing rownorms ...
+Writing Pool: 396 cuts
+BBnode 2 (now 4) done cutting: lowerbound 11312020.43 (1.67 seconds)
+LOWER BOUND: 11307712.380952   ACTIVE NODES: 2
+
+Task 3: Branching on node 3
+CClp_getweight ...
+need to link an lp solver to use this function
+CClp_getweight failed
+find_candidate_cliques failed
+BBnode 3 split into 5 (11309985.25) 6 (11309359.75) (0.04 seconds)
+LOWER BOUND: 11309359.750000   ACTIVE NODES: 3
+
+Task 4: Cutting on node 6
+Writing Pool: 474 cuts
+BBnode 6 (now 7) done cutting: lowerbound 11313400.15 (0.85 seconds)
+LOWER BOUND: 11309985.250000   ACTIVE NODES: 3
+
+Task 5: Cutting on node 5
+Writing Pool: 529 cuts
+BBnode 5 (now 8) done cutting: lowerbound 11315200.51 (0.78 seconds)
+LOWER BOUND: 11312020.426667   ACTIVE NODES: 3
+
+Task 6: Branching on node 4
+CClp_getweight ...
+need to link an lp solver to use this function
+CClp_getweight failed
+find_candidate_cliques failed
+BBnode 4 split into 9 (11313158.67) 10 (11313065.27) (0.04 seconds)
+LOWER BOUND: 11313065.267012   ACTIVE NODES: 4
+
+Task 7: Cutting on node 10
+Writing Pool: 600 cuts
+BBnode 10 (now 11) done cutting: lowerbound 11314117.58 (0.84 seconds)
+LOWER BOUND: 11313158.674740   ACTIVE NODES: 4
+
+Task 8: Cutting on node 9
+recomputing rownorms ...
+Writing Pool: 629 cuts
+BBnode 9 (now 12) done cutting: lowerbound 11315585.43 (0.59 seconds)
+LOWER BOUND: 11313400.145455   ACTIVE NODES: 4
+
+Task 9: Branching on node 7
+CClp_getweight ...
+need to link an lp solver to use this function
+CClp_getweight failed
+find_candidate_cliques failed
+BBnode 7 split into 13 (11316293.15) 14 (11313888.32) (0.03 seconds)
+LOWER BOUND: 11313888.323529   ACTIVE NODES: 5
+
+Task 10: Cutting on node 14
+recomputing rownorms ...
+Writing Pool: 672 cuts
+BBnode 14 (now 15) done cutting: lowerbound 11315016.75 (0.77 seconds)
+LOWER BOUND: 11314117.583333   ACTIVE NODES: 5
+
+Task 11: Branching on node 11
+CClp_getweight ...
+need to link an lp solver to use this function
+CClp_getweight failed
+find_candidate_cliques failed
+BBnode 11 split into 16 (11314428.66) 17 (11314380.78) (0.04 seconds)
+LOWER BOUND: 11314380.783784   ACTIVE NODES: 6
+
+Task 12: Cutting on node 17
+New upperbound from x-heuristic: 11315222.00
+TOUR FOUND - upperbound is 11315222.00
+Writing Pool: 673 cuts
+BBnode 17 (now 18) can be pruned: upperbound 11315222.00 (0.05 seconds)
+LOWER BOUND: 11314428.662069   ACTIVE NODES: 5
+
+Task 13: Cutting on node 16
+Writing Pool: 733 cuts
+BBnode 16 (now 19) can be pruned: upperbound 11315222.00 (0.75 seconds)
+LOWER BOUND: 11315016.750000   ACTIVE NODES: 4
+
+Task 14: Branching on node 15
+CClp_getweight ...
+need to link an lp solver to use this function
+CClp_getweight failed
+find_candidate_cliques failed
+BBnode 15 split into 20 (11317994.48X) 21 (11315362.08X) (0.04 seconds)
+Child 0 is pruned
+Child 1 is pruned
+LOWER BOUND: 11315200.512000   ACTIVE NODES: 3
+
+Task 15: Branching on node 8
+CClp_getweight ...
+need to link an lp solver to use this function
+CClp_getweight failed
+find_candidate_cliques failed
+BBnode 8 split into 22 (11316444.90X) 23 (11316087.84X) (0.03 seconds)
+Child 0 is pruned
+Child 1 is pruned
+LOWER BOUND: 11315585.428571   ACTIVE NODES: 2
+
+Task 16: Branching on node 12
+Do not branch, the lp is within 1.0 of the upperbound
+BBnode 12 is pruned - no branching (0.00 seconds)
+LOWER BOUND: 11316293.145833   ACTIVE NODES: 1
+
+Task 17: Cutting on node 13
+Do not cut, the lp is within 1.0 of the upperbound
+Writing Pool: 733 cuts
+BBnode 13 (now 26) can be pruned: upperbound 11315222.00 (0.00 seconds)
+
+Task 18: Exit
+Total number of nodes in search tree: 15
+Optimal tour: 11315222
+Total Time to solve TSP: 8.30
+
+
+=================================
+upper bound: 2308
+lower bound: 2260.37
+learning rate: 2
+tour 0: 60 142 138 48 16 33 165 97 135 53 172 54 30 24 15 140 79 71 99 158 184 175 102 77 170 160 179 29 198 167 39 94 11 126 62 63 76 171 169 23 37 119 106 147 187 114 65 153 6 20 36 190 136 104 69 188 45 156 96 86 120 90 27 49 144 112 80 81 164 168 17 174 12 26 108 42 121 197 111 5 55 182 149 115 180 131 176 57 78 123 193 59 186 113 127 110 191 178 107 68 72 163 148 22 43 73 134 177 32 9 92 105 0 31 189 61 51 87 8 74 40 95 67 13 122 75 83 82 4 124 58 21 19 50 10 101 84 143 70 139 38 161 129 155 52 18 133 150 100 151 89 173 98 85 192 109 185 152 157 162 128 2 66 137 181 44 35 166 141 46 183 88 34 146 130 7 28 25 56 194 47 199 116 117 132 195 1 154 125 41 145 118 14 91 3 196 64 103 93 159 
+tour 1: 0 83 110 40 188 123 186 134 76 163 51 138 58 34 102 165 50 103 156 172 182 35 108 132 43 77 63 126 75 94 74 118 42 66 112 32 158 25 69 198 162 111 181 173 56 150 90 167 93 190 164 47 21 7 184 13 146 9 116 54 169 82 109 117 194 53 6 196 36 113 178 62 141 86 28 119 22 71 79 46 37 107 65 91 99 145 44 189 1 106 87 92 187 45 48 151 70 127 60 85 168 26 139 130 144 8 180 166 104 152 175 64 88 137 161 155 121 84 24 11 143 98 49 153 73 33 41 129 39 15 89 20 68 148 18 183 133 97 154 81 101 195 174 115 4 142 57 122 147 120 157 27 78 14 140 197 59 29 3 95 199 30 171 114 10 149 136 31 55 191 100 177 160 124 96 61 193 159 5 170 19 23 128 125 176 131 38 67 135 72 2 17 179 52 12 80 16 105 185 192 
+=================================
+
+CCtsp_solve_dat ...
+Finding a good tour for compression ...
+linkern ...
+Setting kick type to close
+Starting Cycle: 13945351
+   0 Steps   Best: 11698721   0.00 seconds
+   1 Steps   Best: 11550078   0.00 seconds
+   2 Steps   Best: 11468038   0.00 seconds
+   5 Steps   Best: 11406452   0.00 seconds
+   7 Steps   Best: 11403503   0.00 seconds
+  11 Steps   Best: 11401791   0.00 seconds
+  17 Steps   Best: 11337682   0.01 seconds
+  21 Steps   Best: 11333393   0.01 seconds
+  41 Steps   Best: 11332269   0.01 seconds
+  47 Steps   Best: 11328324   0.02 seconds
+  51 Steps   Best: 11327027   0.02 seconds
+ 100 Total Steps.
+Best cycle length: 11327027
+Lin-Kernighan Running Time: 0.03
+LK Initial Run: 11327027.0
+LK Run 0: 11381209.0
+LK Run from best tour: 11321768.0
+Time to find compression tour: 0.12 (seconds)
+Set initial upperbound to 11321768 (from tour)
+  LP Value  1: 10842152.750000  (0.01 seconds)
+  LP Value  2: 11181457.000000  (0.02 seconds)
+  LP Value  3: 11239245.250000  (0.04 seconds)
+  LP Value  4: 11260162.520833  (0.07 seconds)
+  LP Value  5: 11272023.274835  (0.11 seconds)
+  LP Value  6: 11278360.125000  (0.15 seconds)
+  LP Value  7: 11284525.300000  (0.19 seconds)
+  LP Value  8: 11286762.290972  (0.24 seconds)
+  LP Value  9: 11291449.257576  (0.41 seconds)
+  LP Value 10: 11295862.767725  (0.60 seconds)
+  LP Value 11: 11297691.017857  (0.78 seconds)
+  LP Value 12: 11298369.964440  (1.03 seconds)
+  LP Value 13: 11298872.513480  (1.22 seconds)
+  LP Value 14: 11299102.509602  (1.40 seconds)
+New lower bound: 11299102.509602
+Exact lower bound: 11299102.509602
+DIFF: 0.000000
+LOWER BOUND: 11299102.509602   ACTIVE NODES: 1
+
+Task 0: Branching on node 0
+CClp_getweight ...
+need to link an lp solver to use this function
+CClp_getweight failed
+find_candidate_cliques failed
+BBnode 0 split into 1 (11303803.88) 2 (11303444.85) (0.05 seconds)
+LOWER BOUND: 11303444.851195   ACTIVE NODES: 2
+
+Task 1: Cutting on node 2
+recomputing rownorms ...
+Writing Pool: 459 cuts
+BBnode 2 (now 3) done cutting: lowerbound 11310538.57 (1.31 seconds)
+LOWER BOUND: 11303803.882979   ACTIVE NODES: 2
+
+Task 2: Cutting on node 1
+Writing Pool: 550 cuts
+BBnode 1 (now 4) done cutting: lowerbound 11310205.05 (1.10 seconds)
+LOWER BOUND: 11310205.046296   ACTIVE NODES: 2
+
+Task 3: Branching on node 4
+CClp_getweight ...
+need to link an lp solver to use this function
+CClp_getweight failed
+find_candidate_cliques failed
+BBnode 4 split into 5 (11311947.75) 6 (11311148.07) (0.03 seconds)
+LOWER BOUND: 11310538.566667   ACTIVE NODES: 3
+
+Task 4: Branching on node 3
+CClp_getweight ...
+need to link an lp solver to use this function
+CClp_getweight failed
+find_candidate_cliques failed
+BBnode 3 split into 7 (11313386.96) 8 (11315041.83) (0.04 seconds)
+LOWER BOUND: 11311148.074324   ACTIVE NODES: 4
+
+Task 5: Cutting on node 6
+Writing Pool: 596 cuts
+BBnode 6 (now 9) done cutting: lowerbound 11313964.53 (0.54 seconds)
+LOWER BOUND: 11311947.750000   ACTIVE NODES: 4
+
+Task 6: Cutting on node 5
+recomputing rownorms ...
+Writing Pool: 642 cuts
+BBnode 5 (now 10) done cutting: lowerbound 11315247.29 (0.42 seconds)
+LOWER BOUND: 11313386.959664   ACTIVE NODES: 4
+
+Task 7: Cutting on node 7
+Writing Pool: 708 cuts
+BBnode 7 (now 11) done cutting: lowerbound 11319370.16 (1.22 seconds)
+LOWER BOUND: 11313964.528646   ACTIVE NODES: 4
+
+Task 8: Branching on node 9
+CClp_getweight ...
+need to link an lp solver to use this function
+CClp_getweight failed
+find_candidate_cliques failed
+BBnode 9 split into 12 (11314744.11) 13 (11315904.75) (0.03 seconds)
+LOWER BOUND: 11314744.108820   ACTIVE NODES: 5
+
+Task 9: Cutting on node 12
+Writing Pool: 742 cuts
+BBnode 12 (now 14) done cutting: lowerbound 11319479.30 (0.35 seconds)
+LOWER BOUND: 11315041.833333   ACTIVE NODES: 5
+
+Task 10: Cutting on node 8
+Writing Pool: 766 cuts
+BBnode 8 (now 15) can be pruned: upperbound 11321768.00 (0.07 seconds)
+LOWER BOUND: 11315247.291667   ACTIVE NODES: 4
+
+Task 11: Branching on node 10
+CClp_getweight ...
+need to link an lp solver to use this function
+CClp_getweight failed
+find_candidate_cliques failed
+BBnode 10 split into 16 (11318117.50) 17 (11318407.98) (0.04 seconds)
+LOWER BOUND: 11315904.750000   ACTIVE NODES: 5
+
+Task 12: Cutting on node 13
+Writing Pool: 768 cuts
+BBnode 13 (now 18) can be pruned: upperbound 11321768.00 (0.05 seconds)
+LOWER BOUND: 11318117.500000   ACTIVE NODES: 4
+
+Task 13: Cutting on node 16
+Writing Pool: 832 cuts
+BBnode 16 (now 19) can be pruned: upperbound 11321768.00 (0.45 seconds)
+LOWER BOUND: 11318407.980000   ACTIVE NODES: 3
+
+Task 14: Cutting on node 17
+Writing Pool: 839 cuts
+BBnode 17 (now 20) done cutting: lowerbound 11319432.75 (0.15 seconds)
+LOWER BOUND: 11319370.164192   ACTIVE NODES: 3
+
+Task 15: Branching on node 11
+CClp_getweight ...
+need to link an lp solver to use this function
+CClp_getweight failed
+find_candidate_cliques failed
+BBnode 11 split into 21 (11320663.15) 22 (11323806.63X) (0.05 seconds)
+Child 1 is pruned
+LOWER BOUND: 11319432.750000   ACTIVE NODES: 3
+
+Task 16: Branching on node 20
+CClp_getweight ...
+need to link an lp solver to use this function
+CClp_getweight failed
+find_candidate_cliques failed
+BBnode 20 split into 23 (11320324.76) 24 (11320942.00) (0.03 seconds)
+LOWER BOUND: 11319479.298446   ACTIVE NODES: 4
+
+Task 17: Branching on node 14
+CClp_getweight ...
+need to link an lp solver to use this function
+CClp_getweight failed
+find_candidate_cliques failed
+BBnode 14 split into 25 (11320307.68) 26 (11319616.00) (0.02 seconds)
+LOWER BOUND: 11319616.000000   ACTIVE NODES: 5
+
+Task 18: Cutting on node 26
+Writing Pool: 887 cuts
+BBnode 26 (now 27) can be pruned: upperbound 11321768.00 (0.58 seconds)
+LOWER BOUND: 11320307.675594   ACTIVE NODES: 4
+
+Task 19: Cutting on node 25
+Writing Pool: 914 cuts
+BBnode 25 (now 28) can be pruned: upperbound 11321768.00 (0.47 seconds)
+LOWER BOUND: 11320324.764559   ACTIVE NODES: 3
+
+Task 20: Cutting on node 23
+Writing Pool: 925 cuts
+BBnode 23 (now 29) can be pruned: upperbound 11321768.00 (0.04 seconds)
+LOWER BOUND: 11320663.151174   ACTIVE NODES: 2
+
+Task 21: Cutting on node 21
+Writing Pool: 940 cuts
+BBnode 21 (now 30) can be pruned: upperbound 11321768.00 (0.05 seconds)
+LOWER BOUND: 11320942.000000   ACTIVE NODES: 1
+
+Task 22: Cutting on node 24
+Writing Pool: 950 cuts
+BBnode 24 (now 31) can be pruned: upperbound 11321768.00 (0.23 seconds)
+
+Task 23: Exit
+Total number of nodes in search tree: 17
+Optimal tour: 11321768
+Total Time to solve TSP: 8.89
+CCtsp_solve_dat ...
+Finding a good tour for compression ...
+linkern ...
+Setting kick type to close
+Starting Cycle: 14117973
+   0 Steps   Best: 11806688   0.00 seconds
+   2 Steps   Best: 11785859   0.00 seconds
+   3 Steps   Best: 11486057   0.00 seconds
+   7 Steps   Best: 11480326   0.01 seconds
+   8 Steps   Best: 11456931   0.01 seconds
+   9 Steps   Best: 11454029   0.01 seconds
+  10 Steps   Best: 11438287   0.01 seconds
+  29 Steps   Best: 11425462   0.01 seconds
+  36 Steps   Best: 11425115   0.01 seconds
+  39 Steps   Best: 11404313   0.02 seconds
+  42 Steps   Best: 11399171   0.02 seconds
+  88 Steps   Best: 11397238   0.03 seconds
+ 100 Total Steps.
+Best cycle length: 11397238
+Lin-Kernighan Running Time: 0.03
+LK Initial Run: 11397238.0
+LK Run 0: 11357080.0
+LK Run from best tour: 11356747.0
+Time to find compression tour: 0.12 (seconds)
+Set initial upperbound to 11356747 (from tour)
+  LP Value  1: 10805825.500000  (0.02 seconds)
+  LP Value  2: 11267916.640000  (0.04 seconds)
+  LP Value  3: 11305092.638462  (0.06 seconds)
+  LP Value  4: 11330877.085714  (0.09 seconds)
+  LP Value  5: 11336162.380952  (0.12 seconds)
+  LP Value  6: 11337450.000000  (0.14 seconds)
+  LP Value  7: 11339096.685185  (0.26 seconds)
+  LP Value  8: 11340100.076923  (0.42 seconds)
+  LP Value  9: 11340658.900000  (0.63 seconds)
+  LP Value 10: 11340825.875000  (0.82 seconds)
+New lower bound: 11340825.875000
+Exact lower bound: 11340825.875000
+DIFF: 0.000000
+LOWER BOUND: 11340825.875000   ACTIVE NODES: 1
+
+Task 0: Branching on node 0
+CClp_getweight ...
+need to link an lp solver to use this function
+CClp_getweight failed
+find_candidate_cliques failed
+BBnode 0 split into 1 (11342490.04) 2 (11342559.16) (0.04 seconds)
+LOWER BOUND: 11342490.044643   ACTIVE NODES: 2
+
+Task 1: Cutting on node 1
+Writing Pool: 344 cuts
+BBnode 1 (now 3) done cutting: lowerbound 11345995.71 (0.94 seconds)
+LOWER BOUND: 11342559.163270   ACTIVE NODES: 2
+
+Task 2: Cutting on node 2
+Writing Pool: 446 cuts
+BBnode 2 (now 4) done cutting: lowerbound 11346973.28 (1.26 seconds)
+LOWER BOUND: 11345995.713024   ACTIVE NODES: 2
+
+Task 3: Branching on node 3
+CClp_getweight ...
+need to link an lp solver to use this function
+CClp_getweight failed
+find_candidate_cliques failed
+BBnode 3 split into 5 (11348193.91) 6 (11349798.58) (0.05 seconds)
+LOWER BOUND: 11346973.279762   ACTIVE NODES: 3
+
+Task 4: Branching on node 4
+CClp_getweight ...
+need to link an lp solver to use this function
+CClp_getweight failed
+find_candidate_cliques failed
+BBnode 4 split into 7 (11348172.02) 8 (11348005.59) (0.03 seconds)
+LOWER BOUND: 11348005.586310   ACTIVE NODES: 4
+
+Task 5: Cutting on node 8
+Writing Pool: 485 cuts
+BBnode 8 (now 9) done cutting: lowerbound 11349749.76 (0.59 seconds)
+LOWER BOUND: 11348172.019002   ACTIVE NODES: 4
+
+Task 6: Cutting on node 7
+Writing Pool: 517 cuts
+BBnode 7 (now 10) done cutting: lowerbound 11352147.90 (0.49 seconds)
+LOWER BOUND: 11348193.912572   ACTIVE NODES: 4
+
+Task 7: Cutting on node 5
+recomputing rownorms ...
+Writing Pool: 555 cuts
+BBnode 5 (now 11) done cutting: lowerbound 11349758.23 (0.74 seconds)
+LOWER BOUND: 11349749.755102   ACTIVE NODES: 4
+
+Task 8: Branching on node 9
+CClp_getweight ...
+need to link an lp solver to use this function
+CClp_getweight failed
+find_candidate_cliques failed
+BBnode 9 split into 12 (11350576.65) 13 (11350554.00) (0.04 seconds)
+LOWER BOUND: 11349758.230769   ACTIVE NODES: 5
+
+Task 9: Branching on node 11
+CClp_getweight ...
+need to link an lp solver to use this function
+CClp_getweight failed
+find_candidate_cliques failed
+BBnode 11 split into 14 (11350263.85) 15 (11350541.46) (0.03 seconds)
+LOWER BOUND: 11349798.577061   ACTIVE NODES: 6
+
+Task 10: Cutting on node 6
+New upperbound from x-heuristic: 11354775.00
+recomputing rownorms ...
+TOUR FOUND - upperbound is 11354775.00
+Writing Pool: 626 cuts
+BBnode 6 (now 16) done cutting: lowerbound 11354156.67 (1.07 seconds)
+LOWER BOUND: 11350263.848101   ACTIVE NODES: 6
+
+Task 11: Cutting on node 14
+Writing Pool: 644 cuts
+BBnode 14 (now 17) done cutting: lowerbound 11351748.30 (0.44 seconds)
+LOWER BOUND: 11350541.461538   ACTIVE NODES: 6
+
+Task 12: Cutting on node 15
+New upperbound from x-heuristic: 11354546.00
+TOUR FOUND - upperbound is 11354546.00
+Writing Pool: 675 cuts
+BBnode 15 (now 18) done cutting: lowerbound 11353916.71 (0.45 seconds)
+LOWER BOUND: 11350554.000000   ACTIVE NODES: 6
+
+Task 13: Cutting on node 13
+Writing Pool: 725 cuts
+BBnode 13 (now 19) can be pruned: upperbound 11354546.00 (0.35 seconds)
+LOWER BOUND: 11350576.652381   ACTIVE NODES: 5
+
+Task 14: Cutting on node 12
+Writing Pool: 746 cuts
+BBnode 12 (now 20) can be pruned: upperbound 11354546.00 (0.14 seconds)
+LOWER BOUND: 11351748.302083   ACTIVE NODES: 4
+
+Task 15: Branching on node 17
+CClp_getweight ...
+need to link an lp solver to use this function
+CClp_getweight failed
+find_candidate_cliques failed
+BBnode 17 split into 21 (11353230.86) 22 (11352752.50) (0.04 seconds)
+LOWER BOUND: 11352147.898121   ACTIVE NODES: 5
+
+Task 16: Branching on node 10
+CClp_getweight ...
+need to link an lp solver to use this function
+CClp_getweight failed
+find_candidate_cliques failed
+BBnode 10 split into 23 (11353613.41) 24 (11353710.11) (0.04 seconds)
+LOWER BOUND: 11352752.500000   ACTIVE NODES: 6
+
+Task 17: Cutting on node 22
+Writing Pool: 766 cuts
+BBnode 22 (now 25) can be pruned: upperbound 11354546.00 (0.07 seconds)
+LOWER BOUND: 11353230.862745   ACTIVE NODES: 5
+
+Task 18: Cutting on node 21
+Writing Pool: 772 cuts
+BBnode 21 (now 26) done cutting: lowerbound 11353697.42 (0.36 seconds)
+LOWER BOUND: 11353613.411859   ACTIVE NODES: 5
+
+Task 19: Cutting on node 23
+Writing Pool: 777 cuts
+BBnode 23 (now 27) can be pruned: upperbound 11354546.00 (0.03 seconds)
+LOWER BOUND: 11353697.419271   ACTIVE NODES: 4
+
+Task 20: Branching on node 26
+CClp_getweight ...
+need to link an lp solver to use this function
+CClp_getweight failed
+find_candidate_cliques failed
+BBnode 26 split into 28 (11354635.86X) 29 (11355638.68X) (0.05 seconds)
+Child 0 is pruned
+Child 1 is pruned
+LOWER BOUND: 11353710.111111   ACTIVE NODES: 3
+
+Task 21: Cutting on node 24
+Writing Pool: 777 cuts
+BBnode 24 (now 30) can be pruned: upperbound 11354546.00 (0.01 seconds)
+LOWER BOUND: 11353916.705628   ACTIVE NODES: 2
+
+Task 22: Branching on node 18
+CClp_getweight ...
+need to link an lp solver to use this function
+CClp_getweight failed
+find_candidate_cliques failed
+BBnode 18 split into 31 (11354546.00X) 32 (11355182.34X) (0.03 seconds)
+Child 0 is pruned
+Child 1 is pruned
+LOWER BOUND: 11354156.666667   ACTIVE NODES: 1
+
+Task 23: Branching on node 16
+CClp_getweight ...
+need to link an lp solver to use this function
+CClp_getweight failed
+find_candidate_cliques failed
+BBnode 16 split into 33 (11355080.42X) 34 (11354775.00X) (0.03 seconds)
+Child 0 is pruned
+Child 1 is pruned
+
+Task 24: Exit
+Total number of nodes in search tree: 21
+Optimal tour: 11354546
+Total Time to solve TSP: 8.31
+
+
+=================================
+upper bound: 2308
+lower bound: 2267.64
+learning rate: 2
+tour 0: 156 96 86 120 90 27 49 144 112 80 81 164 168 17 123 78 57 193 59 113 186 182 149 55 115 180 176 131 5 111 197 174 12 26 124 58 4 82 83 75 122 13 67 95 8 74 40 108 121 42 87 51 61 189 31 0 105 9 92 32 177 134 73 43 22 148 163 72 68 107 178 191 110 127 106 147 187 114 65 153 160 37 119 23 169 171 76 63 62 11 126 94 39 198 167 179 29 77 170 184 102 175 158 99 71 20 36 6 190 136 104 172 140 15 79 24 30 54 135 53 69 97 165 188 45 33 16 48 138 142 60 159 93 3 91 196 14 41 145 118 125 154 1 195 132 137 66 2 181 44 157 128 162 152 185 109 192 85 98 173 151 100 89 150 133 18 52 155 129 161 38 139 143 70 84 101 21 19 10 50 88 130 7 146 34 183 46 141 166 35 199 47 28 25 56 194 116 117 64 103 
+tour 1: 16 185 105 2 135 72 17 80 52 179 12 42 118 74 94 75 66 112 32 158 25 69 198 162 111 181 160 177 100 173 56 150 90 191 55 31 136 171 149 10 114 30 199 95 3 29 59 197 128 23 19 170 5 159 193 61 124 96 38 67 131 176 125 27 78 14 140 157 120 147 122 57 142 4 115 174 195 101 81 154 97 183 133 18 148 68 73 33 41 153 49 98 143 11 129 39 15 20 89 151 48 70 127 60 85 24 84 121 155 161 137 88 64 175 152 104 166 180 8 144 130 26 168 139 91 99 145 189 44 65 107 37 79 46 119 71 22 28 86 141 62 178 113 36 196 6 53 194 117 109 82 169 54 116 9 13 146 184 7 21 47 164 87 106 1 92 187 45 93 167 190 132 43 77 108 35 182 63 126 172 156 103 50 165 102 34 58 138 51 163 76 134 186 123 188 40 110 83 0 192 
+=================================
+
+CCtsp_solve_dat ...
+Finding a good tour for compression ...
+linkern ...
+Setting kick type to close
+Starting Cycle: 13984703
+   0 Steps   Best: 11653460   0.00 seconds
+   1 Steps   Best: 11651730   0.00 seconds
+   3 Steps   Best: 11538824   0.00 seconds
+   6 Steps   Best: 11518803   0.00 seconds
+   7 Steps   Best: 11481399   0.00 seconds
+   8 Steps   Best: 11461908   0.00 seconds
+   9 Steps   Best: 11457963   0.00 seconds
+  10 Steps   Best: 11457266   0.00 seconds
+  11 Steps   Best: 11388353   0.00 seconds
+  13 Steps   Best: 11373678   0.00 seconds
+  31 Steps   Best: 11366656   0.01 seconds
+ 100 Total Steps.
+Best cycle length: 11366656
+Lin-Kernighan Running Time: 0.03
+LK Initial Run: 11366656.0
+LK Run 0: 11366656.0
+LK Run from best tour: 11366656.0
+Time to find compression tour: 0.11 (seconds)
+Set initial upperbound to 11366656 (from tour)
+  LP Value  1: 10870979.500000  (0.01 seconds)
+  LP Value  2: 11234719.000000  (0.03 seconds)
+  LP Value  3: 11270063.500000  (0.06 seconds)
+  LP Value  4: 11291292.353333  (0.10 seconds)
+  LP Value  5: 11308782.131818  (0.15 seconds)
+  LP Value  6: 11312696.373479  (0.19 seconds)
+  LP Value  7: 11318370.017228  (0.24 seconds)
+  LP Value  8: 11319333.083333  (0.37 seconds)
+  LP Value  9: 11324687.114124  (0.42 seconds)
+  LP Value 10: 11328164.759578  (0.69 seconds)
+  LP Value 11: 11329851.409276  (1.30 seconds)
+  LP Value 12: 11331305.033613  (1.51 seconds)
+  LP Value 13: 11332290.329907  (1.73 seconds)
+  LP Value 14: 11332613.484568  (1.95 seconds)
+New lower bound: 11332613.484568
+Exact lower bound: 11332613.484568
+DIFF: 0.000000
+LOWER BOUND: 11332613.484568   ACTIVE NODES: 1
+
+Task 0: Branching on node 0
+CClp_getweight ...
+need to link an lp solver to use this function
+CClp_getweight failed
+find_candidate_cliques failed
+BBnode 0 split into 1 (11335832.11) 2 (11334278.33) (0.06 seconds)
+LOWER BOUND: 11334278.329609   ACTIVE NODES: 2
+
+Task 1: Cutting on node 2
+recomputing rownorms ...
+Writing Pool: 600 cuts
+BBnode 2 (now 3) done cutting: lowerbound 11342107.61 (0.94 seconds)
+LOWER BOUND: 11335832.112245   ACTIVE NODES: 2
+
+Task 2: Cutting on node 1
+Writing Pool: 707 cuts
+BBnode 1 (now 4) done cutting: lowerbound 11344229.97 (1.32 seconds)
+LOWER BOUND: 11342107.612403   ACTIVE NODES: 2
+
+Task 3: Branching on node 3
+CClp_getweight ...
+need to link an lp solver to use this function
+CClp_getweight failed
+find_candidate_cliques failed
+BBnode 3 split into 5 (11343920.62) 6 (11342170.50) (0.03 seconds)
+LOWER BOUND: 11342170.500000   ACTIVE NODES: 3
+
+Task 4: Cutting on node 6
+Writing Pool: 759 cuts
+BBnode 6 (now 7) done cutting: lowerbound 11358018.34 (0.55 seconds)
+LOWER BOUND: 11343920.622222   ACTIVE NODES: 3
+
+Task 5: Cutting on node 5
+Writing Pool: 829 cuts
+BBnode 5 (now 8) done cutting: lowerbound 11351119.08 (3.16 seconds)
+LOWER BOUND: 11344229.973393   ACTIVE NODES: 3
+
+Task 6: Branching on node 4
+CClp_getweight ...
+need to link an lp solver to use this function
+CClp_getweight failed
+find_candidate_cliques failed
+BBnode 4 split into 9 (11347784.50) 10 (11346454.38) (0.05 seconds)
+LOWER BOUND: 11346454.380302   ACTIVE NODES: 4
+
+Task 7: Cutting on node 10
+Writing Pool: 939 cuts
+BBnode 10 (now 11) done cutting: lowerbound 11356446.56 (1.52 seconds)
+LOWER BOUND: 11347784.500000   ACTIVE NODES: 4
+
+Task 8: Cutting on node 9
+recomputing rownorms ...
+Writing Pool: 988 cuts
+BBnode 9 (now 12) done cutting: lowerbound 11350987.67 (0.90 seconds)
+LOWER BOUND: 11350987.669725   ACTIVE NODES: 4
+
+Task 9: Branching on node 12
+CClp_getweight ...
+need to link an lp solver to use this function
+CClp_getweight failed
+find_candidate_cliques failed
+BBnode 12 split into 13 (11352285.35) 14 (11352120.19) (0.06 seconds)
+LOWER BOUND: 11351119.077294   ACTIVE NODES: 5
+
+Task 10: Branching on node 8
+CClp_getweight ...
+need to link an lp solver to use this function
+CClp_getweight failed
+find_candidate_cliques failed
+BBnode 8 split into 15 (11352979.16) 16 (11353719.00) (0.06 seconds)
+LOWER BOUND: 11352120.190730   ACTIVE NODES: 6
+
+Task 11: Cutting on node 14
+recomputing rownorms ...
+Writing Pool: 1062 cuts
+BBnode 14 (now 17) done cutting: lowerbound 11360745.11 (0.68 seconds)
+LOWER BOUND: 11352285.352420   ACTIVE NODES: 6
+
+Task 12: Cutting on node 13
+Writing Pool: 1094 cuts
+BBnode 13 (now 18) done cutting: lowerbound 11354071.81 (0.68 seconds)
+LOWER BOUND: 11352979.162237   ACTIVE NODES: 6
+
+Task 13: Cutting on node 15
+Writing Pool: 1228 cuts
+BBnode 15 (now 19) done cutting: lowerbound 11365191.73 (2.60 seconds)
+LOWER BOUND: 11353719.000000   ACTIVE NODES: 6
+
+Task 14: Cutting on node 16
+recomputing rownorms ...
+Writing Pool: 1372 cuts
+BBnode 16 (now 20) done cutting: lowerbound 11365616.93 (2.18 seconds)
+LOWER BOUND: 11354071.805958   ACTIVE NODES: 6
+
+Task 15: Branching on node 18
+CClp_getweight ...
+need to link an lp solver to use this function
+CClp_getweight failed
+find_candidate_cliques failed
+BBnode 18 split into 21 (11355954.02) 22 (11357136.62) (0.07 seconds)
+LOWER BOUND: 11355954.022029   ACTIVE NODES: 7
+
+Task 16: Cutting on node 21
+Writing Pool: 1459 cuts
+BBnode 21 (now 23) done cutting: lowerbound 11359554.65 (0.96 seconds)
+LOWER BOUND: 11356446.563380   ACTIVE NODES: 7
+
+Task 17: Branching on node 11
+CClp_getweight ...
+need to link an lp solver to use this function
+CClp_getweight failed
+find_candidate_cliques failed
+BBnode 11 split into 24 (11360479.16) 25 (11363553.00) (0.04 seconds)
+LOWER BOUND: 11357136.618687   ACTIVE NODES: 8
+
+Task 18: Cutting on node 22
+recomputing rownorms ...
+Writing Pool: 1478 cuts
+BBnode 22 (now 26) done cutting: lowerbound 11361104.80 (0.70 seconds)
+LOWER BOUND: 11358018.342435   ACTIVE NODES: 8
+
+Task 19: Branching on node 7
+CClp_getweight ...
+need to link an lp solver to use this function
+CClp_getweight failed
+find_candidate_cliques failed
+BBnode 7 split into 27 (11361966.82) 28 (11360126.17) (0.04 seconds)
+LOWER BOUND: 11359554.651593   ACTIVE NODES: 9
+
+Task 20: Branching on node 23
+CClp_getweight ...
+need to link an lp solver to use this function
+CClp_getweight failed
+find_candidate_cliques failed
+BBnode 23 split into 29 (11360924.60) 30 (11361437.65) (0.04 seconds)
+LOWER BOUND: 11360126.166667   ACTIVE NODES: 10
+
+Task 21: Cutting on node 28
+Writing Pool: 1500 cuts
+BBnode 28 (now 31) can be pruned: upperbound 11366656.00 (0.07 seconds)
+LOWER BOUND: 11360479.156680   ACTIVE NODES: 9
+
+Task 22: Cutting on node 24
+Writing Pool: 1536 cuts
+BBnode 24 (now 32) can be pruned: upperbound 11366656.00 (0.37 seconds)
+LOWER BOUND: 11360745.107143   ACTIVE NODES: 8
+
+Task 23: Branching on node 17
+CClp_getweight ...
+need to link an lp solver to use this function
+CClp_getweight failed
+find_candidate_cliques failed
+BBnode 17 split into 33 (11361202.49) 34 (11364982.00) (0.04 seconds)
+LOWER BOUND: 11360924.600000   ACTIVE NODES: 9
+
+Task 24: Cutting on node 29
+Writing Pool: 1559 cuts
+BBnode 29 (now 35) done cutting: lowerbound 11366109.22 (0.34 seconds)
+LOWER BOUND: 11361104.800000   ACTIVE NODES: 9
+
+Task 25: Branching on node 26
+CClp_getweight ...
+need to link an lp solver to use this function
+CClp_getweight failed
+find_candidate_cliques failed
+BBnode 26 split into 36 (11364013.50) 37 (11362777.00) (0.05 seconds)
+LOWER BOUND: 11361202.487705   ACTIVE NODES: 10
+
+Task 26: Cutting on node 33
+recomputing rownorms ...
+Writing Pool: 1578 cuts
+BBnode 33 (now 38) done cutting: lowerbound 11363603.76 (0.63 seconds)
+LOWER BOUND: 11361437.646451   ACTIVE NODES: 10
+
+Task 27: Cutting on node 30
+Writing Pool: 1645 cuts
+BBnode 30 (now 39) done cutting: lowerbound 11364286.38 (1.20 seconds)
+LOWER BOUND: 11361966.818182   ACTIVE NODES: 10
+
+Task 28: Cutting on node 27
+Writing Pool: 1661 cuts
+BBnode 27 (now 40) done cutting: lowerbound 11366630.78 (0.48 seconds)
+LOWER BOUND: 11362777.000000   ACTIVE NODES: 10
+
+Task 29: Cutting on node 37
+recomputing rownorms ...
+Writing Pool: 1698 cuts
+BBnode 37 (now 41) done cutting: lowerbound 11366477.05 (0.35 seconds)
+LOWER BOUND: 11363553.000000   ACTIVE NODES: 10
+
+Task 30: Cutting on node 25
+Writing Pool: 1725 cuts
+BBnode 25 (now 42) can be pruned: upperbound 11366656.00 (0.11 seconds)
+LOWER BOUND: 11363603.755102   ACTIVE NODES: 9
+
+Task 31: Branching on node 38
+CClp_getweight ...
+need to link an lp solver to use this function
+CClp_getweight failed
+find_candidate_cliques failed
+BBnode 38 split into 43 (11371454.00X) 44 (11364110.00) (0.03 seconds)
+Child 0 is pruned
+LOWER BOUND: 11364013.500000   ACTIVE NODES: 9
+
+Task 32: Cutting on node 36
+Writing Pool: 1734 cuts
+BBnode 36 (now 45) can be pruned: upperbound 11366656.00 (0.07 seconds)
+LOWER BOUND: 11364110.000000   ACTIVE NODES: 8
+
+Task 33: Cutting on node 44
+recomputing rownorms ...
+Writing Pool: 1742 cuts
+BBnode 44 (now 46) done cutting: lowerbound 11364633.38 (0.44 seconds)
+LOWER BOUND: 11364286.380769   ACTIVE NODES: 8
+
+Task 34: Branching on node 39
+CClp_getweight ...
+need to link an lp solver to use this function
+CClp_getweight failed
+find_candidate_cliques failed
+BBnode 39 split into 47 (11365477.39) 48 (11367119.00X) (0.04 seconds)
+Child 1 is pruned
+LOWER BOUND: 11364633.375000   ACTIVE NODES: 8
+
+Task 35: Branching on node 46
+CClp_getweight ...
+need to link an lp solver to use this function
+CClp_getweight failed
+find_candidate_cliques failed
+BBnode 46 split into 49 (11365301.44) 50 (11365887.33) (0.03 seconds)
+LOWER BOUND: 11364982.000000   ACTIVE NODES: 9
+
+Task 36: Cutting on node 34
+Writing Pool: 1775 cuts
+BBnode 34 (now 51) can be pruned: upperbound 11366656.00 (0.46 seconds)
+LOWER BOUND: 11365191.731913   ACTIVE NODES: 8
+
+Task 37: Branching on node 19
+CClp_getweight ...
+need to link an lp solver to use this function
+CClp_getweight failed
+find_candidate_cliques failed
+BBnode 19 split into 52 (11366276.04) 53 (11366050.92) (0.05 seconds)
+LOWER BOUND: 11365301.442478   ACTIVE NODES: 9
+
+Task 38: Cutting on node 49
+recomputing rownorms ...
+Writing Pool: 1775 cuts
+BBnode 49 (now 54) done cutting: lowerbound 11365304.38 (0.31 seconds)
+LOWER BOUND: 11365304.375000   ACTIVE NODES: 9
+
+Task 39: Branching on node 54
+CClp_getweight ...
+need to link an lp solver to use this function
+CClp_getweight failed
+find_candidate_cliques failed
+BBnode 54 split into 55 (11365759.20) 56 (11366638.00) (0.04 seconds)
+LOWER BOUND: 11365477.390052   ACTIVE NODES: 10
+
+Task 40: Cutting on node 47
+recomputing rownorms ...
+Writing Pool: 1789 cuts
+BBnode 47 (now 57) done cutting: lowerbound 11366119.58 (0.43 seconds)
+LOWER BOUND: 11365616.930556   ACTIVE NODES: 10
+
+Task 41: Branching on node 20
+CClp_getweight ...
+need to link an lp solver to use this function
+CClp_getweight failed
+find_candidate_cliques failed
+BBnode 20 split into 58 (11365620.56) 59 (11367121.56X) (0.03 seconds)
+Child 1 is pruned
+LOWER BOUND: 11365620.555556   ACTIVE NODES: 10
+
+Task 42: Cutting on node 58
+Writing Pool: 1794 cuts
+BBnode 58 (now 60) can be pruned: upperbound 11366656.00 (0.12 seconds)
+LOWER BOUND: 11365759.204545   ACTIVE NODES: 9
+
+Task 43: Cutting on node 55
+recomputing rownorms ...
+Writing Pool: 1817 cuts
+BBnode 55 (now 61) done cutting: lowerbound 11366086.42 (0.60 seconds)
+LOWER BOUND: 11365887.333333   ACTIVE NODES: 9
+
+Task 44: Cutting on node 50
+Writing Pool: 1819 cuts
+BBnode 50 (now 62) can be pruned: upperbound 11366656.00 (0.09 seconds)
+LOWER BOUND: 11366050.921266   ACTIVE NODES: 8
+
+Task 45: Cutting on node 53
+Writing Pool: 1829 cuts
+BBnode 53 (now 63) can be pruned: upperbound 11366656.00 (0.06 seconds)
+LOWER BOUND: 11366086.416667   ACTIVE NODES: 7
+
+Task 46: Branching on node 61
+CClp_getweight ...
+need to link an lp solver to use this function
+CClp_getweight failed
+find_candidate_cliques failed
+BBnode 61 split into 64 (11367456.83X) 65 (11367036.00X) (0.04 seconds)
+Child 0 is pruned
+Child 1 is pruned
+LOWER BOUND: 11366109.217569   ACTIVE NODES: 6
+
+Task 47: Branching on node 35
+CClp_getweight ...
+need to link an lp solver to use this function
+CClp_getweight failed
+find_candidate_cliques failed
+BBnode 35 split into 66 (11368554.50X) 67 (11366573.00) (0.03 seconds)
+Child 0 is pruned
+LOWER BOUND: 11366119.584615   ACTIVE NODES: 6
+
+Task 48: Branching on node 57
+CClp_getweight ...
+need to link an lp solver to use this function
+CClp_getweight failed
+find_candidate_cliques failed
+BBnode 57 split into 68 (11366903.47X) 69 (11370842.00X) (0.05 seconds)
+Child 0 is pruned
+Child 1 is pruned
+LOWER BOUND: 11366276.036859   ACTIVE NODES: 5
+
+Task 49: Cutting on node 52
+Writing Pool: 1834 cuts
+BBnode 52 (now 70) can be pruned: upperbound 11366656.00 (0.06 seconds)
+LOWER BOUND: 11366477.049020   ACTIVE NODES: 4
+
+Task 50: Branching on node 41
+CClp_getweight ...
+need to link an lp solver to use this function
+CClp_getweight failed
+find_candidate_cliques failed
+BBnode 41 split into 71 (11367194.50X) 72 (11366971.85X) (0.04 seconds)
+Child 0 is pruned
+Child 1 is pruned
+LOWER BOUND: 11366573.000000   ACTIVE NODES: 3
+
+Task 51: Cutting on node 67
+Writing Pool: 1834 cuts
+BBnode 67 (now 73) can be pruned: upperbound 11366656.00 (0.04 seconds)
+LOWER BOUND: 11366630.780335   ACTIVE NODES: 2
+
+Task 52: Branching on node 40
+CClp_getweight ...
+need to link an lp solver to use this function
+CClp_getweight failed
+find_candidate_cliques failed
+BBnode 40 split into 74 (11367918.19X) 75 (11367023.14X) (0.04 seconds)
+Child 0 is pruned
+Child 1 is pruned
+LOWER BOUND: 11366638.000000   ACTIVE NODES: 1
+
+Task 53: Cutting on node 56
+Writing Pool: 1841 cuts
+BBnode 56 (now 76) can be pruned: upperbound 11366656.00 (0.05 seconds)
+
+Task 54: Exit
+Total number of nodes in search tree: 45
+Optimal tour: 11366656
+Total Time to solve TSP: 25.56
+CCtsp_solve_dat ...
+Finding a good tour for compression ...
+linkern ...
+Setting kick type to close
+Starting Cycle: 14114118
+   0 Steps   Best: 11623881   0.00 seconds
+   1 Steps   Best: 11551080   0.00 seconds
+   2 Steps   Best: 11507160   0.00 seconds
+   3 Steps   Best: 11496982   0.00 seconds
+   5 Steps   Best: 11480948   0.00 seconds
+   6 Steps   Best: 11451674   0.00 seconds
+   9 Steps   Best: 11446505   0.00 seconds
+  10 Steps   Best: 11438217   0.00 seconds
+  14 Steps   Best: 11429407   0.01 seconds
+  16 Steps   Best: 11429009   0.01 seconds
+  25 Steps   Best: 11425766   0.01 seconds
+  41 Steps   Best: 11425140   0.01 seconds
+  45 Steps   Best: 11419879   0.01 seconds
+  59 Steps   Best: 11412719   0.02 seconds
+  66 Steps   Best: 11411315   0.02 seconds
+  82 Steps   Best: 11396735   0.02 seconds
+ 100 Total Steps.
+Best cycle length: 11396735
+Lin-Kernighan Running Time: 0.03
+LK Initial Run: 11396735.0
+LK Run 0: 11402590.0
+LK Run from best tour: 11395012.0
+Time to find compression tour: 0.12 (seconds)
+Set initial upperbound to 11395012 (from tour)
+  LP Value  1: 10979016.500000  (0.01 seconds)
+  LP Value  2: 11314323.250000  (0.03 seconds)
+  LP Value  3: 11329362.000000  (0.05 seconds)
+  LP Value  4: 11350330.933333  (0.08 seconds)
+  LP Value  5: 11356155.535714  (0.10 seconds)
+  LP Value  6: 11362565.333333  (0.23 seconds)
+  LP Value  7: 11365044.696270  (0.34 seconds)
+  LP Value  8: 11366552.500000  (0.49 seconds)
+  LP Value  9: 11367722.393895  (0.66 seconds)
+  LP Value 10: 11368347.487705  (0.79 seconds)
+  LP Value 11: 11368618.224369  (0.90 seconds)
+New lower bound: 11368618.224369
+Exact lower bound: 11368618.224368
+DIFF: 0.000000
+LOWER BOUND: 11368618.224369   ACTIVE NODES: 1
+
+Task 0: Branching on node 0
+CClp_getweight ...
+need to link an lp solver to use this function
+CClp_getweight failed
+find_candidate_cliques failed
+BBnode 0 split into 1 (11369490.80) 2 (11369717.08) (0.04 seconds)
+LOWER BOUND: 11369490.800000   ACTIVE NODES: 2
+
+Task 1: Cutting on node 1
+New upperbound from x-heuristic: 11378911.00
+TOUR FOUND - upperbound is 11378911.00
+Writing Pool: 321 cuts
+BBnode 1 (now 3) done cutting: lowerbound 11373955.05 (0.80 seconds)
+LOWER BOUND: 11369717.082386   ACTIVE NODES: 2
+
+Task 2: Cutting on node 2
+Writing Pool: 379 cuts
+BBnode 2 (now 4) done cutting: lowerbound 11372725.61 (0.80 seconds)
+LOWER BOUND: 11372725.610442   ACTIVE NODES: 2
+
+Task 3: Branching on node 4
+CClp_getweight ...
+need to link an lp solver to use this function
+CClp_getweight failed
+find_candidate_cliques failed
+BBnode 4 split into 5 (11373526.21) 6 (11373986.19) (0.04 seconds)
+LOWER BOUND: 11373526.210181   ACTIVE NODES: 3
+
+Task 4: Cutting on node 5
+Writing Pool: 395 cuts
+BBnode 5 (now 7) done cutting: lowerbound 11373695.94 (0.41 seconds)
+LOWER BOUND: 11373695.937130   ACTIVE NODES: 3
+
+Task 5: Branching on node 7
+CClp_getweight ...
+need to link an lp solver to use this function
+CClp_getweight failed
+find_candidate_cliques failed
+BBnode 7 split into 8 (11375264.89) 9 (11375163.45) (0.04 seconds)
+LOWER BOUND: 11373955.046369   ACTIVE NODES: 4
+
+Task 6: Branching on node 3
+CClp_getweight ...
+need to link an lp solver to use this function
+CClp_getweight failed
+find_candidate_cliques failed
+BBnode 3 split into 10 (11374852.93) 11 (11374948.27) (0.04 seconds)
+LOWER BOUND: 11373986.188776   ACTIVE NODES: 5
+
+Task 7: Cutting on node 6
+Writing Pool: 412 cuts
+BBnode 6 (now 12) done cutting: lowerbound 11374627.41 (0.98 seconds)
+LOWER BOUND: 11374627.408108   ACTIVE NODES: 5
+
+Task 8: Branching on node 12
+CClp_getweight ...
+need to link an lp solver to use this function
+CClp_getweight failed
+find_candidate_cliques failed
+BBnode 12 split into 13 (11376099.40) 14 (11375982.74) (0.05 seconds)
+LOWER BOUND: 11374852.927083   ACTIVE NODES: 6
+
+Task 9: Cutting on node 10
+recomputing rownorms ...
+Writing Pool: 415 cuts
+BBnode 10 (now 15) done cutting: lowerbound 11376343.52 (0.18 seconds)
+LOWER BOUND: 11374948.272727   ACTIVE NODES: 6
+
+Task 10: Cutting on node 11
+Writing Pool: 423 cuts
+BBnode 11 (now 16) done cutting: lowerbound 11376531.89 (0.23 seconds)
+LOWER BOUND: 11375163.448077   ACTIVE NODES: 6
+
+Task 11: Cutting on node 9
+recomputing rownorms ...
+Writing Pool: 448 cuts
+BBnode 9 (now 17) done cutting: lowerbound 11376413.05 (0.53 seconds)
+LOWER BOUND: 11375264.888889   ACTIVE NODES: 6
+
+Task 12: Cutting on node 8
+recomputing rownorms ...
+Writing Pool: 455 cuts
+BBnode 8 (now 18) done cutting: lowerbound 11376240.83 (0.32 seconds)
+LOWER BOUND: 11375982.737052   ACTIVE NODES: 6
+
+Task 13: Cutting on node 14
+Writing Pool: 471 cuts
+BBnode 14 (now 19) can be pruned: upperbound 11378911.00 (0.18 seconds)
+LOWER BOUND: 11376099.395833   ACTIVE NODES: 5
+
+Task 14: Cutting on node 13
+recomputing rownorms ...
+Writing Pool: 478 cuts
+BBnode 13 (now 20) done cutting: lowerbound 11377362.19 (0.30 seconds)
+LOWER BOUND: 11376240.830508   ACTIVE NODES: 5
+
+Task 15: Branching on node 18
+CClp_getweight ...
+need to link an lp solver to use this function
+CClp_getweight failed
+find_candidate_cliques failed
+BBnode 18 split into 21 (11377135.77) 22 (11379127.00X) (0.04 seconds)
+Child 1 is pruned
+LOWER BOUND: 11376343.518200   ACTIVE NODES: 5
+
+Task 16: Branching on node 15
+CClp_getweight ...
+need to link an lp solver to use this function
+CClp_getweight failed
+find_candidate_cliques failed
+BBnode 15 split into 23 (11378301.21) 24 (11377950.15) (0.04 seconds)
+LOWER BOUND: 11376413.050000   ACTIVE NODES: 6
+
+Task 17: Branching on node 17
+CClp_getweight ...
+need to link an lp solver to use this function
+CClp_getweight failed
+find_candidate_cliques failed
+BBnode 17 split into 25 (11377652.16) 26 (11377208.89) (0.04 seconds)
+LOWER BOUND: 11376531.894737   ACTIVE NODES: 7
+
+Task 18: Branching on node 16
+CClp_getweight ...
+need to link an lp solver to use this function
+CClp_getweight failed
+find_candidate_cliques failed
+BBnode 16 split into 27 (11379549.71X) 28 (11378317.50) (0.03 seconds)
+Child 0 is pruned
+LOWER BOUND: 11377135.768313   ACTIVE NODES: 7
+
+Task 19: Cutting on node 21
+recomputing rownorms ...
+Writing Pool: 490 cuts
+BBnode 21 (now 29) done cutting: lowerbound 11378494.50 (0.43 seconds)
+LOWER BOUND: 11377208.885152   ACTIVE NODES: 7
+
+Task 20: Cutting on node 26
+Writing Pool: 512 cuts
+BBnode 26 (now 30) done cutting: lowerbound 11378514.94 (0.67 seconds)
+LOWER BOUND: 11377362.187500   ACTIVE NODES: 7
+
+Task 21: Branching on node 20
+CClp_getweight ...
+need to link an lp solver to use this function
+CClp_getweight failed
+find_candidate_cliques failed
+BBnode 20 split into 31 (11377825.86) 32 (11377844.00) (0.03 seconds)
+LOWER BOUND: 11377652.161765   ACTIVE NODES: 8
+
+Task 22: Cutting on node 25
+recomputing rownorms ...
+Writing Pool: 515 cuts
+BBnode 25 (now 33) done cutting: lowerbound 11377852.92 (0.24 seconds)
+LOWER BOUND: 11377825.862595   ACTIVE NODES: 8
+
+Task 23: Cutting on node 31
+Writing Pool: 519 cuts
+BBnode 31 (now 34) can be pruned: upperbound 11378911.00 (0.06 seconds)
+LOWER BOUND: 11377844.000000   ACTIVE NODES: 7
+
+Task 24: Cutting on node 32
+Writing Pool: 530 cuts
+BBnode 32 (now 35) can be pruned: upperbound 11378911.00 (0.07 seconds)
+LOWER BOUND: 11377852.921965   ACTIVE NODES: 6
+
+Task 25: Branching on node 33
+CClp_getweight ...
+need to link an lp solver to use this function
+CClp_getweight failed
+find_candidate_cliques failed
+BBnode 33 split into 36 (11379016.06X) 37 (11379881.41X) (0.04 seconds)
+Child 0 is pruned
+Child 1 is pruned
+LOWER BOUND: 11377950.148936   ACTIVE NODES: 5
+
+Task 26: Cutting on node 24
+Writing Pool: 538 cuts
+BBnode 24 (now 38) can be pruned: upperbound 11378911.00 (0.04 seconds)
+LOWER BOUND: 11378301.210526   ACTIVE NODES: 4
+
+Task 27: Cutting on node 23
+Writing Pool: 544 cuts
+BBnode 23 (now 39) can be pruned: upperbound 11378911.00 (0.04 seconds)
+LOWER BOUND: 11378317.500000   ACTIVE NODES: 3
+
+Task 28: Cutting on node 28
+Writing Pool: 554 cuts
+BBnode 28 (now 40) can be pruned: upperbound 11378911.00 (0.08 seconds)
+LOWER BOUND: 11378494.500000   ACTIVE NODES: 2
+
+Task 29: Branching on node 29
+CClp_getweight ...
+need to link an lp solver to use this function
+CClp_getweight failed
+find_candidate_cliques failed
+BBnode 29 split into 41 (11379007.64X) 42 (11382616.53X) (0.04 seconds)
+Child 0 is pruned
+Child 1 is pruned
+LOWER BOUND: 11378514.937500   ACTIVE NODES: 1
+
+Task 30: Branching on node 30
+CClp_getweight ...
+need to link an lp solver to use this function
+CClp_getweight failed
+find_candidate_cliques failed
+BBnode 30 split into 43 (11379119.31X) 44 (11379596.24X) (0.04 seconds)
+Child 0 is pruned
+Child 1 is pruned
+
+Task 31: Exit
+Total number of nodes in search tree: 27
+Optimal tour: 11378911
+Total Time to solve TSP: 7.92
+
+
+=================================
+upper bound: 2308
+lower bound: 2274.56
+learning rate: 2
+tour 0: 60 142 138 48 16 33 165 97 45 188 69 53 135 54 30 24 79 15 140 172 104 136 190 6 20 36 71 99 158 184 175 102 77 170 29 179 167 198 94 39 126 11 62 63 76 171 169 119 37 23 160 153 65 114 187 147 106 127 110 191 178 107 68 72 163 148 22 43 73 134 177 32 92 9 105 0 31 189 61 51 87 42 108 40 74 8 95 67 13 122 83 75 84 143 70 139 38 161 129 155 52 18 133 89 151 100 150 173 98 85 192 109 185 152 157 162 128 2 66 137 181 44 35 166 141 46 183 34 146 7 130 88 50 10 19 21 101 82 4 58 124 26 12 174 197 121 5 111 131 176 180 115 55 149 182 186 113 59 193 78 57 123 17 168 164 81 80 112 144 49 27 156 96 120 90 86 194 56 25 28 47 199 116 117 132 195 1 154 41 145 14 196 3 91 118 125 64 103 93 159 
+tour 1: 16 185 105 2 17 72 135 179 52 80 12 42 118 74 66 112 32 124 96 61 67 131 38 193 159 5 170 19 23 128 125 176 27 120 147 142 122 57 4 115 174 157 78 14 140 197 59 29 3 95 199 30 114 10 149 171 136 55 31 191 90 150 56 173 100 177 160 181 111 162 25 158 69 198 75 94 126 63 172 182 35 77 43 132 108 82 117 109 169 54 116 9 13 146 184 7 21 47 164 190 167 93 106 87 1 92 187 45 48 151 89 20 68 148 154 97 81 101 195 183 133 18 33 73 41 153 49 98 143 11 129 15 39 70 127 60 85 24 84 121 155 161 137 88 64 175 152 104 166 180 8 144 130 168 26 139 91 99 145 189 44 65 107 37 46 79 71 22 119 28 86 141 62 178 113 36 196 6 194 53 165 102 50 34 58 138 103 156 51 163 76 134 186 123 188 40 110 83 0 192 
+=================================
+
+CCtsp_solve_dat ...
+Finding a good tour for compression ...
+linkern ...
+Setting kick type to close
+Starting Cycle: 13062659
+   0 Steps   Best: 11510117   0.00 seconds
+   1 Steps   Best: 11509255   0.00 seconds
+   3 Steps   Best: 11486377   0.00 seconds
+   4 Steps   Best: 11481794   0.00 seconds
+   5 Steps   Best: 11478447   0.00 seconds
+   7 Steps   Best: 11446820   0.00 seconds
+   8 Steps   Best: 11441882   0.00 seconds
+  16 Steps   Best: 11440872   0.01 seconds
+  17 Steps   Best: 11416916   0.01 seconds
+  18 Steps   Best: 11414862   0.01 seconds
+  24 Steps   Best: 11414382   0.01 seconds
+  39 Steps   Best: 11402267   0.01 seconds
+  78 Steps   Best: 11398966   0.03 seconds
+ 100 Total Steps.
+Best cycle length: 11398966
+Lin-Kernighan Running Time: 0.03
+LK Initial Run: 11398966.0
+LK Run 0: 11405231.0
+LK Run from best tour: 11394602.0
+Time to find compression tour: 0.12 (seconds)
+Set initial upperbound to 11394602 (from tour)
+  LP Value  1: 10916561.000000  (0.02 seconds)
+  LP Value  2: 11264049.400000  (0.05 seconds)
+  LP Value  3: 11316316.750000  (0.09 seconds)
+  LP Value  4: 11335603.121407  (0.14 seconds)
+  LP Value  5: 11345339.161111  (0.21 seconds)
+  LP Value  6: 11350125.707207  (0.25 seconds)
+  LP Value  7: 11354085.289266  (0.49 seconds)
+  LP Value  8: 11356405.838575  (1.11 seconds)
+  LP Value  9: 11357475.989045  (1.38 seconds)
+  LP Value 10: 11358430.443939  (1.83 seconds)
+  LP Value 11: 11359156.347798  (2.07 seconds)
+  LP Value 12: 11359204.605447  (2.27 seconds)
+New lower bound: 11359204.605447
+Exact lower bound: 11359204.605447
+DIFF: 0.000000
+LOWER BOUND: 11359204.605447   ACTIVE NODES: 1
+
+Task 0: Branching on node 0
+CClp_getweight ...
+need to link an lp solver to use this function
+CClp_getweight failed
+find_candidate_cliques failed
+BBnode 0 split into 1 (11362780.69) 2 (11361890.71) (0.05 seconds)
+LOWER BOUND: 11361890.705882   ACTIVE NODES: 2
+
+Task 1: Cutting on node 2
+Writing Pool: 570 cuts
+BBnode 2 (now 3) done cutting: lowerbound 11371975.88 (1.86 seconds)
+LOWER BOUND: 11362780.688976   ACTIVE NODES: 2
+
+Task 2: Cutting on node 1
+Writing Pool: 697 cuts
+BBnode 1 (now 4) done cutting: lowerbound 11374065.76 (1.36 seconds)
+LOWER BOUND: 11371975.875200   ACTIVE NODES: 2
+
+Task 3: Branching on node 3
+CClp_getweight ...
+need to link an lp solver to use this function
+CClp_getweight failed
+find_candidate_cliques failed
+BBnode 3 split into 5 (11372626.60) 6 (11372832.20) (0.04 seconds)
+LOWER BOUND: 11372626.598253   ACTIVE NODES: 3
+
+Task 4: Cutting on node 5
+Writing Pool: 712 cuts
+BBnode 5 (now 7) done cutting: lowerbound 11373667.50 (0.48 seconds)
+LOWER BOUND: 11372832.202381   ACTIVE NODES: 3
+
+Task 5: Cutting on node 6
+recomputing rownorms ...
+Writing Pool: 759 cuts
+BBnode 6 (now 8) done cutting: lowerbound 11376541.06 (0.92 seconds)
+LOWER BOUND: 11373667.500717   ACTIVE NODES: 3
+
+Task 6: Branching on node 7
+CClp_getweight ...
+need to link an lp solver to use this function
+CClp_getweight failed
+find_candidate_cliques failed
+BBnode 7 split into 9 (11375383.18) 10 (11374545.53) (0.04 seconds)
+LOWER BOUND: 11374065.756704   ACTIVE NODES: 4
+
+Task 7: Branching on node 4
+CClp_getweight ...
+need to link an lp solver to use this function
+CClp_getweight failed
+find_candidate_cliques failed
+BBnode 4 split into 11 (11378259.16) 12 (11376866.84) (0.04 seconds)
+LOWER BOUND: 11374545.531915   ACTIVE NODES: 5
+
+Task 8: Cutting on node 10
+Writing Pool: 772 cuts
+BBnode 10 (now 13) done cutting: lowerbound 11375177.44 (0.85 seconds)
+LOWER BOUND: 11375177.437225   ACTIVE NODES: 5
+
+Task 9: Branching on node 13
+CClp_getweight ...
+need to link an lp solver to use this function
+CClp_getweight failed
+find_candidate_cliques failed
+BBnode 13 split into 14 (11376740.48) 15 (11375964.72) (0.05 seconds)
+LOWER BOUND: 11375383.178674   ACTIVE NODES: 6
+
+Task 10: Cutting on node 9
+Writing Pool: 783 cuts
+BBnode 9 (now 16) done cutting: lowerbound 11376629.18 (0.43 seconds)
+LOWER BOUND: 11375964.715640   ACTIVE NODES: 6
+
+Task 11: Cutting on node 15
+Writing Pool: 825 cuts
+BBnode 15 (now 17) done cutting: lowerbound 11377855.21 (0.64 seconds)
+LOWER BOUND: 11376541.063492   ACTIVE NODES: 6
+
+Task 12: Branching on node 8
+CClp_getweight ...
+need to link an lp solver to use this function
+CClp_getweight failed
+find_candidate_cliques failed
+BBnode 8 split into 18 (11377972.72) 19 (11377929.00) (0.04 seconds)
+LOWER BOUND: 11376629.175325   ACTIVE NODES: 7
+
+Task 13: Branching on node 16
+CClp_getweight ...
+need to link an lp solver to use this function
+CClp_getweight failed
+find_candidate_cliques failed
+BBnode 16 split into 20 (11377684.10) 21 (11378537.23) (0.05 seconds)
+LOWER BOUND: 11376740.483102   ACTIVE NODES: 8
+
+Task 14: Cutting on node 14
+Writing Pool: 856 cuts
+BBnode 14 (now 22) done cutting: lowerbound 11378714.51 (0.71 seconds)
+LOWER BOUND: 11376866.835897   ACTIVE NODES: 8
+
+Task 15: Cutting on node 12
+recomputing rownorms ...
+Writing Pool: 968 cuts
+BBnode 12 (now 23) done cutting: lowerbound 11383404.54 (1.27 seconds)
+LOWER BOUND: 11377684.097084   ACTIVE NODES: 8
+
+Task 16: Cutting on node 20
+Writing Pool: 977 cuts
+BBnode 20 (now 24) done cutting: lowerbound 11378477.03 (0.39 seconds)
+LOWER BOUND: 11377855.205882   ACTIVE NODES: 8
+
+Task 17: Branching on node 17
+CClp_getweight ...
+need to link an lp solver to use this function
+CClp_getweight failed
+find_candidate_cliques failed
+BBnode 17 split into 25 (11378882.00) 26 (11379523.68) (0.03 seconds)
+LOWER BOUND: 11377929.000000   ACTIVE NODES: 9
+
+Task 18: Cutting on node 19
+Writing Pool: 1013 cuts
+BBnode 19 (now 27) done cutting: lowerbound 11379543.37 (0.73 seconds)
+LOWER BOUND: 11377972.716931   ACTIVE NODES: 9
+
+Task 19: Cutting on node 18
+Writing Pool: 1078 cuts
+BBnode 18 (now 28) done cutting: lowerbound 11384197.03 (0.58 seconds)
+LOWER BOUND: 11378259.160819   ACTIVE NODES: 9
+
+Task 20: Cutting on node 11
+Writing Pool: 1119 cuts
+BBnode 11 (now 29) done cutting: lowerbound 11381985.07 (0.91 seconds)
+LOWER BOUND: 11378477.025756   ACTIVE NODES: 9
+
+Task 21: Branching on node 24
+CClp_getweight ...
+need to link an lp solver to use this function
+CClp_getweight failed
+find_candidate_cliques failed
+BBnode 24 split into 30 (11380477.52) 31 (11383934.38) (0.05 seconds)
+LOWER BOUND: 11378537.232759   ACTIVE NODES: 10
+
+Task 22: Cutting on node 21
+Writing Pool: 1198 cuts
+BBnode 21 (now 32) done cutting: lowerbound 11386604.75 (0.90 seconds)
+LOWER BOUND: 11378714.514563   ACTIVE NODES: 10
+
+Task 23: Branching on node 22
+CClp_getweight ...
+need to link an lp solver to use this function
+CClp_getweight failed
+find_candidate_cliques failed
+BBnode 22 split into 33 (11379574.59) 34 (11379551.45) (0.05 seconds)
+LOWER BOUND: 11378882.000000   ACTIVE NODES: 11
+
+Task 24: Cutting on node 25
+recomputing rownorms ...
+Writing Pool: 1206 cuts
+BBnode 25 (now 35) done cutting: lowerbound 11382068.36 (0.34 seconds)
+LOWER BOUND: 11379523.679245   ACTIVE NODES: 11
+
+Task 25: Cutting on node 26
+Writing Pool: 1267 cuts
+BBnode 26 (now 36) done cutting: lowerbound 11385238.48 (0.93 seconds)
+LOWER BOUND: 11379543.369487   ACTIVE NODES: 11
+
+Task 26: Branching on node 27
+CClp_getweight ...
+need to link an lp solver to use this function
+CClp_getweight failed
+find_candidate_cliques failed
+BBnode 27 split into 37 (11382722.24) 38 (11381391.00) (0.05 seconds)
+LOWER BOUND: 11379551.452862   ACTIVE NODES: 12
+
+Task 27: Cutting on node 34
+recomputing rownorms ...
+Writing Pool: 1268 cuts
+BBnode 34 (now 39) done cutting: lowerbound 11380015.43 (0.36 seconds)
+LOWER BOUND: 11379574.591069   ACTIVE NODES: 12
+
+Task 28: Cutting on node 33
+New upperbound from x-heuristic: 11393845.00
+recomputing rownorms ...
+TOUR FOUND - upperbound is 11393845.00
+Writing Pool: 1269 cuts
+BBnode 33 (now 40) done cutting: lowerbound 11379933.56 (0.25 seconds)
+LOWER BOUND: 11379933.562500   ACTIVE NODES: 12
+
+Task 29: Branching on node 40
+CClp_getweight ...
+need to link an lp solver to use this function
+CClp_getweight failed
+find_candidate_cliques failed
+BBnode 40 split into 41 (11380249.35) 42 (11382927.40) (0.05 seconds)
+LOWER BOUND: 11380015.431818   ACTIVE NODES: 13
+
+Task 30: Branching on node 39
+CClp_getweight ...
+need to link an lp solver to use this function
+CClp_getweight failed
+find_candidate_cliques failed
+BBnode 39 split into 43 (11380868.27) 44 (11382436.73) (0.05 seconds)
+LOWER BOUND: 11380249.353881   ACTIVE NODES: 14
+
+Task 31: Cutting on node 41
+Writing Pool: 1291 cuts
+BBnode 41 (now 45) done cutting: lowerbound 11381426.99 (0.41 seconds)
+LOWER BOUND: 11380477.522373   ACTIVE NODES: 14
+
+Task 32: Cutting on node 30
+Writing Pool: 1298 cuts
+BBnode 30 (now 46) done cutting: lowerbound 11382043.12 (0.77 seconds)
+LOWER BOUND: 11380868.267252   ACTIVE NODES: 14
+
+Task 33: Cutting on node 43
+recomputing rownorms ...
+Writing Pool: 1306 cuts
+BBnode 43 (now 47) done cutting: lowerbound 11382951.32 (0.37 seconds)
+LOWER BOUND: 11381391.000000   ACTIVE NODES: 14
+
+Task 34: Cutting on node 38
+Writing Pool: 1373 cuts
+BBnode 38 (now 48) done cutting: lowerbound 11386639.24 (1.12 seconds)
+LOWER BOUND: 11381426.988882   ACTIVE NODES: 14
+
+Task 35: Branching on node 45
+CClp_getweight ...
+need to link an lp solver to use this function
+CClp_getweight failed
+find_candidate_cliques failed
+BBnode 45 split into 49 (11384178.53) 50 (11383395.00) (0.04 seconds)
+LOWER BOUND: 11381985.065309   ACTIVE NODES: 15
+
+Task 36: Branching on node 29
+CClp_getweight ...
+need to link an lp solver to use this function
+CClp_getweight failed
+find_candidate_cliques failed
+BBnode 29 split into 51 (11382562.97) 52 (11384104.23) (0.04 seconds)
+LOWER BOUND: 11382043.123257   ACTIVE NODES: 16
+
+Task 37: Branching on node 46
+CClp_getweight ...
+need to link an lp solver to use this function
+CClp_getweight failed
+find_candidate_cliques failed
+BBnode 46 split into 53 (11382935.07) 54 (11383017.19) (0.05 seconds)
+LOWER BOUND: 11382068.358974   ACTIVE NODES: 17
+
+Task 38: Branching on node 35
+CClp_getweight ...
+need to link an lp solver to use this function
+CClp_getweight failed
+find_candidate_cliques failed
+BBnode 35 split into 55 (11382856.09) 56 (11386416.26) (0.04 seconds)
+LOWER BOUND: 11382436.728476   ACTIVE NODES: 18
+
+Task 39: Cutting on node 44
+New upperbound from x-heuristic: 11392487.00
+TOUR FOUND - upperbound is 11392487.00
+Writing Pool: 1416 cuts
+BBnode 44 (now 57) done cutting: lowerbound 11385707.46 (0.99 seconds)
+LOWER BOUND: 11382562.966942   ACTIVE NODES: 18
+
+Task 40: Cutting on node 51
+Writing Pool: 1436 cuts
+BBnode 51 (now 58) done cutting: lowerbound 11383372.71 (0.84 seconds)
+LOWER BOUND: 11382722.240436   ACTIVE NODES: 18
+
+Task 41: Cutting on node 37
+Writing Pool: 1452 cuts
+BBnode 37 (now 59) done cutting: lowerbound 11385870.81 (0.79 seconds)
+LOWER BOUND: 11382856.089286   ACTIVE NODES: 18
+
+Task 42: Cutting on node 55
+recomputing rownorms ...
+Writing Pool: 1452 cuts
+BBnode 55 (now 60) done cutting: lowerbound 11383713.42 (0.23 seconds)
+LOWER BOUND: 11382927.400000   ACTIVE NODES: 18
+
+Task 43: Cutting on node 42
+recomputing rownorms ...
+Writing Pool: 1466 cuts
+BBnode 42 (now 61) done cutting: lowerbound 11386915.72 (0.75 seconds)
+LOWER BOUND: 11382935.068966   ACTIVE NODES: 18
+
+Task 44: Cutting on node 53
+Writing Pool: 1540 cuts
+BBnode 53 (now 62) done cutting: lowerbound 11388949.15 (1.48 seconds)
+LOWER BOUND: 11382951.315126   ACTIVE NODES: 18
+
+Task 45: Branching on node 47
+CClp_getweight ...
+need to link an lp solver to use this function
+CClp_getweight failed
+find_candidate_cliques failed
+BBnode 47 split into 63 (11383392.18) 64 (11386621.33) (0.06 seconds)
+LOWER BOUND: 11383017.192528   ACTIVE NODES: 19
+
+Task 46: Cutting on node 54
+Writing Pool: 1558 cuts
+BBnode 54 (now 65) done cutting: lowerbound 11386784.18 (0.69 seconds)
+LOWER BOUND: 11383372.714988   ACTIVE NODES: 19
+
+Task 47: Branching on node 58
+CClp_getweight ...
+need to link an lp solver to use this function
+CClp_getweight failed
+find_candidate_cliques failed
+BBnode 58 split into 66 (11384058.15) 67 (11385131.66) (0.05 seconds)
+LOWER BOUND: 11383392.176471   ACTIVE NODES: 20
+
+Task 48: Cutting on node 63
+Writing Pool: 1575 cuts
+BBnode 63 (now 68) done cutting: lowerbound 11387522.81 (0.84 seconds)
+LOWER BOUND: 11383395.000000   ACTIVE NODES: 20
+
+Task 49: Cutting on node 50
+Writing Pool: 1617 cuts
+BBnode 50 (now 69) done cutting: lowerbound 11387588.44 (1.13 seconds)
+LOWER BOUND: 11383404.537331   ACTIVE NODES: 20
+
+Task 50: Branching on node 23
+CClp_getweight ...
+need to link an lp solver to use this function
+CClp_getweight failed
+find_candidate_cliques failed
+BBnode 23 split into 70 (11384139.61) 71 (11384304.09) (0.04 seconds)
+LOWER BOUND: 11383713.421053   ACTIVE NODES: 21
+
+Task 51: Branching on node 60
+CClp_getweight ...
+need to link an lp solver to use this function
+CClp_getweight failed
+find_candidate_cliques failed
+BBnode 60 split into 72 (11385974.62) 73 (11385536.71) (0.04 seconds)
+LOWER BOUND: 11383934.381436   ACTIVE NODES: 22
+
+Task 52: Cutting on node 31
+Writing Pool: 1626 cuts
+BBnode 31 (now 74) can be pruned: upperbound 11392487.00 (0.06 seconds)
+LOWER BOUND: 11384058.154639   ACTIVE NODES: 21
+
+Task 53: Cutting on node 66
+recomputing rownorms ...
+Writing Pool: 1659 cuts
+BBnode 66 (now 75) done cutting: lowerbound 11388696.18 (0.59 seconds)
+LOWER BOUND: 11384104.230447   ACTIVE NODES: 21
+
+Task 54: Cutting on node 52
+Writing Pool: 1692 cuts
+BBnode 52 (now 76) done cutting: lowerbound 11387961.64 (0.72 seconds)
+LOWER BOUND: 11384139.611111   ACTIVE NODES: 21
+
+Task 55: Cutting on node 70
+recomputing rownorms ...
+Writing Pool: 1751 cuts
+BBnode 70 (now 77) done cutting: lowerbound 11387920.94 (1.02 seconds)
+LOWER BOUND: 11384178.530864   ACTIVE NODES: 21
+
+Task 56: Cutting on node 49
+recomputing rownorms ...
+Writing Pool: 1779 cuts
+BBnode 49 (now 78) done cutting: lowerbound 11392286.16 (0.60 seconds)
+LOWER BOUND: 11384197.027778   ACTIVE NODES: 21
+
+Task 57: Branching on node 28
+CClp_getweight ...
+need to link an lp solver to use this function
+CClp_getweight failed
+find_candidate_cliques failed
+BBnode 28 split into 79 (11385038.71) 80 (11385119.50) (0.05 seconds)
+LOWER BOUND: 11384304.087108   ACTIVE NODES: 22
+
+Task 58: Cutting on node 71
+Writing Pool: 1823 cuts
+BBnode 71 (now 81) done cutting: lowerbound 11391317.25 (1.03 seconds)
+LOWER BOUND: 11385038.710764   ACTIVE NODES: 22
+
+Task 59: Cutting on node 79
+Writing Pool: 1850 cuts
+BBnode 79 (now 82) can be pruned: upperbound 11392487.00 (0.22 seconds)
+LOWER BOUND: 11385119.503165   ACTIVE NODES: 21
+
+Task 60: Cutting on node 80
+Writing Pool: 1862 cuts
+BBnode 80 (now 83) can be pruned: upperbound 11392487.00 (0.08 seconds)
+LOWER BOUND: 11385131.661255   ACTIVE NODES: 20
+
+Task 61: Cutting on node 67
+Writing Pool: 1883 cuts
+BBnode 67 (now 84) can be pruned: upperbound 11392487.00 (0.07 seconds)
+LOWER BOUND: 11385238.482389   ACTIVE NODES: 19
+
+Task 62: Branching on node 36
+CClp_getweight ...
+need to link an lp solver to use this function
+CClp_getweight failed
+find_candidate_cliques failed
+BBnode 36 split into 85 (11387641.81) 86 (11386793.00) (0.05 seconds)
+LOWER BOUND: 11385536.705882   ACTIVE NODES: 20
+
+Task 63: Cutting on node 73
+Writing Pool: 1951 cuts
+BBnode 73 (now 87) can be pruned: upperbound 11392487.00 (0.36 seconds)
+LOWER BOUND: 11385707.455882   ACTIVE NODES: 19
+
+Task 64: Branching on node 57
+CClp_getweight ...
+need to link an lp solver to use this function
+CClp_getweight failed
+find_candidate_cliques failed
+BBnode 57 split into 88 (11386255.67) 89 (11386578.61) (0.03 seconds)
+LOWER BOUND: 11385870.814883   ACTIVE NODES: 20
+
+Task 65: Branching on node 59
+CClp_getweight ...
+need to link an lp solver to use this function
+CClp_getweight failed
+find_candidate_cliques failed
+BBnode 59 split into 90 (11388833.12) 91 (11392161.62) (0.08 seconds)
+LOWER BOUND: 11385974.622222   ACTIVE NODES: 21
+
+Task 66: Cutting on node 72
+Writing Pool: 1953 cuts
+BBnode 72 (now 92) can be pruned: upperbound 11392487.00 (0.20 seconds)
+LOWER BOUND: 11386255.666987   ACTIVE NODES: 20
+
+Task 67: Cutting on node 88
+Writing Pool: 1979 cuts
+BBnode 88 (now 93) done cutting: lowerbound 11392279.66 (0.52 seconds)
+LOWER BOUND: 11386416.261111   ACTIVE NODES: 20
+
+Task 68: Cutting on node 56
+Writing Pool: 1985 cuts
+BBnode 56 (now 94) can be pruned: upperbound 11392487.00 (0.04 seconds)
+LOWER BOUND: 11386578.614173   ACTIVE NODES: 19
+
+Task 69: Cutting on node 89
+Writing Pool: 1991 cuts
+BBnode 89 (now 95) done cutting: lowerbound 11392418.17 (0.19 seconds)
+LOWER BOUND: 11386604.747168   ACTIVE NODES: 19
+
+Task 70: Branching on node 32
+CClp_getweight ...
+need to link an lp solver to use this function
+CClp_getweight failed
+find_candidate_cliques failed
+BBnode 32 split into 96 (11387567.00) 97 (11392403.75) (0.03 seconds)
+LOWER BOUND: 11386621.331472   ACTIVE NODES: 20
+
+Task 71: Cutting on node 64
+Writing Pool: 1991 cuts
+BBnode 64 (now 98) can be pruned: upperbound 11392487.00 (0.05 seconds)
+LOWER BOUND: 11386639.242424   ACTIVE NODES: 19
+
+Task 72: Branching on node 48
+CClp_getweight ...
+need to link an lp solver to use this function
+CClp_getweight failed
+find_candidate_cliques failed
+BBnode 48 split into 99 (11388854.10) 100 (11389598.00) (0.05 seconds)
+LOWER BOUND: 11386784.184233   ACTIVE NODES: 20
+
+Task 73: Branching on node 65
+CClp_getweight ...
+need to link an lp solver to use this function
+CClp_getweight failed
+find_candidate_cliques failed
+BBnode 65 split into 101 (11388519.47) 102 (11392023.00) (0.04 seconds)
+LOWER BOUND: 11386793.000000   ACTIVE NODES: 21
+
+Task 74: Cutting on node 86
+Writing Pool: 2012 cuts
+BBnode 86 (now 103) done cutting: lowerbound 11392347.88 (0.50 seconds)
+LOWER BOUND: 11386915.724451   ACTIVE NODES: 21
+
+Task 75: Branching on node 61
+CClp_getweight ...
+need to link an lp solver to use this function
+CClp_getweight failed
+find_candidate_cliques failed
+BBnode 61 split into 104 (11389048.00) 105 (11392506.56X) (0.04 seconds)
+Child 1 is pruned
+LOWER BOUND: 11387522.809069   ACTIVE NODES: 21
+
+Task 76: Branching on node 68
+CClp_getweight ...
+need to link an lp solver to use this function
+CClp_getweight failed
+find_candidate_cliques failed
+BBnode 68 split into 106 (11387610.99) 107 (11388345.58) (0.03 seconds)
+LOWER BOUND: 11387567.000000   ACTIVE NODES: 22
+
+Task 77: Cutting on node 96
+Writing Pool: 2027 cuts
+BBnode 96 (now 108) can be pruned: upperbound 11392487.00 (0.09 seconds)
+LOWER BOUND: 11387588.440161   ACTIVE NODES: 21
+
+Task 78: Branching on node 69
+CClp_getweight ...
+need to link an lp solver to use this function
+CClp_getweight failed
+find_candidate_cliques failed
+BBnode 69 split into 109 (11389578.32) 110 (11388590.50) (0.04 seconds)
+LOWER BOUND: 11387610.985680   ACTIVE NODES: 22
+
+Task 79: Cutting on node 106
+recomputing rownorms ...
+Writing Pool: 2034 cuts
+BBnode 106 (now 111) done cutting: lowerbound 11388418.70 (0.60 seconds)
+LOWER BOUND: 11387641.806202   ACTIVE NODES: 22
+
+Task 80: Cutting on node 85
+Writing Pool: 2057 cuts
+BBnode 85 (now 112) can be pruned: upperbound 11392487.00 (0.11 seconds)
+LOWER BOUND: 11387920.939731   ACTIVE NODES: 21
+
+Task 81: Branching on node 77
+CClp_getweight ...
+need to link an lp solver to use this function
+CClp_getweight failed
+find_candidate_cliques failed
+BBnode 77 split into 113 (11388129.14) 114 (11389131.80) (0.04 seconds)
+LOWER BOUND: 11387961.642194   ACTIVE NODES: 22
+
+Task 82: Branching on node 76
+CClp_getweight ...
+need to link an lp solver to use this function
+CClp_getweight failed
+find_candidate_cliques failed
+BBnode 76 split into 115 (11390314.30) 116 (11389592.01) (0.07 seconds)
+LOWER BOUND: 11388129.136325   ACTIVE NODES: 23
+
+Task 83: Cutting on node 113
+Writing Pool: 2083 cuts
+BBnode 113 (now 117) done cutting: lowerbound 11389171.89 (0.71 seconds)
+LOWER BOUND: 11388345.584936   ACTIVE NODES: 23
+
+Task 84: Cutting on node 107
+recomputing rownorms ...
+Writing Pool: 2095 cuts
+BBnode 107 (now 118) done cutting: lowerbound 11390109.77 (0.55 seconds)
+LOWER BOUND: 11388418.700658   ACTIVE NODES: 23
+
+Task 85: Branching on node 111
+CClp_getweight ...
+need to link an lp solver to use this function
+CClp_getweight failed
+find_candidate_cliques failed
+BBnode 111 split into 119 (11389774.18) 120 (11389798.00) (0.05 seconds)
+LOWER BOUND: 11388519.475000   ACTIVE NODES: 24
+
+Task 86: Cutting on node 101
+recomputing rownorms ...
+Writing Pool: 2110 cuts
+BBnode 101 (now 121) done cutting: lowerbound 11391395.29 (0.39 seconds)
+LOWER BOUND: 11388590.500000   ACTIVE NODES: 24
+
+Task 87: Cutting on node 110
+Writing Pool: 2126 cuts
+BBnode 110 (now 122) can be pruned: upperbound 11392487.00 (0.27 seconds)
+LOWER BOUND: 11388696.175000   ACTIVE NODES: 23
+
+Task 88: Branching on node 75
+CClp_getweight ...
+need to link an lp solver to use this function
+CClp_getweight failed
+find_candidate_cliques failed
+BBnode 75 split into 123 (11389639.02) 124 (11390128.09) (0.04 seconds)
+LOWER BOUND: 11388833.117761   ACTIVE NODES: 24
+
+Task 89: Cutting on node 90
+Writing Pool: 2132 cuts
+BBnode 90 (now 125) can be pruned: upperbound 11392487.00 (0.06 seconds)
+LOWER BOUND: 11388854.102322   ACTIVE NODES: 23
+
+Task 90: Cutting on node 99
+Writing Pool: 2148 cuts
+BBnode 99 (now 126) can be pruned: upperbound 11392487.00 (0.05 seconds)
+LOWER BOUND: 11388949.153698   ACTIVE NODES: 22
+
+Task 91: Branching on node 62
+CClp_getweight ...
+need to link an lp solver to use this function
+CClp_getweight failed
+find_candidate_cliques failed
+BBnode 62 split into 127 (11391539.77) 128 (11394347.30X) (0.05 seconds)
+Child 1 is pruned
+LOWER BOUND: 11389048.000000   ACTIVE NODES: 22
+
+Task 92: Cutting on node 104
+Writing Pool: 2152 cuts
+BBnode 104 (now 129) can be pruned: upperbound 11392487.00 (0.09 seconds)
+LOWER BOUND: 11389131.800000   ACTIVE NODES: 21
+
+Task 93: Cutting on node 114
+recomputing rownorms ...
+Writing Pool: 2183 cuts
+BBnode 114 (now 130) done cutting: lowerbound 11391918.80 (0.56 seconds)
+LOWER BOUND: 11389171.891484   ACTIVE NODES: 21
+
+Task 94: Branching on node 117
+CClp_getweight ...
+need to link an lp solver to use this function
+CClp_getweight failed
+find_candidate_cliques failed
+BBnode 117 split into 131 (11389934.04) 132 (11390302.44) (0.04 seconds)
+LOWER BOUND: 11389578.318783   ACTIVE NODES: 22
+
+Task 95: Cutting on node 109
+Writing Pool: 2191 cuts
+BBnode 109 (now 133) can be pruned: upperbound 11392487.00 (0.06 seconds)
+LOWER BOUND: 11389592.012315   ACTIVE NODES: 21
+
+Task 96: Cutting on node 116
+Writing Pool: 2206 cuts
+BBnode 116 (now 134) can be pruned: upperbound 11392487.00 (0.07 seconds)
+LOWER BOUND: 11389598.000000   ACTIVE NODES: 20
+
+Task 97: Cutting on node 100
+Writing Pool: 2229 cuts
+BBnode 100 (now 135) can be pruned: upperbound 11392487.00 (0.09 seconds)
+LOWER BOUND: 11389639.022727   ACTIVE NODES: 19
+
+Task 98: Cutting on node 123
+Writing Pool: 2249 cuts
+BBnode 123 (now 136) done cutting: lowerbound 11391422.88 (0.94 seconds)
+LOWER BOUND: 11389774.182317   ACTIVE NODES: 19
+
+Task 99: Cutting on node 119
+Writing Pool: 2252 cuts
+BBnode 119 (now 137) done cutting: lowerbound 11391137.34 (0.27 seconds)
+LOWER BOUND: 11389798.000000   ACTIVE NODES: 19
+
+Task 100: Cutting on node 120
+Writing Pool: 2254 cuts
+BBnode 120 (now 138) done cutting: lowerbound 11390291.77 (0.35 seconds)
+LOWER BOUND: 11389934.044064   ACTIVE NODES: 19
+
+Task 101: Cutting on node 131
+recomputing rownorms ...
+Writing Pool: 2254 cuts
+BBnode 131 (now 139) done cutting: lowerbound 11390798.77 (0.36 seconds)
+LOWER BOUND: 11390109.768116   ACTIVE NODES: 19
+
+Task 102: Branching on node 118
+CClp_getweight ...
+need to link an lp solver to use this function
+CClp_getweight failed
+find_candidate_cliques failed
+BBnode 118 split into 140 (11391239.21) 141 (11392319.92) (0.05 seconds)
+LOWER BOUND: 11390128.089470   ACTIVE NODES: 20
+
+Task 103: Cutting on node 124
+Writing Pool: 2264 cuts
+BBnode 124 (now 142) can be pruned: upperbound 11392487.00 (0.05 seconds)
+LOWER BOUND: 11390291.768116   ACTIVE NODES: 19
+
+Task 104: Branching on node 138
+CClp_getweight ...
+need to link an lp solver to use this function
+CClp_getweight failed
+find_candidate_cliques failed
+BBnode 138 split into 143 (11392283.27) 144 (11394144.75X) (0.06 seconds)
+Child 1 is pruned
+LOWER BOUND: 11390302.442143   ACTIVE NODES: 19
+
+Task 105: Cutting on node 132
+Writing Pool: 2282 cuts
+BBnode 132 (now 145) done cutting: lowerbound 11392388.67 (0.38 seconds)
+LOWER BOUND: 11390314.304000   ACTIVE NODES: 19
+
+Task 106: Cutting on node 115
+recomputing rownorms ...
+Writing Pool: 2286 cuts
+BBnode 115 (now 146) done cutting: lowerbound 11391666.34 (0.23 seconds)
+LOWER BOUND: 11390798.774021   ACTIVE NODES: 19
+
+Task 107: Branching on node 139
+CClp_getweight ...
+need to link an lp solver to use this function
+CClp_getweight failed
+find_candidate_cliques failed
+BBnode 139 split into 147 (11391830.26) 148 (11391576.00) (0.04 seconds)
+LOWER BOUND: 11391137.335955   ACTIVE NODES: 20
+
+Task 108: Branching on node 137
+CClp_getweight ...
+need to link an lp solver to use this function
+CClp_getweight failed
+find_candidate_cliques failed
+BBnode 137 split into 149 (11391778.90) 150 (11391426.50) (0.04 seconds)
+LOWER BOUND: 11391239.208763   ACTIVE NODES: 21
+
+Task 109: Cutting on node 140
+Writing Pool: 2289 cuts
+BBnode 140 (now 151) can be pruned: upperbound 11392487.00 (0.04 seconds)
+LOWER BOUND: 11391317.249976   ACTIVE NODES: 20
+
+Task 110: Branching on node 81
+CClp_getweight ...
+need to link an lp solver to use this function
+CClp_getweight failed
+find_candidate_cliques failed
+BBnode 81 split into 152 (11393199.88X) 153 (11392502.00X) (0.03 seconds)
+Child 0 is pruned
+Child 1 is pruned
+LOWER BOUND: 11391395.290323   ACTIVE NODES: 19
+
+Task 111: Branching on node 121
+CClp_getweight ...
+need to link an lp solver to use this function
+CClp_getweight failed
+find_candidate_cliques failed
+BBnode 121 split into 154 (11392412.33) 155 (11392295.31) (0.03 seconds)
+LOWER BOUND: 11391422.880952   ACTIVE NODES: 20
+
+Task 112: Branching on node 136
+CClp_getweight ...
+need to link an lp solver to use this function
+CClp_getweight failed
+find_candidate_cliques failed
+BBnode 136 split into 156 (11393082.03X) 157 (11392473.39) (0.04 seconds)
+Child 0 is pruned
+LOWER BOUND: 11391426.497006   ACTIVE NODES: 20
+
+Task 113: Cutting on node 150
+Writing Pool: 2302 cuts
+BBnode 150 (now 158) can be pruned: upperbound 11392487.00 (0.24 seconds)
+LOWER BOUND: 11391539.773913   ACTIVE NODES: 19
+
+Task 114: Cutting on node 127
+Writing Pool: 2316 cuts
+BBnode 127 (now 159) can be pruned: upperbound 11392487.00 (0.05 seconds)
+LOWER BOUND: 11391576.000000   ACTIVE NODES: 18
+
+Task 115: Cutting on node 148
+recomputing rownorms ...
+Writing Pool: 2362 cuts
+BBnode 148 (now 160) done cutting: lowerbound 11392324.16 (0.86 seconds)
+LOWER BOUND: 11391666.342857   ACTIVE NODES: 18
+
+Task 116: Branching on node 146
+CClp_getweight ...
+need to link an lp solver to use this function
+CClp_getweight failed
+find_candidate_cliques failed
+BBnode 146 split into 161 (11392562.83X) 162 (11393479.17X) (0.04 seconds)
+Child 0 is pruned
+Child 1 is pruned
+LOWER BOUND: 11391778.902174   ACTIVE NODES: 17
+
+Task 117: Cutting on node 149
+recomputing rownorms ...
+Writing Pool: 2367 cuts
+BBnode 149 (now 163) done cutting: lowerbound 11392233.01 (0.44 seconds)
+LOWER BOUND: 11391830.258883   ACTIVE NODES: 17
+
+Task 118: Cutting on node 147
+recomputing rownorms ...
+Writing Pool: 2376 cuts
+BBnode 147 (now 164) done cutting: lowerbound 11392162.04 (0.25 seconds)
+LOWER BOUND: 11391918.800000   ACTIVE NODES: 17
+
+Task 119: Branching on node 130
+CClp_getweight ...
+need to link an lp solver to use this function
+CClp_getweight failed
+find_candidate_cliques failed
+BBnode 130 split into 165 (11392487.00X) 166 (11392897.87X) (0.04 seconds)
+Child 0 is pruned
+Child 1 is pruned
+LOWER BOUND: 11392023.000000   ACTIVE NODES: 16
+
+Task 120: Cutting on node 102
+Writing Pool: 2379 cuts
+BBnode 102 (now 167) can be pruned: upperbound 11392487.00 (0.04 seconds)
+LOWER BOUND: 11392161.619971   ACTIVE NODES: 15
+
+Task 121: Cutting on node 91
+Writing Pool: 2395 cuts
+BBnode 91 (now 168) can be pruned: upperbound 11392487.00 (0.06 seconds)
+LOWER BOUND: 11392162.041638   ACTIVE NODES: 14
+
+Task 122: Branching on node 164
+CClp_getweight ...
+need to link an lp solver to use this function
+CClp_getweight failed
+find_candidate_cliques failed
+BBnode 164 split into 169 (11392574.28X) 170 (11392763.92X) (0.03 seconds)
+Child 0 is pruned
+Child 1 is pruned
+LOWER BOUND: 11392233.014019   ACTIVE NODES: 13
+
+Task 123: Branching on node 163
+CClp_getweight ...
+need to link an lp solver to use this function
+CClp_getweight failed
+find_candidate_cliques failed
+BBnode 163 split into 171 (11392653.01X) 172 (11392933.91X) (0.04 seconds)
+Child 0 is pruned
+Child 1 is pruned
+LOWER BOUND: 11392279.661290   ACTIVE NODES: 12
+
+Task 124: Branching on node 93
+CClp_getweight ...
+need to link an lp solver to use this function
+CClp_getweight failed
+find_candidate_cliques failed
+BBnode 93 split into 173 (11394468.00X) 174 (11393204.51X) (0.04 seconds)
+Child 0 is pruned
+Child 1 is pruned
+LOWER BOUND: 11392283.271739   ACTIVE NODES: 11
+
+Task 125: Cutting on node 143
+Writing Pool: 2399 cuts
+BBnode 143 (now 175) can be pruned: upperbound 11392487.00 (0.04 seconds)
+LOWER BOUND: 11392286.162963   ACTIVE NODES: 10
+
+Task 126: Branching on node 78
+CClp_getweight ...
+need to link an lp solver to use this function
+CClp_getweight failed
+find_candidate_cliques failed
+BBnode 78 split into 176 (11392930.17X) 177 (11394815.19X) (0.04 seconds)
+Child 0 is pruned
+Child 1 is pruned
+LOWER BOUND: 11392295.308824   ACTIVE NODES: 9
+
+Task 127: Cutting on node 155
+Writing Pool: 2404 cuts
+BBnode 155 (now 178) can be pruned: upperbound 11392487.00 (0.03 seconds)
+LOWER BOUND: 11392319.921306   ACTIVE NODES: 8
+
+Task 128: Cutting on node 141
+Writing Pool: 2404 cuts
+BBnode 141 (now 179) can be pruned: upperbound 11392487.00 (0.04 seconds)
+LOWER BOUND: 11392324.163170   ACTIVE NODES: 7
+
+Task 129: Branching on node 160
+CClp_getweight ...
+need to link an lp solver to use this function
+CClp_getweight failed
+find_candidate_cliques failed
+BBnode 160 split into 180 (11392819.39X) 181 (11393760.31X) (0.03 seconds)
+Child 0 is pruned
+Child 1 is pruned
+LOWER BOUND: 11392347.875000   ACTIVE NODES: 6
+
+Task 130: Branching on node 103
+CClp_getweight ...
+need to link an lp solver to use this function
+CClp_getweight failed
+find_candidate_cliques failed
+BBnode 103 split into 182 (11393073.79X) 183 (11394518.64X) (0.03 seconds)
+Child 0 is pruned
+Child 1 is pruned
+LOWER BOUND: 11392388.666667   ACTIVE NODES: 5
+
+Task 131: Branching on node 145
+CClp_getweight ...
+need to link an lp solver to use this function
+CClp_getweight failed
+find_candidate_cliques failed
+BBnode 145 split into 184 (11393307.54X) 185 (11393561.42X) (0.04 seconds)
+Child 0 is pruned
+Child 1 is pruned
+LOWER BOUND: 11392403.750000   ACTIVE NODES: 4
+
+Task 132: Cutting on node 97
+Writing Pool: 2407 cuts
+BBnode 97 (now 186) can be pruned: upperbound 11392487.00 (0.04 seconds)
+LOWER BOUND: 11392412.333333   ACTIVE NODES: 3
+
+Task 133: Cutting on node 154
+Writing Pool: 2414 cuts
+BBnode 154 (now 187) can be pruned: upperbound 11392487.00 (0.03 seconds)
+LOWER BOUND: 11392418.166667   ACTIVE NODES: 2
+
+Task 134: Branching on node 95
+CClp_getweight ...
+need to link an lp solver to use this function
+CClp_getweight failed
+find_candidate_cliques failed
+BBnode 95 split into 188 (11394274.00X) 189 (11393827.00X) (0.03 seconds)
+Child 0 is pruned
+Child 1 is pruned
+LOWER BOUND: 11392473.388636   ACTIVE NODES: 1
+
+Task 135: Cutting on node 157
+Writing Pool: 2414 cuts
+BBnode 157 (now 190) can be pruned: upperbound 11392487.00 (0.05 seconds)
+
+Task 136: Exit
+Total number of nodes in search tree: 109
+Optimal tour: 11392487
+Total Time to solve TSP: 43.98
+CCtsp_solve_dat ...
+Finding a good tour for compression ...
+linkern ...
+Setting kick type to close
+Starting Cycle: 14302164
+   0 Steps   Best: 11544016   0.00 seconds
+   2 Steps   Best: 11453733   0.00 seconds
+   5 Steps   Best: 11442077   0.00 seconds
+  11 Steps   Best: 11438264   0.00 seconds
+  22 Steps   Best: 11437668   0.01 seconds
+ 100 Total Steps.
+Best cycle length: 11437668
+Lin-Kernighan Running Time: 0.03
+LK Initial Run: 11437668.0
+LK Run 0: 11420937.0
+LK Run from best tour: 11419898.0
+Time to find compression tour: 0.12 (seconds)
+Set initial upperbound to 11419898 (from tour)
+  LP Value  1: 10882100.500000  (0.01 seconds)
+  LP Value  2: 11287104.500000  (0.02 seconds)
+  LP Value  3: 11346350.750000  (0.05 seconds)
+  LP Value  4: 11373571.833333  (0.07 seconds)
+  LP Value  5: 11380441.500000  (0.10 seconds)
+  LP Value  6: 11384591.596273  (0.18 seconds)
+  LP Value  7: 11389460.487500  (0.23 seconds)
+  LP Value  8: 11394052.735294  (0.37 seconds)
+  LP Value  9: 11395364.057206  (0.53 seconds)
+  LP Value 10: 11395618.129310  (0.66 seconds)
+New lower bound: 11395618.129310
+Exact lower bound: 11395618.129310
+DIFF: 0.000000
+LOWER BOUND: 11395618.129310   ACTIVE NODES: 1
+
+Task 0: Branching on node 0
+CClp_getweight ...
+need to link an lp solver to use this function
+CClp_getweight failed
+find_candidate_cliques failed
+BBnode 0 split into 1 (11396740.45) 2 (11396328.50) (0.03 seconds)
+LOWER BOUND: 11396328.500000   ACTIVE NODES: 2
+
+Task 1: Cutting on node 2
+New upperbound from x-heuristic: 11419441.00
+recomputing rownorms ...
+TOUR FOUND - upperbound is 11419441.00
+Writing Pool: 271 cuts
+BBnode 2 (now 3) done cutting: lowerbound 11398008.60 (0.41 seconds)
+LOWER BOUND: 11396740.445736   ACTIVE NODES: 2
+
+Task 2: Cutting on node 1
+New upperbound from x-heuristic: 11413631.00
+recomputing rownorms ...
+TOUR FOUND - upperbound is 11413631.00
+Writing Pool: 305 cuts
+BBnode 1 (now 4) done cutting: lowerbound 11398299.53 (0.62 seconds)
+LOWER BOUND: 11398008.600000   ACTIVE NODES: 2
+
+Task 3: Branching on node 3
+CClp_getweight ...
+need to link an lp solver to use this function
+CClp_getweight failed
+find_candidate_cliques failed
+BBnode 3 split into 5 (11398444.68) 6 (11398993.81) (0.03 seconds)
+LOWER BOUND: 11398299.529412   ACTIVE NODES: 3
+
+Task 4: Branching on node 4
+CClp_getweight ...
+need to link an lp solver to use this function
+CClp_getweight failed
+find_candidate_cliques failed
+BBnode 4 split into 7 (11398635.36) 8 (11399062.50) (0.03 seconds)
+LOWER BOUND: 11398444.675676   ACTIVE NODES: 4
+
+Task 5: Cutting on node 5
+Writing Pool: 324 cuts
+BBnode 5 (now 9) done cutting: lowerbound 11399158.73 (0.43 seconds)
+LOWER BOUND: 11398635.361111   ACTIVE NODES: 4
+
+Task 6: Cutting on node 7
+recomputing rownorms ...
+Writing Pool: 326 cuts
+BBnode 7 (now 10) done cutting: lowerbound 11398659.28 (0.23 seconds)
+LOWER BOUND: 11398659.277778   ACTIVE NODES: 4
+
+Task 7: Branching on node 10
+CClp_getweight ...
+need to link an lp solver to use this function
+CClp_getweight failed
+find_candidate_cliques failed
+BBnode 10 split into 11 (11399756.50) 12 (11400620.71) (0.03 seconds)
+LOWER BOUND: 11398993.812500   ACTIVE NODES: 5
+
+Task 8: Cutting on node 6
+recomputing rownorms ...
+Writing Pool: 381 cuts
+BBnode 6 (now 13) done cutting: lowerbound 11402123.82 (1.16 seconds)
+LOWER BOUND: 11399062.500000   ACTIVE NODES: 5
+
+Task 9: Cutting on node 8
+Writing Pool: 437 cuts
+BBnode 8 (now 14) done cutting: lowerbound 11403668.51 (0.53 seconds)
+LOWER BOUND: 11399158.732143   ACTIVE NODES: 5
+
+Task 10: Branching on node 9
+CClp_getweight ...
+need to link an lp solver to use this function
+CClp_getweight failed
+find_candidate_cliques failed
+BBnode 9 split into 15 (11399636.11) 16 (11399796.95) (0.02 seconds)
+LOWER BOUND: 11399636.108527   ACTIVE NODES: 6
+
+Task 11: Cutting on node 15
+New upperbound from x-heuristic: 11411408.00
+recomputing rownorms ...
+TOUR FOUND - upperbound is 11411408.00
+Writing Pool: 459 cuts
+BBnode 15 (now 17) done cutting: lowerbound 11401716.60 (0.37 seconds)
+LOWER BOUND: 11399756.500000   ACTIVE NODES: 6
+
+Task 12: Cutting on node 11
+Writing Pool: 512 cuts
+BBnode 11 (now 18) done cutting: lowerbound 11403849.21 (0.64 seconds)
+LOWER BOUND: 11399796.950000   ACTIVE NODES: 6
+
+Task 13: Cutting on node 16
+recomputing rownorms ...
+Writing Pool: 522 cuts
+BBnode 16 (now 19) done cutting: lowerbound 11405602.20 (0.23 seconds)
+LOWER BOUND: 11400620.714286   ACTIVE NODES: 6
+
+Task 14: Cutting on node 12
+Writing Pool: 575 cuts
+BBnode 12 (now 20) done cutting: lowerbound 11407557.55 (0.89 seconds)
+LOWER BOUND: 11401716.600000   ACTIVE NODES: 6
+
+Task 15: Branching on node 17
+CClp_getweight ...
+need to link an lp solver to use this function
+CClp_getweight failed
+find_candidate_cliques failed
+BBnode 17 split into 21 (11402208.52) 22 (11402021.00) (0.02 seconds)
+LOWER BOUND: 11402021.000000   ACTIVE NODES: 7
+
+Task 16: Cutting on node 22
+New upperbound from x-heuristic: 11407951.00
+TOUR FOUND - upperbound is 11407951.00
+Writing Pool: 622 cuts
+BBnode 22 (now 23) can be pruned: upperbound 11407951.00 (0.25 seconds)
+LOWER BOUND: 11402123.821429   ACTIVE NODES: 6
+
+Task 17: Branching on node 13
+CClp_getweight ...
+need to link an lp solver to use this function
+CClp_getweight failed
+find_candidate_cliques failed
+BBnode 13 split into 24 (11402858.50) 25 (11404425.33) (0.02 seconds)
+LOWER BOUND: 11402208.517241   ACTIVE NODES: 7
+
+Task 18: Cutting on node 21
+recomputing rownorms ...
+Writing Pool: 674 cuts
+BBnode 21 (now 26) done cutting: lowerbound 11403967.95 (0.80 seconds)
+LOWER BOUND: 11402858.500000   ACTIVE NODES: 7
+
+Task 19: Cutting on node 24
+recomputing rownorms ...
+Writing Pool: 677 cuts
+BBnode 24 (now 27) done cutting: lowerbound 11402918.55 (0.30 seconds)
+LOWER BOUND: 11402918.550000   ACTIVE NODES: 7
+
+Task 20: Branching on node 27
+CClp_getweight ...
+need to link an lp solver to use this function
+CClp_getweight failed
+find_candidate_cliques failed
+BBnode 27 split into 28 (11404261.47) 29 (11403721.29) (0.03 seconds)
+LOWER BOUND: 11403668.511628   ACTIVE NODES: 8
+
+Task 21: Branching on node 14
+CClp_getweight ...
+need to link an lp solver to use this function
+CClp_getweight failed
+find_candidate_cliques failed
+BBnode 14 split into 30 (11404604.88) 31 (11404461.68) (0.03 seconds)
+LOWER BOUND: 11403721.285714   ACTIVE NODES: 9
+
+Task 22: Cutting on node 29
+Writing Pool: 681 cuts
+BBnode 29 (now 32) can be pruned: upperbound 11407951.00 (0.04 seconds)
+LOWER BOUND: 11403849.212355   ACTIVE NODES: 8
+
+Task 23: Branching on node 18
+CClp_getweight ...
+need to link an lp solver to use this function
+CClp_getweight failed
+find_candidate_cliques failed
+BBnode 18 split into 33 (11405119.85) 34 (11406045.40) (0.03 seconds)
+LOWER BOUND: 11403967.947368   ACTIVE NODES: 9
+
+Task 24: Branching on node 26
+CClp_getweight ...
+need to link an lp solver to use this function
+CClp_getweight failed
+find_candidate_cliques failed
+BBnode 26 split into 35 (11405668.45) 36 (11405372.20) (0.03 seconds)
+LOWER BOUND: 11404261.472222   ACTIVE NODES: 10
+
+Task 25: Cutting on node 28
+recomputing rownorms ...
+Writing Pool: 704 cuts
+BBnode 28 (now 37) done cutting: lowerbound 11405213.58 (0.53 seconds)
+LOWER BOUND: 11404425.333333   ACTIVE NODES: 10
+
+Task 26: Cutting on node 25
+Writing Pool: 713 cuts
+BBnode 25 (now 38) can be pruned: upperbound 11407951.00 (0.06 seconds)
+LOWER BOUND: 11404461.675676   ACTIVE NODES: 9
+
+Task 27: Cutting on node 31
+Writing Pool: 740 cuts
+BBnode 31 (now 39) done cutting: lowerbound 11405775.99 (0.56 seconds)
+LOWER BOUND: 11404604.875000   ACTIVE NODES: 9
+
+Task 28: Cutting on node 30
+recomputing rownorms ...
+Writing Pool: 756 cuts
+BBnode 30 (now 40) done cutting: lowerbound 11405811.33 (0.34 seconds)
+LOWER BOUND: 11405119.849462   ACTIVE NODES: 9
+
+Task 29: Cutting on node 33
+Writing Pool: 771 cuts
+BBnode 33 (now 41) done cutting: lowerbound 11405750.59 (0.33 seconds)
+LOWER BOUND: 11405213.578125   ACTIVE NODES: 9
+
+Task 30: Branching on node 37
+CClp_getweight ...
+need to link an lp solver to use this function
+CClp_getweight failed
+find_candidate_cliques failed
+BBnode 37 split into 42 (11406291.75) 43 (11407094.64) (0.03 seconds)
+LOWER BOUND: 11405372.200000   ACTIVE NODES: 10
+
+Task 31: Cutting on node 36
+Writing Pool: 810 cuts
+BBnode 36 (now 44) can be pruned: upperbound 11407951.00 (0.52 seconds)
+LOWER BOUND: 11405602.200000   ACTIVE NODES: 9
+
+Task 32: Branching on node 19
+CClp_getweight ...
+need to link an lp solver to use this function
+CClp_getweight failed
+find_candidate_cliques failed
+BBnode 19 split into 45 (11406871.08) 46 (11407239.93) (0.03 seconds)
+LOWER BOUND: 11405668.454545   ACTIVE NODES: 10
+
+Task 33: Cutting on node 35
+Writing Pool: 823 cuts
+BBnode 35 (now 47) can be pruned: upperbound 11407951.00 (0.11 seconds)
+LOWER BOUND: 11405750.589873   ACTIVE NODES: 9
+
+Task 34: Branching on node 41
+CClp_getweight ...
+need to link an lp solver to use this function
+CClp_getweight failed
+find_candidate_cliques failed
+BBnode 41 split into 48 (11407225.72) 49 (11405997.63) (0.03 seconds)
+LOWER BOUND: 11405775.994171   ACTIVE NODES: 10
+
+Task 35: Branching on node 39
+CClp_getweight ...
+need to link an lp solver to use this function
+CClp_getweight failed
+find_candidate_cliques failed
+BBnode 39 split into 50 (11406380.78) 51 (11405831.32) (0.02 seconds)
+LOWER BOUND: 11405811.328947   ACTIVE NODES: 11
+
+Task 36: Branching on node 40
+CClp_getweight ...
+need to link an lp solver to use this function
+CClp_getweight failed
+find_candidate_cliques failed
+BBnode 40 split into 52 (11407039.15) 53 (11407386.43) (0.04 seconds)
+LOWER BOUND: 11405831.323619   ACTIVE NODES: 12
+
+Task 37: Cutting on node 51
+recomputing rownorms ...
+Writing Pool: 826 cuts
+BBnode 51 (now 54) done cutting: lowerbound 11405891.67 (0.29 seconds)
+LOWER BOUND: 11405891.666667   ACTIVE NODES: 12
+
+Task 38: Branching on node 54
+CClp_getweight ...
+need to link an lp solver to use this function
+CClp_getweight failed
+find_candidate_cliques failed
+BBnode 54 split into 55 (11406928.27) 56 (11406204.91) (0.04 seconds)
+LOWER BOUND: 11405997.632294   ACTIVE NODES: 13
+
+Task 39: Cutting on node 49
+recomputing rownorms ...
+Writing Pool: 854 cuts
+BBnode 49 (now 57) done cutting: lowerbound 11406953.24 (0.47 seconds)
+LOWER BOUND: 11406045.400000   ACTIVE NODES: 13
+
+Task 40: Cutting on node 34
+Writing Pool: 863 cuts
+BBnode 34 (now 58) can be pruned: upperbound 11407951.00 (0.05 seconds)
+LOWER BOUND: 11406204.911315   ACTIVE NODES: 12
+
+Task 41: Cutting on node 56
+Writing Pool: 869 cuts
+BBnode 56 (now 59) done cutting: lowerbound 11406852.86 (0.40 seconds)
+LOWER BOUND: 11406291.750000   ACTIVE NODES: 12
+
+Task 42: Cutting on node 42
+Writing Pool: 885 cuts
+BBnode 42 (now 60) can be pruned: upperbound 11407951.00 (0.06 seconds)
+LOWER BOUND: 11406380.777778   ACTIVE NODES: 11
+
+Task 43: Cutting on node 50
+Writing Pool: 910 cuts
+BBnode 50 (now 61) can be pruned: upperbound 11407951.00 (0.17 seconds)
+LOWER BOUND: 11406852.860395   ACTIVE NODES: 10
+
+Task 44: Branching on node 59
+CClp_getweight ...
+need to link an lp solver to use this function
+CClp_getweight failed
+find_candidate_cliques failed
+BBnode 59 split into 62 (11407901.48) 63 (11407345.00) (0.03 seconds)
+LOWER BOUND: 11406871.076923   ACTIVE NODES: 11
+
+Task 45: Cutting on node 45
+Writing Pool: 930 cuts
+BBnode 45 (now 64) can be pruned: upperbound 11407951.00 (0.21 seconds)
+LOWER BOUND: 11406928.273333   ACTIVE NODES: 10
+
+Task 46: Cutting on node 55
+Writing Pool: 933 cuts
+BBnode 55 (now 65) can be pruned: upperbound 11407951.00 (0.05 seconds)
+LOWER BOUND: 11406953.239897   ACTIVE NODES: 9
+
+Task 47: Branching on node 57
+CClp_getweight ...
+need to link an lp solver to use this function
+CClp_getweight failed
+find_candidate_cliques failed
+BBnode 57 split into 66 (11408574.92X) 67 (11407897.89) (0.03 seconds)
+Child 0 is pruned
+LOWER BOUND: 11407039.149660   ACTIVE NODES: 9
+
+Task 48: Cutting on node 52
+Writing Pool: 949 cuts
+BBnode 52 (now 68) can be pruned: upperbound 11407951.00 (0.19 seconds)
+LOWER BOUND: 11407094.635135   ACTIVE NODES: 8
+
+Task 49: Cutting on node 43
+Writing Pool: 951 cuts
+BBnode 43 (now 69) can be pruned: upperbound 11407951.00 (0.04 seconds)
+LOWER BOUND: 11407225.722222   ACTIVE NODES: 7
+
+Task 50: Cutting on node 48
+Writing Pool: 955 cuts
+BBnode 48 (now 70) can be pruned: upperbound 11407951.00 (0.03 seconds)
+LOWER BOUND: 11407239.926829   ACTIVE NODES: 6
+
+Task 51: Cutting on node 46
+recomputing rownorms ...
+Writing Pool: 955 cuts
+BBnode 46 (now 71) done cutting: lowerbound 11407257.40 (0.11 seconds)
+LOWER BOUND: 11407257.400000   ACTIVE NODES: 6
+
+Task 52: Branching on node 71
+CClp_getweight ...
+need to link an lp solver to use this function
+CClp_getweight failed
+find_candidate_cliques failed
+BBnode 71 split into 72 (11408863.91X) 73 (11407995.12X) (0.03 seconds)
+Child 0 is pruned
+Child 1 is pruned
+LOWER BOUND: 11407345.000000   ACTIVE NODES: 5
+
+Task 53: Cutting on node 63
+Writing Pool: 972 cuts
+BBnode 63 (now 74) can be pruned: upperbound 11407951.00 (0.05 seconds)
+LOWER BOUND: 11407386.433333   ACTIVE NODES: 4
+
+Task 54: Cutting on node 53
+Writing Pool: 976 cuts
+BBnode 53 (now 75) can be pruned: upperbound 11407951.00 (0.04 seconds)
+LOWER BOUND: 11407557.551020   ACTIVE NODES: 3
+
+Task 55: Branching on node 20
+CClp_getweight ...
+need to link an lp solver to use this function
+CClp_getweight failed
+find_candidate_cliques failed
+BBnode 20 split into 76 (11408039.00X) 77 (11407831.63) (0.02 seconds)
+Child 0 is pruned
+LOWER BOUND: 11407831.625000   ACTIVE NODES: 3
+
+Task 56: Cutting on node 77
+Writing Pool: 985 cuts
+BBnode 77 (now 78) can be pruned: upperbound 11407951.00 (0.04 seconds)
+LOWER BOUND: 11407897.888889   ACTIVE NODES: 2
+
+Task 57: Cutting on node 67
+Writing Pool: 993 cuts
+BBnode 67 (now 79) can be pruned: upperbound 11407951.00 (0.03 seconds)
+LOWER BOUND: 11407901.481132   ACTIVE NODES: 1
+
+Task 58: Cutting on node 62
+Writing Pool: 993 cuts
+BBnode 62 (now 80) can be pruned: upperbound 11407951.00 (0.03 seconds)
+
+Task 59: Exit
+Total number of nodes in search tree: 43
+Optimal tour: 11407951
+Total Time to solve TSP: 13.05
+
+
+=================================
+upper bound: 2308
+lower bound: 2280.05
+learning rate: 2
+tour 0: 151 100 89 150 133 129 161 75 83 122 13 67 95 40 8 74 87 51 61 189 31 0 105 9 92 32 177 134 73 43 22 148 163 55 149 182 72 68 107 178 191 110 127 113 186 59 193 123 78 57 176 131 180 115 5 111 197 121 42 108 26 12 174 168 17 164 81 80 112 144 49 27 90 120 86 96 156 45 188 69 104 136 190 36 20 6 153 65 114 187 147 106 119 37 23 169 171 76 63 62 11 126 94 39 167 198 29 179 160 170 77 184 102 175 158 99 71 79 140 15 24 30 54 172 53 135 97 165 33 16 48 138 142 60 159 93 103 64 196 3 91 14 118 145 41 125 154 1 195 132 117 116 199 47 194 25 56 28 7 130 34 146 183 88 50 10 19 21 58 124 4 82 101 84 143 70 38 139 155 52 18 173 98 46 141 166 35 44 181 137 66 2 128 162 157 152 185 109 85 192 
+tour 1: 16 185 105 2 135 72 17 80 52 179 12 42 118 74 66 112 32 158 25 69 198 162 111 181 173 56 150 90 191 55 136 171 149 10 114 30 199 31 100 177 160 124 96 61 67 131 38 193 159 5 170 19 23 128 125 176 27 120 147 122 57 142 4 115 174 157 78 14 140 197 59 29 3 95 154 97 81 101 195 183 133 18 148 68 20 89 15 39 129 41 73 33 153 49 98 143 11 24 84 121 155 161 137 88 64 175 152 104 130 144 8 166 180 22 71 119 28 86 141 62 178 113 36 196 6 53 194 117 109 82 169 54 7 116 9 184 146 13 46 79 37 107 65 44 189 145 99 91 139 26 168 85 60 127 70 151 48 45 187 92 1 106 87 93 167 190 164 47 21 108 35 182 77 43 132 75 94 126 63 172 156 103 50 165 102 34 58 138 51 163 76 134 186 123 188 40 110 0 83 192 
+=================================
+
+
+
+>>>>> maximum running time criteria met: 120 [s] <<<<<
+
+
+Processing time: 151 [s]
+
