@@ -6,7 +6,7 @@
 
 using namespace std;
 
-constexpr int maximumRunninTimeSeconds = 2*60;
+constexpr int maximumRunninTimeSeconds = 10*60;
 constexpr double minimumLearningRate = 1e-4;
 constexpr double minimumBoundsDifferenceTolerance = 1e-2;
 
@@ -152,9 +152,9 @@ bool should_I_continue (const ProblemData problem)
     // solution precision
     double upperBoundDifference = abs(problem.upperBound - problem.previousUpperBound);
     double lowerBoundDifference = abs(problem.lowerBound - problem.previousLowerBound);
-    if ((upperBoundDifference < minimumBoundsDifferenceTolerance) && 
+    if ((upperBoundDifference < minimumBoundsDifferenceTolerance) &&
         (lowerBoundDifference < minimumBoundsDifferenceTolerance))
-    {   
+    {
 
         cout << endl << endl << ">>>>> " << "minimum upper bound and lower bound difference" << " criteria met: " << minimumBoundsDifferenceTolerance << " <<<<<" << endl;
         return false;
