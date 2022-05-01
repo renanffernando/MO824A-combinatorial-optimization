@@ -30,7 +30,10 @@ for file_name in all_files:
         # print(f'upper bound: {upper_bounds[-1]}')
         # print(f'learning rate: {learning_rates[-1]}')
         # print(f'processing time: {processing_times[-1]}')
-        print(f'{file_name[3:6]} & {file_name[7:-4]} & {upper_bounds[-1]} & {lower_bounds[-1]} & {processing_times[-1]}\\\\\\hline')
+        ub = float(upper_bounds[-1])
+        lb = float(lower_bounds[-1])
+        gap = (ub - lb) / lb
+        print(f'{file_name[3:6]} & {file_name[7:-4]} & {upper_bounds[-1]} & {lower_bounds[-1]} & {{:1.3f}} & {processing_times[-1]}\\\\\\hline'.format(gap))
 
         lower_bounds = list(map(float, lower_bounds))
         upper_bounds = list(map(float, upper_bounds))
