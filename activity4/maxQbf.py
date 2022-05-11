@@ -89,7 +89,7 @@ def local_search(A, W, maxW, sol, lsMethod):
         bestNeighbor = None
         bestNeighborCost = bestCost
         for i in range(n):
-            curSol = deepcopy(sol)
+            curSol = deepcopy(bestSol)
             curSol[i] = (curSol[i] + 1) % 2
             curW = sol_weight(W, curSol)
 
