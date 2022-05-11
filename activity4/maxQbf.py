@@ -2,6 +2,7 @@ from copy import deepcopy
 from datetime import datetime
 import pandas as pd
 import random
+import sys
 from itertools import combinations
 from math import ceil
 
@@ -65,7 +66,7 @@ def greedy_random_construction(n, A, W, maxW, alpha):
                addCosts[idx] != -INF and addCosts[idx] >= upperBound]
 
         if len(rcl) == 0:
-            return sol
+            raise Exception("Min cost candidate is invalid")
 
         candidateToAdd = random.choice(rcl)
 
@@ -85,6 +86,8 @@ def local_search(A, W, maxW, sol, lsMethod):
 
     while hadImprovement:
         hadImprovement = False
+        bestNeighbor = None
+        bestNeighborCost = bestCost
         for i in range(n):
             curSol = deepcopy(sol)
             curSol[i] = (curSol[i] + 1) % 2
@@ -94,13 +97,17 @@ def local_search(A, W, maxW, sol, lsMethod):
                 continue
 
             curCost = sol_cost(A, curSol)
-            if curCost > bestCost:
-                hadImprovement = True
-                bestSol = curSol
-                bestCost = curCost
+            if curCost > bestNeighborCost:
+                bestNeighbor = curSol
+                bestNeighborCost = curCost
                 if lsMethod == "first-improv":
                     break
-
+                
+        if bestNeighbor != None:
+            hadImprovement = True
+            bestSol = bestNeighbor
+            bestCost = bestNeighborCost
+  
     return bestSol, bestCost
 
 
@@ -141,7 +148,7 @@ def grasp(n, A, W, maxW, maxIt, alpha, lsMethod, maxTimeSecs):
 if __name__ == "__main__":
 
     maxIt = 500
-    alphas = [0.4, 0.8]
+    alphas = [0.1, 0.2, 0.3]
     instances = ["kqbf020", "kqbf040", "kqbf060", "kqbf080"]
     lsMethods = ["fist-improv", "best-improv"]
     # instances = ["kqbf020", "kqbf040", "kqbf060", "kqbf080", "kqbf100", "kqbf200", "kqbf400"]
@@ -169,3 +176,4 @@ if __name__ == "__main__":
 
     df_solutions = pd.DataFrame(solutions)
     df_solutions.to_csv('kqbf_solutions.csv', sep=";")
+    
