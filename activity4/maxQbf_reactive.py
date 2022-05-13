@@ -45,39 +45,6 @@ def add_cost(A, W, maxW, sol, xi):
 
 	return cost
 
-
-def greedy_random_construction(n, A, W, maxW, alpha):
-	sol = [0 for i in range(n)]
-	candidates = [i for i in range(n)]
-	it = 0
-
-	while len(candidates) != 0:
-		addCosts = [add_cost(A, W, maxW, sol, x) for x in candidates]
-		validCosts = [cost for cost in addCosts if cost != -INF]
-
-		if len(validCosts) == 0:
-			return sol
-
-		cMin = min(validCosts)
-		cMax = max(validCosts)
-
-		upperBound = cMin + alpha * (cMax - cMin)
-
-		rcl = [candidates[idx] for idx in range(len(candidates)) if
-				 addCosts[idx] != -INF and addCosts[idx] >= upperBound]
-
-		if len(rcl) == 0:
-			raise Exception("Min cost candidate is invalid")
-
-		candidateToAdd = random.choice(rcl)
-
-		sol[candidateToAdd] = 1
-		candidates.remove(candidateToAdd)
-
-		it += 1
-
-	return sol
-
 def reactive_alpha(n, A, W, maxW, alpha, a, a_uses, a_costs, prob_alpha, cost_alpha):
 	sol = [0 for i in range(n)]
 	candidates = [i for i in range(n)]
@@ -115,10 +82,10 @@ def reactive_alpha(n, A, W, maxW, alpha, a, a_uses, a_costs, prob_alpha, cost_al
 
 		cMax = max(validCosts)
 
-		upperBound = cMin + alpha_used * (cMax - cMin)
+		lowerBound = cMax - alpha_used * (cMax - cMin)
 
 		rcl = [candidates[idx] for idx in range(len(candidates)) if
-				 addCosts[idx] != -INF and addCosts[idx] >= upperBound]
+				 addCosts[idx] != -INF and addCosts[idx] >= lowerBound]
 
 		if len(rcl) == 0:
 			return sol, a_uses, a_costs, a
@@ -134,7 +101,8 @@ def reactive_alpha(n, A, W, maxW, alpha, a, a_uses, a_costs, prob_alpha, cost_al
 
 	return sol, a_uses, a_costs, a
 
-def local_search(A, W, maxW, sol, lsMethod):
+
+def flipOneMovement(A, W, maxW, sol, lsMethod):
 	n = len(sol)
 	bestSol = deepcopy(sol)
 	bestCost = sol_cost(A, sol)
@@ -144,7 +112,11 @@ def local_search(A, W, maxW, sol, lsMethod):
 		hadImprovement = False
 		bestNeighbor = None
 		bestNeighborCost = bestCost
+		weightBestSol = sol_weight(W, bestSol)
+	
 		for i in range(n):
+			if not bestSol[i] and (weightBestSol + W[i] > maxW):
+				continue
 			curSol = deepcopy(bestSol)
 			curSol[i] = (curSol[i] + 1) % 2
 			curW = sol_weight(W, curSol)
@@ -166,6 +138,61 @@ def local_search(A, W, maxW, sol, lsMethod):
 
 	return bestSol, bestCost
 
+def swapMovement(A, W, maxW, sol, lsMethod):
+	n = len(sol)
+	bestSol = deepcopy(sol)
+	bestCost = sol_cost(A, sol)
+	hadImprovement = True
+
+	while hadImprovement:
+		hadImprovement = False
+		bestNeighbor = None
+		bestNeighborCost = bestCost
+		weightBestSol = sol_weight(W, bestSol)
+  
+		for i in range(n):
+			if not bestSol[i]:
+				continue
+			for j in range(n):
+				if bestSol[j] or (weightBestSol - W[i] + W[j] > maxW):
+					continue
+				curSol = deepcopy(bestSol)
+				curSol[i] = (curSol[i] + 1) % 2
+				curSol[j] = (curSol[j] + 1) % 2
+				curW = sol_weight(W, curSol)
+
+				if curW > maxW:
+					continue
+
+				curCost = sol_cost(A, curSol)
+				if curCost > bestNeighborCost:
+					bestNeighbor = curSol
+					bestNeighborCost = curCost
+					if lsMethod == "first-improv":
+						break
+
+		if bestNeighbor != None:
+			hadImprovement = True
+			bestSol = bestNeighbor
+			bestCost = bestNeighborCost
+
+	return bestSol, bestCost
+
+
+def local_search(A, W, maxW, sol, lsMethod):
+	neighborhoods = [flipOneMovement, swapMovement]
+	k = 0
+	bestSol = deepcopy(sol)
+	bestCost = sol_cost(A, bestSol)
+	while k < len(neighborhoods):
+		localOptimalSol, localOptimalCost = neighborhoods[k](A, W, maxW, bestSol, lsMethod)
+		if localOptimalCost > bestCost:
+			bestCost = localOptimalCost
+			bestSol = localOptimalSol
+			k = 1 if k == 0 else 0
+		else:
+			k += 1
+	return bestSol, bestCost
 
 def read_instance(file_name):
 	sys.stdin = open("instances/" + file_name, "r")
@@ -235,20 +262,16 @@ def grasp(n, A, W, maxW, maxIt, alpha, lsMethod, maxTimeSecs):
 if __name__ == "__main__":
 
 	maxIt = 500
-	alphas = [0.1, 0.2, 0.3]
 	alpha_react = [0.1,0.2,0.8, 0.9]
 
-	instances = ["kqbf080",]
-	# instances = ["kqbf020", "kqbf040", "kqbf060", "kqbf080"]
-	lsMethods = ["best-improv"]
-	# lsMethods = ["fist-improv", "best-improv"]
+	instances = ["kqbf080"]
 	# instances = ["kqbf020", "kqbf040", "kqbf060", "kqbf080", "kqbf100", "kqbf200", "kqbf400"]
+	lsMethods = ["fist-improv", "best-improv"]
 
 	solutions = {'instance': [], 'alpha': [], 'lsMethod': [], 'solCost': [], 'time': []}
 
 	for instanceName in instances:
 		n, A, W, maxW = read_instance(instanceName)
-		# for alpha in alphas:
 		for lsMethod in lsMethods:
 			start = datetime.now()
 			sol, cost = grasp(n, A, W, maxW, maxIt, alpha_react, lsMethod, 30 * 60)

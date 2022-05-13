@@ -87,7 +87,11 @@ def flipOneMovement(A, W, maxW, sol, lsMethod):
 		hadImprovement = False
 		bestNeighbor = None
 		bestNeighborCost = bestCost
+		weightBestSol = sol_weight(W, bestSol)
+	
 		for i in range(n):
+			if not bestSol[i] and (weightBestSol + W[i] > maxW):
+				continue
 			curSol = deepcopy(bestSol)
 			curSol[i] = (curSol[i] + 1) % 2
 			curW = sol_weight(W, curSol)
@@ -109,7 +113,6 @@ def flipOneMovement(A, W, maxW, sol, lsMethod):
 
 	return bestSol, bestCost
 
-
 def swapMovement(A, W, maxW, sol, lsMethod):
 	n = len(sol)
 	bestSol = deepcopy(sol)
@@ -120,11 +123,13 @@ def swapMovement(A, W, maxW, sol, lsMethod):
 		hadImprovement = False
 		bestNeighbor = None
 		bestNeighborCost = bestCost
+		weightBestSol = sol_weight(W, bestSol)
+  
 		for i in range(n):
 			if not bestSol[i]:
 				continue
 			for j in range(n):
-				if bestSol[j]:
+				if bestSol[j] or (weightBestSol - W[i] + W[j] > maxW):
 					continue
 				curSol = deepcopy(bestSol)
 				curSol[i] = (curSol[i] + 1) % 2
@@ -164,7 +169,7 @@ def local_search(A, W, maxW, sol, lsMethod):
 	return bestSol, bestCost
 
 def read_instance(file_name):
-	sys.stdin = open("activity4/instances/" + file_name, "r")
+	sys.stdin = open("instances/" + file_name, "r")
 
 	n = int(input())
 	maxW = int(input())
@@ -199,11 +204,10 @@ def grasp(n, A, W, maxW, maxIt, alpha, lsMethod, maxTimeSecs):
 
 if __name__ == "__main__":
 
-	maxIt = 1
+	maxIt = 500
 	alphas = [0.1, 0.2, 0.3]
-	instances = ["kqbf020"] #, "kqbf040", "kqbf060", "kqbf080"]
+	instances = ["kqbf020", "kqbf040", "kqbf060", "kqbf080", "kqbf100", "kqbf200", "kqbf400"]
 	lsMethods = ["fist-improv", "best-improv"]
-	# instances = ["kqbf020", "kqbf040", "kqbf060", "kqbf080", "kqbf100", "kqbf200", "kqbf400"]
 
 	solutions = {'instance': [], 'alpha': [], 'lsMethod': [], 'solCost': [], 'time': []}
 
