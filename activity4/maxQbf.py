@@ -60,10 +60,10 @@ def greedy_random_construction(n, A, W, maxW, alpha):
         cMin = min(validCosts)
         cMax = max(validCosts)
 
-        upperBound = cMin + alpha * (cMax - cMin)
+        lowerBound = cMax - alpha * (cMax - cMin)
 
         rcl = [candidates[idx] for idx in range(len(candidates)) if
-               addCosts[idx] != -INF and addCosts[idx] >= upperBound]
+               addCosts[idx] != -INF and addCosts[idx] >= lowerBound]
 
         if len(rcl) == 0:
             raise Exception("Min cost candidate is invalid")
@@ -77,8 +77,7 @@ def greedy_random_construction(n, A, W, maxW, alpha):
 
     return sol
 
-
-def local_search(A, W, maxW, sol, lsMethod):
+def flipOneMovement(A, W, maxW, sol, lsMethod):
     n = len(sol)
     bestSol = deepcopy(sol)
     bestCost = sol_cost(A, sol)
@@ -111,8 +110,61 @@ def local_search(A, W, maxW, sol, lsMethod):
     return bestSol, bestCost
 
 
+def swapMovement(A, W, maxW, sol, lsMethod):
+    n = len(sol)
+    bestSol = deepcopy(sol)
+    bestCost = sol_cost(A, sol)
+    hadImprovement = True
+
+    while hadImprovement:
+        hadImprovement = False
+        bestNeighbor = None
+        bestNeighborCost = bestCost
+        for i in range(n):
+            if not bestSol[i]:
+                continue
+            for j in range(n):
+                if bestSol[j]:
+                    continue
+                curSol = deepcopy(bestSol)
+                curSol[i] = (curSol[i] + 1) % 2
+                curSol[j] = (curSol[j] + 1) % 2
+                curW = sol_weight(W, curSol)
+
+                if curW > maxW:
+                    continue
+
+                curCost = sol_cost(A, curSol)
+                if curCost > bestNeighborCost:
+                    bestNeighbor = curSol
+                    bestNeighborCost = curCost
+                    if lsMethod == "first-improv":
+                        break
+                    
+        if bestNeighbor != None:
+            hadImprovement = True
+            bestSol = bestNeighbor
+            bestCost = bestNeighborCost
+  
+    return bestSol, bestCost
+
+def local_search(A, W, maxW, sol, lsMethod):
+    neighborhoods = [flipOneMovement, swapMovement]
+    k = 0
+    bestSol = deepcopy(sol)
+    bestCost = sol_cost(A, bestSol)
+    while k < len(neighborhoods):
+        localOptimalSol, localOptimalCost = neighborhoods[k](A, W, maxW, bestSol, lsMethod)
+        if localOptimalCost > bestCost:
+            bestCost = localOptimalCost
+            bestSol = localOptimalSol
+            k = 1 if k == 0 else 0
+        else:
+            k += 1
+    return bestSol, bestCost
+
 def read_instance(file_name):
-    sys.stdin = open("instances/" + file_name, "r")
+    sys.stdin = open("activity4/instances/" + file_name, "r")
 
     n = int(input())
     maxW = int(input())
@@ -147,9 +199,9 @@ def grasp(n, A, W, maxW, maxIt, alpha, lsMethod, maxTimeSecs):
 
 if __name__ == "__main__":
 
-    maxIt = 500
+    maxIt = 1
     alphas = [0.1, 0.2, 0.3]
-    instances = ["kqbf020", "kqbf040", "kqbf060", "kqbf080"]
+    instances = ["kqbf020"] #, "kqbf040", "kqbf060", "kqbf080"]
     lsMethods = ["fist-improv", "best-improv"]
     # instances = ["kqbf020", "kqbf040", "kqbf060", "kqbf080", "kqbf100", "kqbf200", "kqbf400"]
 
