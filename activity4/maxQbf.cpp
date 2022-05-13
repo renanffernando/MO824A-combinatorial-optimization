@@ -8,6 +8,7 @@ using vi = vector<int>;
 using ii = pair<int, int>;
 #define FOR(i, b) for(int i = 0; i < (b); i++)
 #define SZ(a) ((int) a.size())
+#define all(a) a.begin(), a.end()
 #define NDEBUG
 
 struct Instance{
@@ -97,6 +98,63 @@ struct Solution{
   }
 };
 
+Solution* buildInitialBias(Instance* instance, double alpha){
+  const int seed = 0;
+  static mt19937 rng(seed);
+  Solution* sol = new Solution(instance);
+  int n = sol->n;
+
+  while(true){
+    vi valids;
+    FOR(i, n)
+      if(!sol->used[i] && sol->canAdd(i))
+        valids.push_back(i);
+
+    if(SZ(valids) == 0)
+      break;
+
+    multimap<ll, int, greater<ll>> costsSet;
+    for(int i : valids)
+      costsSet.insert({sol->deltaAdd(i), i});
+    
+    ll cMax = costsSet.begin()->first;
+    ll cMin = prev(costsSet.end())->first;
+    ll lowerBound = cMax - ceil(alpha * (cMax - cMin));
+
+    vi cands;
+    for(auto pr : costsSet){
+      if(pr.first < lowerBound)
+        break;
+      cands.push_back(pr.second);
+    }
+    
+    assert(!cands.empty());
+    auto bias = [](int e){return exp(-e);};
+
+    vector<double> pi(SZ(cands));
+    FOR(i, SZ(cands))
+      pi[i] = bias(i);
+    
+    double acumTotal = accumulate(all(pi), 0.0);
+
+    std::uniform_real_distribution<double> distribution(0, 1);
+
+    double prob = distribution(rng);
+    int chosen = SZ(cands) - 1;
+    double acum = 0;
+    FOR(i, SZ(cands)){
+      acum += pi[i] / acumTotal;
+      if(acum > prob){
+        chosen = i;
+        break;
+      }
+    }
+    sol->add(cands[chosen]);
+  }
+
+  return sol;
+}
+
 Solution* buildInitial(Instance* instance, double alpha){
   const int seed = 0;
   static mt19937 rng(seed);
@@ -137,11 +195,12 @@ Solution* buildInitial(Instance* instance, double alpha){
   return sol;
 }
 
-enum Method {FirstImprovement, BestImprovement};
+enum MethodLS {FirstImprovement, BestImprovement};
+enum MethodGrasp {Classic, Bias};
 
 class Neighborhood{
   public:
-  Solution* anyImprovement(Solution* sol, chrono::steady_clock::time_point begin, Method method, int timeLimit){
+  Solution* anyImprovement(Solution* sol, chrono::steady_clock::time_point begin, MethodLS methodls, int timeLimit){
     Solution* bestSol = new Solution(*sol);
     while(true){
       auto now = chrono::steady_clock::now();
@@ -149,7 +208,7 @@ class Neighborhood{
       int elapsedTime = elapsed.count();
       if(elapsedTime > timeLimit)
         break;
-      Solution* neighbor = improvingNeighbor(bestSol, method);
+      Solution* neighbor = improvingNeighbor(bestSol, methodls);
       if(neighbor->cost <= bestSol->cost)
         break;
       swap(bestSol, neighbor);
@@ -158,11 +217,11 @@ class Neighborhood{
     return bestSol;
   }
 
-  virtual Solution* improvingNeighbor(Solution* bestSol, Method method) = 0;
+  virtual Solution* improvingNeighbor(Solution* bestSol, MethodLS methodls) = 0;
 };
 
 class FlipNeighborhood: public Neighborhood{
-  Solution* improvingNeighbor(Solution* bestSol, Method method) override{
+  Solution* improvingNeighbor(Solution* bestSol, MethodLS methodls) override{
     int bestMove = -1;
     ll bestDelta = 0;
     FOR(i, bestSol->n){
@@ -175,7 +234,7 @@ class FlipNeighborhood: public Neighborhood{
       if (delta > bestDelta){
         bestDelta = delta;
         bestMove = i;
-        if (method == FirstImprovement)
+        if (methodls == FirstImprovement)
           break;
       }
     }
@@ -191,7 +250,7 @@ class FlipNeighborhood: public Neighborhood{
 };
 
 class SwapNeighborhood: public Neighborhood{
-  Solution* improvingNeighbor(Solution* bestSol, Method method) override{
+  Solution* improvingNeighbor(Solution* bestSol, MethodLS methodls) override{
     ii bestMove = {-1, -1};
     ll bestDelta = 0;
 
@@ -210,7 +269,7 @@ class SwapNeighborhood: public Neighborhood{
         if (delta > bestDelta){
           bestDelta = delta;
           bestMove = {i, j};
-          if (method == FirstImprovement)
+          if (methodls == FirstImprovement)
             break;
         }
       }
@@ -227,7 +286,7 @@ class SwapNeighborhood: public Neighborhood{
   }
 };
 
-void localSearch(Solution*& bestSol, chrono::steady_clock::time_point begin, Method method, int timeLimit){
+void localSearch(Solution*& bestSol, chrono::steady_clock::time_point begin, MethodLS methodls, int timeLimit){
   vector<Neighborhood*> neighborhoods;
   neighborhoods.push_back(new FlipNeighborhood());
   neighborhoods.push_back(new SwapNeighborhood());
@@ -240,7 +299,7 @@ void localSearch(Solution*& bestSol, chrono::steady_clock::time_point begin, Met
     if(elapsedTime > timeLimit)
       break;
 
-    Solution* localOptimal = neighborhoods[k]->anyImprovement(bestSol, begin, method, timeLimit);
+    Solution* localOptimal = neighborhoods[k]->anyImprovement(bestSol, begin, methodls, timeLimit);
 
     if (bestSol->cost < localOptimal->cost){
       swap(bestSol, localOptimal);
@@ -251,7 +310,7 @@ void localSearch(Solution*& bestSol, chrono::steady_clock::time_point begin, Met
   }
 }
 
-Solution* Grasp(Instance* instance, Method method, double alpha, int timeLimit, int maxIterations){
+Solution* Grasp(Instance* instance, MethodGrasp methodGrasp, MethodLS methodls, double alpha, int timeLimit, int maxIterations){
   Solution* bestSol = NULL;
   auto begin = chrono::steady_clock::now();
   int curIteration = 0;
@@ -267,8 +326,8 @@ Solution* Grasp(Instance* instance, Method method, double alpha, int timeLimit, 
       break;
     }
 
-    Solution* sol = buildInitial(instance, alpha);
-    localSearch(sol, begin, method, timeLimit);
+    Solution* sol = methodGrasp == Classic ? buildInitial(instance, alpha) : buildInitialBias(instance, alpha);
+    localSearch(sol, begin, methodls, timeLimit);
 
     if (bestSol == NULL || bestSol->cost < sol->cost){
       swap(bestSol, sol);
@@ -288,21 +347,40 @@ int main(){
   vector<double> alphas = {0.1, 0.2, 0.3};
   const int timeLimit = 60000;
   const int maxIterations = 500;
-  vector<Method> methods = {FirstImprovement, BestImprovement};
+  vector<MethodLS> methods = {FirstImprovement, BestImprovement};
+  vector<MethodGrasp> methodsGrasp = {Classic, Bias};
 
   for(auto alpha : alphas)
-    for(auto method : methods){
-      Solution* sol = Grasp(instance, method, alpha, timeLimit, maxIterations);
-      assert(sol->cost == Solution::computeCost(sol));
-      assert(sol->weight <= instance->W);
+    for(auto methodls : methods)
+      for(auto methodGrasp: methodsGrasp){
+        Solution* sol = Grasp(instance, methodGrasp, methodls, alpha, timeLimit, maxIterations);
+        assert(sol->cost == Solution::computeCost(sol));
+        assert(sol->weight <= instance->W);
 
-      cout << setprecision(3) << fixed;
-      if (method == BestImprovement)
-        cout <<  "BestImprovement  - alpha: " << alpha << " - Cost: " << sol->cost << " - Weight: " << sol->weight  << " - Time: " << sol->elapsedTime/1000.0 << "s - numIterations: " << sol->iterations << endl;
-      else if (method == FirstImprovement)
-        cout <<  "FirstImprovement - alpha: " << alpha << " - Cost: " << sol->cost << " - Weight: " << sol->weight  << " - Time: " << sol->elapsedTime/1000.0 << "s - numIterations: " << sol->iterations << endl;
-      delete sol;
-    }
+        cout << setprecision(3) << fixed;
+        switch (methodls){
+          case BestImprovement:
+            cout << "Best Improvement  - ";
+            break;
+          case FirstImprovement:
+            cout << "First Improvement - ";
+            break;
+          default:
+            throw runtime_error("Invalid Local Search Method");
+        }
+        switch (methodGrasp){
+          case Classic:
+            cout << "Classic - ";
+            break;
+          case Bias:
+            cout << "Bias    - ";
+            break;
+          default:
+            throw runtime_error("Invalid Grasp Variant");
+        }
+        cout <<  "alpha: " << alpha << " - Cost: " << sol->cost << " - Weight: " << sol->weight  << " - Time: " << sol->elapsedTime/1000.0 << "s - numIterations: " << sol->iterations << endl;
+        delete sol;
+      }
 
   delete instance;
 }
