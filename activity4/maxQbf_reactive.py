@@ -64,7 +64,7 @@ def greedy_random_construction(n, A, W, maxW, alpha):
 		upperBound = cMin + alpha * (cMax - cMin)
 
 		rcl = [candidates[idx] for idx in range(len(candidates)) if
-			   addCosts[idx] != -INF and addCosts[idx] >= upperBound]
+				 addCosts[idx] != -INF and addCosts[idx] >= upperBound]
 
 		if len(rcl) == 0:
 			raise Exception("Min cost candidate is invalid")
@@ -89,7 +89,7 @@ def reactive_alpha(n, A, W, maxW, alpha, a, a_uses, a_costs, prob_alpha, cost_al
 		a_uses[a] += 1
 
 	# print("prob_alpha = ",  prob_alpha)
-	
+
 	# print("anterior", count_alpha)
 	# print(a, cost_alpha)
 	# print(a_costs)
@@ -107,7 +107,7 @@ def reactive_alpha(n, A, W, maxW, alpha, a, a_uses, a_costs, prob_alpha, cost_al
 
 		# if len(candidates) % 5 == 0:
 			# alpha_used = random.choices(alpha, weights = prob_a, k=1)[0]
-		
+
 		if len(validCosts) == 0:
 			return sol, a_uses, a_costs, a
 
@@ -118,7 +118,7 @@ def reactive_alpha(n, A, W, maxW, alpha, a, a_uses, a_costs, prob_alpha, cost_al
 		upperBound = cMin + alpha_used * (cMax - cMin)
 
 		rcl = [candidates[idx] for idx in range(len(candidates)) if
-			   addCosts[idx] != -INF and addCosts[idx] >= upperBound]
+				 addCosts[idx] != -INF and addCosts[idx] >= upperBound]
 
 		if len(rcl) == 0:
 			return sol, a_uses, a_costs, a
@@ -129,7 +129,7 @@ def reactive_alpha(n, A, W, maxW, alpha, a, a_uses, a_costs, prob_alpha, cost_al
 		candidates.remove(candidateToAdd)
 
 		it += 1
-	
+
 	# print("count_alpha =", count_alpha)
 
 	return sol, a_uses, a_costs, a
@@ -158,12 +158,12 @@ def local_search(A, W, maxW, sol, lsMethod):
 				bestNeighborCost = curCost
 				if lsMethod == "first-improv":
 					break
-				
+
 		if bestNeighbor != None:
 			hadImprovement = True
 			bestSol = bestNeighbor
 			bestCost = bestNeighborCost
-  
+
 	return bestSol, bestCost
 
 
@@ -191,15 +191,15 @@ def prob_update(a_uses, a_costs, bestCost):
 	print("a_uses =", a_uses)
 	print("a_costs=", a_costs)
 	print("bestCosts=", bestCost)
-	
+
 	#Q_i = average_alpha[i]/Z*, Z* sendo a melhor solução encontrada até o momento
 	Qi = [average_alpha[i]/bestCost for i in range(len(a_uses))]
 	print("Qi=", Qi)
-	
+
 	#p_i = Q_i / ∑Q_j, p_i = Q_i de cada α dividido pela soma de todos os Q_i
 	prob_alpha = [Qi[a]/sum(Qi) for a in range(len(a_uses))]
 	print("prob_alpha=", prob_alpha)
-	
+
 	return prob_alpha
 
 def grasp(n, A, W, maxW, maxIt, alpha, lsMethod, maxTimeSecs):
@@ -267,4 +267,3 @@ if __name__ == "__main__":
 
 	df_solutions = pd.DataFrame(solutions)
 	df_solutions.to_csv('kqbf_reactive_solutions.csv', sep=";")
-	
