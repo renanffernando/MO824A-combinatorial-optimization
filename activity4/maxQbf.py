@@ -204,9 +204,9 @@ def grasp(n, A, W, maxW, maxIt, alpha, lsMethod, maxTimeSecs):
 
 if __name__ == "__main__":
 
-	maxIt = 500
+	maxIt = 1
 	alphas = [0.1, 0.2, 0.3]
-	instances = ["kqbf020", "kqbf040", "kqbf060", "kqbf080", "kqbf100", "kqbf200", "kqbf400"]
+	instances = ["kqbf400"] #"kqbf020", "kqbf040", "kqbf060", "kqbf080", "kqbf100", "kqbf200", 
 	lsMethods = ["fist-improv", "best-improv"]
 
 	solutions = {'instance': [], 'alpha': [], 'lsMethod': [], 'solCost': [], 'time': []}
@@ -225,10 +225,10 @@ if __name__ == "__main__":
 				solutions['time'].append(str(totalTime).replace('.', ','))
 				solutions['solCost'].append(str(cost).replace('.', ','))
 
-				# print("Max weight = ", maxW)
-				# print("Sol cost = ", sol_cost(A, sol))
-				# print("Sol weight = ", sol_weight(W, sol))
-				# print("Sol = ", sol)
+				print("Max weight = ", maxW)
+				print("Sol cost = ", sol_cost(A, sol))
+				print("Sol weight = ", sol_weight(W, sol))
+				print("Sol = ", sol)
 
 	df_solutions = pd.DataFrame(solutions)
 	df_solutions.to_csv('kqbf_solutions.csv', sep=";")
