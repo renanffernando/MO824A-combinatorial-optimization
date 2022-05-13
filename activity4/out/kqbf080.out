@@ -1,0 +1,12 @@
+First Improvement - Classic - alpha: 0.100 - Cost: 803 - Weight: 288 - Time: 0.952s - numIterations: 500
+First Improvement - Bias    - alpha: 0.100 - Cost: 803 - Weight: 288 - Time: 0.890s - numIterations: 500
+Best Improvement  - Classic - alpha: 0.100 - Cost: 803 - Weight: 288 - Time: 0.807s - numIterations: 500
+Best Improvement  - Bias    - alpha: 0.100 - Cost: 803 - Weight: 288 - Time: 0.745s - numIterations: 500
+First Improvement - Classic - alpha: 0.200 - Cost: 803 - Weight: 288 - Time: 0.995s - numIterations: 500
+First Improvement - Bias    - alpha: 0.200 - Cost: 803 - Weight: 288 - Time: 0.883s - numIterations: 500
+Best Improvement  - Classic - alpha: 0.200 - Cost: 803 - Weight: 288 - Time: 0.889s - numIterations: 500
+Best Improvement  - Bias    - alpha: 0.200 - Cost: 800 - Weight: 287 - Time: 0.777s - numIterations: 500
+First Improvement - Classic - alpha: 0.300 - Cost: 803 - Weight: 288 - Time: 1.111s - numIterations: 500
+First Improvement - Bias    - alpha: 0.300 - Cost: 803 - Weight: 288 - Time: 0.917s - numIterations: 500
+Best Improvement  - Classic - alpha: 0.300 - Cost: 803 - Weight: 288 - Time: 1.006s - numIterations: 500
+Best Improvement  - Bias    - alpha: 0.300 - Cost: 800 - Weight: 287 - Time: 0.790s - numIterations: 500
