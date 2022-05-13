@@ -358,7 +358,7 @@ int main(){
 
   Instance* instance = readInstance();
   vector<double> alphas = {0.1, 0.2, 0.3};
-  const int timeLimit = 60000;
+  const int timeLimit = 60000 * 30;
   const int maxIterations = 500;
   vector<MethodLS> methods = {FirstImprovement, BestImprovement};
   vector<MethodGrasp> methodsGrasp = {Classic, Bias};
