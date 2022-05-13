@@ -117,8 +117,15 @@ Solution* buildInitialBias(Instance* instance, double alpha){
     for(int i : valids)
       costsSet.insert({sol->deltaAdd(i), i});
     
+    const bool onlyPositive = false;
     ll cMax = costsSet.begin()->first;
     ll cMin = prev(costsSet.end())->first;
+    if(onlyPositive){
+      if(cMax < 0)
+        break;
+      cMin = max<ll>(0, cMax);
+    }
+    
     ll lowerBound = cMax - ceil(alpha * (cMax - cMin));
 
     vi cands;
@@ -174,8 +181,14 @@ Solution* buildInitial(Instance* instance, double alpha){
     for(int i : valids)
       costsSet.insert({sol->deltaAdd(i), i});
     
+    const bool onlyPositive = false;
     ll cMax = costsSet.begin()->first;
     ll cMin = prev(costsSet.end())->first;
+    if(onlyPositive){
+      if(cMax < 0)
+        break;
+      cMin = max<ll>(0, cMax);
+    }
     ll lowerBound = cMax - ceil(alpha * (cMax - cMin));
 
     vi cands;
