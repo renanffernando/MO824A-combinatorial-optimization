@@ -204,9 +204,9 @@ def grasp(n, A, W, maxW, maxIt, alpha, lsMethod, maxTimeSecs):
 
 if __name__ == "__main__":
 
-	maxIt = 1
+	maxIt = 500
 	alphas = [0.1, 0.2, 0.3]
-	instances = ["kqbf400"] #"kqbf020", "kqbf040", "kqbf060", "kqbf080", "kqbf100", "kqbf200", 
+	instances = ["kqbf020", "kqbf040", "kqbf060", "kqbf080"]#, "kqbf100", "kqbf200"]
 	lsMethods = ["fist-improv", "best-improv"]
 
 	solutions = {'instance': [], 'alpha': [], 'lsMethod': [], 'solCost': [], 'time': []}
