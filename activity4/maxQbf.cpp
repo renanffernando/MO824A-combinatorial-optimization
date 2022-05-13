@@ -282,8 +282,8 @@ Solution* buildInitialBias(Instance* instance, double alpha){
 }
 
 Solution* buildInitialPop(Instance* instance, double alpha, int mask, chrono::steady_clock::time_point begin, MethodLS methodls, int timeLimit){
-  const int seed = 0;
-  static mt19937 rng(seed);
+  random_device rd;
+  static mt19937 rng(rd());
   Solution* sol = new Solution(instance);
   int n = sol->n;
   vector<double> breaksToLocalSearch = {0.4, 0.7};
@@ -333,8 +333,8 @@ Solution* buildInitialPop(Instance* instance, double alpha, int mask, chrono::st
 }
 
 Solution* buildInitial(Instance* instance, double alpha){
-  const int seed = 0;
-  static mt19937 rng(seed);
+  random_device rd;
+  static mt19937 rng(rd());
   Solution* sol = new Solution(instance);
   int n = sol->n;
 
@@ -423,7 +423,7 @@ int main(){
   cin.tie(0)->sync_with_stdio(0);
 
   Instance* instance = readInstance();
-  vector<double> alphas = {0.15, 0.3};
+  vector<double> alphas = {0.05, 0.2};
   const int timeLimit = 60000 * 30;
   const int maxIterations = 500;
   vector<MethodLS> methods = {FirstImprovement, BestImprovement};
