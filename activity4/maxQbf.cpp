@@ -11,6 +11,8 @@ using ii = pair<int, int>;
 #define all(a) a.begin(), a.end()
 #define NDEBUG
 
+ll lsIterations;
+
 struct Instance{
   int n;
   ll W;
@@ -112,6 +114,7 @@ class Neighborhood{
       int elapsedTime = elapsed.count();
       if(elapsedTime > timeLimit)
         break;
+      lsIterations++;
       Solution* neighbor = improvingNeighbor(bestSol, methodls);
       if(neighbor->cost <= bestSol->cost)
         break;
@@ -282,8 +285,8 @@ Solution* buildInitialBias(Instance* instance, double alpha){
 }
 
 Solution* buildInitialPop(Instance* instance, double alpha, int mask, chrono::steady_clock::time_point begin, MethodLS methodls, int timeLimit){
-  random_device rd;
-  static mt19937 rng(rd());
+  const int seed = 0;
+  static mt19937 rng(seed);
   Solution* sol = new Solution(instance);
   int n = sol->n;
   vector<double> breaksToLocalSearch = {0.4, 0.7};
@@ -333,8 +336,8 @@ Solution* buildInitialPop(Instance* instance, double alpha, int mask, chrono::st
 }
 
 Solution* buildInitial(Instance* instance, double alpha){
-  random_device rd;
-  static mt19937 rng(rd());
+  const int seed = 0;
+  static mt19937 rng(seed);
   Solution* sol = new Solution(instance);
   int n = sol->n;
 
@@ -382,6 +385,7 @@ Solution* Grasp(Instance* instance, MethodGrasp methodGrasp, MethodLS methodls, 
   Solution* bestSol = NULL;
   auto begin = chrono::steady_clock::now();
   int curIteration = 0;
+  lsIterations = 0;
 
   while(true){
     auto now = chrono::steady_clock::now();
@@ -460,7 +464,7 @@ int main(){
           default:
             throw runtime_error("Invalid Grasp Variant");
         }
-        cout <<  "alpha: " << alpha << " - Cost: " << sol->cost << " - Weight: " << sol->weight  << " - Time: " << sol->elapsedTime/1000.0 << "s - numIterations: " << sol->iterations << endl;
+        cout <<  "alpha: " << alpha << " - Cost: " << sol->cost << " - Weight: " << sol->weight  << " - Time: " << sol->elapsedTime/1000.0 << "s - numIterationsGrasp: " << sol->iterations << " - numIterationsLS: " << lsIterations << endl;
         delete sol;
       }
 

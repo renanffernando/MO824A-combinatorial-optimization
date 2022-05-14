@@ -1,12 +1,12 @@
-First Improvement - Classic - alpha: 0.050 - Cost: 11008 - Weight: 1344 - Time: 452.574s - numIterations: 500
-First Improvement - Bias    - alpha: 0.050 - Cost: 11062 - Weight: 1343 - Time: 441.544s - numIterations: 500
-First Improvement - Pop     - alpha: 0.050 - Cost: 11010 - Weight: 1344 - Time: 643.515s - numIterations: 500
-Best  Improvement - Classic - alpha: 0.050 - Cost: 10960 - Weight: 1344 - Time: 399.442s - numIterations: 500
-Best  Improvement - Bias    - alpha: 0.050 - Cost: 11032 - Weight: 1344 - Time: 394.003s - numIterations: 500
-Best  Improvement - Pop     - alpha: 0.050 - Cost: 10951 - Weight: 1344 - Time: 574.859s - numIterations: 500
-First Improvement - Classic - alpha: 0.200 - Cost: 11160 - Weight: 1344 - Time: 526.318s - numIterations: 500
-First Improvement - Bias    - alpha: 0.200 - Cost: 11084 - Weight: 1342 - Time: 437.473s - numIterations: 500
-First Improvement - Pop     - alpha: 0.200 - Cost: 11021 - Weight: 1344 - Time: 876.377s - numIterations: 500
-Best  Improvement - Classic - alpha: 0.200 - Cost: 11010 - Weight: 1344 - Time: 487.109s - numIterations: 500
-Best  Improvement - Bias    - alpha: 0.200 - Cost: 10994 - Weight: 1343 - Time: 405.126s - numIterations: 500
-Best  Improvement - Pop     - alpha: 0.200 - Cost: 10961 - Weight: 1344 - Time: 830.588s - numIterations: 500
+First Improvement - Classic - alpha: 0.050 - Cost: 10985 - Weight: 1343 - Time: 456.728s - numIterationsGrasp: 500 - numIterationsLS: 34079
+First Improvement - Bias    - alpha: 0.050 - Cost: 11062 - Weight: 1343 - Time: 446.499s - numIterationsGrasp: 500 - numIterationsLS: 33728
+First Improvement - Pop     - alpha: 0.050 - Cost: 11036 - Weight: 1344 - Time: 671.128s - numIterationsGrasp: 500 - numIterationsLS: 43583
+Best  Improvement - Classic - alpha: 0.050 - Cost: 10968 - Weight: 1344 - Time: 407.075s - numIterationsGrasp: 500 - numIterationsLS: 28787
+Best  Improvement - Bias    - alpha: 0.050 - Cost: 11032 - Weight: 1344 - Time: 413.045s - numIterationsGrasp: 500 - numIterationsLS: 28802
+Best  Improvement - Pop     - alpha: 0.050 - Cost: 10954 - Weight: 1344 - Time: 612.251s - numIterationsGrasp: 500 - numIterationsLS: 37801
+First Improvement - Classic - alpha: 0.200 - Cost: 11052 - Weight: 1344 - Time: 564.443s - numIterationsGrasp: 500 - numIterationsLS: 39547
+First Improvement - Bias    - alpha: 0.200 - Cost: 11084 - Weight: 1342 - Time: 489.530s - numIterationsGrasp: 500 - numIterationsLS: 33271
+First Improvement - Pop     - alpha: 0.200 - Cost: 11026 - Weight: 1344 - Time: 950.543s - numIterationsGrasp: 500 - numIterationsLS: 56637
+Best  Improvement - Classic - alpha: 0.200 - Cost: 11042 - Weight: 1344 - Time: 507.250s - numIterationsGrasp: 500 - numIterationsLS: 33162
+Best  Improvement - Bias    - alpha: 0.200 - Cost: 10994 - Weight: 1343 - Time: 435.117s - numIterationsGrasp: 500 - numIterationsLS: 28017
+Best  Improvement - Pop     - alpha: 0.200 - Cost: 11078 - Weight: 1344 - Time: 854.874s - numIterationsGrasp: 500 - numIterationsLS: 50045
