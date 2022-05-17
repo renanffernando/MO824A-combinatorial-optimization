@@ -1,0 +1,84 @@
+\documentclass[11pt]{article}
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage{graphicx}
+\usepackage{longtable}
+\usepackage{wrapfig}
+\usepackage{rotating}
+\usepackage[normalem]{ulem}
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{capt-of}
+\usepackage{hyperref}
+\usepackage{geometry}
+\geometry{ a4paper, total={170mm,257mm},left=20mm, top=35mm, bottom=35mm, right=20mm}
+\usepackage{multicol}
+\author{Rebecca Messias (123456) \\ Ieremies Romero (217938) \\ Renan Franco (123456)}
+\date{}
+\title{MO824 - Atividade Busca Tabu}
+\hypersetup{
+ pdfauthor={Ieremies Romero (217938)},
+ pdftitle={MO824 - Atividade GRASP},
+ pdfkeywords={},
+ pdfsubject={},
+ pdfcreator={Emacs 28.1 (Org mode 9.6)},
+ pdflang={Portuguese}}
+\usepackage{biblatex}
+\addbibresource{bib.bib}
+\begin{document}
+
+\maketitle
+\section*{Descrição do problema}
+\label{sec:descricao}
+A partir do problema da \emph{Maximum Quadratic Binary Function} (MAX-QBF), proposto por~\cite{qbf},  o problema de maximização da função \(f: \mathbb{B}^{|x|} \to \mathbb{R}\), onde \(|x|\) é a dimensão do problema, descrita como
+\[f(x_{1},\dots, f(x_{n})) = \sum \limits_{i=1}^{n} \sum \limits_{j=1}^{n} a_{i,j} x_{i} x_{j} ,\]
+ em que \(a_{i,j} \in \mathbb{R} (i,j = 1,\dots,n)\) são os coeficientes da função.
+
+A este problema adicionamos a restrição
+\[ \sum_{i=1}^{n} w_{i} x_{i} \leq W ,\]
+onde \(w_{i}\) é dito o peso da variável \(x_{i}\). Nosso objetivo nessa nova versão chamada \emph{Maximum Knapsack Quadratic Binary Function} (MAX-KQBF) é maximizar a função, tal que a soma dos pesos das variáveis na solução não exceda \(W\).
+
+Nesse problema, nossas variáveis de decisão consistem em tornar ou não um certo \(x_{i}\) para valor \(1\) ou não. Isso será representado no código como inserir ou não na solução.
+
+Durante esse relatório, nos referiremos a \(c(x_{i})\) como o custo que o elemento \(x_{i}\) incumbe a atual solução. Caso \(x_{i}\) já esteja na solução, ele é a diferença no valor da função objetivo da solução atual e sem ele. Caso \(x_{i}\) não pertença à solução, \(c(x_{i})\) é a diferença no valor da função objetivo da solução atual e com ele.
+
+\section*{Metodologia}
+\label{sec:metodologia}
+
+\subsection*{Heurística construtiva}
+\label{sec:heuristica}
+Neste projeto, utilizamos como heurística padrão, um algoritmo muito similar ao proposto por \cite{rezende19_grasp}.
+
+Iniciamos com uma lista de candidatos CL composta por todos os elementos podem ser adicionados a solução e que, se o feito, infringirão na restrição de peso. A cada interação, atualizamos CL com o mesmo critério, removendo aqueles que não podem mais serem adicionados.
+
+Baseado no custo adicional que cada candidata incumbirá à solução quando inserida, determinamos quais os maiores (\(maxCost\)) e menores (\(minCost\)) custos e, baseado no parâmetro \(\alpha\), determinamos a lista de candidatos restritos de forma gulosa por
+\[ RCL = \{ cand : c(cand) \leq minCost + \alpha \ (maxCost - minCost) \}. \]
+
+Por fim, concluímos a interação da heurística realizando o passo aleatório: escolhemos um elemento de RCL aleatoriamente a ser inserido na nossa solução. Observe que o parâmetro \(\alpha\) determina o espaço amostral que teremos para retirar nosso elemento aleatório. Caso este seja pequeno de mais, realizamos apenas uma heurística gulosa, caso seja grande de mais, temos um algoritmo extremamente aleatório. Nesse experimento trabalhamos com dois valores de \(\alpha\): \(\alpha_{1} = 0.05\) e \(\alpha_{2} = 0.17\).
+
+Para a heurística construtiva, consideramos como critério de parada quando a nossa lista de candidatas CL se tornar vazia ou nenhuma inserção que possamos fazer irá melhorar nossa função objetivo.
+
+\subsection*{Lista tabu}
+\label{sec:tabu}
+Estrutura e atualização.
+
+\subsubsection*{Critério de aspiração}
+\label{sec:aspiraca
+
+\subsubsection*{Operadores de busca local}
+\label{sec:operadores}
+
+\subsubsection*{Métodos de busca}
+\label{sec:metodos}
+
+\subsubsection*{Critérios de parada}
+\label{sec:parada}
+
+\subsubsection*{Estratégias alternativas}
+\label{sec:alternativas}
+
+\section*{Resultados}
+\label{sec:resultados}
+
+\printbibliography
+\end{document}
