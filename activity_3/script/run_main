@@ -1,0 +1,13 @@
+#!/bin/sh
+
+if [[ $# -ne 1 ]]
+then
+    echo "Usage: ./script/main CASE_FILE"
+    exit
+fi
+
+mkdir -p results
+BASE_NAME=${1##*/}
+FILE_NAME=${BASE_NAME%.*}
+LOG_FILE_NAME=results/${FILE_NAME%.*}.log
+./build/main < $1 >& $LOG_FILE_NAME
