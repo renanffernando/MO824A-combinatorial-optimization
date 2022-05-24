@@ -1,0 +1,17 @@
+;instance;alpha;lsMethod;solCost;time
+0;kqbf020;0.4;fist-improv;106;0,955847
+1;kqbf020;0.4;best-improv;111;0,966506
+2;kqbf020;0.8;fist-improv;107;1,021666
+3;kqbf020;0.8;best-improv;111;1,050854
+4;kqbf040;0.4;fist-improv;270;6,362121
+5;kqbf040;0.4;best-improv;281;6,141859
+6;kqbf040;0.8;fist-improv;357;6,408702
+7;kqbf040;0.8;best-improv;327;6,631019
+8;kqbf060;0.4;fist-improv;379;19,873647
+9;kqbf060;0.4;best-improv;329;20,361054
+10;kqbf060;0.8;fist-improv;590;20,105609
+11;kqbf060;0.8;best-improv;632;20,914657
+12;kqbf080;0.4;fist-improv;570;59,630745
+13;kqbf080;0.4;best-improv;554;56,028272
+14;kqbf080;0.8;fist-improv;758;59,462895
+15;kqbf080;0.8;best-improv;737;74,502924
