@@ -1,0 +1,6 @@
+First Improvement - Classic         - CostInitial: 148 - Cost: 308 - Weight: 137 - Time: 0.110s - numIterationsTS: 5000
+Best  Improvement - Classic         - CostInitial: 148 - Cost: 308 - Weight: 137 - Time: 0.160s - numIterationsTS: 5000
+First Improvement - Diversification - CostInitial: 148 - Cost: 316 - Weight: 138 - Time: 0.100s - numIterationsTS: 5000
+Best  Improvement - Diversification - CostInitial: 148 - Cost: 316 - Weight: 138 - Time: 0.125s - numIterationsTS: 5000
+First Improvement - Probabilistic   - CostInitial: 148 - Cost: 316 - Weight: 138 - Time: 1.322s - numIterationsTS: 5000
+Best  Improvement - Probabilistic   - CostInitial: 148 - Cost: 316 - Weight: 138 - Time: 3.036s - numIterationsTS: 5000
