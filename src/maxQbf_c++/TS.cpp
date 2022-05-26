@@ -4,11 +4,11 @@ TabuSearch::TabuSearch(Instance* instance, MethodLS methodls, int timeLimit, int
   instance(instance), methodls(methodls), timeLimit(timeLimit), maxIterations(maxIterations){}
 
 void TabuSearch::gotoBestNeighborhood(){
-  Move bestMove(-1, -1);
+  Move bestMove(-1, -1, -1, -1);
   ll bestDelta = INT_MIN;
 
   FOR(i, sol->n){
-    Move curMove = sol->used[i] ? Move(-1, i) : Move(i, -1);
+    Move curMove = sol->used[i] ? Move(-1, -1, i, -1) : Move(i, -1, -1, -1);
 
     if(!sol->used[i] && !sol->canAdd(i))
       continue;
@@ -28,39 +28,43 @@ void TabuSearch::gotoBestNeighborhood(){
     }
   }
 
-  if(methodls != FirstImprovement || bestDelta <= 0)
-    FOR(i, sol->n){
-      if(sol->used[i])
-        continue;
-
-      FOR(j, sol->n){
-        if(!sol->used[j])
-          continue;
+  if(methodls != FirstImprovement || bestDelta <= 0){
+    vi vin, vout;
+    FOR(i, sol->n)
+      (sol->used[i] ? vin : vout).push_back(i);
+    
+    for(int i : vout){
+      for(int j : vin){
 
         if(sol->weight + sol->instance->weights[i] - sol->instance->weights[j] > sol->instance->W)
           continue;
 
         ll delta = sol->deltaAdd(i) - sol->deltaAdd(j) - sol->instance->cost[i][j] - sol->instance->cost[j][i];
-        Move curMove(i, j);
+        Move curMove(i, -1, j, -1);
         if (tabuSet.count(curMove) && delta + sol->cost <= bestSol->cost)
           continue;
 
         if (delta > bestDelta){
           bestDelta = delta;
-          bestMove = {i, j};
+          bestMove = {i, -1, j, -1};
           if (bestDelta > 0 && methodls == FirstImprovement)
             break;
         }
       }
     }
+  }
 
-  assert(bestMove.in != -1 || bestMove.out != -1);
+  assert(bestMove.in1 != -1 || bestMove.out1 != -1);
   ll newCost = sol->cost + bestDelta;
 
-  if(bestMove.out != -1)
-    sol->remove(bestMove.out);
-  if(bestMove.in != -1)
-    sol->add(bestMove.in);
+  if(bestMove.out1 != -1)
+    sol->remove(bestMove.out1);
+  if(bestMove.out2 != -1)
+    sol->remove(bestMove.out2);
+  if(bestMove.in1 != -1)
+    sol->add(bestMove.in1);
+  if(bestMove.in2 != -1)
+    sol->add(bestMove.in2);
   assert(newCost == sol->cost);
 
   assert(!tabuSet.count(bestMove) || sol->cost > bestSol->cost);
