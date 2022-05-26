@@ -2,7 +2,7 @@
 #define GRASP_H
 #include "Solution.hpp"
 
-enum MethodTabuSearch {Classic, Bias, Pop};
+enum MethodTS {Classic, Probabilistic, Diversification};
 enum MethodLS {FirstImprovement, BestImprovement};
 
 struct Move{
@@ -21,15 +21,19 @@ struct Move{
 class TabuSearch{
   Solution* sol, *bestSol;
   Instance* instance;
-  MethodLS methodls; 
+  MethodLS methodls;
+  MethodTS methodTS;
   int timeLimit, maxIterations;
-  int lsIterations, maxTabuSize = 30;
+  int lsIterations, maxTabuSize = 100;
   deque<Move> tabuList;
   set<Move> tabuSet;
   chrono::steady_clock::time_point begin;
+  mt19937 rng;
+  vi iterationsInSol;
+  vi fixed;
 
   public:
-  TabuSearch(Instance* instance, MethodLS methodls, int timeLimit, int maxIterations);
+  TabuSearch(Instance* instance, MethodLS methodls, MethodTS methodTS, int timeLimit, int maxIterations);
   
   int getTime();
   Solution* run(Solution* sol);

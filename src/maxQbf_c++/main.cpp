@@ -51,33 +51,49 @@ int main(){
 
   Instance* instance = Instance::readInstance();
   const int timeLimit = 60000 * 30;
-  const int maxIterations = 20000;
-  vector<MethodLS> methods = {FirstImprovement, BestImprovement};
+  const int maxIterations = 5000;
+  vector<MethodTS> methodsTS = {Classic, Diversification, Probabilistic};
+  vector<MethodLS> methodsLS = {FirstImprovement, BestImprovement};
 
-  for(MethodLS methodls : methods){
-    Solution* initialSol = buildInitial(instance, 0.05);
-    TabuSearch ts(instance, methodls, timeLimit, maxIterations);
-    Solution* sol = ts.run(initialSol);
+  for (MethodTS methodTS : methodsTS)
+    for(MethodLS methodls : methodsLS){
+      Solution* initialSol = buildInitial(instance, 0.05);
+      TabuSearch ts(instance, methodls, methodTS, timeLimit, maxIterations);
+      Solution* sol = ts.run(initialSol);
 
-    assert(sol->cost == Solution::computeCost(sol));
-    assert(sol->weight <= instance->W);
+      assert(sol->cost == Solution::computeCost(sol));
+      assert(sol->weight <= instance->W);
 
-    cout << setprecision(3) << fixed;
-    switch (methodls){
-      case BestImprovement:
-        cout << "Best  Improvement";
-        break;
-      case FirstImprovement:
-        cout << "First Improvement";
-        break;
-      default:
-        throw runtime_error("Invalid Local Search Method");
+      cout << setprecision(3) << fixed;
+      switch (methodls){
+        case BestImprovement:
+          cout << "Best  Improvement";
+          break;
+        case FirstImprovement:
+          cout << "First Improvement";
+          break;
+        default:
+          throw runtime_error("Invalid Local Search Method");
+      }
+
+      switch (methodTS){
+        case Classic:
+          cout << " - Classic        ";
+          break;
+        case Probabilistic:
+          cout << " - Probabilistic  ";
+          break;
+        case Diversification:
+          cout << " - Diversification";
+          break;
+        default:
+          throw runtime_error("Invalid Tabu Search Method");
+      }
+
+      cout << " - CostInitial: " << initialSol->cost <<  " - Cost: " << sol->cost << " - Weight: " << sol->weight  << " - Time: " << sol->elapsedTime/1000.0 << "s - numIterationsTS: " << sol->iterations << endl;
+      delete sol;
+      delete initialSol;
     }
-
-    cout << " - CostInitial: " << initialSol->cost <<  " - Cost: " << sol->cost << " - Weight: " << sol->weight  << " - Time: " << sol->elapsedTime/1000.0 << "s - numIterationsTS: " << sol->iterations << endl;
-    delete sol;
-    delete initialSol;
-  }
 
   delete instance;
 }

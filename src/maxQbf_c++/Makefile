@@ -21,5 +21,5 @@ softClean:
 	rm $(ARQ_MAIN); rm -f *.o;
 
 hardClean:
-	rm $(ARQ_MAIN); rm -f *.o; rm -r out; rm output.png; rm gmon.out
+	rm $(ARQ_MAIN); rm -f *.o; rm -r out; rm output.png; rm gmon.out; rm *.out;
 	

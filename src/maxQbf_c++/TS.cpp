@@ -1,13 +1,16 @@
 #include "TS.hpp"
 
-TabuSearch::TabuSearch(Instance* instance, MethodLS methodls, int timeLimit, int maxIterations):
-  instance(instance), methodls(methodls), timeLimit(timeLimit), maxIterations(maxIterations){}
+TabuSearch::TabuSearch(Instance* instance, MethodLS methodls,  MethodTS methodTS, int timeLimit, int maxIterations):
+  instance(instance), methodls(methodls), methodTS(methodTS), timeLimit(timeLimit), maxIterations(maxIterations), rng(0),
+  iterationsInSol(instance->n), fixed(instance->n){}
 
 void TabuSearch::gotoBestNeighborhood(){
   Move bestMove(-1, -1, -1, -1);
   ll bestDelta = INT_MIN;
 
   FOR(i, sol->n){
+    if(fixed[i])
+      continue;
     Move curMove = sol->used[i] ? Move(-1, -1, i, -1) : Move(i, -1, -1, -1);
 
     if(!sol->used[i] && !sol->canAdd(i))
@@ -30,8 +33,11 @@ void TabuSearch::gotoBestNeighborhood(){
 
   if(methodls != FirstImprovement || bestDelta <= 0){
     vi vin, vout;
-    FOR(i, sol->n)
+    FOR(i, sol->n){
+      if(fixed[i])
+        continue;
       (sol->used[i] ? vin : vout).push_back(i);
+    }
     
     for(int i : vout){
       for(int j : vin){
@@ -49,6 +55,60 @@ void TabuSearch::gotoBestNeighborhood(){
           bestMove = {i, -1, j, -1};
           if (bestDelta > 0 && methodls == FirstImprovement)
             break;
+        }
+      }
+    }
+  }
+
+  if(methodTS == Probabilistic && (methodls != FirstImprovement || bestDelta <= 0)){
+    vi vin, vout;
+    FOR(i, sol->n){
+      if(fixed[i])
+        continue;
+      (sol->used[i] ? vin : vout).push_back(i);
+    }
+    
+    vi vin1 = vin, vin2 = vin;
+    vi vout1 = vout, vout2 = vout;
+    shuffle(all(vin1), rng);
+    shuffle(all(vin2), rng);
+    shuffle(all(vout1), rng);
+    shuffle(all(vout2), rng);
+
+    int MAXSZ = 10;
+    vin1.resize(min(SZ(vin1), MAXSZ));
+    vin2.resize(min(SZ(vin2), MAXSZ));
+    vout1.resize(min(SZ(vout1), MAXSZ));
+    vout2.resize(min(SZ(vout2), MAXSZ));
+
+    for(int i : vout1){
+      for(int h : vout2){
+        if(i == h)
+          continue;
+        for(int j : vin1){
+          for(int l : vin2){
+            if(j == l)
+              continue;
+
+            if(sol->weight + sol->instance->weights[i] + sol->instance->weights[h] - sol->instance->weights[j] - sol->instance->weights[l] > sol->instance->W)
+              continue;
+
+            ll delta = sol->deltaAdd(i) + sol->deltaAdd(h) - sol->deltaAdd(j) - sol->deltaAdd(l);
+            delta -= sol->instance->cost[i][j] + sol->instance->cost[j][i] + sol->instance->cost[h][j] + sol->instance->cost[j][h];
+            delta -= sol->instance->cost[i][l] + sol->instance->cost[l][i] + sol->instance->cost[h][l] + sol->instance->cost[l][h];
+            delta += sol->instance->cost[i][h] + sol->instance->cost[h][i];
+            delta += sol->instance->cost[j][l] + sol->instance->cost[l][j];
+            Move curMove(i, h, j, l);
+            if (tabuSet.count(curMove) && delta + sol->cost <= bestSol->cost)
+              continue;
+
+            if (delta > bestDelta){
+              bestDelta = delta;
+              bestMove = {i, h, j, l};
+              if (bestDelta > 0 && methodls == FirstImprovement)
+                break;
+            }
+          }
         }
       }
     }
@@ -109,11 +169,43 @@ int TabuSearch::getTime(){
 
 void TabuSearch::localSearch(){
   lsIterations = 0;
+  const int C1 = 10;
+  const int C2 = 30;
+  int iterationsToReset = maxIterations / C1;
+  int iterationsToUnfix = C2;
 
   while(true){
+    assert(iterationsToReset >= 2 * iterationsToUnfix);
+    FOR(i, sol->n)
+      if(sol->used[i])
+        iterationsInSol[i]++;
+      else
+        iterationsInSol[i] = 0;
+
     int elapsedTime = getTime();
     if(elapsedTime > timeLimit || lsIterations >= maxIterations)
       break;
+
+    if(methodTS == Diversification){
+      if(iterationsToReset == 0){
+        delete sol;
+        sol = new Solution(*bestSol);
+
+        int maxVal = *max_element(all(iterationsInSol));
+        int maxGet = ceil(maxVal * 0.1);
+        FOR(i, sol->n)
+          if(iterationsInSol[i] <= maxGet && sol->used[i])
+            fixed[i] = true;
+        iterationsToReset = maxIterations / C1;
+        iterationsToUnfix = C2;
+      }
+
+      if(iterationsToUnfix == 0)
+        FOR(i, sol->n)
+          fixed[i] = 0;
+      iterationsToReset--;
+      iterationsToUnfix--;
+    }
 
     gotoBestNeighborhood();
     lsIterations++;
