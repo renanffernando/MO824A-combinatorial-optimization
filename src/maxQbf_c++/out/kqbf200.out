@@ -1,6 +1,12 @@
-First Improvement - Classic         - CostInitial: 3393 - Cost: 3978 - Weight: 680 - Time: 6.118s - numIterationsTS: 5000
-Best  Improvement - Classic         - CostInitial: 3393 - Cost: 3961 - Weight: 679 - Time: 6.915s - numIterationsTS: 5000
-First Improvement - Diversification - CostInitial: 3393 - Cost: 3978 - Weight: 680 - Time: 6.011s - numIterationsTS: 5000
-Best  Improvement - Diversification - CostInitial: 3393 - Cost: 3961 - Weight: 679 - Time: 7.365s - numIterationsTS: 5000
-First Improvement - Probabilistic   - CostInitial: 3393 - Cost: 4031 - Weight: 679 - Time: 16.694s - numIterationsTS: 5000
-Best  Improvement - Probabilistic   - CostInitial: 3393 - Cost: 3967 - Weight: 679 - Time: 24.494s - numIterationsTS: 5000
+First Improvement - Classic         - Tenure: 20 - CostInitial: 3393 - Cost: 3978 - Weight: 680 - Time: 12.333s - numIterationsTS: 10000
+First Improvement - Diversification - Tenure: 20 - CostInitial: 3393 - Cost: 4029 - Weight: 680 - Time: 11.119s - numIterationsTS: 10000
+First Improvement - Probabilistic   - Tenure: 20 - CostInitial: 3393 - Cost: 4031 - Weight: 679 - Time: 18.009s - numIterationsTS: 10000
+Best  Improvement - Classic         - Tenure: 20 - CostInitial: 3393 - Cost: 3961 - Weight: 679 - Time: 12.905s - numIterationsTS: 10000
+Best  Improvement - Diversification - Tenure: 20 - CostInitial: 3393 - Cost: 3961 - Weight: 679 - Time: 12.605s - numIterationsTS: 10000
+Best  Improvement - Probabilistic   - Tenure: 20 - CostInitial: 3393 - Cost: 3967 - Weight: 679 - Time: 27.093s - numIterationsTS: 10000
+First Improvement - Classic         - Tenure: 100 - CostInitial: 3393 - Cost: 3978 - Weight: 680 - Time: 11.493s - numIterationsTS: 10000
+First Improvement - Diversification - Tenure: 100 - CostInitial: 3393 - Cost: 4033 - Weight: 679 - Time: 12.249s - numIterationsTS: 10000
+First Improvement - Probabilistic   - Tenure: 100 - CostInitial: 3393 - Cost: 4031 - Weight: 679 - Time: 18.245s - numIterationsTS: 10000
+Best  Improvement - Classic         - Tenure: 100 - CostInitial: 3393 - Cost: 3961 - Weight: 679 - Time: 12.968s - numIterationsTS: 10000
+Best  Improvement - Diversification - Tenure: 100 - CostInitial: 3393 - Cost: 3961 - Weight: 679 - Time: 12.445s - numIterationsTS: 10000
+Best  Improvement - Probabilistic   - Tenure: 100 - CostInitial: 3393 - Cost: 3967 - Weight: 679 - Time: 27.926s - numIterationsTS: 10000

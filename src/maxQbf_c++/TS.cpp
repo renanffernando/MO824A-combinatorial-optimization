@@ -1,7 +1,7 @@
 #include "TS.hpp"
 
-TabuSearch::TabuSearch(Instance* instance, MethodLS methodls,  MethodTS methodTS, int timeLimit, int maxIterations):
-  instance(instance), methodls(methodls), methodTS(methodTS), timeLimit(timeLimit), maxIterations(maxIterations), rng(0),
+TabuSearch::TabuSearch(Instance* instance, MethodLS methodls,  MethodTS methodTS, int maxTabuSize, int timeLimit, int maxIterations):
+  instance(instance), methodls(methodls), methodTS(methodTS), maxTabuSize(maxTabuSize), timeLimit(timeLimit), maxIterations(maxIterations), rng(0),
   iterationsInSol(instance->n), fixed(instance->n){}
 
 void TabuSearch::gotoBestNeighborhood(){
@@ -78,7 +78,7 @@ void TabuSearch::gotoBestNeighborhood(){
     shuffle(all(vout1), rng);
     shuffle(all(vout2), rng);
 
-    int MAXSZ = 10;
+    int MAXSZ = ceil(pow(instance->n, 0.5)/2.0);
     vin1.resize(min(SZ(vin1), MAXSZ));
     vin2.resize(min(SZ(vin2), MAXSZ));
     vout1.resize(min(SZ(vout1), MAXSZ));
@@ -175,9 +175,9 @@ int TabuSearch::getTime(){
 
 void TabuSearch::localSearch(){
   lsIterations = 0;
-  const int C1 = 10;
+  const int C1 = 500;
   const int C2 = 30;
-  int iterationsToReset = maxIterations / C1;
+  int iterationsToReset = C1;
   int iterationsToUnfix = C2;
 
   while(true){
@@ -197,12 +197,16 @@ void TabuSearch::localSearch(){
         delete sol;
         sol = new Solution(*bestSol);
 
-        int maxVal = *max_element(all(iterationsInSol));
-        int maxGet = ceil(maxVal * 0.1);
-        FOR(i, sol->n)
-          if(iterationsInSol[i] <= maxGet && sol->used[i])
-            fixed[i] = true;
-        iterationsToReset = maxIterations / C1;
+        vector<ii> cands;
+        FOR(i, instance->n)
+          if(sol->used[i])
+            cands.push_back({iterationsInSol[i], i});
+
+        sort(all(cands));
+        cands.resize(floor(0.8 * SZ(cands)));
+        for(auto c : cands)
+          fixed[c.second] = true;
+        iterationsToReset = C1;
         iterationsToUnfix = C2;
       }
 

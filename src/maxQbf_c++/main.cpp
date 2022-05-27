@@ -45,14 +45,16 @@ int main(){
 
   Instance* instance = Instance::readInstance();
   const int timeLimit = 60000 * 30;
-  const int maxIterations = 5000;
+  const int maxIterations = 10000;
   vector<MethodTS> methodsTS = {Classic, Diversification, Probabilistic};
   vector<MethodLS> methodsLS = {FirstImprovement, BestImprovement};
+  vi tenures = {20, 100};
 
-  for (MethodTS methodTS : methodsTS)
-    for(MethodLS methodls : methodsLS){
+  for(int tenure : tenures)
+    for(MethodLS methodls : methodsLS)
+    for (MethodTS methodTS : methodsTS){
       Solution* initialSol = buildInitial(instance, 0.05);
-      TabuSearch ts(instance, methodls, methodTS, timeLimit, maxIterations);
+      TabuSearch ts(instance, methodls, methodTS, tenure, timeLimit, maxIterations);
       Solution* sol = ts.run(initialSol);
 
       assert(sol->value == Solution::computeValue(sol));
@@ -84,7 +86,10 @@ int main(){
           throw runtime_error("Invalid Tabu Search Method");
       }
 
-      cout << " - CostInitial: " << initialSol->getCost() <<  " - Cost: " << sol->getCost() << " - Weight: " << sol->getWeight()  << " - Time: " << sol->elapsedTime/1000.0 << "s - numIterationsTS: " << sol->iterations << endl;
+      cout << " - Tenure: " << tenure << " - CostInitial: " << initialSol->getCost();
+      cout << " - Cost: " << sol->getCost() << " - Weight: " << sol->getWeight();
+      cout << " - Time: " << sol->elapsedTime/1000.0 << "s - numIterationsTS: " << sol->iterations;
+      cout << endl;
       delete sol;
       delete initialSol;
     }

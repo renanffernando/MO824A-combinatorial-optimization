@@ -23,8 +23,8 @@ class TabuSearch{
   Instance* instance;
   MethodLS methodls;
   MethodTS methodTS;
-  int timeLimit, maxIterations;
-  int lsIterations, maxTabuSize = 100;
+  int maxTabuSize, timeLimit, maxIterations;
+  int lsIterations;
   deque<Move> tabuList;
   set<Move> tabuSet;
   chrono::steady_clock::time_point begin;
@@ -33,7 +33,7 @@ class TabuSearch{
   vi fixed;
 
   public:
-  TabuSearch(Instance* instance, MethodLS methodls, MethodTS methodTS, int timeLimit, int maxIterations);
+  TabuSearch(Instance* instance, MethodLS methodls, MethodTS methodTS, int maxTabuSize, int timeLimit, int maxIterations);
   
   int getTime();
   Solution* run(Solution* sol);

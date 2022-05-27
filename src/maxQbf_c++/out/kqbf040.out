@@ -1,6 +1,12 @@
-First Improvement - Classic         - CostInitial: 148 - Cost: 308 - Weight: 137 - Time: 0.110s - numIterationsTS: 5000
-Best  Improvement - Classic         - CostInitial: 148 - Cost: 308 - Weight: 137 - Time: 0.160s - numIterationsTS: 5000
-First Improvement - Diversification - CostInitial: 148 - Cost: 316 - Weight: 138 - Time: 0.100s - numIterationsTS: 5000
-Best  Improvement - Diversification - CostInitial: 148 - Cost: 316 - Weight: 138 - Time: 0.125s - numIterationsTS: 5000
-First Improvement - Probabilistic   - CostInitial: 148 - Cost: 316 - Weight: 138 - Time: 1.322s - numIterationsTS: 5000
-Best  Improvement - Probabilistic   - CostInitial: 148 - Cost: 316 - Weight: 138 - Time: 3.036s - numIterationsTS: 5000
+First Improvement - Classic         - Tenure: 20 - CostInitial: 148 - Cost: 308 - Weight: 137 - Time: 0.183s - numIterationsTS: 10000
+First Improvement - Diversification - Tenure: 20 - CostInitial: 148 - Cost: 316 - Weight: 138 - Time: 0.179s - numIterationsTS: 10000
+First Improvement - Probabilistic   - Tenure: 20 - CostInitial: 148 - Cost: 316 - Weight: 138 - Time: 0.243s - numIterationsTS: 10000
+Best  Improvement - Classic         - Tenure: 20 - CostInitial: 148 - Cost: 308 - Weight: 137 - Time: 0.245s - numIterationsTS: 10000
+Best  Improvement - Diversification - Tenure: 20 - CostInitial: 148 - Cost: 316 - Weight: 138 - Time: 0.186s - numIterationsTS: 10000
+Best  Improvement - Probabilistic   - Tenure: 20 - CostInitial: 148 - Cost: 316 - Weight: 138 - Time: 0.397s - numIterationsTS: 10000
+First Improvement - Classic         - Tenure: 100 - CostInitial: 148 - Cost: 308 - Weight: 137 - Time: 0.175s - numIterationsTS: 10000
+First Improvement - Diversification - Tenure: 100 - CostInitial: 148 - Cost: 316 - Weight: 138 - Time: 0.177s - numIterationsTS: 10000
+First Improvement - Probabilistic   - Tenure: 100 - CostInitial: 148 - Cost: 316 - Weight: 138 - Time: 0.232s - numIterationsTS: 10000
+Best  Improvement - Classic         - Tenure: 100 - CostInitial: 148 - Cost: 308 - Weight: 137 - Time: 0.242s - numIterationsTS: 10000
+Best  Improvement - Diversification - Tenure: 100 - CostInitial: 148 - Cost: 309 - Weight: 135 - Time: 0.139s - numIterationsTS: 10000
+Best  Improvement - Probabilistic   - Tenure: 100 - CostInitial: 148 - Cost: 316 - Weight: 138 - Time: 0.392s - numIterationsTS: 10000

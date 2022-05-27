@@ -8,7 +8,8 @@ struct Value{
   Value (ll cost, ll weight): cost(cost), weight(weight) {}
 
   bool operator > (const Value& v2) const{
-    return make_pair(cost, -weight) > make_pair(v2.cost, -v2.weight);
+    return cost > v2.cost;
+    //return make_pair(cost, -weight) > make_pair(v2.cost, -v2.weight);
   }
 
   bool operator <= (const Value& v2) const{

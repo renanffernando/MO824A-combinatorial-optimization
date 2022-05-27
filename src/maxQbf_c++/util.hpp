@@ -12,6 +12,6 @@ using ii = pair<int, int>;
 #define FOR(i, b) for(int i = 0; i < (b); i++)
 #define SZ(a) ((int) a.size())
 #define all(a) a.begin(), a.end()
-#define NDEBUG
+//#define NDEBUG
 
 #endif
