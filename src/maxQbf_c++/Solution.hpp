@@ -2,39 +2,77 @@
 #define SOLUTION_H
 #include "Instance.hpp"
 
+struct Value{
+  ll cost, weight;
+
+  Value (ll cost, ll weight): cost(cost), weight(weight) {}
+
+  bool operator > (const Value& v2) const{
+    return make_pair(cost, -weight) > make_pair(v2.cost, -v2.weight);
+  }
+
+  bool operator <= (const Value& v2) const{
+    return !(*this > v2);
+  }
+
+  bool operator == (const Value& v2) const{
+    return make_pair(cost, weight) == make_pair(v2.cost, v2.weight);
+  }
+
+  Value operator + (const Value& v2) const{
+    return Value(cost + v2.cost, weight + v2.weight);
+  }
+
+  Value operator += (const Value& v2){
+    return *this = *this + v2;
+  }
+
+  Value operator - (const Value& v2) const{
+    return Value(cost - v2.cost, weight - v2.weight);
+  }
+
+  Value operator -= (const Value& v2){
+    return *this = *this - v2;
+  }
+
+  Value operator *= (const int& m){
+    cost *= m;
+    weight *= m;
+    return *this;
+  }
+};
+
 struct Solution{
+  Value value;
   Instance* instance;
   int n, elapsedTime, iterations;
   vi used;
-  ll cost, weight;
-  Solution(Instance* instance): instance(instance), n(instance->n), elapsedTime(0), iterations(0), used(n, 0), cost(0), weight(0){}
+  Solution(Instance* instance): value(0, 0), instance(instance), n(instance->n), elapsedTime(0), iterations(0), used(n, 0){}
 
   void add(int i){
     assert(!used[i]);
     assert(canAdd(i));
     used[i] = 1;
-    weight += instance->weights[i];
-    cost += deltaAdd(i);
-    assert(cost == computeCost(this));
+    value += deltaAdd(i);
+    assert(value == computeValue(this));
   }
 
-  ll deltaAdd(int i){
-    ll delta = 0;
+  Value deltaAdd(int i){
+    Value delta(0, instance->weights[i]);
     FOR(j, n)
       if(i != j && used[j]){
-        delta += instance->cost[i][j];
-        delta += instance->cost[j][i];
+        delta.cost += instance->cost[i][j];
+        delta.cost += instance->cost[j][i];
       }
-    delta += instance->cost[i][i];
+    delta.cost += instance->cost[i][i];
     return delta;
   }
 
   void remove(int i){
     assert(used[i]);
     used[i] = 0;
-    weight -= instance->weights[i];
-    cost -= deltaAdd(i);
-    assert(cost == computeCost(this));
+    value -= deltaAdd(i);
+    assert(value == computeValue(this));
   }
 
   void flip(int i){
@@ -44,22 +82,30 @@ struct Solution{
       add(i);
   }
 
-  static ll computeCost(Solution* sol){
+  ll getCost(){
+    return value.cost;
+  }
+
+  ll getWeight(){
+    return value.weight;
+  }
+
+  static Value computeValue(Solution* sol){
     ll weight = 0;
     FOR(i, sol->n)
       if(sol->used[i])
         weight += sol->instance->weights[i];
-    assert(weight == sol->weight);
+    assert(weight == sol->getWeight());
     ll cost = 0;
     FOR(i, sol->n)
       FOR(j, sol->n)
         cost += sol->instance->cost[i][j] * sol->used[i] * sol->used[j];
-    return cost;
+    return Value(cost, weight);
   }
 
   bool canAdd(int i){
     assert(!used[i]);
-    return weight + instance->weights[i] <= instance->W;
+    return value.weight + instance->weights[i] <= instance->W;
   }
 };
 

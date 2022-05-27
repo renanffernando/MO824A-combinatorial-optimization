@@ -15,23 +15,17 @@ Solution* buildInitial(Instance* instance, double alpha){
     if(SZ(valids) == 0)
       break;
 
-    multimap<ll, int, greater<ll>> costsSet;
+    multimap<Value, int, greater<Value>> costsSet;
     for(int i : valids)
       costsSet.insert({sol->deltaAdd(i), i});
 
-    const bool onlyPositive = false;
-    ll cMax = costsSet.begin()->first;
-    ll cMin = prev(costsSet.end())->first;
-    if(onlyPositive){
-      if(cMax < 0)
-        break;
-      cMin = max<ll>(0, cMax);
-    }
-    ll lowerBound = cMax - ceil(alpha * (cMax - cMin));
+    Value cMax = costsSet.begin()->first;
+    Value cMin = prev(costsSet.end())->first;
+    ll lowerBound = cMax.cost - ceil(alpha * (cMax.cost - cMin.cost));
 
     vi cands;
     for(auto pr : costsSet){
-      if(pr.first < lowerBound)
+      if(pr.first.cost < lowerBound)
         break;
       cands.push_back(pr.second);
     }
@@ -61,8 +55,8 @@ int main(){
       TabuSearch ts(instance, methodls, methodTS, timeLimit, maxIterations);
       Solution* sol = ts.run(initialSol);
 
-      assert(sol->cost == Solution::computeCost(sol));
-      assert(sol->weight <= instance->W);
+      assert(sol->value == Solution::computeValue(sol));
+      assert(sol->getWeight() <= instance->W);
 
       cout << setprecision(3) << fixed;
       switch (methodls){
@@ -90,7 +84,7 @@ int main(){
           throw runtime_error("Invalid Tabu Search Method");
       }
 
-      cout << " - CostInitial: " << initialSol->cost <<  " - Cost: " << sol->cost << " - Weight: " << sol->weight  << " - Time: " << sol->elapsedTime/1000.0 << "s - numIterationsTS: " << sol->iterations << endl;
+      cout << " - CostInitial: " << initialSol->getCost() <<  " - Cost: " << sol->getCost() << " - Weight: " << sol->getWeight()  << " - Time: " << sol->elapsedTime/1000.0 << "s - numIterationsTS: " << sol->iterations << endl;
       delete sol;
       delete initialSol;
     }

@@ -6,7 +6,7 @@ TabuSearch::TabuSearch(Instance* instance, MethodLS methodls,  MethodTS methodTS
 
 void TabuSearch::gotoBestNeighborhood(){
   Move bestMove(-1, -1, -1, -1);
-  ll bestDelta = INT_MIN;
+  Value bestDelta(INT_MIN, 0);
 
   FOR(i, sol->n){
     if(fixed[i])
@@ -16,22 +16,22 @@ void TabuSearch::gotoBestNeighborhood(){
     if(!sol->used[i] && !sol->canAdd(i))
       continue;
 
-    ll delta = sol->deltaAdd(i);
+    Value delta = sol->deltaAdd(i);
     if(sol->used[i])
       delta *= -1;
 
-    if (tabuSet.count(curMove) && delta + sol->cost <= bestSol->cost)
+    if (tabuSet.count(curMove) && delta + sol->value <= bestSol->value)
       continue;
 
     if (delta > bestDelta){
       bestDelta = delta;
       bestMove = curMove;
-      if (bestDelta > 0 && methodls == FirstImprovement)
+      if (bestDelta > Value(0, 0) && methodls == FirstImprovement)
         break;
     }
   }
 
-  if(methodls != FirstImprovement || bestDelta <= 0){
+  if(methodls != FirstImprovement || bestDelta <= Value(0, 0)){
     vi vin, vout;
     FOR(i, sol->n){
       if(fixed[i])
@@ -41,26 +41,29 @@ void TabuSearch::gotoBestNeighborhood(){
     
     for(int i : vout){
       for(int j : vin){
+        ll deltaWeight = sol->instance->weights[i] - sol->instance->weights[j];
 
-        if(sol->weight + sol->instance->weights[i] - sol->instance->weights[j] > sol->instance->W)
+        if(sol->getWeight() + deltaWeight > sol->instance->W)
           continue;
 
-        ll delta = sol->deltaAdd(i) - sol->deltaAdd(j) - sol->instance->cost[i][j] - sol->instance->cost[j][i];
+        ll deltaCost = sol->deltaAdd(i).cost - sol->deltaAdd(j).cost - sol->instance->cost[i][j] - sol->instance->cost[j][i];
+        
+        Value delta(deltaCost, deltaWeight);
         Move curMove(i, -1, j, -1);
-        if (tabuSet.count(curMove) && delta + sol->cost <= bestSol->cost)
+        if (tabuSet.count(curMove) && delta + sol->value <= bestSol->value)
           continue;
 
         if (delta > bestDelta){
           bestDelta = delta;
           bestMove = {i, -1, j, -1};
-          if (bestDelta > 0 && methodls == FirstImprovement)
+          if (bestDelta > Value(0, 0) && methodls == FirstImprovement)
             break;
         }
       }
     }
   }
 
-  if(methodTS == Probabilistic && (methodls != FirstImprovement || bestDelta <= 0)){
+  if(methodTS == Probabilistic && (methodls != FirstImprovement || bestDelta <= Value(0, 0))){
     vi vin, vout;
     FOR(i, sol->n){
       if(fixed[i])
@@ -90,22 +93,25 @@ void TabuSearch::gotoBestNeighborhood(){
             if(j == l)
               continue;
 
-            if(sol->weight + sol->instance->weights[i] + sol->instance->weights[h] - sol->instance->weights[j] - sol->instance->weights[l] > sol->instance->W)
+            ll deltaWeight = sol->instance->weights[i] + sol->instance->weights[h] - sol->instance->weights[j] - sol->instance->weights[l];
+            if(sol->getWeight() + deltaWeight > sol->instance->W)
               continue;
 
-            ll delta = sol->deltaAdd(i) + sol->deltaAdd(h) - sol->deltaAdd(j) - sol->deltaAdd(l);
-            delta -= sol->instance->cost[i][j] + sol->instance->cost[j][i] + sol->instance->cost[h][j] + sol->instance->cost[j][h];
-            delta -= sol->instance->cost[i][l] + sol->instance->cost[l][i] + sol->instance->cost[h][l] + sol->instance->cost[l][h];
-            delta += sol->instance->cost[i][h] + sol->instance->cost[h][i];
-            delta += sol->instance->cost[j][l] + sol->instance->cost[l][j];
+            ll deltaCost = sol->deltaAdd(i).cost + sol->deltaAdd(h).cost - sol->deltaAdd(j).cost - sol->deltaAdd(l).cost;
+            deltaCost -= sol->instance->cost[i][j] + sol->instance->cost[j][i] + sol->instance->cost[h][j] + sol->instance->cost[j][h];
+            deltaCost -= sol->instance->cost[i][l] + sol->instance->cost[l][i] + sol->instance->cost[h][l] + sol->instance->cost[l][h];
+            deltaCost += sol->instance->cost[i][h] + sol->instance->cost[h][i];
+            deltaCost += sol->instance->cost[j][l] + sol->instance->cost[l][j];
             Move curMove(i, h, j, l);
-            if (tabuSet.count(curMove) && delta + sol->cost <= bestSol->cost)
+            Value delta(deltaCost, deltaWeight);
+
+            if (tabuSet.count(curMove) && delta + sol->value <= bestSol->value)
               continue;
 
             if (delta > bestDelta){
               bestDelta = delta;
               bestMove = {i, h, j, l};
-              if (bestDelta > 0 && methodls == FirstImprovement)
+              if (bestDelta > Value(0, 0) && methodls == FirstImprovement)
                 break;
             }
           }
@@ -115,7 +121,7 @@ void TabuSearch::gotoBestNeighborhood(){
   }
 
   assert(bestMove.in1 != -1 || bestMove.out1 != -1);
-  ll newCost = sol->cost + bestDelta;
+  Value newValue = sol->value + bestDelta;
 
   if(bestMove.out1 != -1)
     sol->remove(bestMove.out1);
@@ -125,9 +131,9 @@ void TabuSearch::gotoBestNeighborhood(){
     sol->add(bestMove.in1);
   if(bestMove.in2 != -1)
     sol->add(bestMove.in2);
-  assert(newCost == sol->cost);
+  assert(newValue == sol->value);
 
-  assert(!tabuSet.count(bestMove) || sol->cost > bestSol->cost);
+  assert(!tabuSet.count(bestMove) || sol->value > bestSol->value);
   
   Move revBestMove = Move::Reverse(bestMove);
   if(!tabuSet.count(revBestMove)){
@@ -141,7 +147,7 @@ void TabuSearch::gotoBestNeighborhood(){
   }
   assert(SZ(tabuList) == SZ(tabuSet));
 
-  if(sol->cost > bestSol->cost){
+  if(sol->value > bestSol->value){
     delete bestSol;
     bestSol = new Solution(*sol);
   }
