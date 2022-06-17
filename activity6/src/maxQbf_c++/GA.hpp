@@ -2,7 +2,7 @@
 #define GA_H
 #include "Solution.hpp"
 
-enum GAType {Classic, Diversity, Stochastic};
+enum GAType {Random, Classic, Diversity, Stochastic};
 
 class GA {
   Solution *bestSol;

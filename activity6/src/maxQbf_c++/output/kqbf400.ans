@@ -1,102 +1,16 @@
-Generation: 0 - BestCost: 9183
-Generation: 100 - BestCost: 10265
-Generation: 200 - BestCost: 10504
-Generation: 300 - BestCost: 10594
-Generation: 400 - BestCost: 10649
-Generation: 500 - BestCost: 10695
-Generation: 600 - BestCost: 10695
-Generation: 700 - BestCost: 10695
-Generation: 800 - BestCost: 10782
-Generation: 900 - BestCost: 10782
-Generation: 1000 - BestCost: 10782
-Generation: 1100 - BestCost: 10783
-Generation: 1200 - BestCost: 10783
-Generation: 1300 - BestCost: 10795
-Generation: 1400 - BestCost: 10795
-Generation: 1500 - BestCost: 10795
-Generation: 1600 - BestCost: 10812
-Generation: 1700 - BestCost: 10812
-Generation: 1800 - BestCost: 10812
-Generation: 1900 - BestCost: 10812
-Generation: 2000 - BestCost: 10812
-Generation: 2100 - BestCost: 10817
-Generation: 2200 - BestCost: 10823
-Generation: 2300 - BestCost: 10823
-Generation: 2400 - BestCost: 10825
-Generation: 2500 - BestCost: 10862
-Generation: 2600 - BestCost: 10878
-Generation: 2700 - BestCost: 10931
-Generation: 2800 - BestCost: 10931
-Generation: 2900 - BestCost: 10931
-Generation: 3000 - BestCost: 10931
-Generation: 3100 - BestCost: 10932
-Generation: 3200 - BestCost: 10948
-Generation: 3300 - BestCost: 10948
-Generation: 3400 - BestCost: 10948
-Generation: 3500 - BestCost: 10948
-Generation: 3600 - BestCost: 10948
-Generation: 3700 - BestCost: 10948
-Generation: 3800 - BestCost: 10948
-Generation: 3900 - BestCost: 10948
-Generation: 4000 - BestCost: 10954
-Generation: 4100 - BestCost: 10954
-Generation: 4200 - BestCost: 10968
-Generation: 4300 - BestCost: 10968
-Generation: 4400 - BestCost: 10968
-Generation: 4500 - BestCost: 10968
-Generation: 4600 - BestCost: 10968
-Generation: 4700 - BestCost: 10968
-Generation: 4800 - BestCost: 10969
-Generation: 4900 - BestCost: 10984
-Generation: 5000 - BestCost: 10984
-Generation: 5100 - BestCost: 10984
-Generation: 5200 - BestCost: 10984
-Generation: 5300 - BestCost: 11006
-Generation: 5400 - BestCost: 11006
-Generation: 5500 - BestCost: 11006
-Generation: 5600 - BestCost: 11006
-Generation: 5700 - BestCost: 11006
-Generation: 5800 - BestCost: 11006
-Generation: 5900 - BestCost: 11006
-Generation: 6000 - BestCost: 11006
-Generation: 6100 - BestCost: 11006
-Generation: 6200 - BestCost: 11006
-Generation: 6300 - BestCost: 11006
-Generation: 6400 - BestCost: 11006
-Generation: 6500 - BestCost: 11006
-Generation: 6600 - BestCost: 11030
-Generation: 6700 - BestCost: 11030
-Generation: 6800 - BestCost: 11030
-Generation: 6900 - BestCost: 11030
-Generation: 7000 - BestCost: 11030
-Generation: 7100 - BestCost: 11030
-Generation: 7200 - BestCost: 11030
-Generation: 7300 - BestCost: 11030
-Generation: 7400 - BestCost: 11030
-Generation: 7500 - BestCost: 11030
-Generation: 7600 - BestCost: 11030
-Generation: 7700 - BestCost: 11030
-Generation: 7800 - BestCost: 11030
-Generation: 7900 - BestCost: 11030
-Generation: 8000 - BestCost: 11030
-Generation: 8100 - BestCost: 11030
-Generation: 8200 - BestCost: 11030
-Generation: 8300 - BestCost: 11030
-Generation: 8400 - BestCost: 11030
-Generation: 8500 - BestCost: 11030
-Generation: 8600 - BestCost: 11030
-Generation: 8700 - BestCost: 11030
-Generation: 8800 - BestCost: 11030
-Generation: 8900 - BestCost: 11030
-Generation: 9000 - BestCost: 11030
-Generation: 9100 - BestCost: 11030
-Generation: 9200 - BestCost: 11030
-Generation: 9300 - BestCost: 11030
-Generation: 9400 - BestCost: 11030
-Generation: 9500 - BestCost: 11030
-Generation: 9600 - BestCost: 11030
-Generation: 9700 - BestCost: 11030
-Generation: 9800 - BestCost: 11030
-Generation: 9900 - BestCost: 11030
-Generation: 10000 - BestCost: 11030
-Mutation Rate: 0.010 - PopSize: : 100 - Cost: 11030 - Weight: 1344 - Time: 12.275 - generations: 10000
+Random     - Mutation Rate: 0.010 - PopSize: : 100 - InitialCost: 1490 - Cost: 11086 - Weight: 1344 - Time: 12.953 - generations: 10000
+Random     - Mutation Rate: 0.010 - PopSize: : 500 - InitialCost: 2164 - Cost: 11320 - Weight: 1343 - Time: 87.259 - generations: 10000
+Random     - Mutation Rate: 0.050 - PopSize: : 100 - InitialCost: 1490 - Cost: 10692 - Weight: 1343 - Time: 44.512 - generations: 10000
+Random     - Mutation Rate: 0.050 - PopSize: : 500 - InitialCost: 2164 - Cost: 10499 - Weight: 1344 - Time: 312.975 - generations: 10000
+Classic    - Mutation Rate: 0.010 - PopSize: : 100 - InitialCost: 9183 - Cost: 11108 - Weight: 1344 - Time: 13.291 - generations: 10000
+Classic    - Mutation Rate: 0.010 - PopSize: : 500 - InitialCost: 9424 - Cost: 11067 - Weight: 1344 - Time: 93.189 - generations: 10000
+Classic    - Mutation Rate: 0.050 - PopSize: : 100 - InitialCost: 9183 - Cost: 10565 - Weight: 1344 - Time: 45.780 - generations: 10000
+Classic    - Mutation Rate: 0.050 - PopSize: : 500 - InitialCost: 9424 - Cost: 10465 - Weight: 1344 - Time: 295.944 - generations: 10000
+Diversity  - Mutation Rate: 0.010 - PopSize: : 100 - InitialCost: 9183 - Cost: 10919 - Weight: 1344 - Time: 15.445 - generations: 10000
+Diversity  - Mutation Rate: 0.010 - PopSize: : 500 - InitialCost: 9424 - Cost: 11213 - Weight: 1344 - Time: 104.457 - generations: 10000
+Diversity  - Mutation Rate: 0.050 - PopSize: : 100 - InitialCost: 9183 - Cost: 10528 - Weight: 1344 - Time: 44.220 - generations: 10000
+Diversity  - Mutation Rate: 0.050 - PopSize: : 500 - InitialCost: 9424 - Cost: 10203 - Weight: 1344 - Time: 282.855 - generations: 10000
+Stochastic - Mutation Rate: 0.010 - PopSize: : 100 - InitialCost: 9183 - Cost: 10197 - Weight: 1344 - Time: 44.085 - generations: 10000
+Stochastic - Mutation Rate: 0.010 - PopSize: : 500 - InitialCost: 9424 - Cost: 10048 - Weight: 1344 - Time: 461.235 - generations: 10000
+Stochastic - Mutation Rate: 0.050 - PopSize: : 100 - InitialCost: 9183 - Cost: 9879 - Weight: 1344 - Time: 88.955 - generations: 10000
+Stochastic - Mutation Rate: 0.050 - PopSize: : 500 - InitialCost: 9424 - Cost: 10007 - Weight: 1344 - Time: 620.619 - generations: 10000

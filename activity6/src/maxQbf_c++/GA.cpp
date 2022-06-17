@@ -3,6 +3,8 @@
 GA::GA(Instance *instance, GAType gaType, ld mutationRate, int popSize, int timeLimit, int maxGenerations) :
  instance(instance), gaType(gaType), mutationRate(mutationRate), popSize(popSize), timeLimit(timeLimit), maxGenerations(maxGenerations), rng(0) {}
 
+const bool print = false;
+
 Solution* GA::buildInitial(Instance* instance, double alpha){
   Solution* sol = new Solution(instance);
   int n = sol->n;
@@ -43,37 +45,21 @@ Solution* GA::buildInitial(Instance* instance, double alpha){
 
 void GA::buildInitialPopulation() {
   while(SZ(population) < popSize)
-    population.push_back(buildInitial(instance, 0.2));
+    population.push_back(buildInitial(instance, gaType == Random ? 1.0 : 0.2));
   sort(all(population), Solution::greaterSol());
 }
 
 vector<Solution*> GA::getParents(){
+  if(gaType == Stochastic)
+    shuffle(all(population), rng);
+  else
+    sort(all(population), Solution::greaterSol());
+  
   double propToSurvive = 0.2;
-  sort(all(population), Solution::greaterSol());
   vector<Solution*> parents;
 
   FOR(i, propToSurvive * SZ(population))
     parents.push_back(new Solution(*population[i]));
-  /*
-  ll sumPopCost = 0;
-  for(auto sol : population)
-    sumPopCost += sol->getCost();
-  
-  uniform_real_distribution<> gen(0, 1);
-
-  for(auto sol : population){
-    if(gen(rng) <= ((popSize * propToSurvive) * sol->getCost()) / sumPopCost)
-      parents.push_back(new Solution(*sol));
-  }
-
-  // best ever survive
-  ll bestCost = 0;
-  for(auto sol : parents)
-    bestCost = max(bestCost, sol->getCost());
-  if(bestCost != population[0]->getCost())
-    parents.push_back(new Solution(*population[0]));
-  */
-  
   return parents;
 }
 
@@ -219,26 +205,50 @@ vector<Solution*> GA::crossover(vector<Solution*> parents){
       child2->add(diff12[i]);
 
     assert(child2->getWeight() <= instance->W);
-    offspring.push_back(child1);
-    offspring.push_back(child2);
+    {
+      bool has = false;
+      if(gaType == Diversity)
+        for(auto e : offspring)
+          if(e->value == child1->value && e->used == child1->used){
+            has = true;
+            break;
+          }
+      if(!has)
+        offspring.push_back(child1);
+    }
+    {
+      bool has = false;
+      if(gaType == Diversity)
+        for(auto e : offspring)
+          if(e->value == child2->value && e->used == child2->used){
+            has = true;
+            break;
+          }
+      if(!has)
+        offspring.push_back(child2);
+    }
   }
   return offspring;
 }
 
 void GA::nextGeneration(){
+  bestSol = *min_element(all(population), Solution::greaterSol());
+
   auto parents = getParents();
   mutation(parents);
-  parents.push_back(new Solution(*population[0]));
+  parents.push_back(new Solution(*bestSol));
   
   auto offsprint = crossover(parents);
-  if((*max_element(all(offsprint), Solution::greaterSol()))->getCost() < population[0]->getCost())
-    offsprint.push_back(new Solution(*population[0]));
+  if((*min_element(all(offsprint), Solution::greaterSol()))->getCost() < bestSol->getCost())
+    offsprint.push_back(new Solution(*bestSol));
   
   free(population);
   free(parents);
   sort(all(offsprint), Solution::greaterSol());
-  if(generation % 100 == 0)
+
+  if(print && generation % 100 == 0)
     cout << "Generation: " << generation << " - BestCost: " << offsprint[0]->getCost() << endl;
+  
   population = offsprint;
 }
 
@@ -250,8 +260,11 @@ void GA::free(vector<Solution*>& v){
 Solution *GA::run() {
   begin = chrono::steady_clock::now();
   buildInitialPopulation();
+  int bestCostInitial = (*min_element(all(population), Solution::greaterSol()))->getCost();
+
   generation = 0;
-  cout << "Generation: " << generation << " - BestCost: " << population[0]->getCost() << endl;
+  if(print)
+    cout << "Generation: " << generation << " - BestCost: " << bestCostInitial << endl;
 
   FOR(h, maxGenerations){
     generation++;
@@ -265,6 +278,7 @@ Solution *GA::run() {
 
   bestSol->elapsedTime = getTime();
   bestSol->generations = generation;
+  bestSol->bestInitial = bestCostInitial;
 
   return bestSol;
 }

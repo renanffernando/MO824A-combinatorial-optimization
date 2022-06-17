@@ -46,7 +46,7 @@ struct Value{
 struct Solution{
   Value value;
   Instance* instance;
-  int n, elapsedTime, generations;
+  int n, elapsedTime, generations, bestInitial = 0;
   vi used;
   Solution(Instance* instance): value(0, 0), instance(instance), n(instance->n), elapsedTime(0), generations(0), used(n, 0){}
 

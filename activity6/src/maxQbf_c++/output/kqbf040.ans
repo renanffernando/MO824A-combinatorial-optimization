@@ -1,102 +1,16 @@
-Generation: 0 - BestCost: 288
-Generation: 100 - BestCost: 309
-Generation: 200 - BestCost: 309
-Generation: 300 - BestCost: 309
-Generation: 400 - BestCost: 309
-Generation: 500 - BestCost: 309
-Generation: 600 - BestCost: 309
-Generation: 700 - BestCost: 309
-Generation: 800 - BestCost: 309
-Generation: 900 - BestCost: 309
-Generation: 1000 - BestCost: 309
-Generation: 1100 - BestCost: 309
-Generation: 1200 - BestCost: 309
-Generation: 1300 - BestCost: 309
-Generation: 1400 - BestCost: 309
-Generation: 1500 - BestCost: 309
-Generation: 1600 - BestCost: 309
-Generation: 1700 - BestCost: 309
-Generation: 1800 - BestCost: 309
-Generation: 1900 - BestCost: 309
-Generation: 2000 - BestCost: 309
-Generation: 2100 - BestCost: 309
-Generation: 2200 - BestCost: 309
-Generation: 2300 - BestCost: 309
-Generation: 2400 - BestCost: 309
-Generation: 2500 - BestCost: 309
-Generation: 2600 - BestCost: 309
-Generation: 2700 - BestCost: 309
-Generation: 2800 - BestCost: 309
-Generation: 2900 - BestCost: 309
-Generation: 3000 - BestCost: 309
-Generation: 3100 - BestCost: 309
-Generation: 3200 - BestCost: 309
-Generation: 3300 - BestCost: 309
-Generation: 3400 - BestCost: 309
-Generation: 3500 - BestCost: 309
-Generation: 3600 - BestCost: 309
-Generation: 3700 - BestCost: 309
-Generation: 3800 - BestCost: 309
-Generation: 3900 - BestCost: 309
-Generation: 4000 - BestCost: 309
-Generation: 4100 - BestCost: 309
-Generation: 4200 - BestCost: 309
-Generation: 4300 - BestCost: 309
-Generation: 4400 - BestCost: 309
-Generation: 4500 - BestCost: 309
-Generation: 4600 - BestCost: 309
-Generation: 4700 - BestCost: 309
-Generation: 4800 - BestCost: 309
-Generation: 4900 - BestCost: 309
-Generation: 5000 - BestCost: 309
-Generation: 5100 - BestCost: 309
-Generation: 5200 - BestCost: 309
-Generation: 5300 - BestCost: 309
-Generation: 5400 - BestCost: 309
-Generation: 5500 - BestCost: 309
-Generation: 5600 - BestCost: 309
-Generation: 5700 - BestCost: 309
-Generation: 5800 - BestCost: 309
-Generation: 5900 - BestCost: 309
-Generation: 6000 - BestCost: 309
-Generation: 6100 - BestCost: 309
-Generation: 6200 - BestCost: 309
-Generation: 6300 - BestCost: 309
-Generation: 6400 - BestCost: 309
-Generation: 6500 - BestCost: 309
-Generation: 6600 - BestCost: 309
-Generation: 6700 - BestCost: 309
-Generation: 6800 - BestCost: 309
-Generation: 6900 - BestCost: 309
-Generation: 7000 - BestCost: 309
-Generation: 7100 - BestCost: 309
-Generation: 7200 - BestCost: 309
-Generation: 7300 - BestCost: 309
-Generation: 7400 - BestCost: 309
-Generation: 7500 - BestCost: 309
-Generation: 7600 - BestCost: 309
-Generation: 7700 - BestCost: 309
-Generation: 7800 - BestCost: 309
-Generation: 7900 - BestCost: 309
-Generation: 8000 - BestCost: 309
-Generation: 8100 - BestCost: 309
-Generation: 8200 - BestCost: 309
-Generation: 8300 - BestCost: 309
-Generation: 8400 - BestCost: 309
-Generation: 8500 - BestCost: 309
-Generation: 8600 - BestCost: 309
-Generation: 8700 - BestCost: 309
-Generation: 8800 - BestCost: 309
-Generation: 8900 - BestCost: 309
-Generation: 9000 - BestCost: 309
-Generation: 9100 - BestCost: 309
-Generation: 9200 - BestCost: 309
-Generation: 9300 - BestCost: 309
-Generation: 9400 - BestCost: 309
-Generation: 9500 - BestCost: 309
-Generation: 9600 - BestCost: 309
-Generation: 9700 - BestCost: 309
-Generation: 9800 - BestCost: 309
-Generation: 9900 - BestCost: 309
-Generation: 10000 - BestCost: 309
-Mutation Rate: 0.010 - PopSize: : 100 - Cost: 309 - Weight: 137 - Time: 1.128 - generations: 10000
+Random     - Mutation Rate: 0.010 - PopSize: : 100 - InitialCost: 134 - Cost: 316 - Weight: 138 - Time: 1.087 - generations: 10000
+Random     - Mutation Rate: 0.010 - PopSize: : 500 - InitialCost: 193 - Cost: 316 - Weight: 138 - Time: 6.883 - generations: 10000
+Random     - Mutation Rate: 0.050 - PopSize: : 100 - InitialCost: 134 - Cost: 316 - Weight: 138 - Time: 1.086 - generations: 10000
+Random     - Mutation Rate: 0.050 - PopSize: : 500 - InitialCost: 193 - Cost: 316 - Weight: 138 - Time: 6.809 - generations: 10000
+Classic    - Mutation Rate: 0.010 - PopSize: : 100 - InitialCost: 288 - Cost: 316 - Weight: 138 - Time: 1.103 - generations: 10000
+Classic    - Mutation Rate: 0.010 - PopSize: : 500 - InitialCost: 300 - Cost: 316 - Weight: 138 - Time: 6.737 - generations: 10000
+Classic    - Mutation Rate: 0.050 - PopSize: : 100 - InitialCost: 288 - Cost: 316 - Weight: 138 - Time: 1.089 - generations: 10000
+Classic    - Mutation Rate: 0.050 - PopSize: : 500 - InitialCost: 300 - Cost: 316 - Weight: 138 - Time: 6.651 - generations: 10000
+Diversity  - Mutation Rate: 0.010 - PopSize: : 100 - InitialCost: 288 - Cost: 316 - Weight: 138 - Time: 2.433 - generations: 10000
+Diversity  - Mutation Rate: 0.010 - PopSize: : 500 - InitialCost: 300 - Cost: 316 - Weight: 138 - Time: 14.108 - generations: 10000
+Diversity  - Mutation Rate: 0.050 - PopSize: : 100 - InitialCost: 288 - Cost: 316 - Weight: 138 - Time: 2.450 - generations: 10000
+Diversity  - Mutation Rate: 0.050 - PopSize: : 500 - InitialCost: 300 - Cost: 316 - Weight: 138 - Time: 14.113 - generations: 10000
+Stochastic - Mutation Rate: 0.010 - PopSize: : 100 - InitialCost: 288 - Cost: 309 - Weight: 137 - Time: 2.756 - generations: 10000
+Stochastic - Mutation Rate: 0.010 - PopSize: : 500 - InitialCost: 300 - Cost: 308 - Weight: 137 - Time: 16.658 - generations: 10000
+Stochastic - Mutation Rate: 0.050 - PopSize: : 100 - InitialCost: 288 - Cost: 309 - Weight: 137 - Time: 2.761 - generations: 10000
+Stochastic - Mutation Rate: 0.050 - PopSize: : 500 - InitialCost: 300 - Cost: 308 - Weight: 137 - Time: 16.601 - generations: 10000
