@@ -99,4 +99,4 @@ Generation: 9700 - BestCost: 309
 Generation: 9800 - BestCost: 309
 Generation: 9900 - BestCost: 309
 Generation: 10000 - BestCost: 309
-PopSize: : 100 - Cost: 309 - Weight: 137 - Time: 1.074 - generations: 10000
+Mutation Rate: 0.010 - PopSize: : 100 - Cost: 309 - Weight: 137 - Time: 1.128 - generations: 10000

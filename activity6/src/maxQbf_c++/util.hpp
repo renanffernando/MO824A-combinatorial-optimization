@@ -9,8 +9,10 @@ using vll = vector<ll>;
 using vvll = vector<vll>;
 using vi = vector<int>;
 using ii = pair<int, int>;
-#define FOR(i, b) for(int i = 0; i < (b); i++)
-#define SZ(a) ((int) a.size())
+using ld = double;
+using vd = vector<ld>;
+#define FOR(i, b) for (int i = 0; i < (b); i++)
+#define SZ(a) ((int)a.size())
 #define all(a) a.begin(), a.end()
 //#define NDEBUG
 

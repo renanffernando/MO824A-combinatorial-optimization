@@ -2,17 +2,20 @@
 #define GA_H
 #include "Solution.hpp"
 
-class GA
-{
+enum GAType {Classic, Diversity, Stochastic};
+
+class GA {
   Solution *bestSol;
   vector<Solution *> population;
   Instance *instance;
+  GAType gaType;
+  ld mutationRate;
   int generation, popSize, timeLimit, maxGenerations;
   chrono::steady_clock::time_point begin;
   mt19937 rng;
 
 public:
-  GA(Instance *instance, int popSize, int timeLimit, int maxGenerations);
+  GA(Instance *instance, GAType gaType, ld mutationRate, int popSize, int timeLimit, int maxGenerations);
 
   int getTime();
   Solution *run();

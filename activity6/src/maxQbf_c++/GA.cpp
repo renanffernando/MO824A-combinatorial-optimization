@@ -1,7 +1,7 @@
 #include "GA.hpp"
 
-GA::GA(Instance *instance, int popSize, int timeLimit, int maxGenerations) :
- instance(instance), popSize(popSize), timeLimit(timeLimit), maxGenerations(maxGenerations), rng(0) {}
+GA::GA(Instance *instance, GAType gaType, ld mutationRate, int popSize, int timeLimit, int maxGenerations) :
+ instance(instance), gaType(gaType), mutationRate(mutationRate), popSize(popSize), timeLimit(timeLimit), maxGenerations(maxGenerations), rng(0) {}
 
 Solution* GA::buildInitial(Instance* instance, double alpha){
   Solution* sol = new Solution(instance);
@@ -110,38 +110,45 @@ vi subsetSum(vi v, int WMin, int WMax, bool& find){
 
 void GA::mutation(vector<Solution*>& parents){
   for(auto sol : parents){
-    uniform_int_distribution<> genB(0, 1);
-    if(genB(rng)){
-      vi valids;
-      FOR(i, sol->n){
-        if(sol->used[i] || sol->canAdd(i))
-          valids.push_back(i);
-      }
-      assert(!valids.empty());
-      uniform_int_distribution<> gen(0, SZ(valids) - 1);
-      sol->flip(valids[gen(rng)]);
-    }else{
-      int maxTry = 10;
-      FOR(h, maxTry){
-        vi useds;
-        FOR(i, sol->n)
-          if(sol->used[i])
-            useds.push_back(i);
-        uniform_int_distribution<> gen(0, SZ(useds) - 1);
-        int out = useds[gen(rng)];
-        vi canIn;
-        FOR(i, sol->n)
-          if(!sol->used[i] && sol->getWeight() - instance->weights[out] + instance->weights[i] <= instance->W)
-            canIn.push_back(i);
-        if(canIn.empty())
-          continue;
+    int sz = 0;
+    for(int e : sol->used)
+      sz += e;
+    int qt = ceil(mutationRate * sz);
 
-        uniform_int_distribution<> gen2(0, SZ(canIn) - 1);
-        int in = canIn[gen2(rng)];
-        sol->remove(out);
-        sol->add(in);
-        assert(sol->getWeight() <= instance->W);
-        break;
+    FOR(q, qt){
+      uniform_int_distribution<> genB(0, 1);
+      if(genB(rng)){
+        vi valids;
+        FOR(i, sol->n){
+          if(sol->used[i] || sol->canAdd(i))
+            valids.push_back(i);
+        }
+        assert(!valids.empty());
+        uniform_int_distribution<> gen(0, SZ(valids) - 1);
+        sol->flip(valids[gen(rng)]);
+      }else{
+        int maxTry = 10;
+        FOR(h, maxTry){
+          vi useds;
+          FOR(i, sol->n)
+            if(sol->used[i])
+              useds.push_back(i);
+          uniform_int_distribution<> gen(0, SZ(useds) - 1);
+          int out = useds[gen(rng)];
+          vi canIn;
+          FOR(i, sol->n)
+            if(!sol->used[i] && sol->getWeight() - instance->weights[out] + instance->weights[i] <= instance->W)
+              canIn.push_back(i);
+          if(canIn.empty())
+            continue;
+
+          uniform_int_distribution<> gen2(0, SZ(canIn) - 1);
+          int in = canIn[gen2(rng)];
+          sol->remove(out);
+          sol->add(in);
+          assert(sol->getWeight() <= instance->W);
+          break;
+        }
       }
     }
   }
