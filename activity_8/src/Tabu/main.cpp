@@ -1,7 +1,7 @@
 #include "TS.hpp"
 
 Solution* buildInitial(Instance* instance, double alpha){
-  const int seed = random_device().operator()();
+  const int seed = 0;
   mt19937 rng(seed);
   Solution* sol = new Solution(instance);
   int n = sol->n;
@@ -45,7 +45,7 @@ int main(){
 
   Instance* instance = Instance::readInstance();
   const int timeLimit = 60 * 1e6;
-  vector<MethodTS> methodsTS = {Diversification, Probabilistic};
+  vector<MethodTS> methodsTS = {Diversification}; //, Probabilistic};
   vector<MethodLS> methodsLS = {FirstImprovement};
   vi tenures = {1000};
   map<int, int> targets;

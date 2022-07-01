@@ -7,7 +7,7 @@ int main(){
   const int timeLimit = 60 * 1e6;
   vi popSizes = {100};
   vd mutationRates = {0.01};
-  vector<GAType> gaTypes = {Classic, Diversity};
+  vector<GAType> gaTypes = {Classic}; //, Diversity};
   map<int, int> targets;
   targets.insert({20, 110});
   targets.insert({40, 308});
@@ -16,7 +16,7 @@ int main(){
   targets.insert({100, 1200});
   targets.insert({200, 3900});
   targets.insert({400, 10600});
-
+  
   for(GAType gaType : gaTypes)
     for(ld mutationRate : mutationRates)
       for (int popSize : popSizes){

@@ -7,7 +7,7 @@ int main(){
   vector<double> alphas = {0.05};
   const int timeLimit = 60 * 1e6;
   vector<MethodLS> methods = {BestImprovement};
-  vector<MethodGrasp> methodsGrasp = {Classic, Pop};
+  vector<MethodGrasp> methodsGrasp = {Classic};// , Pop};
   map<int, int> targets;
   targets.insert({20, 110});
   targets.insert({40, 308});
