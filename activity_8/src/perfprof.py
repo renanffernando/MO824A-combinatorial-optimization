@@ -27,7 +27,7 @@ def perfprof(data, linespecs=None, linewidth=1.6, thmax=None,
              fontsize=18, tickfontsize=14, legendfontsize=14,
              ppfix=False, ppfixmin=np.double(1e-18),
              ppfixmax=np.finfo(np.double).eps/2,
-             usetex=None, title = None, titlefontsize = 20):
+             usetex=None, title = None, titlefontsize = 20, nameFile = False):
     r"""
     Plot a performance profile.
 
@@ -190,15 +190,17 @@ def perfprof(data, linespecs=None, linewidth=1.6, thmax=None,
         plt.title(title, fontsize=titlefontsize)
 
     # create legend
-    plt.legend(loc=legendpos, fontsize=legendfontsize)
+    plt.legend(loc=legendpos, fontsize=legendfontsize, bbox_to_anchor=(1, 0.5))
 
     # set xlim
-    plt.xlim([1, thmax])
-    plt.ylim([0, 1.01])
+    plt.xlim([1, thmax*1.01])
+    plt.ylim([0.1, 1.01])
     figure = plt.gcf()
     figure.set_size_inches(6, 4)
+    figure.tight_layout()
     # plt.hold('off')
-
+    if nameFile != None:
+        plt.savefig(nameFile + ".png")
     plt.show()
 
     if usetex is not None:

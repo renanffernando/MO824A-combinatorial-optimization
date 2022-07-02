@@ -62,7 +62,7 @@ int main(){
     for (MethodTS methodTS : methodsTS){
       assert(targets.count(instance->n));
       Solution* initialSol = buildInitial(instance, 0.05);
-      TabuSearch ts(instance, methodls, methodTS, tenure, timeLimit, targets[instance->n]);
+      TabuSearch ts(instance, methodls, methodTS, tenure, timeLimit, INT_MAX);
       Solution* sol = ts.run(initialSol);
 
       assert(sol->value == Solution::computeValue(sol));
